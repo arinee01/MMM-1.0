@@ -2,12 +2,12 @@
 // Единая система ссылок и генерации QR-кодов
 
 /**
- * Генерирует QR-ссылку для артефакта (короткая ссылка для печати)
+ * Генерирует QR-ссылку для артефакта (работает с GitHub Pages)
  * @param {string} artifactId - ID артефакта (например, "AMULET-TURKISH-001")
- * @returns {string} Короткая ссылка вида /qr/[artifactId]
+ * @returns {string} Ссылка вида /qr.html?id=[artifactId]
  */
 function qrTarget(artifactId) {
-  return `/qr/${artifactId}`;
+  return `/qr.html?id=${artifactId}`;
 }
 
 /**
@@ -27,7 +27,7 @@ function qrTargetFull(artifactId) {
     basePath = '/MMM-main';
   }
   
-  return `${baseUrl}${basePath}/qr/${artifactId}`;
+  return `${baseUrl}${basePath}/qr.html?id=${artifactId}`;
 }
 
 /**

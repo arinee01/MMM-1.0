@@ -98,13 +98,11 @@
     </div>
   </div>
 
-  <script src="qr-utils.js"></script>
   <script>
-    // Получаем ID артефакта из URL
-    function getArtifactIdFromPath() {
-      const path = window.location.pathname;
-      const match = path.match(/\/qr\/(.+)$/);
-      return match ? match[1] : null;
+    // Получаем ID артефакта из query-параметров
+    function getArtifactIdFromParams() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('id');
     }
     
     // Определяем целевую страницу для артефакта
@@ -143,10 +141,10 @@
     
     // Основная логика редиректа
     function handleRedirect() {
-      const artifactId = getArtifactIdFromPath();
+      const artifactId = getArtifactIdFromParams();
       
       if (!artifactId) {
-        showError('Invalid QR code URL');
+        showError('QR-код неверный или устаревший');
         return;
       }
       

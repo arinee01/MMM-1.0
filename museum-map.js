@@ -237,7 +237,7 @@ function generateQRCode(index, artifact) {
     basePath = '/MMM-main';
   }
   
-  const url = `${base}${basePath}/qr/${artifact.identifier}`;
+  const url = `${base}${basePath}/qr.html?id=${artifact.identifier}`;
   
   // Update link
   qrLink.textContent = url;
