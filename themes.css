@@ -1445,6 +1445,26 @@ body.theme-early20c .user-card.active-user {
   transform: rotate(45deg) scale(1.02) !important;
 }
 
+/* Улучшенные стили для активных кнопок уровней в теме раннего XX века */
+body.theme-early20c .user-card.active-user::before {
+  content: "✓" !important;
+  position: absolute !important;
+  top: -8px !important;
+  right: -8px !important;
+  background: #00BFFF !important;
+  color: #000 !important;
+  width: 24px !important;
+  height: 24px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-weight: bold !important;
+  font-size: 14px !important;
+  z-index: 10 !important;
+  box-shadow: 0 2px 8px rgba(0, 191, 255, 0.6) !important;
+}
+
 /* Стили для кнопок уровней сложности в теме Early XX */
 body.theme-early20c .text-level-btn {
   background: rgba(135, 206, 235, 0.1);
@@ -1476,6 +1496,25 @@ body.theme-early20c .text-level-btn.active {
   transform: translateY(-2px) scale(1.05);
   box-shadow: 0 6px 20px rgba(135, 206, 235, 0.6), 0 0 15px rgba(0, 191, 255, 0.4);
   text-shadow: none;
+  position: relative;
+}
+
+body.theme-early20c .text-level-btn.active::after {
+  content: "✓";
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #00BFFF;
+  color: #000;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0, 191, 255, 0.8);
 }
 
 body.theme-early20c .user-card img {
@@ -1529,6 +1568,26 @@ body.theme-late20c .user-card.active-user {
   transform: scale(1.02) !important;
 }
 
+/* Улучшенные стили для активных кнопок уровней в теме позднего XX века */
+body.theme-late20c .user-card.active-user::before {
+  content: "★" !important;
+  position: absolute !important;
+  top: -8px !important;
+  right: -8px !important;
+  background: #FFD700 !important;
+  color: #000 !important;
+  width: 24px !important;
+  height: 24px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-weight: bold !important;
+  font-size: 14px !important;
+  z-index: 10 !important;
+  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.6) !important;
+}
+
 /* Стили для кнопок уровней сложности в теме 2035 */
 body.theme-late20c .text-level-btn {
   background: rgba(255, 215, 0, 0.1);
@@ -1561,6 +1620,25 @@ body.theme-late20c .text-level-btn.active {
   transform: translateY(-2px) scale(1.05);
   box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6), 0 0 15px rgba(255, 165, 0, 0.4);
   text-shadow: none;
+  position: relative;
+}
+
+body.theme-late20c .text-level-btn.active::after {
+  content: "★";
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #FFD700;
+  color: #000;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(255, 215, 0, 0.8);
 }
 
 /* Общие стили для всех карточек */
