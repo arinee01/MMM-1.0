@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Disclaimer — Everyday Magic</title>
+  <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="base.css" />
+  <link rel="stylesheet" href="components.css" />
+  <link rel="stylesheet" href="themes.css" />
+  <link rel="stylesheet" href="animations.css" />
+  <link rel="stylesheet" href="progress-system.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/b7dc8e0f7f.js" crossorigin="anonymous"></script>
+  
+  <style>
+    /* Disclaimer Page Specific Styles - Same as Documentation */
+    :root {
+      --text-soft: #e6ccff;
+    }
+    
+    .disclaimer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      background: rgba(18, 18, 18, 0.7);
+      border-radius: 20px;
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(191, 167, 106, 0.3);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .disclaimer-text {
+      color: var(--text-main);
+      line-height: 1.8;
+    }
+
+    .disclaimer-text h2 {
+      color: var(--gold);
+      font-size: 2.5rem;
+      margin: 3rem 0 1.5rem 0;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--gold);
+      text-align: center;
+    }
+
+    .disclaimer-text h3 {
+      color: var(--gold);
+      font-size: 1.8rem;
+      margin: 2.5rem 0 1rem 0;
+      padding-left: 1rem;
+      border-left: 4px solid var(--gold);
+    }
+
+    .disclaimer-text h4 {
+      color: var(--text-soft);
+      font-size: 1.4rem;
+      margin: 2rem 0 1rem 0;
+    }
+
+    .disclaimer-text h5 {
+      color: var(--text-soft);
+      font-size: 1.2rem;
+      margin: 1.5rem 0 0.8rem 0;
+    }
+
+    .disclaimer-text p {
+      margin-bottom: 1.2rem;
+      text-align: justify;
+      hyphens: auto;
+      text-justify: inter-word;
+    }
+
+    .source-list {
+      list-style: none;
+      padding: 0;
+      margin: 2rem 0;
+    }
+
+    .source-list li {
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(191, 167, 106, 0.2);
+      margin-bottom: 1rem;
+    }
+
+    .source-list li:last-child {
+      border-bottom: none;
+    }
+
+    .source-list strong {
+      color: var(--gold);
+      font-weight: 600;
+      font-size: 1.1rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .source-list li p {
+      margin: 0;
+      color: var(--text-main);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .source-list a {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.3rem 0.8rem;
+      background: rgba(191, 167, 106, 0.1);
+      border-radius: 6px;
+      border: 1px solid rgba(191, 167, 106, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .source-list a:hover {
+      background: rgba(191, 167, 106, 0.2);
+      border-color: var(--gold);
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(191, 167, 106, 0.2);
+    }
+
+    .copyright-section {
+      margin-top: 3rem;
+      padding: 2rem;
+      background: rgba(191, 167, 106, 0.1);
+      border-radius: 15px;
+      border: 1px solid rgba(191, 167, 106, 0.2);
+      text-align: center;
+    }
+
+    .copyright-section p {
+      margin: 0.5rem 0;
+      font-weight: 500;
+      color: var(--gold);
+    }
+
+    @media (max-width: 768px) {
+      .disclaimer-content {
+        padding: 1.5rem;
+        margin: 1rem;
+      }
+      
+      .disclaimer-text h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body class="theme-late20c">
+
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">EVERYDAY MAGIC</a>
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="museum-map.html">Museum</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="documentation.html">Documentation</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Новое мобильное меню -->
+  <div class="mobile-nav" id="mobile-nav">
+    <div class="mobile-nav-content">
+      <button class="mobile-nav-close" id="mobile-nav-close">&times;</button>
+      <ul class="mobile-nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="museum-map.html">Museum</a></li>
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="documentation.html">Documentation</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Navigation Buttons -->
+  <div class="navigation-buttons">
+    <a href="index.html" class="nav-btn">
+      <i class="fas fa-chevron-left"></i>
+    </a>
+    <a href="about.html" class="nav-btn">
+      <i class="fas fa-chevron-right"></i>
+    </a>
+  </div>
+
+  <!-- Main Content -->
+  <section class="hero-experience-combined">
+    <div class="hero-content-wrapper">
+      <div class="hero-text">
+        <h1 class="section-heading">Disclaimer</h1>
+      </div>
+
+      <div class="disclaimer-content">
+        <div class="disclaimer-text">
+          <p>
+            The purpose of this web site is to explore various types of typographic and layout style for museum pages, as an end-of-course project for the "Information Modeling and Web Technologies" course of the Master Degree in Digital Humanities and Digital Knowledge of the University of Bologna, under prof. Fabio Vitali.
+          </p>
+          
+          <p>
+            The documents contained in this web site have been selected for their length and complexity from various cultural and historical sources related to mystical traditions, protective symbols, and magical practices. Their publication here is not intended to be an alternative or replace their original locations:
+          </p>
+          
+          <ul class="source-list">
+            <li>
+              <strong>Ancient Egyptian Scarab Amulets</strong>
+              <p>Historical artifacts and cultural practices from ancient Egyptian civilization</p>
+              <a href="https://www.britishmuseum.org/collection/search?keyword=scarab" target="_blank">British Museum - Scarab Collection</a>
+            </li>
+            <li>
+              <strong>Norse Protective Symbols</strong>
+              <p>Aegishjalmr and other protective runes from Viking Age traditions</p>
+              <a href="https://en.natmus.dk/historical-knowledge/denmark/prehistoric-period-until-1050-ad/the-viking-age/religion-magic-death-and-rituals/" target="_blank">National Museum of Denmark - Viking Religion & Magic</a>
+            </li>
+            <li>
+              <strong>Medieval Christian Amulets</strong>
+              <p>St. Benedict medals and protective symbols from medieval Christian traditions</p>
+              <a href="https://bawue.museum-digital.de/object/11657" target="_blank">Museum Digital Baden-Württemberg - St. Benedict Medal</a>
+            </li>
+            <li>
+              <strong>Japanese Omamori Charms</strong>
+              <p>Traditional protective charms from Japanese Shinto and Buddhist practices</p>
+              <a href="https://collections.mfa.org/objects/539889" target="_blank">MFA Boston - Japanese Omamori Collection</a>
+            </li>
+            <li>
+              <strong>Mesoamerican Protective Symbols</strong>
+              <p>Ojo de Venado and other protective amulets from pre-Columbian cultures</p>
+              <a href="https://www.mna.inah.gob.mx/" target="_blank">National Museum of Anthropology, Mexico - INAH Collections</a>
+            </li>
+            <li>
+              <strong>African Spiritual Objects</strong>
+              <p>Bantu fetishes and traditional African protective practices</p>
+              <a href="https://www.africamuseum.be/en/learn/provenance/nkisi-nkonde" target="_blank">Royal Museum for Central Africa - Nkisi Collection</a>
+            </li>
+            <li>
+              <strong>Korean Ritual Tools</strong>
+              <p>Traditional Korean shamanic and protective implements</p>
+              <a href="https://www.nfm.go.kr/english/subIndex/1027.do" target="_blank">National Folk Museum of Korea - Shamanic Rituals</a>
+            </li>
+            <li>
+              <strong>Slavic Folk Traditions</strong>
+              <p>Protection dolls and Slavic magical practices</p>
+              <a href="https://www.ukrainianmuseum.org/" target="_blank">The Ukrainian Museum NYC - Motanka Dolls</a>
+            </li>
+            <li>
+              <strong>Turkish Evil Eye Amulets</strong>
+              <p>Traditional protective symbols from Turkish and Mediterranean cultures</p>
+              <a href="https://www.millisaraylar.gov.tr/Lokasyon/12/Beykoz-Cam-ve-Billur-Muzesi" target="_blank">Beykoz Glass and Crystal Museum - Turkish Evil Eye Collection</a>
+            </li>
+            <li>
+              <strong>Universal Healing Crystals</strong>
+              <p>Rose quartz and other crystals used in various healing traditions</p>
+              <a href="https://www.nhm.ac.uk/our-science/services/collections/mineralogy.html" target="_blank">Natural History Museum London - Mineralogy Collections</a>
+            </li>
+            <li>
+              <strong>Prehistoric Protective Stones</strong>
+              <p>Ancient black stones and protective minerals from various cultures</p>
+              <a href="https://www.britishmuseum.org/learn/schools/ages-7-11/ancient-britain/visit-resource-prehistoric-britain" target="_blank">British Museum - Prehistoric Britain Gallery</a>
+            </li>
+            <li>
+              <strong>Modern Digital Artifacts</strong>
+              <p>NFT QR codes and digital protective symbols from contemporary culture</p>
+              <a href="https://collections.lacma.org/" target="_blank">LACMA - Digital Art Collection</a>
+            </li>
+            <li>
+              <strong>Gaming Culture Objects</strong>
+              <p>RPG amulets and virtual protective items from gaming traditions</p>
+              <a href="https://www.vam.ac.uk/articles/about-videogames-exhibition?srsltid=AfmBOoovnoCsjdBKrFD1M2My2-Y37apCWcFfu74NIR696qEVF92ecroN" target="_blank">Victoria & Albert Museum - Videogames Exhibition</a>
+            </li>
+          </ul>
+          
+          <div class="copyright-section">
+            <p>All copyrights and related rights on the content remain with their original owners.</p>
+            <p>All copyright on the typographic and layout choices are 2025 © Everyday Magic Team - DHDK Project, University of Bologna.</p>
+          </div>
+          
+          <div class="contact-section">
+            <h3>Project Team Contacts</h3>
+            <p>For questions about this project or collaboration opportunities, please contact:</p>
+            <ul class="contact-list">
+              <li><strong>Arina Gracheva:</strong> <a href="mailto:arina.gracheva@studio.unibo.it">arina.gracheva@studio.unibo.it</a></li>
+              <li><strong>Arina Samylova:</strong> <a href="mailto:arina.samylova@studio.unibo.it">arina.samylova@studio.unibo.it</a></li>
+            </ul>
+            <p><strong>Department:</strong> Digital Humanities and Digital Knowledge, University of Bologna</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Everyday Magic</h3>
+        <p>Digital Humanities Project<br>University of Bologna — DHDK</p>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <p>© 2025 Everyday Magic. All rights reserved.</p>
+          <p>Contact: <a href="mailto:arina.gracheva@studio.unibo.it">arina.gracheva@studio.unibo.it</a> | <a href="mailto:arina.samylova@studio.unibo.it">arina.samylova@studio.unibo.it</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="local-ai.js"></script>
+  <script src="hero-helper.js"></script>
+  <script src="progress-system.js"></script>
+  
+  <!-- Progress System -->
+  <div id="progress-container"></div>
+  <script>
+    // Мобильное меню
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+      const mobileNav = document.getElementById('mobile-nav');
+      const mobileNavClose = document.getElementById('mobile-nav-close');
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+      const body = document.body;
+      
+      console.log('DOM загружен, элементы:', {
+        mobileMenuToggle: mobileMenuToggle,
+        mobileNav: mobileNav,
+        mobileNavClose: mobileNavClose
+      });
+      
+      // Открытие мобильного меню
+      if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          console.log('Открытие мобильного меню');
+          
+          mobileMenuToggle.classList.add('active');
+          mobileNav.classList.add('active');
+          body.classList.add('menu-open');
+        });
+      }
+      
+      // Закрытие мобильного меню по кнопке
+      if (mobileNavClose) {
+        mobileNavClose.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          console.log('Закрытие мобильного меню по кнопке');
+          
+          closeMobileMenu();
+        });
+      }
+      
+      // Закрытие мобильного меню по клику на ссылку
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          console.log('Клик по ссылке мобильного меню');
+          closeMobileMenu();
+        });
+      });
+      
+      // Закрытие мобильного меню по клику вне меню
+      mobileNav.addEventListener('click', function(e) {
+        if (e.target === mobileNav) {
+          console.log('Клик вне мобильного меню');
+          closeMobileMenu();
+        }
+      });
+      
+      // Закрытие мобильного меню по Escape
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+          console.log('Нажата клавиша Escape');
+          closeMobileMenu();
+        }
+      });
+      
+      // Функция закрытия мобильного меню
+      function closeMobileMenu() {
+        mobileMenuToggle.classList.remove('active');
+        mobileNav.classList.remove('active');
+        body.classList.remove('menu-open');
+        console.log('Мобильное меню закрыто');
+      }
+    });
+
+    // Инициализация прогресс-системы
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof initializeProgressSystem === 'function') {
+        initializeProgressSystem();
+      }
+    });
+  </script>
+</body>
+</html> 

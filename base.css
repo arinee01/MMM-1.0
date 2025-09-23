@@ -1,0 +1,528 @@
+/* === TOOLTIPS (ПОДСКАЗКИ) === */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 200px;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 8px 12px;
+  position: absolute;
+  z-index: 1000;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -100px;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.9) transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Специальные стили для фиксированных элементов */
+.theme-fab.tooltip .tooltiptext,
+.progress-btn.tooltip .tooltiptext,
+.hero-helper-btn.tooltip .tooltiptext {
+  bottom: auto;
+  top: 125%;
+  left: 50%;
+  margin-left: -100px;
+  transform: translateX(-50%);
+}
+
+.theme-fab.tooltip .tooltiptext::after,
+.progress-btn.tooltip .tooltiptext::after,
+.hero-helper-btn.tooltip .tooltiptext::after {
+  top: auto;
+  bottom: 100%;
+  border-color: transparent transparent rgba(0, 0, 0, 0.9) transparent;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .tooltip .tooltiptext {
+    width: 160px;
+    margin-left: -80px;
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+  
+  .theme-fab.tooltip .tooltiptext,
+  .progress-btn.tooltip .tooltiptext,
+  .hero-helper-btn.tooltip .tooltiptext {
+    margin-left: -80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tooltip .tooltiptext {
+    width: 140px;
+    margin-left: -70px;
+    font-size: 0.75rem;
+    padding: 5px 8px;
+  }
+  
+  .theme-fab.tooltip .tooltiptext,
+  .progress-btn.tooltip .tooltiptext,
+  .hero-helper-btn.tooltip .tooltiptext {
+    margin-left: -70px;
+  }
+}
+
+/* === БАЗОВЫЕ ПЕРЕМЕННЫЕ === */
+:root {
+  /* Цвета */
+  --accent: #e08aff;
+  --accent-glow: rgba(227, 138, 255, 0.6);
+  --accent-light: rgba(227, 138, 255, 0.15);
+  --accent-scroll: rgba(227, 138, 255, 0.35);
+  --text-main: #f3ecf9;
+  --text-soft: #e6ccff;
+  --text-muted: #c8b6d8;
+  --highlight-green: #00ff88;
+  --background-dark: #121212;
+  --card-bg: rgba(28, 28, 28, 0.85);
+  --gold: #bfa76a;
+  
+  /* Шрифты */
+  --ui-font: 'Cinzel', serif;
+  --magic-font: 'QomariahArabic', cursive;
+  
+  /* Переходы */
+  --transition-fast: all 0.2s ease-in-out;
+  --transition-normal: all 0.3s ease;
+  --transition-slow: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Тени */
+  --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.2);
+  --shadow-heavy: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* === ШРИФТЫ === */
+@font-face {
+  font-family: 'QomariahArabic';
+  src: url('fonts/QomariahArabic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* === БАЗОВЫЕ СТИЛИ === */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("images/back_main.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+  position: relative;
+  z-index: 0;
+  margin: 0;
+  padding: 0;
+  font-family: var(--ui-font);
+  line-height: 1.6;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: -1;
+}
+
+/* === ТИПОГРАФИКА === */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--magic-font);
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: var(--text-soft);
+  margin: 0 0 1rem 0;
+}
+
+p {
+  font-family: var(--ui-font);
+  font-weight: 500;
+  color: var(--text-main);
+  margin: 0 0 1rem 0;
+}
+
+.section-heading {
+  font-size: 4rem;
+  letter-spacing: 2px;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 4rem;
+  color: var(--accent);
+}
+
+/* === НАВИГАЦИЯ === */
+.navbar {
+  background-color: rgba(17, 17, 17, 0.95);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(245, 231, 195, 0.2);
+}
+
+.navbar .container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #f5e7c3;
+  border-bottom: none;
+  text-shadow: 0 0 10px rgba(245, 231, 195, 0.5);
+}
+
+.navbar nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  border-bottom: none;
+  transition: all 0.3s ease;
+  pointer-events: auto;
+  cursor: pointer;
+  position: relative;
+  z-index: 1002;
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a:hover {
+  color: #f5e7c3;
+  text-shadow: 0 0 8px rgba(245, 231, 195, 0.6);
+}
+
+/* === НОВОЕ МОБИЛЬНОЕ МЕНЮ === */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1005;
+}
+
+.mobile-menu-toggle span {
+  width: 100%;
+  height: 3px;
+  background-color: #f5e7c3;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(17, 17, 17, 0.98);
+  z-index: 1004;
+  backdrop-filter: blur(15px);
+}
+
+.mobile-nav.active {
+  display: block;
+}
+
+.mobile-nav-content {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.mobile-nav-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #f5e7c3;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1006;
+}
+
+.mobile-nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.mobile-nav-links li {
+  margin: 2rem 0;
+}
+
+.mobile-nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: block;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.mobile-nav-links a:hover {
+  color: #f5e7c3;
+  background-color: rgba(245, 231, 195, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Блокировка скролла при открытом мобильном меню */
+body.menu-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+/* Плавные переходы для всех элементов */
+* {
+  transition: all 0.3s ease;
+}
+
+/* === КНОПКИ === */
+.btn-see-more {
+  display: inline-block;
+  padding: 0.7rem 2rem;
+  font-size: 1rem;
+  color: var(--gold);
+  font-weight: bold;
+  text-decoration: none;
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  background: transparent;
+  transition: var(--transition-normal);
+  margin-bottom: 3rem;
+  border-bottom: 1px solid var(--gold);
+}
+
+.btn-see-more:hover {
+  background-color: var(--gold);
+  color: black;
+  box-shadow: 0 0 12px var(--gold), 0 0 24px rgba(191, 167, 106, 0.5), 0 0 48px rgba(191, 167, 106, 0.3);
+  border-bottom-width: 2px;
+}
+
+.path-btn {
+  display: inline-block;
+  margin-top: 1.2rem;
+  padding: 0.6rem 1.6rem;
+  font-size: 1.08rem;
+  color: var(--gold);
+  background: transparent;
+  border: 2px solid var(--gold);
+  border-radius: 24px;
+  font-family: var(--ui-font);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: var(--transition-normal);
+  box-shadow: 0 2px 12px rgba(245,231,195,0.08);
+  border-bottom: 1px solid var(--gold);
+}
+
+.path-btn:hover {
+  background: rgba(245,231,195,0.10);
+  color: #18181a;
+  box-shadow: 0 4px 24px rgba(245,231,195,0.18);
+  border-color: var(--gold);
+  border-bottom-width: 2px;
+}
+
+/* === ССЫЛКИ === */
+a {
+  color: var(--text-soft);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold);
+  transition: var(--transition-normal);
+}
+
+a:hover {
+  border-bottom-color: var(--gold);
+  text-shadow: 0 0 8px rgba(191, 167, 106, 0.3);
+  border-bottom-width: 2px;
+}
+
+/* === УТИЛИТЫ === */
+.hidden {
+  display: none !important;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+} 
+
+/* === ОТЛАДОЧНЫЕ СТИЛИ === */
+/* Убраны отладочные стили */
+
+/* === МОБИЛЬНЫЕ СТИЛИ === */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+  
+  .navbar .container {
+    flex-direction: row;
+    gap: 0;
+  }
+  
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  
+  .navbar nav {
+    display: none;
+  }
+  
+  .logo {
+    font-size: 1.2rem;
+  }
+  
+  /* Скрываем навигационные стрелки на мобильных устройствах */
+  .navigation-buttons {
+    display: none !important;
+  }
+  
+  /* Адаптируем существующий переключатель тем для мобильных устройств */
+  .theme-fab {
+    display: flex !important;
+    top: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    font-size: 1.5rem;
+    z-index: 1008 !important;
+  }
+  
+  .theme-panel {
+    display: none;
+    top: 70px;
+    right: 20px;
+    min-width: 140px;
+    padding: 0.8rem 1rem;
+    z-index: 1009 !important;
+  }
+  
+  .theme-panel.active {
+    display: flex;
+  }
+  
+  .theme-panel button {
+    min-width: 120px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.8rem;
+  }
+  
+  .logo {
+    font-size: 1.1rem;
+  }
+  
+  .mobile-nav-links a {
+    font-size: 1.3rem;
+    padding: 0.8rem;
+  }
+} 

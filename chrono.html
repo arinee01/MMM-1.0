@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chronological Path — Everyday Magic</title>
+  <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+  <link rel="manifest" href="icons/site.webmanifest">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="base.css" />
+  <link rel="stylesheet" href="components.css" />
+  <link rel="stylesheet" href="themes.css" />
+  <link rel="stylesheet" href="animations.css" />
+  <link rel="stylesheet" href="theme-switcher.css" />
+  <link rel="stylesheet" href="progress-system.css" />
+  <link rel="stylesheet" href="chrono.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Rye&family=Josefin+Sans:wght@400;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Crimson+Text:wght@400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/b7dc8e0f7f.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">EVERYDAY MAGIC</a>
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="museum-map.html">Museum</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="documentation.html">Documentation</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Новое мобильное меню -->
+  <div class="mobile-nav" id="mobile-nav">
+    <div class="mobile-nav-content">
+      <button class="mobile-nav-close" id="mobile-nav-close">&times;</button>
+      <ul class="mobile-nav-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="museum-map.html">Museum</a></li>
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="documentation.html">Documentation</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="firefly-container">
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+  </div>
+
+  <!-- Main Content -->
+  <section class="hero-experience-combined" id="narrative">
+    <div class="hero-content-wrapper">
+      <div class="hero-text">
+        <h1 class="section-heading">Chronological Path</h1>
+        <h2 class="intro-text">
+          Follow the evolution of magical beliefs — from ancient Egypt to modern technology.
+        </h2>
+      </div>
+
+      <div class="experience-block">
+        <!-- Timeline Section -->
+        <div class="timeline-section">
+          <div class="timeline-scale">
+            <div class="timeline-marker" data-era="ancient">Ancient</div>
+            <div class="timeline-marker" data-era="medieval">Medieval</div>
+            <div class="timeline-marker" data-era="renaissance">Renaissance</div>
+            <div class="timeline-marker" data-era="modern">Modern</div>
+            <div class="timeline-indicator" id="timeline-indicator"></div>
+          </div>
+          
+          <div class="era-label" id="era-label">
+            <span class="era-period">Ancient Egypt</span>
+          </div>
+        </div>
+
+        <div class="audio-wrapper">
+          <button id="play-audio-btn">
+            <i class="fas fa-headphones"></i> <span id="audio-label">Play</span>
+          </button>
+          <audio id="artifact-audio"></audio>
+        </div>
+
+        <div class="artifact-content">
+          <div class="artifact-left">
+            <div class="artifact-window" id="artifact-window">
+              <div class="artifact-background" id="artifact-background"></div>
+              <div class="crystal" id="crystal">
+                <div class="geo"></div>
+                <img id="artifact-image" src="images/objects/scarab.jpg" alt="Artifact Image">
+              </div>
+            </div>
+            
+            <div class="artifact-controls">
+              <button class="arrow-button" id="prev-btn">❮</button>
+              <button class="arrow-button" id="next-btn">❯</button>
+            </div>
+          </div>
+          
+          <div class="artifact-right">
+                          <div class="artifact-info" id="artifact-info">
+                <div class="artifact-header">
+                  <h2 id="artifact-title">Artifact Title</h2>
+                  <button id="metadata-toggle" class="metadata-toggle-btn" title="Show Object Information">
+                    ⚙
+                  </button>
+                </div>
+                
+                <div class="text-controls">
+                  <button onclick="setTextLength('brief')">Just the basics</button>
+                  <button onclick="setTextLength('medium')">Tell me more</button>
+                  <button onclick="setTextLength('long')">Full story</button>
+                </div>
+                <p id="text-block">Loading...</p>
+                
+                <!-- Expandable Metadata Section -->
+                <div id="metadata-section" class="metadata-section">
+                  <div class="metadata-header">
+                    <h4>Object Information</h4>
+                  </div>
+                  <div id="artifact-metadata" class="artifact-metadata-content">
+                    <!-- Metadata will be dynamically loaded here -->
+                  </div>
+                </div>
+
+
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Navigation Buttons -->
+  <div class="navigation-buttons">
+    <a href="#" onclick="navigateWithTheme('index.html')" class="nav-btn">
+      <i class="fas fa-chevron-left"></i>
+    </a>
+    <a href="#" onclick="navigateWithTheme('crosscultural.html')" class="nav-btn">
+      <i class="fas fa-chevron-right"></i>
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Everyday Magic</h3>
+        <p>Digital Humanities Project<br>University of Bologna — DHDK</p>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <p>© 2025 Everyday Magic. All rights reserved.</p>
+          <p>Contact: <a href="mailto:arina.gracheva@studio.unibo.it">arina.gracheva@studio.unibo.it</a> | <a href="mailto:arina.samylova@studio.unibo.it">arina.samylova@studio.unibo.it</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+      <script src="theme-switcher.js"></script>
+    <script src="local-ai.js"></script>
+    <script src="hero-helper.js"></script>
+    <script src="progress-system.js"></script>
+    <script src="perf-helpers.js"></script>
+    <script src="chrono.js"></script>
+    
+  <!-- Мобильное меню -->
+  <script>
+    // Мобильное меню
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+      const mobileNav = document.getElementById('mobile-nav');
+      const mobileNavClose = document.getElementById('mobile-nav-close');
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+      const body = document.body;
+      
+      console.log('DOM загружен, элементы:', {
+        mobileMenuToggle: mobileMenuToggle,
+        mobileNav: mobileNav,
+        mobileNavClose: mobileNavClose
+      });
+      
+      // Открытие мобильного меню
+      if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          console.log('Открытие мобильного меню');
+          
+          mobileMenuToggle.classList.add('active');
+          mobileNav.classList.add('active');
+          body.classList.add('menu-open');
+        });
+      }
+      
+      // Закрытие мобильного меню по кнопке
+      if (mobileNavClose) {
+        mobileNavClose.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          console.log('Закрытие мобильного меню по кнопке');
+          
+          closeMobileMenu();
+        });
+      }
+      
+      // Закрытие мобильного меню по клику на ссылку
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          console.log('Клик по ссылке мобильного меню');
+          closeMobileMenu();
+        });
+      });
+      
+      // Закрытие мобильного меню по клику вне меню
+      mobileNav.addEventListener('click', function(e) {
+        if (e.target === mobileNav) {
+          console.log('Клик вне мобильного меню');
+          closeMobileMenu();
+        }
+      });
+      
+      // Закрытие мобильного меню по Escape
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+          console.log('Нажата клавиша Escape');
+          closeMobileMenu();
+        }
+      });
+      
+      // Функция закрытия мобильного меню
+      function closeMobileMenu() {
+        mobileMenuToggle.classList.remove('active');
+        mobileNav.classList.remove('active');
+        body.classList.remove('menu-open');
+        console.log('Мобильное меню закрыто');
+      }
+    });
+  </script>
+</body>
+</html>    

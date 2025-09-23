@@ -1,0 +1,1498 @@
+:root {
+  --gold: #f5e7c3;
+  --white: #ffffff;
+  --accent: var(--accent-glow, #f5e7c3);
+  --black: #000000;
+  --offwhite: #eeeeee;
+  --light-gold: #f9f3d2;
+  --grid-line: rgba(255, 255, 255, 0.1);
+  --gray: #999;
+  }
+  
+html, body {
+  overflow-x: auto;
+}
+
+body {
+    margin: 0;
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: var(--black);
+    color: var(--offwhite);
+    background-image: url("images/backgrounds/magic_intro.webp");
+    background-size: auto;
+    background-repeat: repeat;
+  background-attachment: fixed;
+    background-position: center top;
+}
+
+/* === НАВИГАЦИЯ === */
+/* Стили перенесены в base.css и components.css */
+
+/* === ПЕРЕКЛЮЧАТЕЛЬ ТЕМ === */
+/* Плавающая кнопка для смены темы оформления */
+.theme-fab {
+  position: fixed;                          /* Фиксированное позиционирование */
+  top: 2rem;                                /* Отступ сверху */
+  right: 2rem;                              /* Отступ справа */
+  width: 60px;                              /* Ширина кнопки */
+  height: 60px;                             /* Высота кнопки */
+  background: rgba(191, 167, 106, 0.1);    /* Полупрозрачный фон */
+  border: 2px solid var(--gold);      /* Золотистая граница */
+  border-radius: 50%;                       /* Круглая форма */
+  display: flex;                             /* Флекс-контейнер */
+  align-items: center;                       /* Выравнивание по центру по вертикали */
+  justify-content: center;                   /* Выравнивание по центру по горизонтали */
+  cursor: pointer;                           /* Курсор-указатель */
+  font-size: 1.5rem;                        /* Размер иконки */
+  z-index: 1000;                            /* Высокий z-index */
+  backdrop-filter: blur(10px);              /* Размытие фона */
+  transition: all 0.3s ease;                /* Плавные переходы */
+}
+
+.theme-fab:hover {
+  background: rgba(191, 167, 106, 0.2);
+  transform: scale(1.1);
+  box-shadow: 0 4px 20px rgba(191, 167, 106, 0.3);
+}
+
+/* === ПАНЕЛЬ ВЫБОРА ТЕМ === */
+/* Выпадающая панель для переключения тем оформления */
+.theme-panel {
+  position: fixed;                            /* Фиксированное позиционирование */
+  top: 5rem;                                  /* Отступ сверху */
+  right: 2rem;                                /* Отступ справа */
+  background: rgba(0, 0, 0, 0.8);            /* Полупрозрачный темный фон */
+  border: 2px solid var(--gold);        /* Золотистая граница */
+  border-radius: 12px;                        /* Скругленные углы */
+  padding: 1rem;                              /* Внутренние отступы */
+  z-index: 1000;                              /* Высокий z-index */
+  backdrop-filter: blur(10px);                /* Размытие фона */
+  opacity: 0;                                 /* Начальная прозрачность */
+  visibility: hidden;                         /* Скрыта по умолчанию */
+  transform: translateY(-10px);               /* Начальное смещение вверх */
+  transition: all 0.3s ease;                  /* Плавные переходы */
+}
+
+/* === АКТИВНОЕ СОСТОЯНИЕ ПАНЕЛИ ТЕМ === */
+.theme-panel.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* === ЗАГОЛОВОК ПАНЕЛИ ТЕМ === */
+/* Стили для заголовка панели выбора тем */
+.theme-panel-title {
+  color: var(--gold);                   /* Золотистый цвет */
+  font-family: 'Cinzel', serif;               /* Декоративный шрифт */
+  font-size: 0.9rem;                          /* Размер шрифта */
+  font-weight: 600;                            /* Жирность шрифта */
+  margin-bottom: 0.8rem;                      /* Отступ снизу */
+  text-align: center;                          /* Выравнивание по центру */
+  letter-spacing: 0.5px;                      /* Расстояние между буквами */
+}
+
+/* === КНОПКИ В ПАНЕЛИ ТЕМ === */
+/* Стили для кнопок выбора темы */
+.theme-panel button {
+  display: block;                              /* Блочное отображение */
+  width: 100%;                                 /* Полная ширина */
+  background: transparent;                     /* Прозрачный фон */
+  border: 1px solid var(--gold);        /* Золотистая граница */
+  color: var(--gold);                   /* Золотистый цвет текста */
+  padding: 0.5rem 1rem;                       /* Внутренние отступы */
+  margin-bottom: 0.5rem;                      /* Отступ снизу */
+  border-radius: 6px;                          /* Скругленные углы */
+  cursor: pointer;                             /* Курсор-указатель */
+  font-family: 'Cinzel', serif;               /* Декоративный шрифт */
+  font-size: 0.8rem;                          /* Размер шрифта */
+  letter-spacing: 0.3px;                      /* Расстояние между буквами */
+  transition: all 0.3s ease;                  /* Плавные переходы */
+}
+
+/* === ПОСЛЕДНЯЯ КНОПКА В ПАНЕЛИ === */
+/* Убираем отступ у последней кнопки */
+.theme-panel button:last-child {
+  margin-bottom: 0;                            /* Без отступа снизу */
+}
+
+.theme-panel button:hover {
+  background: rgba(191, 167, 106, 0.1);
+  transform: translateX(5px);
+}
+
+.theme-panel button.active {
+  background: var(--gold);
+  color: #000;
+  font-weight: 600;
+}
+
+  .magic-container {
+    max-width: 1000px;
+    margin: 3rem auto 4rem;
+    padding: 1.5rem 1rem;
+    text-align: center;
+  }
+  
+  .intro-hero-section {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .intro-hero-overlay {
+    background: rgba(0, 0, 0, 0.55);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .intro-title {
+    color: var(--gold);
+    font-family: 'Cinzel', serif;
+    font-size: 4rem;
+    text-shadow: 0 0 15px rgba(255, 228, 196, 0.3);
+    text-align: center;
+    padding: 0 1rem;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+    word-wrap: break-word;
+    max-width: 100%;
+  }
+  
+  .section-heading {
+    /* Базовые стили в base.css, здесь только специфичные для magic */
+    margin-top: 4rem;
+    margin-bottom: 1.5rem;
+}
+
+  .intro-text {
+    color: #ccc;
+    font-size: 1rem;
+    margin: 0 auto 3rem;
+    margin-bottom: 2rem;
+  }
+  
+  .typing-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #ccc;
+    white-space: pre-line;
+    border-right: 2px solid var(--gold);
+    overflow: hidden;
+    animation: blink-cursor 0.9s steps(1) infinite;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: left;
+  }
+  
+  .tags-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+  
+  .highlighted-tag {
+    position: relative;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--offwhite);
+    font-family: 'Cinzel', serif;
+    padding: 0 0.2em;
+    cursor: default;
+    background: none;
+    border: none;
+    box-shadow: none;
+  }
+  
+  .highlighted-tag::before {
+    content: '';
+    position: absolute;
+    bottom: 0.1em;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: var(--accent);
+    opacity: 0.5;
+    z-index: -1;
+    transform: rotate(-2deg);
+    border-radius: 0;
+  }
+
+/* Убрано дублирование - стили уже определены выше */
+
+/* Убрано дублирование - стили уже определены выше */
+
+/* Убрано дублирование - стили уже определены выше */
+  /* Убрано дублирование - стили уже определены выше */
+  
+  /* Убрано дублирование - стили уже определены выше */
+  
+  /* Убрано дублирование - стили уже определены выше */
+/* Убрано дублирование - стили уже определены выше */
+/* Убрано дублирование - стили уже определены выше */
+  
+  /* Убрано дублирование - стили уже определены выше */
+  
+
+/* Убрано дублирование - стили уже определены выше */
+
+/* Убрано дублирование - стили уже определены выше */
+
+/* Убрано дублирование - стили уже определены выше */
+
+/* Убрано дублирование - стили уже определены выше */
+
+/* Убрано дублирование - стили уже определены выше */
+
+/* Убрано дублирование - стили уже определены выше */
+
+/* Убрано дублирование - стили уже определены выше */
+  /* Убрано дублирование - стили уже определены выше */
+
+/* Убрано дублирование - стили уже определены выше */
+
+/* Убрано дублирование - стили уже определены выше */
+.tarot-toggle-btn {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+    font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.tarot-toggle-btn:hover {
+  background: rgba(255, 215, 0, 0.1);
+}
+
+/* --- Новый блок амулетов (улучшенный дизайн) --- */
+.amulet-section {
+  margin: 3rem auto 4rem;
+  max-width: 1100px;
+  padding: 1.5rem 1rem;
+}
+.amulet-grid {
+  display: flex;
+  gap: 3.5rem;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+}
+.amulet-card {
+  background: transparent;
+  border-radius: 22px;
+  box-shadow: none;
+  transition: transform 0.22s, box-shadow 0.22s, border 0.22s;
+  cursor: pointer;
+  padding: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid transparent;
+  position: relative;
+  min-width: 220px;
+  min-height: 220px;
+}
+.amulet-card img {
+  width: 92%;
+  height: auto;
+  aspect-ratio: 1/1;
+  max-width: 220px;
+  max-height: 220px;
+  border-radius: 16px;
+  box-shadow: none;
+  background: transparent;
+  border: 3px solid rgba(245,231,195,0.25);
+  transition: box-shadow 0.22s, border 0.22s;
+  display: block;
+}
+.amulet-card[data-id="1"] {
+  transform: rotate(-5deg);
+}
+.amulet-card[data-id="2"] {
+  transform: rotate(3deg);
+}
+.amulet-card[data-id="3"] {
+  transform: rotate(-2deg);
+}
+.amulet-card.selected,
+.amulet-card:hover {
+  transform: scale(1.09) rotate(0deg);
+  box-shadow: none;
+  border: none;
+  z-index: 2;
+  background: transparent;
+}
+.amulet-card.selected img,
+.amulet-card:hover img {
+  box-shadow: 0 0 20px 0 var(--accent-glow, rgba(245, 231, 195, 0.6)), 0 0 40px 0 var(--accent-glow, rgba(245, 231, 195, 0.4));
+  border: 2px solid var(--accent-glow, rgba(245, 231, 195, 0.8));
+}
+.amulet-description-box {
+  background: linear-gradient(120deg, rgba(30,30,30,0.72) 70%, rgba(245,231,195,0.10) 100%);
+  border-radius: 14px;
+  padding: 2rem 2.5rem 1.5rem 2.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--gold, #f5e7c3);
+  font-size: 1.13rem;
+  box-shadow: 0 2px 24px 0 rgba(245,231,195,0.15), 0 1.5px 12px 0 rgba(0,0,0,0.13) inset;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: opacity 0.35s, transform 0.35s, background 0.3s;
+  backdrop-filter: blur(2.5px);
+  margin-top: 0.5rem;
+}
+.amulet-description-box.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.amulet-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+  justify-content: center;
+}
+.amulet-tab {
+  background: none;
+  border: none;
+  color: var(--gold, #f5e7c3);
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px 6px 0 0;
+  cursor: pointer;
+  border-bottom: 2.5px solid transparent;
+  transition: color 0.2s, border 0.2s, background 0.2s;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.amulet-tab.active {
+  color: var(--gold, #f5e7c3);
+  border-bottom: 2.5px solid var(--gold, #f5e7c3);
+  background: rgba(245,231,195,0.10);
+}
+.amulet-description-text {
+  min-height: 60px;
+  line-height: 1.7;
+  font-size: 1.08rem;
+  color: var(--gold, #f5e7c3);
+  text-align: left;
+  padding-top: 0.2rem;
+  transition: color 0.2s;
+}
+
+/* === КОНТЕЙНЕР КНОПКИ МЕТАДАННЫХ === */
+.metadata-toggle-container {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+/* === КНОПКА МЕТАДАННЫХ === */
+.metadata-toggle-btn {
+  background: transparent;
+  color: var(--gold, #FFD700);
+  border: 2px solid var(--gold, #FFD700);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+  line-height: 1;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+  background-image: none !important;
+}
+
+.metadata-toggle-btn:hover {
+  background: rgba(255, 215, 0, 0.1);
+  border-color: var(--gold, #FFD700);
+  color: var(--gold, #FFD700);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  transform: scale(1.1);
+}
+
+.metadata-toggle-btn.active {
+  background: rgba(255, 215, 0, 0.2);
+  border-color: var(--gold, #FFD700);
+  color: var(--gold, #FFD700);
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
+}
+
+/* === РАСШИРЯЕМАЯ СЕКЦИЯ МЕТАДАННЫХ === */
+.metadata-section {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: 0;
+  opacity: 0;
+  border-top: 0px solid var(--grid-line);
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  background-image: none !important;
+}
+
+.metadata-section.open {
+  max-height: 1200px;
+  opacity: 1;
+  margin-top: 1.5rem;
+  border-top: 2px solid var(--gold);
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+  background-image: none !important;
+}
+
+.metadata-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: var(--gold);
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 1rem;
+  border: 1px solid var(--gold);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+  background-image: none !important;
+}
+
+.metadata-header h4 {
+  color: var(--black);
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.artifact-metadata-content {
+  padding: 1.5rem;
+  overflow-y: auto;
+  max-height: 600px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease 0.2s;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 8px 8px;
+  min-height: 200px;
+  background-image: none !important;
+}
+
+.metadata-section.open .artifact-metadata-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === СЕТКА МЕТАДАННЫХ === */
+.metadata-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.metadata-item {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateX(20px);
+  background-image: none !important;
+}
+
+.metadata-section.open .metadata-item {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.metadata-item:nth-child(1) { transition-delay: 0.3s; }
+.metadata-item:nth-child(2) { transition-delay: 0.35s; }
+.metadata-item:nth-child(3) { transition-delay: 0.4s; }
+.metadata-item:nth-child(4) { transition-delay: 0.45s; }
+.metadata-item:nth-child(5) { transition-delay: 0.5s; }
+.metadata-item:nth-child(6) { transition-delay: 0.55s; }
+.metadata-item:nth-child(7) { transition-delay: 0.6s; }
+.metadata-item:nth-child(8) { transition-delay: 0.65s; }
+.metadata-item:nth-child(9) { transition-delay: 0.7s; }
+
+.metadata-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--gold);
+  transform: translateX(5px);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+
+.metadata-label {
+  color: var(--gold);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.metadata-value {
+  color: var(--gold);
+  font-size: 0.9rem;
+  font-family: 'Josefin Sans', sans-serif;
+  line-height: 1.4;
+}
+
+.metadata-loading {
+  text-align: center;
+  color: var(--gold);
+  font-style: italic;
+  padding: 2rem;
+  font-size: 1rem;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  border: 1px solid var(--gold);
+  background-image: none !important;
+}
+
+.metadata-error {
+  text-align: center;
+  color: var(--gold);
+  padding: 2rem;
+  background: rgba(255, 0, 0, 0.1);
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  background-image: none !important;
+}
+
+.metadata-error p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+@media (max-width: 900px) {
+  .amulet-card img {
+    width: 92%;
+    height: auto;
+    max-width: 140px;
+    max-height: 140px;
+  }
+  .amulet-card {
+    min-width: 150px;
+    min-height: 150px;
+    padding: 0.5rem;
+  }
+}
+@media (max-width: 700px) {
+  .amulet-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .amulet-card img {
+    width: 92%;
+    height: auto;
+    max-width: 110px;
+    max-height: 110px;
+  }
+  .amulet-card {
+    min-width: 110px;
+    min-height: 110px;
+    padding: 0.3rem;
+  }
+  .amulet-description-box {
+    padding: 1.2rem 0.7rem 1.2rem 0.7rem;
+  }
+}
+  
+  
+  
+  .tiktok-frames {
+    display: flex;
+    gap: 2.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+  
+  .tiktok-card {
+    background: linear-gradient(120deg, rgba(245,231,195,0.08) 0%, rgba(245,231,195,0.15) 100%);
+    border-radius: 22px;
+    box-shadow: 0 4px 24px 0 rgba(245,231,195,0.18), 0 1.5px 12px 0 rgba(0,0,0,0.10);
+    padding: 1.2rem 1.2rem 1rem 1.2rem;
+    width: 320px;
+    transition: transform 0.18s, box-shadow 0.18s;
+    position: relative;
+    transform: rotate(-2deg);
+    text-align: center;
+  }
+
+  .tiktok-card:nth-child(2) {
+    transform: rotate(3deg);
+  }
+
+  .tiktok-card:hover {
+    transform: scale(1.04) rotate(0deg);
+    box-shadow: 0 8px 48px 0 rgba(245,231,195,0.25), 0 2px 24px 0 rgba(0,0,0,0.13);
+    z-index: 2;
+  }
+  
+  .iphone-frame {
+    background: none !important;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9 / 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 0 32px 8px rgba(245,231,195,0.22), 0 0 64px 16px rgba(245,231,195,0.15);
+    border-radius: 38px;
+    min-height: 520px;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+.iphone-frame-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  display: block;
+}
+
+.iphone-frame iframe {
+  position: absolute;
+  top: 8.5%;
+  left: 8.5%;
+  width: 83%;
+  height: 83%;
+  border: none;
+  border-radius: 18px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.12);
+  background: #000;
+  z-index: 1;
+}
+  
+  .video-caption {
+    text-align: center;
+    padding-top: 0.7rem;
+    font-size: 1.08rem;
+    color: var(--gold, #f5e7c3);
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+  }
+
+  .video-caption::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/6/69/TikTok_logo.svg') no-repeat center/contain;
+    margin-right: 0.3em;
+    opacity: 0.8;
+  }
+
+  .tiktok-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(40,30,60,0.7) 60%, rgba(245,231,195,0.15) 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    border-radius: 38px;
+    transition: background 0.2s;
+  }
+
+  .tiktok-placeholder::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 54px;
+    height: 54px;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/6/69/TikTok_logo.svg') no-repeat center/contain;
+    opacity: 0.18;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+
+  .tiktok-placeholder[data-cover] {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .tiktok-play-btn {
+    background: rgba(245,231,195,0.18);
+    border: none;
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    font-size: 2.2rem;
+    color: var(--gold, #f5e7c3);
+    box-shadow: 0 2px 16px rgba(245,231,195,0.25);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.18s;
+    z-index: 2;
+    position: relative;
+  }
+
+  .tiktok-play-btn:hover {
+    background: rgba(245,231,195,0.32);
+    box-shadow: 0 4px 32px rgba(245,231,195,0.30);
+    transform: scale(1.08);
+  }
+
+  .tiktok-play-btn::before {
+    content: '▶';
+    margin-left: 3px;
+  }
+
+  .iphone-notch {
+    position: absolute;
+    top: 2.5%;
+    left: 36%;
+    width: 28%;
+    height: 7%;
+    background: #18181a;
+    border-radius: 18px 18px 12px 12px;
+    z-index: 3;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    pointer-events: none;
+  }
+
+  @media (max-width: 800px) {
+    .tiktok-frames {
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+    .tiktok-card {
+      width: 95vw;
+      max-width: 340px;
+    }
+  }
+
+  /* Восстановлены стили для Tarot секции */
+.tarot-intro-section {
+  position: relative;
+  background-image: url('images/backgrounds/tarot_deck_dark.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 6rem 2rem;
+  color: var(--offwhite);
+}
+
+.tarot-overlay {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 3rem;
+  border-radius: 12px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.tarot-text-block {
+  text-align: left;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.tarot-text-block h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 2.5rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.tarot-deck {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.tarot-card {
+  width: 100px;
+  height: 160px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.tarot-card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.tarot-map-img {
+  display: block;
+  max-width: 600px;
+  width: 80%;
+  margin: 1.5rem auto 0;
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarot-map-img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+
+/* Восстановлены стили для карт таро */
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 6px;
+  border: 1px solid var(--gold);
+  backface-visibility: hidden;
+}
+
+.card-front {
+  z-index: 2;
+  background-image: url('images/cards/card3-back.webp');
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+/* Восстановлены стили для предсказаний таро */
+.tarot-prediction {
+  margin-top: 2rem;
+  font-size: 1.3rem;
+  color: var(--gold);
+  text-align: center;
+  max-width: 600px;
+  margin-inline: auto;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  display: none;
+}
+
+.tarot-toggle-btn {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.tarot-toggle-btn:hover {
+  background: rgba(255, 215, 0, 0.1);
+}
+
+/* Убрано дублирование - стили уже определены выше */
+
+/* --- Лупа и zoom-lens для амулетов --- */
+.lupa-hint {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--gold);
+  opacity: 0.9;
+  justify-content: center;
+  padding: 0.8rem 1.2rem;
+  background: rgba(245, 231, 195, 0.05);
+  border: 1px solid rgba(245, 231, 195, 0.2);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.lupa-hint:hover {
+  background: rgba(245, 231, 195, 0.1);
+  border-color: rgba(245, 231, 195, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(245, 231, 195, 0.2);
+}
+
+.lupa-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--gold);
+  filter: drop-shadow(0 0 8px rgba(245, 231, 195, 0.6));
+  transition: all 0.3s ease;
+}
+
+.lupa-hint:hover .lupa-icon {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 12px rgba(245, 231, 195, 0.8));
+}
+
+.lupa-hint span {
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 10px rgba(245, 231, 195, 0.3);
+  padding: 0 0.3rem;
+}
+
+.zoom-lens {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-size: 200% 200%;
+  display: none;
+  z-index: 10;
+}
+
+/* Восстановлены стили для вертикальной секции амулетов */
+.amulet-vertical-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+}
+
+.amulet-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.amulet-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  flex-shrink: 0;
+}
+
+.amulet-item {
+  width: 500px;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.amulet-item img {
+  width: 100%;
+  border: 1px solid var(--gold);
+  border-radius: 6px;
+}
+
+.amulet-item.active {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px var(--gold);
+}
+
+.amulet-description-box {
+  flex: 1;
+  color: var(--gold);
+  font-style: italic;
+  line-height: 1.6;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.amulet-buttons button {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.amulet-buttons button:hover {
+  background: rgba(255, 215, 0, 0.1);
+}
+
+/* Убрано дублирование - стили уже определены выше */
+
+/* Убрано дублирование - стили уже определены выше */
+
+/* Убрано дублирование - стили уже определены выше */
+
+/* Убрано дублирование - стили уже определены выше */
+
+/* Убрано дублирование - стили уже определены выше */
+
+/* === ПЕРЕКЛЮЧАТЕЛЬ ТЕМ === */
+/* Стили перенесены в theme-switcher.css */
+
+/* Убрано дублирование - стили уже определены выше */
+
+/* === ТЕМАТИЧЕСКИЕ СТИЛИ ДЛЯ MAGIC === */
+
+/* === ТЕМА 1500 (ДРЕВНОСТЬ) === */
+body.theme-1500 {
+  background-image: url("images/backgrounds/parchment.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+body.theme-1500 .intro-title {
+  color: #bfa76a !important;
+  text-shadow: 0 0 15px rgba(191, 167, 106, 0.4) !important;
+  font-family: 'Cinzel', serif !important;
+  font-size: 4rem !important;
+  line-height: 1.2;
+  word-wrap: break-word;
+}
+
+body.theme-1500 .highlighted-tag {
+  color: #d4c48e;
+}
+
+body.theme-1500 .highlighted-tag::before {
+  background: #bfa76a;
+  opacity: 0.6;
+}
+
+body.theme-1500 .highlighted-tag:hover::before {
+  opacity: 0.8;
+}
+
+body.theme-1500 .amulet-card {
+  border: 3px solid #bfa76a;
+  box-shadow: 0 8px 25px rgba(191, 167, 106, 0.3);
+}
+
+body.theme-1500 .amulet-card:hover {
+  box-shadow: 0 12px 35px rgba(191, 167, 106, 0.5);
+}
+
+body.theme-1500 .amulet-tab {
+  border: 2px solid #bfa76a;
+  color: #bfa76a;
+}
+
+body.theme-1500 .amulet-tab.active {
+  background: #bfa76a;
+  color: #2c1810;
+}
+
+body.theme-1500 .section-heading {
+  color: #bfa76a !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+  font-family: 'Cinzel', serif !important;
+  font-size: 3rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 2px !important;
+  text-align: center !important;
+  margin-bottom: 4rem !important;
+}
+
+body.theme-1500 .intro-text,
+body.theme-1500 .typing-text {
+  font-family: 'Helvetica Neue', sans-serif !important;
+  color: var(--gold, #f5e7c3) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+  font-size: 1.1rem !important;
+  line-height: 1.8 !important;
+}
+
+/* === ТЕМА 19C (XIX ВЕК) === */
+body.theme-19c {
+  background-image: url("images/backgrounds/victorian2.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+body.theme-19c .intro-title {
+  color: #ffd700 !important;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.4) !important;
+  font-family: 'Cinzel', serif !important;
+  font-size: 4rem !important;
+  line-height: 1.2;
+  word-wrap: break-word;
+}
+
+body.theme-19c .highlighted-tag {
+  color: #fff8b8;
+}
+
+body.theme-19c .highlighted-tag::before {
+  background: #ffd700;
+  opacity: 0.6;
+}
+
+body.theme-19c .highlighted-tag:hover::before {
+  opacity: 0.8;
+}
+
+body.theme-19c .amulet-card {
+  border: 3px solid #ffd700;
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+}
+
+body.theme-19c .amulet-card:hover {
+  box-shadow: 0 12px 35px rgba(255, 215, 0, 0.5);
+}
+
+body.theme-19c .amulet-tab {
+  border: 2px solid #ffd700;
+  color: #ffd700;
+}
+
+body.theme-19c .amulet-tab.active {
+  background: #ffd700;
+  color: #1a1a2e;
+}
+
+body.theme-19c .section-heading {
+  color: #ffd700 !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+  font-family: 'Cinzel', serif !important;
+  font-size: 3rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 2px !important;
+  text-align: center !important;
+  margin-bottom: 4rem !important;
+}
+
+body.theme-19c .intro-text,
+body.theme-19c .typing-text {
+  font-family: 'Helvetica Neue', sans-serif !important;
+  color: var(--gold, #f5e7c3) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+  font-size: 1.1rem !important;
+  line-height: 1.8 !important;
+}
+
+/* === ТЕМА EARLY20C (НАЧАЛО XX ВЕКА) === */
+body.theme-early20c {
+  background-image: url("images/backgrounds/artdeco2.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+body.theme-early20c .intro-title {
+  color: #87CEEB !important;
+  text-shadow: 0 0 15px rgba(135, 206, 235, 0.4) !important;
+  font-family: 'Josefin Sans', sans-serif !important;
+  font-size: 4rem !important;
+  line-height: 1.2;
+  word-wrap: break-word;
+}
+
+body.theme-early20c .highlighted-tag {
+  color: #b8e5ff;
+}
+
+body.theme-early20c .highlighted-tag::before {
+  background: #87CEEB;
+  opacity: 0.6;
+}
+
+body.theme-early20c .highlighted-tag:hover::before {
+  opacity: 0.8;
+}
+
+body.theme-early20c .amulet-card {
+  border: 3px solid #87CEEB;
+  box-shadow: 0 8px 25px rgba(135, 206, 235, 0.3);
+}
+
+body.theme-early20c .amulet-card:hover {
+  box-shadow: 0 12px 35px rgba(135, 206, 235, 0.5);
+}
+
+body.theme-early20c .amulet-tab {
+  border: 2px solid #87CEEB;
+  color: #87CEEB;
+}
+
+body.theme-early20c .amulet-tab.active {
+  background: #87CEEB;
+  color: #1a1a2e;
+}
+
+body.theme-early20c .section-heading {
+  color: #87CEEB !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  font-family: 'Josefin Sans', sans-serif !important;
+  font-size: 3rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 2px !important;
+  text-align: center !important;
+  margin-bottom: 4rem !important;
+}
+
+body.theme-early20c .intro-text,
+body.theme-early20c .typing-text {
+  font-family: 'Josefin Sans', sans-serif !important;
+  color: #E0F6FF !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+  font-size: 1.1rem !important;
+  line-height: 1.8 !important;
+}
+
+/* === ТЕМА LATE20C (2035) === */
+body.theme-late20c {
+  background-image: url("images/backgrounds/modern_magic2.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+body.theme-late20c .intro-title {
+  color: #FFD700 !important;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.4) !important;
+  font-family: 'Orbitron', monospace !important;
+  font-size: 4rem !important;
+  line-height: 1.2;
+  word-wrap: break-word;
+}
+
+body.theme-late20c .highlighted-tag {
+  color: #fff8b8;
+}
+
+body.theme-late20c .highlighted-tag::before {
+  background: #FFD700;
+  opacity: 0.6;
+}
+
+body.theme-late20c .highlighted-tag:hover::before {
+  opacity: 0.8;
+}
+
+body.theme-late20c .amulet-card {
+  border: 3px solid #FFD700;
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+}
+
+body.theme-late20c .amulet-card:hover {
+  box-shadow: 0 12px 35px rgba(255, 215, 0, 0.5);
+}
+
+body.theme-late20c .amulet-tab {
+  border: 2px solid #FFD700;
+  color: #FFD700;
+}
+
+body.theme-late20c .amulet-tab.active {
+  background: #FFD700;
+  color: #000;
+}
+
+body.theme-late20c .section-heading {
+  color: #FFD700 !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  font-family: 'Orbitron', monospace !important;
+  font-size: 3rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 2px !important;
+  text-align: center !important;
+  margin-bottom: 4rem !important;
+}
+
+body.theme-late20c .intro-text,
+body.theme-late20c .typing-text {
+  font-family: 'Orbitron', monospace !important;
+  color: #FFF8DC !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+  font-size: 1.1rem !important;
+  line-height: 1.8 !important;
+}
+
+/* === ОБЩИЕ ТЕМАТИЧЕСКИЕ СТИЛИ === */
+body[class*="theme-"] .magic-container {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Убрано дублирование - стили уже определены выше */
+
+/* Убрано дублирование - стили уже определены выше */
+
+/* Убрано дублирование - стили уже определены выше */
+
+
+
+/* === ДОПОЛНИТЕЛЬНЫЕ СТИЛИ === */
+.tarot-intro-section {
+  max-width: 100vw;
+  padding: 0;
+}
+
+.tarot-modern-text {
+  max-width: 800px;
+  margin: 2rem auto 3rem;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-left: 3px solid var(--gold);
+  border-radius: 8px;
+}
+
+.tarot-modern-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #ccc;
+  margin: 0;
+  text-align: left;
+}
+
+/* === КНОПКА СБРОСА ГАДАНИЯ === */
+.tarot-reset-container {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.tarot-reset-btn {
+  background: rgba(191, 167, 106, 0.15);
+  border: 2px solid var(--gold);
+  color: var(--gold);
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 12px rgba(191, 167, 106, 0.2);
+  display: none;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.tarot-reset-btn.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tarot-reset-btn:hover {
+  background: rgba(191, 167, 106, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(191, 167, 106, 0.4);
+}
+
+.tarot-reset-btn:active {
+  transform: translateY(0);
+}
+
+/* Стили для кнопки сброса в разных темах */
+body.theme-1500 .tarot-reset-btn {
+  background: rgba(191, 167, 106, 0.15);
+  border-color: #bfa76a;
+  color: #bfa76a;
+  box-shadow: 0 2px 12px rgba(191, 167, 106, 0.2);
+}
+
+body.theme-1500 .tarot-reset-btn:hover {
+  background: rgba(191, 167, 106, 0.25);
+  box-shadow: 0 4px 20px rgba(191, 167, 106, 0.4);
+}
+
+body.theme-19c .tarot-reset-btn {
+  background: rgba(255, 215, 0, 0.15);
+  border-color: #ffd700;
+  color: #ffd700;
+  box-shadow: 0 2px 12px rgba(255, 215, 0, 0.2);
+}
+
+body.theme-19c .tarot-reset-btn:hover {
+  background: rgba(255, 215, 0, 0.25);
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
+}
+
+body.theme-early20c .tarot-reset-btn {
+  background: rgba(135, 206, 235, 0.15);
+  border-color: #87CEEB;
+  color: #87CEEB;
+  box-shadow: 0 2px 12px rgba(135, 206, 235, 0.2);
+}
+
+body.theme-early20c .tarot-reset-btn:hover {
+  background: rgba(135, 206, 235, 0.25);
+  box-shadow: 0 4px 20px rgba(135, 206, 235, 0.4);
+}
+
+body.theme-late20c .tarot-reset-btn {
+  background: rgba(255, 215, 0, 0.15);
+  border-color: #FFD700;
+  color: #FFD700;
+  box-shadow: 0 2px 12px rgba(255, 215, 0, 0.2);
+}
+
+body.theme-late20c .tarot-reset-btn:hover {
+  background: rgba(255, 215, 0, 0.25);
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
+}

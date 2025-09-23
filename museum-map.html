@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Museum Map — Everyday Magic</title>
+  <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+  <link rel="manifest" href="icons/site.webmanifest">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="base.css" />
+  <link rel="stylesheet" href="components.css" />
+  <link rel="stylesheet" href="themes.css" />
+  <link rel="stylesheet" href="animations.css" />
+  <link rel="stylesheet" href="theme-switcher.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Rye&family=Josefin+Sans:wght@400;600&family=Montserrat:wght@400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="progress-system.css" />
+  <link rel="stylesheet" href="museum-map.css" />
+  <script src="https://kit.fontawesome.com/b7dc8e0f7f.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  
+</head>
+
+<body class="theme-1500">
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">EVERYDAY MAGIC</a>
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="museum-map.html">Museum</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="documentation.html">Documentation</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Новое мобильное меню -->
+  <div class="mobile-nav" id="mobile-nav">
+    <div class="mobile-nav-content">
+      <button class="mobile-nav-close" id="mobile-nav-close">&times;</button>
+      <ul class="mobile-nav-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="museum-map.html">Museum</a></li>
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="documentation.html">Documentation</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="firefly-container">
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+  </div>
+
+  <!-- Main Content -->
+  <section class="hero-experience-combined" id="museum">
+    <div class="hero-content-wrapper">
+      <div class="hero-text">
+        <h1 class="section-heading">Museum Map</h1>
+        <h2 class="intro-text">
+          Explore the physical layout of our exhibition — discover where each magical artifact is located.
+        </h2>
+      </div>
+
+      <div class="museum-map-block">
+        <div class="museum-map-container">
+          <div class="map-info">
+            <h3>MAMbo — Museo d'Arte Moderna di Bologna</h3>
+          </div>
+          
+          <div class="floor-container">
+            <button class="floor-nav left" onclick="prevFloor()">←</button>
+          
+            <div class="floor" id="floor-0">
+              <h2>Piano Interrato</h2>
+              <div class="dot" style="top: 18%; left: 22%;" data-index="0" data-img="aegishjalmr.jpg">1</div>
+              <div class="dot" style="top: 35%; left: 60%;" data-index="1" data-img="bantu_fetish.jpg">2</div>
+              <div class="dot" style="top: 55%; left: 30%;" data-index="2" data-img="korean_knife.jpg">3</div>
+            </div>
+          
+            <div class="floor hidden" id="floor-1">
+              <h2>Primo Piano</h2>
+              <div class="dot" style="top: 20%; left: 70%;" data-index="3" data-img="nft_qr.jpg">4</div>
+              <div class="dot" style="top: 40%; left: 20%;" data-index="4" data-img="omamori.jpg">5</div>
+              <div class="dot" style="top: 60%; left: 60%;" data-index="5" data-img="ojo_venado.jpg">6</div>
+              <div class="dot" style="top: 75%; left: 35%;" data-index="6" data-img="rpg_amulet.jpg">7</div>
+              <div class="dot" style="top: 72%; left: 70%;" data-index="7" data-img="slavic_doll.jpg">8</div>
+            </div>
+          
+            <div class="floor hidden" id="floor-2">
+              <h2>Secondo Piano</h2>
+              <div class="dot" style="top: 25%; left: 30%;" data-index="8" data-img="st_benedict.jpg">9</div>
+              <div class="dot" style="top: 45%; left: 75%;" data-index="9" data-img="scarab.jpg">10</div>
+              <div class="dot" style="top: 65%; left: 50%;" data-index="10" data-img="amulet3.webp">11</div>
+              <div class="dot" style="top: 70%; left: 25%;" data-index="11" data-img="amulet1.webp">12</div>
+              <div class="dot" style="top: 45%; left: 55%;" data-index="12" data-img="amulet2.webp">13</div>
+            </div>
+
+            <div class="map-dot-effects"></div>
+          
+            <button class="floor-nav right" onclick="nextFloor()">→</button>
+          
+            <div class="popup" id="popup">
+              <span id="popup-close">×</span>
+              <div id="popup-content"></div>
+            </div>
+          </div>
+
+          <div class="map-legend">
+            <h4>Museum Guide</h4>
+            <div class="legend-item">
+              <span class="legend-dot">1-13</span>
+              <span>Click on dots to view artifacts</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot">📱</span>
+              <span>Each artifact has a QR code</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot">🔗</span>
+              <span>QR codes link to artifact pages</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation Buttons -->
+  <div class="navigation-buttons">
+    <a href="#" onclick="navigateWithTheme('index.html')" class="nav-btn">
+      <i class="fas fa-chevron-left"></i>
+    </a>
+    <a href="#" onclick="navigateWithTheme('crosscultural.html')" class="nav-btn">
+      <i class="fas fa-chevron-right"></i>
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Everyday Magic</h3>
+        <p>Digital Humanities Project<br>University of Bologna — DHDK</p>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <p>© 2025 Everyday Magic. All rights reserved.</p>
+          <p>Contact: <a href="mailto:arina.gracheva@studio.unibo.it">arina.gracheva@studio.unibo.it</a> | <a href="mailto:arina.samylova@studio.unibo.it">arina.samylova@studio.unibo.it</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+      <script src="theme-switcher.js"></script>
+      <script src="local-ai.js"></script>
+  <script src="hero-helper.js"></script>
+  <script src="progress-system.js"></script>
+      <script src="perf-helpers.js"></script>
+      
+      <!-- QR Code Library -->
+      <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+      <script src="museum-map.js"></script>
+      
+      <script>
+        // Мобильное меню
+        document.addEventListener('DOMContentLoaded', function() {
+          const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+          const mobileNav = document.getElementById('mobile-nav');
+          const mobileNavClose = document.getElementById('mobile-nav-close');
+          const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+          const body = document.body;
+          
+          console.log('DOM загружен, элементы:', {
+            mobileMenuToggle: mobileMenuToggle,
+            mobileNav: mobileNav,
+            mobileNavClose: mobileNavClose
+          });
+          
+          // Открытие мобильного меню
+          if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', function(e) {
+              e.preventDefault();
+              e.stopPropagation();
+              console.log('Открытие мобильного меню');
+              
+              mobileMenuToggle.classList.add('active');
+              mobileNav.classList.add('active');
+              body.classList.add('menu-open');
+            });
+          }
+          
+          // Закрытие мобильного меню по кнопке
+          if (mobileNavClose) {
+            mobileNavClose.addEventListener('click', function(e) {
+              e.preventDefault();
+              e.stopPropagation();
+              console.log('Закрытие мобильного меню по кнопке');
+              
+              closeMobileMenu();
+            });
+          }
+          
+          // Закрытие мобильного меню по клику на ссылку
+          mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+              console.log('Клик по ссылке мобильного меню');
+              closeMobileMenu();
+            });
+          });
+          
+          // Закрытие мобильного меню по клику вне меню
+          mobileNav.addEventListener('click', function(e) {
+            if (e.target === mobileNav) {
+              console.log('Клик вне мобильного меню');
+              closeMobileMenu();
+            }
+          });
+          
+          // Закрытие мобильного меню по Escape
+          document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+              console.log('Нажата клавиша Escape');
+              closeMobileMenu();
+            }
+          });
+          
+          // Функция закрытия мобильного меню
+          function closeMobileMenu() {
+            mobileMenuToggle.classList.remove('active');
+            mobileNav.classList.remove('active');
+            body.classList.remove('menu-open');
+            console.log('Мобильное меню закрыто');
+          }
+        });
+      </script>
+</body>
+</html> 

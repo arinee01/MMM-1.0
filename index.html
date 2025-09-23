@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Everyday Magic</title>
+  <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+  <link rel="manifest" href="icons/site.webmanifest">
+  <link rel="stylesheet" href="base.css" />
+  <script>
+    // Устанавливаем тему по умолчанию сразу
+    (function() {
+      const saved = localStorage.getItem('museumTheme');
+      const theme = saved || 'theme-1500';
+      document.body.classList.add(theme);
+    })();
+  </script>
+  <link rel="stylesheet" href="components.css" />
+  <link rel="stylesheet" href="theme-switcher.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Rye&family=Josefin+Sans:wght@400;600&family=Montserrat:wght@400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="progress-system.css">
+  <link rel="stylesheet" href="themes.css">
+  <link rel="stylesheet" href="animations.css">
+  <script src="https://kit.fontawesome.com/b7dc8e0f7f.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+
+</head>
+<body class="theme-1500">
+  <header class="navbar">
+    <div class="container">
+      <a href="#" class="logo">EVERYDAY MAGIC</a>
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="museum-map.html">Museum</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="documentation.html">Documentation</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Новое мобильное меню -->
+  <div class="mobile-nav" id="mobile-nav">
+    <div class="mobile-nav-content">
+      <button class="mobile-nav-close" id="mobile-nav-close">&times;</button>
+      <ul class="mobile-nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="museum-map.html">Museum</a></li>
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="documentation.html">Documentation</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="moon-overlay">
+    <div class="moon-container">
+      <h1 class="moon-text">
+        The Arcane<br><span class="second-line">Thread</span>
+      </h1>
+      <h2 class="moon-subtitle">MAMbo — Museo d'Arte Moderna di Bologna</h2>
+      <p class="moon-tagline">mystical, magical, and modern</p>
+    </div>
+  </section>
+  
+  
+  <div class="firefly-container">
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+    <div class="firefly"></div>
+  </div>
+
+  <section class="hero-experience-combined" id="home">
+    <div class="hero-content-wrapper">
+      <div class="hero-text">
+        <h1>Talismans, Rituals & Symbols</h1>
+        <h2>Explore the unseen forces people believe in — <br><span class="second-line">across time, culture, and technology.</span></h2>
+        <br>
+        <a href="#experience" class="btn-see-more">SEE MORE <i class="fa-solid fa-chevron-down"></i></a>
+      </div>
+  
+      <div class="experience-block" id="experience">
+        <div class="user-types">
+          <div class="user-card" onclick="selectUser('beginner')" data-user="beginner">
+            <img src="images/icons/ICONchildren.png" alt="Beginner">
+            <p data-text="BEGINNER">BEGINNER</p>
+          </div>
+          <div class="user-card" onclick="selectUser('casual')" data-user="casual">
+            <img src="images/icons/ICONgeneral.png" alt="Casual">
+            <p data-text="CASUAL">CASUAL</p>
+          </div>
+          <div class="user-card" onclick="selectUser('expert')" data-user="expert">
+            <img src="images/icons/ICONexpert.png" alt="Expert">
+            <p data-text="EXPERT">EXPERT</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+  
+  <section class="narratives-section" id="paths">
+    <h1 class="section-heading">Choose your path</h1>
+    <div class="tarot-cards">
+      
+      <div class="tarot-card-row left">
+        <div class="card-with-text">
+          <div class="card-text left-text">
+            <h2>1</h2>
+            <p>Journey from ancient civilizations to contemporary cultures to trace the evolution of mystical symbols, archetypes, and practices. Discover how ancient beliefs shaped the spiritual imagination over millennia. Perfect for curious beginners who want to start at the very roots of magical thinking.</p>
+            <a href="chrono.html" class="path-btn">Go to Chronological Path</a>
+          </div>
+          <div class="tarot-card" onclick="flipCard(this)">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="images/cards/card1-front.webp" alt="Card 1">
+              </div>
+              <div class="card-back">
+                <img src="images/cards/card3-back.webp" alt="Back 1">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="tarot-card-row right">
+        <div class="card-with-text">
+          <div class="tarot-card" onclick="flipCard(this)">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="images/cards/card2-front.webp" alt="Card 2">
+              </div>
+              <div class="card-back">
+                <img src="images/cards/card3-back.webp" alt="Back 2">
+              </div>
+            </div>
+          </div>
+          <div class="card-text right-text">
+            <h2>2</h2>
+            <p>Delve into how magical thinking persists in the digital age — from zodiac memes and TikTok rituals to the psychology of luck and intuition. This path connects ancient patterns of belief with modern phenomena, designed for casual seekers who want to see magic in everyday life.</p>
+            <a href="magic.html" class="path-btn">Go to Modern Magic</a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="tarot-card-row left">
+        <div class="card-with-text">
+          <div class="card-text left-text">
+            <h2>3</h2>
+            <p>A Cross-Cultural Journey Through Esoteric Systems<br>
+              Dive deep into the sacred texts, rituals, and philosophies of five civilizations — from Egypt to Japan. Examine protective symbols, mystic traditions, and systems of spiritual defense across space and time. Designed for scholars and esoteric enthusiasts.
+            </p>
+            <a href="crosscultural.html" class="path-btn">Go to Cross-Cultural Path</a>
+          </div>
+          <div class="tarot-card" onclick="flipCard(this)">
+            <div class="card-inner">
+              <div class="card-front">
+                <img src="images/cards/card3-front.webp" alt="Card 3">
+              </div>
+              <div class="card-back">
+                <img src="images/cards/card3-back.webp" alt="Back 3">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </section>
+    
+
+<!-- User-specific Content -->
+<section class="narratives-section">
+    <div class="content-by-user">
+      <div class="user-content" id="beginner-content">
+
+
+      </div>
+      <div class="user-content" id="casual-content">
+
+      </div>
+      <div class="user-content" id="expert-content">
+
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Everyday Magic</h3>
+        <p>Exploring the mystical threads that connect ancient wisdom to modern life.</p>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="footer-bottom-content">
+        <p>&copy; 2025 Everyday Magic. All rights reserved.</p>
+        <p>Contact: <a href="mailto:arina.gracheva@studio.unibo.it">arina.gracheva@studio.unibo.it</a> | <a href="mailto:arina.samylova@studio.unibo.it">arina.samylova@studio.unibo.it</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Navigation Buttons -->
+  <div class="navigation-buttons">
+    <a href="#" class="nav-btn disabled">
+      <i class="fas fa-chevron-left"></i>
+    </a>
+    <a href="#" onclick="navigateWithTheme('magic.html')" class="nav-btn">
+      <i class="fas fa-chevron-right"></i>
+    </a>
+  </div>
+  
+
+
+    <script src="theme-switcher.js"></script>
+    <script src="theme-ordering.js"></script>
+    <script src="local-ai.js"></script>
+    <script src="hero-helper.js"></script>
+    <script src="progress-system.js"></script>
+    <script src="index.js"></script>
+    
+    
+  </body>
+</html>

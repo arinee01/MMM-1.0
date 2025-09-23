@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cross-Cultural Path — Everyday Magic</title>
+  <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+  <link rel="manifest" href="icons/site.webmanifest">
+  <link rel="stylesheet" href="base.css" />
+  <link rel="stylesheet" href="components.css" />
+  <link rel="stylesheet" href="themes.css" />
+  <link rel="stylesheet" href="animations.css" />
+  <link rel="stylesheet" href="theme-switcher.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Rye&family=Josefin+Sans:wght@400;600&family=Montserrat:wght@400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="progress-system.css" />
+  <link rel="stylesheet" href="crosscultural.css" />
+  <link rel="stylesheet" href="themes.css" />
+  <script src="https://kit.fontawesome.com/b7dc8e0f7f.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="theme-switcher.js"></script>
+    <script src="crosscultural.js"></script>
+</head>
+<body class="theme-1500">
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">EVERYDAY MAGIC</a>
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="museum-map.html">Museum</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="documentation.html">Documentation</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Новое мобильное меню -->
+  <div class="mobile-nav" id="mobile-nav">
+    <div class="mobile-nav-content">
+      <button class="mobile-nav-close" id="mobile-nav-close">&times;</button>
+      <ul class="mobile-nav-links">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="museum-map.html">Museum</a></li>
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="documentation.html">Documentation</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="hero-experience-combined" id="crosscultural">
+    <div class="hero-content-wrapper">
+      <div class="hero-text">
+        <h1 class="section-heading">Cross-Cultural Path</h1>
+        <h2 class="intro-text">A Cross-Cultural Journey Through Esoteric Systems</h2>
+        <p class="subtitle-text">Dive deep into the sacred texts, rituals, and philosophies of five civilizations — from Egypt to Japan. Examine protective symbols, mystic traditions, and systems of spiritual defense across space and time.</p>
+        
+
+        
+
+      </div>
+      <div class="crosscultural-block">
+        <!-- Здесь можно добавить карту, список или интерактивные элементы -->
+        <div class="museum-map-container">
+          <div class="map-info">
+            <h3>Amulets Across Cultures</h3>
+          </div>
+          <!-- Интерактивная карта мира с амулетами -->
+          <div id="amulet-map" style="width: 100%; max-width: 900px; height: 480px; margin: 0 auto 2.5rem auto; border-radius: 18px; border: 2px solid var(--gold); box-shadow: 0 0 12px rgba(245,231,195,0.12);"></div>
+          <p style="color:var(--gold);text-align:center;margin-top:-1.5rem;margin-bottom:2rem;">Interactive Map: Click on amulets to learn more</p>
+          
+          <!-- Альтернативный контент для мобильных устройств -->
+          <div class="mobile-content">
+            <h2>Cross-Cultural Journey</h2>
+            <p>Explore the rich traditions of protective symbols and amulets across different civilizations. From Slavic protective dolls to Turkish evil eye beads, discover how cultures around the world have developed unique ways to protect against harm and bring good fortune.</p>
+            <p>On mobile devices, you can explore the interactive map above to learn about different amulets and their cultural significance. Each dot represents a unique artifact with its own story and protective properties.</p>
+          </div>
+          
+          <!-- Основные истории -->
+          <div class="book-container">
+            <div class="book">
+              <!-- Разворот 1: Славянская кукла -->
+              <div class="book-spread" data-story="slavic">
+                <div class="spread-left">
+                  <div class="story-content">
+                    <h4 class="story-title">The Faceless Guardian: Slavic Protective Dolls</h4>
+                    <div class="text-controls">
+                      <button onclick="setNarrativeLevel('slavic', 'brief')" class="text-level-btn">Beginner</button>
+                      <button onclick="setNarrativeLevel('slavic', 'medium')" class="text-level-btn">Casual</button>
+                      <button onclick="setNarrativeLevel('slavic', 'long')" class="text-level-btn">Expert</button>
+                    </div>
+                    <div class="story-text-container">
+                      <p id="slavic-text" class="story-text">
+                        A Thread of Protection, Woven by Hand
+
+In the Slavic world, dolls were never mere toys. They were guardians. Known as motanki—from the word motat, meaning "to wind" or "twist"—these faceless protective figures were handmade from cloth, straw, thread, and intention. Created without needles or knots, they were bound together through ritual gestures, often passed from mother to daughter.
+
+The absence of a face was crucial. According to folk belief, giving the doll a face could trap a soul inside or allow spirits to enter. A faceless doll, by contrast, served as a vessel of energy—pure, symbolic, and untouchable. It was not just a representation of a person, but of a protective presence. People placed motanki in cribs, attics, windowsills, and barns to guard against misfortune, illness, and the evil eye.
+
+Motanki were often made during liminal moments—births, weddings, the start of spring—when the boundary between the human and the spiritual was thought to thin. Each doll's form, colors, and patterns held symbolic weight: red thread for life force, cross patterns for the sun, knots (if present) for sealing protective energy.
+
+Today, motanki have experienced a revival. Artisans, folklorists, and spiritual practitioners across Ukraine, Poland, and Belarus recreate them not just as cultural heritage, but as symbols of ancestral memory, feminine resilience, and protection in a fast-moving world. What was once hung above a child's bed now graces altars, exhibitions, and wellness spaces—still faceless, still powerful.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="spread-right">
+                  <div class="story-image">
+                    <img src="images/objects/slavic_culture.webp" alt="Slavic Culture" class="main-image">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Разворот 2: Турецкий глаз -->
+              <div class="book-spread" data-story="turkish">
+                <div class="spread-left">
+                  <div class="story-content">
+                    <h4 class="story-title">The All-Seeing Eye: Turkish Nazar Boncuk</h4>
+                    <div class="text-controls">
+                      <button onclick="setNarrativeLevel('turkish', 'brief')" class="text-level-btn">Beginner</button>
+                      <button onclick="setNarrativeLevel('turkish', 'medium')" class="text-level-btn">Casual</button>
+                      <button onclick="setNarrativeLevel('turkish', 'long')" class="text-level-btn">Expert</button>
+                    </div>
+                    <div class="story-text-container">
+                      <p id="turkish-text" class="story-text">
+                        The Gaze That Reflects and Deflects
+
+The nazar boncuğu, or evil eye bead, is among the most enduring talismans of protection in human history. Found in homes, jewelry, storefronts, and even cars throughout Turkey and the eastern Mediterranean, this deep-blue amulet represents an ancient belief: that the human gaze can carry destructive power.
+
+Rooted in a concept found across cultures—from ancient Greece to Persia and North Africa—the evil eye is the idea that envy or excessive admiration can unconsciously harm its subject. The nazar bead counters this with its own unblinking eye: a stylized, concentric design of blue, white, and black glass, fired by hand and often worn on the body.
+
+The symbol draws from pre-Islamic and even pre-monotheistic traditions. Ottoman artisans in the 15th century refined its now-iconic form, blending Islamic aesthetics with Mediterranean glasswork. It was not unusual for entire families to wear eye-beads sewn into clothing or embedded in the walls of homes.
+
+There are stories of the nazar cracking at critical moments—"catching" the misfortune before it reached its target. Its power lies not in aggression, but in reflection. It sees for you, absorbs the negativity, and breaks when it must.
+
+In the digital age, the nazar is more than a physical charm; it's an emoji, a meme, a tattoo, a hashtag. It travels through Instagram stories, TikTok reels, and text messages as a symbol of personal boundaries and emotional resilience. Once forged in village kilns, it now circulates in the cloud—watching, still, from behind the screen.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="spread-right">
+                  <div class="story-image">
+                    <img src="images/objects/turkish_culture.webp" alt="Turkish Culture" class="main-image">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Разворот 3: Египетский жук -->
+              <div class="book-spread" data-story="egyptian">
+                <div class="spread-left">
+                  <div class="story-content">
+                    <h4 class="story-title">The Sun Roller: Egyptian Scarab Beetle</h4>
+                    <div class="text-controls">
+                      <button onclick="setNarrativeLevel('egyptian', 'brief')" class="text-level-btn">Beginner</button>
+                      <button onclick="setNarrativeLevel('egyptian', 'medium')" class="text-level-btn">Casual</button>
+                      <button onclick="setNarrativeLevel('egyptian', 'long')" class="text-level-btn">Expert</button>
+                    </div>
+                    <div class="story-text-container">
+                      <p id="egyptian-text" class="story-text">
+                        The Beetle That Rolled the Sun
+
+To modern eyes, the scarab may look like a simple beetle. But to the ancient Egyptians, it was the embodiment of Khepri, the solar deity who renewed the world each morning by rolling the sun across the sky—just as the scarab beetle (Scarabaeus sacer) rolls a ball of dung across the earth. This humble creature, found in the desert sands, became one of the most powerful symbols of rebirth, transformation, and divine protection.
+
+Carved from steatite, carnelian, lapis lazuli, or faience, scarabs were often engraved on the flat side with protective prayers, names of pharaohs, or hieroglyphic spells. They were worn as rings and amulets in life and sewn onto linen wrappings in death. Heart scarabs, in particular, were placed over the chest of mummies to ensure safe passage through the afterlife. The Book of the Dead instructed that they silence the heart's testimony during judgment, helping the soul achieve eternal balance.
+
+Scarabs also played a political role—used as seals, tokens of loyalty, and even diplomatic gifts. Their mass production shows both the spiritual devotion and the bureaucratic complexity of ancient Egyptian society.
+
+Even today, the image of the scarab endures. It's found in museums, jewelry, film, and spiritual practice. For some, it is a nod to ancient mystery; for others, a reminder of the cycles of life, death, and renewal. Once a sun god's symbol, it now rolls through modern time—quietly, persistently, toward the light.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="spread-right">
+                  <div class="story-image">
+                    <img src="images/objects/egypt_culture.webp" alt="Egyptian Culture" class="main-image">
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+          
+          <!-- Навигация по страницам книги - теперь под книгой -->
+          <div class="book-navigation">
+            <button class="book-nav-btn prev-btn" onclick="previousPage()">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="page-indicators">
+              <span class="page-dot active" data-page="0"></span>
+              <span class="page-dot" data-page="1"></span>
+              <span class="page-dot" data-page="2"></span>
+            </div>
+            <button class="book-nav-btn next-btn" onclick="nextPage()">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+          
+          <!-- Интерактивное исследование амулетов по культурам -->
+          <div class="amulets-section">
+            <div class="amulets-header">
+              <h3 style="color:var(--gold);text-align:center;margin-bottom:2rem;font-size:2rem;font-family:'Cinzel',serif;">🌍 Cultural Amulets Explorer</h3>
+              <p style="color:var(--gold);text-align:center;margin-bottom:2.5rem;font-size:1.1rem;opacity:0.9;">Discover protective objects from ancient civilizations to modern times</p>
+            </div>
+            
+            <!-- Культурные регионы в виде интерактивных карточек -->
+            <div class="culture-regions-grid">
+              <!-- Древний Египет -->
+              <div class="culture-region-card" data-region="egypt">
+                <div class="culture-card-header">
+                  <div class="culture-icon">🏺</div>
+                  <h4>Ancient Egypt</h4>
+                  <span class="culture-period">3000 BCE - 30 BCE</span>
+                </div>
+                <div class="culture-card-content">
+                  <p style="text-align:center;max-width:280px;margin:0 auto;line-height:1.4;">Land of pharaohs and pyramids, where scarabs rolled the sun and amulets protected the soul in the afterlife.</p>
+                  <div class="culture-amulets">
+                    <span class="amulet-tag" onclick="testShowAmulets('egypt')">Scarab Beetle</span>
+                  </div>
+                </div>
+                <div class="culture-card-footer">
+                  <button class="explore-culture-btn" onclick="testShowCulture('egypt')">Explore Culture</button>
+                </div>
+              </div>
+
+              <!-- Япония -->
+              <div class="culture-region-card" data-region="japan">
+                <div class="culture-card-header">
+                  <div class="culture-icon">⛩️</div>
+                  <h4>Japan</h4>
+                  <span class="culture-period">660 BCE - Present</span>
+                </div>
+                <div class="culture-card-content">
+                  <p style="text-align:center;max-width:280px;margin:0 auto;line-height:1.4;">Sacred shrines and temples where omamori charms carry whispered prayers and protect travelers on their journey.</p>
+                  <div class="culture-amulets">
+                    <span class="amulet-tag" onclick="testShowAmulets('japan')">Omamori</span>
+                  </div>
+                </div>
+                <div class="culture-card-footer">
+                  <button class="explore-culture-btn" onclick="testShowCulture('japan')">Explore Culture</button>
+                </div>
+              </div>
+
+              <!-- Мезоамерика -->
+              <div class="culture-region-card" data-region="mexico">
+                <div class="culture-card-header">
+                  <div class="culture-icon">🌵</div>
+                  <h4>Mesoamerica</h4>
+                  <span class="culture-period">2000 BCE - 1521 CE</span>
+                </div>
+                <div class="culture-card-content">
+                  <p style="text-align:center;max-width:280px;margin:0 auto;line-height:1.4;">Ancient civilizations of Aztecs and Maya, where the "deer eye" protected against envy and evil spirits.</p>
+                  <div class="culture-amulets">
+                    <span class="amulet-tag" onclick="testShowAmulets('mexico')">Ojo de Venado</span>
+                  </div>
+                </div>
+                <div class="culture-card-footer">
+                  <button class="explore-culture-btn" onclick="testShowCulture('mexico')">Explore Culture</button>
+                </div>
+              </div>
+
+              <!-- Африка -->
+              <div class="culture-region-card" data-region="africa">
+                <div class="culture-card-header">
+                  <div class="culture-icon">🦁</div>
+                  <h4>Africa</h4>
+                  <span class="culture-period">Ancient - Present</span>
+                </div>
+                <div class="culture-card-content">
+                  <p style="text-align:center;max-width:280px;margin:0 auto;line-height:1.4;">Land of powerful fetishes and ritual objects, where spirits dwell in carved figures and protect communities.</p>
+                  <div class="culture-amulets">
+                    <span class="amulet-tag" onclick="testShowAmulets('africa')">Bantu Fetish</span>
+                  </div>
+                </div>
+                <div class="culture-card-footer">
+                  <button class="explore-culture-btn" onclick="testShowCulture('africa')">Explore Culture</button>
+                </div>
+              </div>
+
+              <!-- Корея -->
+              <div class="culture-region-card" data-region="korea">
+                <div class="culture-card-header">
+                  <div class="culture-icon">🎭</div>
+                  <h4>Korea</h4>
+                  <span class="culture-period">2333 BCE - Present</span>
+                </div>
+                <div class="culture-card-content">
+                  <p style="text-align:center;max-width:280px;margin:0 auto;line-height:1.4;">Land of shamanic traditions, where ritual knives cut away misfortune and protect homes from evil spirits.</p>
+                  <div class="culture-amulets">
+                    <span class="amulet-tag" onclick="testShowAmulets('korea')">Korean Shamanic Knife</span>
+                  </div>
+                </div>
+                <div class="culture-card-footer">
+                  <button class="explore-culture-btn" onclick="testShowCulture('korea')">Explore Culture</button>
+                </div>
+              </div>
+
+              <!-- Европа -->
+              <div class="culture-region-card" data-region="europe">
+                <div class="culture-card-header">
+                  <div class="culture-icon">⛪</div>
+                  <h4>Europe</h4>
+                  <span class="culture-period">Ancient - Present</span>
+                </div>
+                <div class="culture-card-content">
+                  <p style="text-align:center;max-width:280px;margin:0 auto;line-height:1.4;">From Christian medals to Slavic dolls, European amulets blend religious faith with ancient folk traditions.</p>
+                  <div class="culture-amulets">
+                    <span class="amulet-tag" onclick="showEuropeanCatholicAmulet()">St. Benedict Medal</span>
+                    <span class="amulet-tag" onclick="showEuropeanSlavicAmulet()">Slavic Protective Doll</span>
+                  </div>
+                </div>
+                <div class="culture-card-footer">
+                  <button class="explore-culture-btn" onclick="testShowCulture('europe')">Explore Culture</button>
+                </div>
+              </div>
+
+              <!-- Скандинавия -->
+              <div class="culture-region-card" data-region="nordic">
+                <div class="culture-card-header">
+                  <div class="culture-icon">⚔️</div>
+                  <h4>Nordic</h4>
+                  <span class="culture-period">793 - 1066 CE</span>
+                </div>
+                <div class="culture-card-content">
+                  <p style="text-align:center;max-width:280px;margin:0 auto;line-height:1.4;">Viking warriors and Norse mythology, where runic symbols like the Helm of Awe protected in battle.</p>
+                  <div class="culture-amulets">
+                    <span class="amulet-tag" onclick="testShowAmulets('nordic')">Ægishjálmr (Helm of Awe)</span>
+                  </div>
+                </div>
+                <div class="culture-card-footer">
+                  <button class="explore-culture-btn" onclick="testShowCulture('nordic')">Explore Culture</button>
+                </div>
+              </div>
+
+              <!-- Современность -->
+              <div class="culture-region-card" data-region="modern">
+                <div class="culture-card-header">
+                  <div class="culture-icon">💻</div>
+                  <h4>Modern Era</h4>
+                  <span class="culture-period">2000 - Present</span>
+                </div>
+                <div class="culture-card-content">
+                  <p style="text-align:center;max-width:280px;margin:0 auto;line-height:1.4;">Digital age where ancient beliefs meet technology, from NFT amulets to gaming talismans.</p>
+                  <div class="culture-amulets">
+                    <span class="amulet-tag" onclick="showModernDigitalAmulet()">NFT Digital Amulet</span>
+                    <span class="amulet-tag" onclick="showModernFantasyAmulet()">RPG Magic Amulet</span>
+                  </div>
+                </div>
+                <div class="culture-card-footer">
+                  <button class="explore-culture-btn" onclick="testShowCulture('modern')">Explore Culture</button>
+                </div>
+              </div>
+            </div>
+            
+
+            
+            <!-- Секции культур в стиле амулетов -->
+            
+            <!-- Секция культуры Древнего Египта -->
+            <section class="culture-section" data-region="egypt-culture" style="display:none;">
+              <div class="section-header">
+                <h2>Ancient Egypt</h2>
+                <button onclick="hideAllSections()" class="close-button">✕ Close</button>
+              </div>
+              <img src="images/backgrounds/bg_scarab.webp" alt="Ancient Egypt" class="amulet-img">
+              <p><strong>Ancient Egypt</strong> — Land of pharaohs and pyramids, where scarabs rolled the sun and amulets protected the soul in the afterlife.</p>
+              <details style="margin-top:0.7rem;">
+                <summary style="color:var(--gold);cursor:pointer;">Read more / Legend</summary>
+                <div style="color:var(--gold);font-size:0.97rem;margin-top:0.5rem;">
+                  In ancient Egypt, amulets were not merely decorative objects—they were essential tools for survival in the afterlife. The Egyptians believed that the soul needed protection during its journey through the underworld, and amulets served as magical armor against the dangers that awaited. The scarab beetle, representing the sun god Khepri, was one of the most powerful protective symbols. Carved from stone, faience, or precious metals, scarabs were placed over the heart of mummies to ensure safe passage. The Book of the Dead instructed that these amulets would silence the heart's testimony during judgment, helping the soul achieve eternal balance. Today, the legacy of Egyptian amulets continues to inspire, reminding us that protection and spirituality have always been intertwined in human culture.
+                </div>
+              </details>
+            </section>
+            
+            <!-- Секция культуры Японии -->
+            <section class="culture-section" data-region="japan-culture" style="display:none;">
+              <div class="section-header">
+                <h2>Japan</h2>
+                <button onclick="hideAllSections()" class="close-button">✕ Close</button>
+              </div>
+              <img src="images/backgrounds/omamori.webp" alt="Japan" class="amulet-img">
+              <p><strong>Japan</strong> — Sacred shrines and temples where omamori charms carry whispered prayers and protect travelers on their journey.</p>
+              <details style="margin-top:0.7rem;">
+                <summary style="color:var(--gold);cursor:pointer;">Read more / Legend</summary>
+                <div style="color:var(--gold);font-size:0.97rem;margin-top:0.5rem;">
+                  In Japan, the tradition of protective amulets reaches back to ancient Shinto and Buddhist practices. Omamori, small cloth pouches containing written prayers, are among the most cherished protective objects in Japanese culture. These sacred charms are created by priests and monks who infuse them with spiritual energy through ritual ceremonies. Each omamori serves a specific protective purpose: safety during travel, success in studies, protection from illness, or finding love. They are sold at shrines and temples throughout Japan, where visitors can choose the perfect charm for their needs. The pouches are never opened, as their magic is contained within the sacred space created by the priest's blessings. This tradition reflects the Japanese belief in the interconnectedness of the physical and spiritual worlds, where everyday objects can become vessels of divine protection.
+                </div>
+              </details>
+            </section>
+            
+            <!-- Секция культуры Мезоамерики -->
+            <section class="culture-section" data-region="mexico-culture" style="display:none;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+                <h2>Mesoamerica</h2>
+                <button onclick="hideAllSections()" class="close-button">✕ Close</button>
+              </div>
+              <img src="images/backgrounds/ojo_venado.webp" alt="Mesoamerica" class="amulet-img">
+              <p><strong>Mesoamerica</strong> — Ancient civilizations of Aztecs and Maya, where the "deer eye" protected against envy and evil spirits.</p>
+              <details style="margin-top:0.7rem;">
+                <summary style="color:var(--gold);cursor:pointer;">Read more / Legend</summary>
+                <div style="color:var(--gold);font-size:0.97rem;margin-top:0.5rem;">
+                  In the ancient civilizations of Mesoamerica, from the Aztecs to the Maya, protective amulets were deeply integrated into daily life and spiritual practice. The "Ojo de Venado" (Deer Eye) represents one of the most enduring protective traditions, believed to guard against the evil eye and negative energies. According to Mesoamerican cosmology, the deer possessed special spiritual sight, able to see spirits and dangers invisible to humans. The seed of the huizache tree, naturally shaped like an eye, was used to create protective amulets that would "see" and deflect harmful intentions. These amulets were traditionally worn by children and adults alike, hung on car mirrors, cribs, and backpacks. This tradition demonstrates how indigenous cultures developed sophisticated systems of spiritual protection that remain relevant in contemporary practice.
+                </div>
+              </details>
+            </section>
+            
+            <!-- Секция культуры Африки -->
+            <section class="culture-section" data-region="africa-culture" style="display:none;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+                <h2>Africa</h2>
+                <button onclick="hideAllSections()" class="close-button">✕ Close</button>
+              </div>
+              <img src="images/backgrounds/bantu_fetish.webp" alt="Africa" class="amulet-img">
+              <p><strong>Africa</strong> — Land of powerful fetishes and ritual objects, where spirits dwell in carved figures and protect communities.</p>
+              <details style="margin-top:0.7rem;">
+                <summary style="color:var(--gold);cursor:pointer;">Read more / Legend</summary>
+                <div style="color:var(--gold);font-size:0.97rem;margin-top:0.5rem;">
+                  Across the diverse cultures of Africa, protective amulets take many forms, from simple charms to complex ritual objects. Among the most powerful are fetishes—carved figures that serve as homes for protective spirits. These objects are not mere representations but living entities that require care and respect. Bantu fetishes, created by skilled carvers, are often made from wood, bone, or stone and decorated with shells, beads, and other materials. They are "fed" with offerings of food, oil, and smoke to maintain their protective power. During ceremonies, these objects become active participants, channeling spiritual energy to protect communities from harm. This tradition reflects the African understanding that protection comes not from the object itself, but from the relationship between humans and the spiritual world.
+                </div>
+              </details>
+            </section>
+            
+            <!-- Секция культуры Кореи -->
+            <section class="culture-section" data-region="korea-culture" style="display:none;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+                <h2>Korea</h2>
+                <button onclick="hideAllSections()" class="close-button">✕ Close</button>
+              </div>
+              <img src="images/backgrounds/korean_knife.webp" alt="Korea" class="amulet-img">
+              <p><strong>Korea</strong> — Land of shamanic traditions, where ritual knives cut away misfortune and protect homes from evil spirits.</p>
+              <details style="margin-top:0.7rem;">
+                <summary style="color:var(--gold);cursor:pointer;">Read more / Legend</summary>
+                <div style="color:var(--gold);font-size:0.97rem;margin-top:0.5rem;">
+                  Korean shamanic traditions, known as Muism, have developed sophisticated systems of spiritual protection that blend ancient beliefs with practical applications. Among the most powerful protective tools are ritual knives, used by shamans to cut away negative energies and protect homes from evil spirits. These ceremonial knives are not weapons but spiritual tools, often decorated with protective symbols and blessed through ritual ceremonies. They are hung in doorways or carried by shamans during protective rituals. The knife's power lies not in its physical form but in the spiritual energy channeled through it by the shaman. This tradition demonstrates how Korean culture has preserved ancient protective practices while adapting them to contemporary spiritual needs.
+                </div>
+              </details>
+            </section>
+            
+            <!-- Секция культуры Европы -->
+            <section class="culture-section" data-region="europe-culture" style="display:none;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+                <h2>Europe</h2>
+                <button onclick="hideAllSections()" class="close-button">✕ Close</button>
+              </div>
+              <img src="images/backgrounds/slavic.webp" alt="Europe" class="amulet-img">
+              <p><strong>Europe</strong> — From Christian medals to Slavic dolls, European amulets blend religious faith with ancient folk traditions.</p>
+              <details style="margin-top:0.7rem;">
+                <summary style="color:var(--gold);cursor:pointer;">Read more / Legend</summary>
+                <div style="color:var(--gold);font-size:0.97rem;margin-top:0.5rem;">
+                  European protective traditions span from ancient pagan practices to modern religious devotion, creating a rich tapestry of protective objects and beliefs. Christian amulets, such as the St. Benedict Medal, combine religious faith with protective magic, offering spiritual defense against evil forces. Slavic protective dolls, known as motanki, represent a different approach to protection. These faceless figures, created without needles or knots, are handmade from cloth and thread, often passed from mother to daughter. They guard children and homes from harm, absorbing negative energies and providing spiritual protection. The absence of a face on these dolls is crucial—it prevents spirits from entering and allows the doll to serve as a pure vessel of protective energy. These traditions demonstrate how European cultures have blended religious faith with ancient folk wisdom to create powerful protective systems.
+                </div>
+              </details>
+            </section>
+            
+            <!-- Секция культуры Скандинавии -->
+            <section class="culture-section" data-region="nordic-culture" style="display:none;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+                <h2>Nordic</h2>
+                <button onclick="hideAllSections()" class="close-button">✕ Close</button>
+              </div>
+              <img src="images/backgrounds/aegishjalmr.webp" alt="Nordic" class="amulet-img">
+              <p><strong>Nordic</strong> — Viking warriors and Norse mythology, where runic symbols like the Helm of Awe protected in battle.</p>
+              <details style="margin-top:0.7rem;">
+                <summary style="color:var(--gold);cursor:pointer;">Read more / Legend</summary>
+                <div style="color:var(--gold);font-size:0.97rem;margin-top:0.5rem;">
+                  In Norse mythology and Viking culture, protective magic was essential for survival in battle and daily life. The Ægishjálmr, or Helm of Awe, represents one of the most powerful protective symbols in Nordic tradition. This intricate runic design was painted on warriors' foreheads before battle to instill fear in enemies and provide magical protection. The Helm of Awe consists of eight arms radiating from a central point, each ending in three prongs. This design was believed to create an invisible barrier of protection around the wearer, deflecting weapons and negative intentions. The symbol was often carved into weapons, armor, and personal items to enhance their protective properties. Today, these ancient symbols continue to inspire, reminding us of the enduring power of Nordic magical traditions.
+                </div>
+              </details>
+            </section>
+            
+            <!-- Секция культуры Современности -->
+            <section class="culture-section" data-region="modern-culture" style="display:none;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+                <h2>Modern Era</h2>
+                <button onclick="hideAllSections()" class="close-button">✕ Close</button>
+              </div>
+              <img src="images/backgrounds/modern_magic.webp" alt="Modern Era" class="amulet-img">
+              <p><strong>Modern Era</strong> — Digital age where ancient beliefs meet technology, from NFT amulets to gaming talismans.</p>
+              <details style="margin-top:0.7rem;">
+                <summary style="color:var(--gold);cursor:pointer;">Read more / Legend</summary>
+                <div style="color:var(--gold);font-size:0.97rem;margin-top:0.5rem;">
+                  In the digital age, the concept of protective amulets has evolved to meet new technological realities. NFT amulets represent the latest evolution in this ancient tradition, combining blockchain technology with spiritual protection. These digital tokens serve as modern guardians for the virtual self, offering protection in the digital realm. Gaming culture has also embraced the concept of magical protection, with RPG amulets and talismans providing both in-game benefits and real-world inspiration. These virtual objects remind us that the human desire for protection and magical thinking transcends technological boundaries. The modern era demonstrates how ancient protective traditions can adapt to new contexts while maintaining their core spiritual purpose. Digital amulets may exist in virtual space, but they serve the same protective function as their ancient counterparts.
+                </div>
+              </details>
+            </section>
+
+
+          <div class="amulet-cultures-grid">
+            <!-- Египет -->
+            <section class="culture-section" data-region="egypt" style="display:none;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+                <h2>Egypt</h2>
+                <button onclick="hideAllSections()" class="close-button">✕ Close</button>
+              </div>
+              <img src="images/objects/scarab.jpg" alt="Egyptian Scarab" class="amulet-img">
+              <p><strong>Scarab</strong> — Symbol of rebirth and protection. Worn as a pendant, often made of stone or faience. Believed to bring luck and guard against evil.</p>
+              <details style="margin-top:0.7rem;">
+                <summary style="color:var(--gold);cursor:pointer;">Read more / Legend</summary>
+                <div style="color:var(--gold);font-size:0.97rem;margin-top:0.5rem;">
+                  They said the scarab rolled the sun across the sky — not just light, but fate itself. In tombs hidden beneath sand and stars, these amulets rested on silent chests, whispering spells into eternity. The flat side bore hieroglyphs, the names of kings and the pleas of lovers. It was not just protection — it was resurrection written in stone.
+                </div>
+              </details>
+              
+              <!-- Metadata Toggle Button -->
+              <div class="metadata-toggle-container">
+                <button class="metadata-toggle-btn" onclick="toggleCrossculturalMetadata('egypt')" title="Show Object Information">
+                  ⚙
+                </button>
+              </div>
+              
+              <!-- Expandable Metadata Section -->
+              <div id="egypt-metadata-section" class="metadata-section">
+                <div class="metadata-header">
+                  <h4>Object Information</h4>
+                </div>
+                <div id="egypt-metadata" class="artifact-metadata-content">
+                  <!-- Metadata will be dynamically loaded here -->
+                </div>
+              </div>
+            </section>
+            <!-- Япония -->
+            <section class="culture-section" data-region="japan" style="display:none;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+                <h2>Japan</h2>
+                <button onclick="hideAllSections()" class="close-button">✕ Close</button>
+              </div>
+              <img src="images/objects/omamori.jpg" alt="Japanese Omamori" class="amulet-img">
+              <p><strong>Omamori</strong> — Cloth pouch with a prayer inside. Sold at shrines, protects from misfortune and brings luck. Each omamori is for a specific aspect of life.</p>
+              <details style="margin-top:0.7rem;">
+                <summary style="color:var(--gold);cursor:pointer;">Read more / Legend</summary>
+                <div style="color:var(--gold);font-size:0.97rem;margin-top:0.5rem;">
+                  In a quiet mountain shrine, a monk stitched a charm by candlelight. Inside the silk pouch, a single word — hand-written — waited like a spell. Omamori are never opened; their magic is private. Each one listens in silence: to your footsteps, to your fears, to your heartbeat in traffic. And somehow, it knows what to protect before you do.
+                </div>
+              </details>
+              
+              <!-- Metadata Toggle Button -->
+              <div class="metadata-toggle-container">
+                <button class="metadata-toggle-btn" onclick="toggleCrossculturalMetadata('japan')" title="Show Object Information">
+                  ⚙
+                </button>
+              </div>
+              
+              <!-- Expandable Metadata Section -->
+              <div id="japan-metadata-section" class="metadata-section">
+                <div class="metadata-header">
+                  <h4>Object Information</h4>
+                </div>
+                <div id="japan-metadata" class="artifact-metadata-content">
+                  <!-- Metadata will be dynamically loaded here -->
+                </div>
+              </div>
+            </section>
+            <!-- Мексика -->
+            <section class="culture-section" data-region="mexico" style="display:none;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+                <h2>Mexico</h2>
+                <button onclick="hideAllSections()" class="close-button">✕ Close</button>
+              </div>
+              <img src="images/objects/ojo_venado.jpg" alt="Mexican Ojo de Venado" class="amulet-img">
+              <p><strong>Ojo de Venado</strong> — "Deer Eye" seed amulet, protects from the evil eye. Traditionally worn by children and adults alike.</p>
+              <details style="margin-top:0.7rem;">
+                <summary style="color:var(--gold);cursor:pointer;">Read more / Legend</summary>
+                <div style="color:var(--gold);font-size:0.97rem;margin-top:0.5rem;">
+                  They say deer see spirits in the trees. Their eyes never blink when danger comes. Worn by children and elders alike, the "eye of the deer" watches without judgment. Hung on car mirrors, cribs, and backpacks, it deflects the gaze of envy and the sting of gossip. You won't notice it working — until the harm never arrives.
+                </div>
+              </details>
+              
+              <!-- Metadata Toggle Button -->
+              <div class="metadata-toggle-container">
+                <button class="metadata-toggle-btn" onclick="toggleCrossculturalMetadata('mexico')" title="Show Object Information">
+                  ⚙
+                </button>
+              </div>
+              
+              <!-- Expandable Metadata Section -->
+              <div id="mexico-metadata-section" class="metadata-section">
+                <div class="metadata-header">
+                  <h4>Object Information</h4>
+                </div>
+                <div id="mexico-metadata" class="artifact-metadata-content">
+                  <!-- Metadata will be dynamically loaded here -->
+                </div>
+              </div>
+            </section>
+            <!-- Африка -->
+            <section class="culture-section" data-region="africa" style="display:none;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+                <h2>Africa (Bantu)</h2>
+                <button onclick="hideAllSections()" class="close-button">✕ Close</button>
+              </div>
+              <img src="images/objects/bantu_fetish.jpg" alt="Bantu Fetish" class="amulet-img">
+              <p><strong>Bantu Fetish</strong> — Ritual object believed to house spirits or protective forces. Used in ceremonies for healing and protection.</p>
+              <details style="margin-top:0.7rem;">
+                <summary style="color:var(--gold);cursor:pointer;">Read more / Legend</summary>
+                <div style="color:var(--gold);font-size:0.97rem;margin-top:0.5rem;">
+                  A fetish is not a toy, nor a trinket. It is a house for something older than names. In Bantu ceremonies, it's fed with smoke, with oil, with the breath of a song. Some say it speaks through dreams. Others claim it moves when no one is looking. It is protection, but it demands respect — because what it holds is alive.
+                </div>
+              </details>
+              
+              <!-- Metadata Toggle Button -->
+              <div class="metadata-toggle-container">
+                <button class="metadata-toggle-btn" onclick="toggleCrossculturalMetadata('africa')" title="Show Object Information">
+                  ⚙
+                </button>
+              </div>
+              
+              <!-- Expandable Metadata Section -->
+              <div id="africa-metadata-section" class="metadata-section">
+                <div class="metadata-header">
+                  <h4>Object Information</h4>
+                </div>
+                <div id="africa-metadata" class="artifact-metadata-content">
+                  <!-- Metadata will be dynamically loaded here -->
+                </div>
+              </div>
+            </section>
+            <!-- Корея -->
+            <section class="culture-section" data-region="korea" style="display:none;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+                <h2>Korea</h2>
+                <button onclick="hideAllSections()" class="close-button">✕ Close</button>
+              </div>
+              <img src="images/objects/korean_knife.jpg" alt="Korean Shamanic Knife" class="amulet-img">
+              <p><strong>Shamanic Knife</strong> — Used in rituals to ward off evil spirits and protect the home. Symbolizes cutting away misfortune.</p>
+              <details style="margin-top:0.7rem;">
+                <summary style="color:var(--gold);cursor:pointer;">Read more / Legend</summary>
+                <div style="color:var(--gold);font-size:0.97rem;margin-top:0.5rem;">
+                  Carved with symbols and dipped in salt, the ritual knife hung by the doorframe. Not to cut flesh, but to slice shadows. In old village tales, the blade flashed when spirits came too close. Some say the knife hummed during eclipses. Others believe it still glows faintly on certain nights — when it remembers the demons it banished.
+                </div>
+              </details>
+              
+              <!-- Metadata Toggle Button -->
+              <div class="metadata-toggle-container">
+                <button class="metadata-toggle-btn" onclick="toggleCrossculturalMetadata('korea')" title="Show Object Information">
+                  ⚙
+                </button>
+              </div>
+              
+              <!-- Expandable Metadata Section -->
+              <div id="korea-metadata-section" class="metadata-section">
+                <div class="metadata-header">
+                  <h4>Object Information</h4>
+                </div>
+                <div id="korea-metadata" class="artifact-metadata-content">
+                  <!-- Metadata will be dynamically loaded here -->
+                </div>
+              </div>
+            </section>
+            <!-- Европа: Католицизм и Славянство -->
+            <section class="culture-section" data-region="europe-catholic" style="display:none;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+                <h2>Europe (Catholicism)</h2>
+                <button onclick="hideAllSections()" class="close-button">✕ Close</button>
+              </div>
+              <img src="images/objects/st_benedict.jpg" alt="St. Benedict Medal" class="amulet-img">
+              <p><strong>St. Benedict Medal</strong> — Christian medal invoking protection against evil. Worn or placed in homes for spiritual defense.</p>
+              <details style="margin-top:0.7rem;">
+                <summary style="color:var(--gold);cursor:pointer;">Read more / Legend</summary>
+                <div style="color:var(--gold);font-size:0.97rem;margin-top:0.5rem;">
+                  They called it a silent exorcist. The medal was small, cold to the touch, etched with Latin letters that burned if you understood them. Monks wore it near their hearts. Farmers nailed it into barn doors. Soldiers hid it under armor. Even today, people say it's more than metal — it's a boundary line. Evil knows not to cross.
+                </div>
+              </details>
+              
+              <!-- Metadata Toggle Button -->
+              <div class="metadata-toggle-container">
+                <button class="metadata-toggle-btn" onclick="toggleCrossculturalMetadata('europe-catholic')" title="Show Object Information">
+                  ⚙
+                </button>
+              </div>
+              
+              <!-- Expandable Metadata Section -->
+              <div id="europe-catholic-metadata-section" class="metadata-section">
+                <div class="metadata-header">
+                  <h4>Object Information</h4>
+                </div>
+                <div id="europe-catholic-metadata" class="artifact-metadata-content">
+                  <!-- Metadata will be dynamically loaded here -->
+                </div>
+              </div>
+            </section>
+            <section class="culture-section" data-region="europe-slavic" style="display:none;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+                <h2>Europe (Slavic)</h2>
+                <button onclick="hideAllSections()" class="close-button">✕ Close</button>
+              </div>
+              <img src="images/objects/slavic_doll.jpg" alt="Slavic Protective Doll" class="amulet-img">
+              <p><strong>Protective Doll</strong> — Handmade doll, often without a face, used to guard children and homes from harm in Slavic traditions.</p>
+              <details style="margin-top:0.7rem;">
+                <summary style="color:var(--gold);cursor:pointer;">Read more / Legend</summary>
+                <div style="color:var(--gold);font-size:0.97rem;margin-top:0.5rem;">
+                  She has no face, because fate changes. Hand-twisted from linen and thread, she watched over cradles and ovens, always silent, always near. In some stories, she caught bad dreams in her skirts. In others, she left offerings for the spirits of the house. Never throw her away — only bury or burn her, with thanks.
+                </div>
+              </details>
+              
+              <!-- Metadata Toggle Button -->
+              <div class="metadata-toggle-container">
+                <button class="metadata-toggle-btn" onclick="toggleCrossculturalMetadata('europe-slavic')" title="Show Object Information">
+                  ⚙
+                </button>
+              </div>
+              
+              <!-- Expandable Metadata Section -->
+              <div id="europe-slavic-metadata-section" class="metadata-section">
+                <div class="metadata-header">
+                  <h4>Object Information</h4>
+                </div>
+                <div id="europe-slavic-metadata" class="artifact-metadata-content">
+                  <!-- Metadata will be dynamically loaded here -->
+                </div>
+              </div>
+            </section>
+            <!-- Скандинавия -->
+            <section class="culture-section" data-region="nordic" style="display:none;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+                <h2>Nordic</h2>
+                <button onclick="hideAllSections()" class="close-button">✕ Close</button>
+              </div>
+              <img src="images/objects/aegishjalmr.jpg" alt="Nordic Ægishjálmr" class="amulet-img">
+              <p><strong>Ægishjálmr (Helm of Awe)</strong> — Magical symbol painted or carved for protection in battle and to instill fear in enemies.</p>
+              <details style="margin-top:0.7rem;">
+                <summary style="color:var(--gold);cursor:pointer;">Read more / Legend</summary>
+                <div style="color:var(--gold);font-size:0.97rem;margin-top:0.5rem;">
+                  Forged from runes, the Helm of Awe was painted on warriors' foreheads before battle. It didn't block swords — it bent fear. Vikings claimed that with the symbol drawn between your eyes, no enemy could meet your gaze. Today, it hides in tattoos, in keychains, in code — still humming with frost and fire.
+                </div>
+              </details>
+              
+              <!-- Metadata Toggle Button -->
+              <div class="metadata-toggle-container">
+                <button class="metadata-toggle-btn" onclick="toggleCrossculturalMetadata('nordic')" title="Show Object Information">
+                  ⚙
+                </button>
+              </div>
+              
+              <!-- Expandable Metadata Section -->
+              <div id="nordic-metadata-section" class="metadata-section">
+                <div class="metadata-header">
+                  <h4>Object Information</h4>
+                </div>
+                <div id="nordic-metadata" class="artifact-metadata-content">
+                  <!-- Metadata will be dynamically loaded here -->
+                </div>
+              </div>
+            </section>
+            <!-- Современность -->
+            <section class="culture-section" data-region="modern-digital" style="display:none;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+                <h2>Modern Digital</h2>
+                <button onclick="hideAllSections()" class="close-button">✕ Close</button>
+              </div>
+              <img src="images/objects/nft_qr.jpg" alt="NFT Digital Amulet" class="amulet-img">
+              <p><strong>NFT Amulet</strong> — Digital token representing protection or luck in the virtual world. A modern take on ancient beliefs.</p>
+              <details style="margin-top:0.7rem;">
+                <summary style="color:var(--gold);cursor:pointer;">Read more / Legend</summary>
+                <div style="color:var(--gold);font-size:0.97rem;margin-top:0.5rem;">
+                  Once, amulets were carved in stone. Now, they shimmer on screens. In the blockchain mist, someone minted a symbol — unique, encrypted, eternal. They called it protection for your digital soul. It can't break, can't burn, can't fade. It exists between belief and bandwidth — a guardian for the virtual you.
+                </div>
+              </details>
+              
+              <!-- Metadata Toggle Button -->
+              <div class="metadata-toggle-container">
+                <button class="metadata-toggle-btn" onclick="toggleCrossculturalMetadata('modern-digital')" title="Show Object Information">
+                  ⚙
+                </button>
+              </div>
+              
+              <!-- Expandable Metadata Section -->
+              <div id="modern-digital-metadata-section" class="metadata-section">
+                <div class="metadata-header">
+                  <h4>Object Information</h4>
+                </div>
+                <div id="modern-digital-metadata" class="artifact-metadata-content">
+                  <!-- Metadata will be dynamically loaded here -->
+                </div>
+              </div>
+            </section>
+            <section class="culture-section" data-region="modern-fantasy" style="display:none;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+                <h2>Modern Fantasy</h2>
+                <button onclick="hideAllSections()" class="close-button">✕ Close</button>
+              </div>
+              <img src="images/objects/rpg_amulet.jpg" alt="RPG Magic Amulet" class="amulet-img">
+              <p><strong>RPG Magic Amulet</strong> — Inspired by fantasy games, symbolizes the enduring power of magical thinking in pop culture.</p>
+              <details style="margin-top:0.7rem;">
+                <summary style="color:var(--gold);cursor:pointer;">Read more / Legend</summary>
+                <div style="color:var(--gold);font-size:0.97rem;margin-top:0.5rem;">
+                  You found it in the chest. Or maybe won it after defeating the ice giant. Glowing faintly, the amulet pulsed with mana — or was it just your imagination? In games, this token boosts stats. But in real life, it reminds you: magic never left. It just respawned in stories, controllers, and dreams. Equip it wisely.
+                </div>
+              </details>
+              
+              <!-- Metadata Toggle Button -->
+              <div class="metadata-toggle-container">
+                <button class="metadata-toggle-btn" onclick="toggleCrossculturalMetadata('modern-fantasy')" title="Show Object Information">
+                  ⚙
+                </button>
+              </div>
+              
+              <!-- Expandable Metadata Section -->
+              <div id="modern-fantasy-metadata-section" class="metadata-section">
+                <div class="metadata-header">
+                  <h4>Object Information</h4>
+                </div>
+                <div id="modern-fantasy-metadata" class="artifact-metadata-content">
+                  <!-- Metadata will be dynamically loaded here -->
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="navigation-buttons">
+    <a href="#" onclick="navigateWithTheme('index.html')" class="nav-btn">
+      <i class="fas fa-chevron-left"></i>
+    </a>
+    <a href="#" onclick="navigateWithTheme('museum-map.html')" class="nav-btn">
+      <i class="fas fa-chevron-right"></i>
+    </a>
+  </div>
+
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Everyday Magic</h3>
+        <p>Digital Humanities Project<br>University of Bologna — DHDK</p>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <p>© 2025 Everyday Magic. All rights reserved.</p>
+          <p>Contact: <a href="mailto:arina.gracheva@studio.unibo.it">arina.gracheva@studio.unibo.it</a> | <a href="mailto:arina.samylova@studio.unibo.it">arina.samylova@studio.unibo.it</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  
+  <script src="local-ai.js"></script>
+  <script src="hero-helper.js"></script>
+  <script src="progress-system.js"></script>
+  <script src="perf-helpers.js"></script>
+  
+  <!-- Мобильное меню -->
+  <script>
+    // Мобильное меню
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+      const mobileNav = document.getElementById('mobile-nav');
+      const mobileNavClose = document.getElementById('mobile-nav-close');
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+      const body = document.body;
+      
+      console.log('DOM загружен, элементы:', {
+        mobileMenuToggle: mobileMenuToggle,
+        mobileNav: mobileNav,
+        mobileNavClose: mobileNavClose
+      });
+      
+      // Открытие мобильного меню
+      if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          console.log('Открытие мобильного меню');
+          
+          mobileMenuToggle.classList.add('active');
+          mobileNav.classList.add('active');
+          body.classList.add('menu-open');
+        });
+      }
+      
+      // Закрытие мобильного меню по кнопке
+      if (mobileNavClose) {
+        mobileNavClose.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          console.log('Закрытие мобильного меню по кнопке');
+          
+          closeMobileMenu();
+        });
+      }
+      
+      // Закрытие мобильного меню по клику на ссылку
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          console.log('Клик по ссылке мобильного меню');
+          closeMobileMenu();
+        });
+      });
+      
+      // Закрытие мобильного меню по клику вне меню
+      mobileNav.addEventListener('click', function(e) {
+        if (e.target === mobileNav) {
+          console.log('Клик вне мобильного меню');
+          closeMobileMenu();
+        }
+      });
+      
+      // Закрытие мобильного меню по Escape
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+          console.log('Нажата клавиша Escape');
+          closeMobileMenu();
+        }
+      });
+      
+      // Функция закрытия мобильного меню
+      function closeMobileMenu() {
+        mobileMenuToggle.classList.remove('active');
+        mobileNav.classList.remove('active');
+        body.classList.remove('menu-open');
+        console.log('Мобильное меню закрыто');
+      }
+    });
+  </script>
+</body>
+</html> 

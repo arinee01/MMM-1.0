@@ -1,0 +1,1113 @@
+/* === ПЕРЕМЕННЫЕ CSS === */
+/* Определение основных цветов и переменных для всего приложения */
+:root {
+  --offwhite: #f2f0eb;        /* Светло-белый цвет для основного текста */
+  --light-gold: #f5e7c3;      /* Светло-золотой цвет для акцентов и границ */
+  --black: #0d0d0d;           /* Темно-черный цвет для фона */
+  --gray: #888;                /* Серый цвет для второстепенного текста */
+  --grid-line: rgba(255, 255, 255, 0.07); /* Полупрозрачные линии сетки */
+  
+  /* Дополнительные переменные */
+  --accent: #e08aff;          /* Акцентный цвет */
+  --gold: #f5e7c3;            /* Золотистый цвет */
+  --text-soft: #ccc;          /* Мягкий цвет текста */
+  --ui-font: 'Helvetica Neue', sans-serif; /* Шрифт для UI элементов */
+  --magic-font: 'Cinzel', serif; /* Магический шрифт */
+}
+
+/* === ОСНОВНЫЕ СТИЛИ === */
+/* Базовые стили для всего документа */
+body {
+  font-family: 'Helvetica Neue', sans-serif;  /* Современный шрифт без засечек */
+  margin: 0;                                   /* Убираем стандартные отступы */
+  padding: 0;                                  /* Убираем стандартные внутренние отступы */
+  background-color: var(--black);              /* Темный фон */
+  color: var(--offwhite);                      /* Светлый цвет текста */
+  line-height: 1.6;                            /* Межстрочный интервал для читаемости */
+}
+
+/* === ARTIFACT HEADER === */
+.artifact-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.metadata-toggle-btn {
+  background: transparent;
+  color: var(--gold, #FFD700);
+  border: 2px solid var(--gold, #FFD700);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+  line-height: 1;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+  background-image: none !important;
+}
+
+.metadata-toggle-btn:hover {
+  background: rgba(255, 215, 0, 0.1);
+  border-color: var(--gold, #FFD700);
+  color: var(--gold, #FFD700);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  transform: scale(1.1);
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.metadata-toggle-btn.active {
+  background: rgba(255, 215, 0, 0.2);
+  border-color: var(--gold, #FFD700);
+  color: var(--gold, #FFD700);
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
+}
+
+/* === EXPANDABLE METADATA SECTION === */
+.metadata-section {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: 0;
+  opacity: 0;
+  border-top: 0px solid var(--grid-line);
+  background: var(--theme-bg, rgba(0, 0, 0, 0.05));
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  background-image: none !important;
+}
+
+.metadata-section.open {
+  max-height: 1200px;
+  opacity: 1;
+  margin-top: 1.5rem;
+  border-top: 2px solid var(--theme-text, #fff);
+  background: var(--theme-bg, rgba(0, 0, 0, 0.05));
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  background-image: none !important;
+}
+
+.metadata-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: var(--theme-bg, rgba(255, 255, 255, 0.1));
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 1rem;
+  border: 1px solid var(--theme-text, #fff);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  background-image: none !important;
+}
+
+.metadata-header h4 {
+  color: var(--theme-text, #fff);
+  font-family: var(--magic-font);
+  font-size: 1.1rem;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.artifact-metadata-content {
+  padding: 1.5rem;
+  overflow-y: auto;
+  max-height: 600px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease 0.2s;
+  background: var(--theme-bg, rgba(255, 255, 255, 0.05));
+  border-radius: 0 0 8px 8px;
+  min-height: 200px;
+  background-image: none !important;
+}
+
+.metadata-section.open .artifact-metadata-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === METADATA GRID === */
+.metadata-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.metadata-item {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--grid-line);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateX(20px);
+  background-image: none !important;
+}
+
+.metadata-section.open .metadata-item {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.metadata-item:nth-child(1) { transition-delay: 0.3s; }
+.metadata-item:nth-child(2) { transition-delay: 0.35s; }
+.metadata-item:nth-child(3) { transition-delay: 0.4s; }
+.metadata-item:nth-child(4) { transition-delay: 0.45s; }
+.metadata-item:nth-child(5) { transition-delay: 0.5s; }
+.metadata-item:nth-child(6) { transition-delay: 0.55s; }
+.metadata-item:nth-child(7) { transition-delay: 0.6s; }
+.metadata-item:nth-child(8) { transition-delay: 0.65s; }
+.metadata-item:nth-child(9) { transition-delay: 0.7s; }
+
+.metadata-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--accent);
+  transform: translateX(5px);
+  box-shadow: 0 0 15px rgba(224, 138, 255, 0.2);
+}
+
+.metadata-label {
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.metadata-value {
+  color: var(--text-soft);
+  font-size: 0.9rem;
+  font-family: var(--ui-font);
+  line-height: 1.4;
+}
+
+.metadata-loading {
+  text-align: center;
+  color: var(--accent);
+  font-style: italic;
+  padding: 2rem;
+  font-size: 1rem;
+  background: var(--theme-bg, rgba(0, 0, 0, 0.05));
+  border-radius: 8px;
+  border: 1px solid var(--grid-line);
+  background-image: none !important;
+}
+
+.metadata-error {
+  text-align: center;
+  color: var(--accent);
+  padding: 2rem;
+  background: rgba(255, 0, 0, 0.1);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  background-image: none !important;
+}
+
+.metadata-error p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+/* QR Widget Styles */
+.qr-widget {
+  max-width: 320px;
+  margin: 16px 0;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(191, 167, 106, 0.2);
+  backdrop-filter: blur(10px);
+  text-align: center;
+}
+
+.qr-widget h3 {
+  color: var(--gold);
+  margin: 0 0 0.5rem 0;
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.qr-widget #qr {
+  margin: 1rem auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.qr-widget .qr-link-text {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin: 0.5rem 0 0 0;
+  color: var(--text-soft);
+}
+
+.qr-widget .qr-link-text a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.qr-widget .qr-link-text a:hover {
+  color: var(--gold);
+  text-decoration: underline;
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 768px) {
+  .metadata-section {
+    max-height: 50vh;
+  }
+  
+  .metadata-toggle-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+}
+
+/* === ЗАГОЛОВКИ СЕКЦИЙ / ВВОДНЫЙ ТЕКСТ === */
+.section-heading {
+  font-family: 'Cinzel', serif;
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--light-gold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.intro-text {
+  font-size: 1rem;
+  color: var(--gray);
+  margin-bottom: 2rem;
+}
+
+/* === НАВИГАЦИОННАЯ ПАНЕЛЬ === */
+header.navbar {
+  margin-bottom: 0;                    /* Убираем отступ снизу */
+  padding-bottom: 0;                   /* Убираем внутренний отступ снизу */
+}
+
+/* === ОСНОВНОЙ КОНТЕЙНЕР === */
+/* Центральный контейнер для всего содержимого страницы */
+.narrative-container {
+  max-width: 1000px;           /* Максимальная ширина контейнера */
+  margin: 0 auto;              /* Центрирование по горизонтали */
+  padding-top: 2rem;           /* Отступ сверху */
+  text-align: center;          /* Выравнивание текста по центру */
+}
+
+/* === АУДИО ГИД === */
+/* Контейнер для аудио плеера с современным дизайном */
+.audio-wrapper {
+  background: rgba(255, 255, 255, 0.05);  /* Полупрозрачный фон */
+  border: 1px solid var(--grid-line);      /* Граница с цветом сетки */
+  border-radius: 12px;                     /* Скругленные углы */
+  padding: 1rem;                           /* Внутренние отступы */
+  max-width: 320px;                        /* Максимальная ширина */
+  margin: 0 auto 4rem;                     /* Центрирование и отступ снизу */
+  backdrop-filter: blur(4px);              /* Размытие фона */
+  -webkit-backdrop-filter: blur(4px);      /* Поддержка Safari */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Тень */
+  text-align: center;                      /* Выравнивание текста по центру */
+}
+
+#play-audio-btn {
+  background: transparent;
+  color: #fff2cc;
+  border: 1px solid #fff2cc;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#play-audio-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+#audio-label {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--light-gold);
+  display: block;
+}
+
+.audio-wrapper audio {
+  max-width: 100%;
+  outline: none;
+}
+
+/* === КРИСТАЛЛЫ === */
+/* Обертка для кристаллов с центрированием */
+.crystal-wrapper {
+  position: relative;                      /* Относительное позиционирование */
+  display: flex;                           /* Флекс-контейнер */
+  align-items: center;                     /* Выравнивание по центру по вертикали */
+  justify-content: center;                 /* Выравнивание по центру по горизонтали */
+  gap: 2rem;                               /* Расстояние между элементами */
+  margin-bottom: 3rem;                     /* Отступ снизу */
+}
+
+/* === ВРЕМЕННАЯ ШКАЛА === */
+/* Основная секция с временной шкалой для навигации по эпохам */
+.timeline-section {
+  margin: 3rem 0;                          /* Отступы сверху и снизу */
+  text-align: center;                      /* Выравнивание текста по центру */
+}
+
+/* === ШКАЛА ВРЕМЕНИ === */
+/* Горизонтальная шкала с маркерами эпох */
+.timeline-scale {
+  position: relative;                      /* Относительное позиционирование */
+  background: rgba(44, 24, 16, 0.3);      /* Полупрозрачный темный фон */
+  border: 2px solid var(--light-gold);     /* Золотистая граница */
+  border-radius: 50px;                     /* Сильно скругленные углы */
+  padding: 1rem 2rem;                      /* Внутренние отступы */
+  margin: 0 auto 2rem auto;                /* Центрирование и отступ снизу */
+  max-width: 800px;                        /* Максимальная ширина */
+  box-shadow: 0 4px 20px rgba(245, 231, 195, 0.2); /* Тень */
+  display: flex;                            /* Флекс-контейнер */
+  justify-content: space-between;           /* Распределение маркеров по краям */
+  align-items: center;                      /* Выравнивание по центру по вертикали */
+}
+
+.timeline-marker {
+  position: relative;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  border-radius: 20px;
+  background: transparent;
+  z-index: 3;
+  min-width: 120px;
+  text-align: center;
+}
+
+.timeline-marker:hover {
+  color: #fff;
+  background: rgba(245, 231, 195, 0.1);
+  transform: translateY(-2px);
+}
+
+.timeline-marker.active {
+  color: var(--light-gold);
+  background: rgba(245, 231, 195, 0.1);
+  box-shadow: 0 0 15px rgba(245, 231, 195, 0.3);
+  transform: scale(1.05);
+}
+
+.timeline-indicator {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 30px;
+  background: linear-gradient(180deg, var(--light-gold) 0%, transparent 100%);
+  border-radius: 2px;
+  transition: left 0.5s ease;
+  z-index: 2;
+  box-shadow: 0 0 10px var(--light-gold);
+}
+
+.timeline-indicator::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -4px;
+  width: 12px;
+  height: 12px;
+  background: var(--light-gold);
+  border-radius: 50%;
+  box-shadow: 0 0 15px var(--light-gold);
+}
+
+.era-label {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--light-gold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.era-period {
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--gray);
+  margin-bottom: 0.5rem;
+  text-transform: none;
+  letter-spacing: 0.5px;
+}
+
+/* === АРТЕФАКТЫ === */
+/* Основной контейнер для отображения артефактов и информации */
+.artifact-content {
+  display: flex;                           /* Флекс-контейнер */
+  gap: 3rem;                               /* Расстояние между элементами */
+  margin: 3rem 0;                          /* Отступы сверху и снизу */
+  align-items: flex-start;                 /* Выравнивание по верху */
+  max-width: 1200px;                       /* Максимальная ширина */
+  margin-left: auto;                       /* Автоматический отступ слева */
+  margin-right: auto;                      /* Автоматический отступ справа */
+  padding: 0 2rem;                         /* Внутренние отступы */
+}
+
+.artifact-left {
+  flex: 0 0 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.artifact-right {
+  flex: 1;
+  min-width: 0;
+}
+
+.artifact-window {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s ease;
+}
+
+.artifact-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.8s ease;
+  z-index: 1;
+}
+
+.crystal {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#artifact-image {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  cursor: zoom-in;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+#artifact-image.enlarged {
+  max-width: 95%;
+  max-height: 95%;
+  transform: scale(1.2);
+  cursor: zoom-out;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  animation: fadeInZoom 0.4s ease;
+}
+
+/* === АНИМАЦИИ === */
+/* Анимация плавного увеличения изображений при клике */
+@keyframes fadeInZoom {
+  from {
+    opacity: 0.8;                           /* Начальная прозрачность */
+    transform: scale(1);                     /* Начальный размер */
+  }
+  to {
+    opacity: 1;                              /* Конечная прозрачность */
+    transform: scale(1.2);                   /* Конечный размер (увеличение) */
+  }
+}
+
+.artifact-controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.arrow-button {
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-family: var(--ui-font);
+  font-weight: 600;
+}
+
+.arrow-button:hover {
+  background: var(--accent);
+  color: black;
+  box-shadow: 0 0 12px var(--accent), 0 0 24px rgba(224, 138, 255, 0.5), 0 0 48px rgba(224, 138, 255, 0.3);
+}
+
+/* === ARTIFACT INFO === */
+.artifact-info {
+  background: rgba(0, 0, 0, 0.1);
+  border-left: 3px solid var(--light-gold);
+  border-radius: 8px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+.artifact-info h2 {
+  color: var(--text-soft);
+  font-family: var(--magic-font);
+  font-size: 1.8rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+  text-transform: none;
+}
+
+.text-controls {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.text-controls button {
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: var(--ui-font);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.text-controls button:hover {
+  background: var(--accent);
+  color: black;
+  box-shadow: 0 0 12px var(--accent), 0 0 24px rgba(224, 138, 255, 0.5), 0 0 48px rgba(224, 138, 255, 0.3);
+}
+
+#text-block {
+  font-size: 1.08rem;
+  line-height: 1.7;
+  color: var(--gold, #f5e7c3);
+  font-family: 'Helvetica Neue', sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-transform: none !important;
+  margin: 0;
+  text-align: left;
+}
+
+/* === АДАПТИВНЫЙ ДИЗАЙН === */
+/* === ПЛАНШЕТЫ (1024px и меньше) === */
+@media (max-width: 1024px) {
+  .artifact-content {
+    flex-direction: column;                 /* Вертикальное расположение */
+    gap: 2rem;                             /* Уменьшенное расстояние */
+  }
+  
+  .artifact-left {
+    flex: none;
+    width: 100%;
+  }
+  
+  .artifact-window {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .artifact-content {
+    gap: 1.5rem;
+  }
+  
+  .artifact-window {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .artifact-info {
+    padding: 1.5rem;
+  }
+  
+  .artifact-info h2 {
+    font-size: 1.5rem;
+  }
+  
+  .text-controls {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .text-controls button {
+    width: 100%;
+  }
+}
+
+/* === КНОПКИ НАВИГАЦИИ ПО СТРЕЛКАМ === */
+/* Кнопки для перехода между артефактами */
+.arrow-button {
+  background: transparent;                   /* Прозрачный фон */
+  border: none;                              /* Без границ */
+  color: var(--offwhite);                    /* Светлый цвет */
+  font-size: 2rem;                           /* Размер стрелок */
+  cursor: pointer;                            /* Курсор-указатель */
+  transition: transform 0.3s ease;            /* Плавная анимация */
+  position: relative;                         /* Относительное позиционирование */
+  z-index: 2;                                 /* Уровень слоя */
+}
+
+/* === ЭФФЕКТЫ НАВЕДЕНИЯ === */
+/* Увеличение кнопок при наведении курсора */
+.arrow-button:hover {
+  transform: scale(1.2);                     /* Увеличение на 20% */
+}
+
+/* === ФУТЕР === */
+/* Нижняя часть страницы с информацией */
+footer {
+  margin-top: 4rem;                         /* Отступ сверху */
+  text-align: center;                        /* Выравнивание по центру */
+  padding: 1rem;                             /* Внутренние отступы */
+  color: var(--gray);                        /* Серый цвет текста */
+  font-size: 0.9rem;                        /* Размер шрифта */
+}
+
+/* === КОНТЕЙНЕР ФОНА === */
+/* Контейнер для динамической смены фоновых изображений */
+#background-container {
+  background-size: cover;                    /* Покрытие всего контейнера */
+  background-position: center;               /* Центрирование фона */
+  background-repeat: no-repeat;              /* Без повторения */
+  background-color: black;                   /* Цвет фона по умолчанию */
+  transition: background-image 1s ease-in-out; /* Плавная смена фона */
+} 
+
+/* === СТИЛИ ТЕКСТА === */
+/* Принудительные стили для текстовых блоков и информации об артефактах */
+#text-block, #text-block *, .artifact-info, .artifact-info * {
+  text-transform: none !important;           /* Без трансформации текста */
+  font-variant: normal !important;           /* Обычный вариант шрифта */
+  font-family: 'Helvetica Neue', sans-serif !important; /* Современный шрифт */
+  font-style: italic !important;             /* Курсивное начертание */
+  font-weight: 400 !important;               /* Обычная жирность */
+  letter-spacing: 0.5px !important;         /* Расстояние между буквами */
+  color: var(--gold, #f5e7c3) !important;  /* Золотистый цвет текста */
+}
+
+/* === НАВИГАЦИОННЫЕ КНОПКИ === */
+/* Стили перенесены в components.css */
+
+/* === ПЕРЕКЛЮЧАТЕЛЬ ТЕМ === */
+/* Плавающая кнопка для смены темы оформления */
+.theme-fab {
+  position: fixed;                          /* Фиксированное позиционирование */
+  top: 2rem;                                /* Отступ сверху */
+  right: 2rem;                              /* Отступ справа */
+  width: 60px;                              /* Ширина кнопки */
+  height: 60px;                             /* Высота кнопки */
+  background: rgba(245, 231, 195, 0.1);    /* Полупрозрачный фон */
+  border: 2px solid var(--light-gold);      /* Золотистая граница */
+  border-radius: 50%;                       /* Круглая форма */
+  display: flex;                             /* Флекс-контейнер */
+  align-items: center;                       /* Выравнивание по центру по вертикали */
+  justify-content: center;                   /* Выравнивание по центру по горизонтали */
+  cursor: pointer;                           /* Курсор-указатель */
+  font-size: 1.5rem;                        /* Размер иконки */
+  z-index: 1000;                            /* Высокий z-index */
+  backdrop-filter: blur(10px);              /* Размытие фона */
+  transition: all 0.3s ease;                /* Плавные переходы */
+}
+
+.theme-fab:hover {
+  background: rgba(245, 231, 195, 0.2);
+  transform: scale(1.1);
+  box-shadow: 0 4px 20px rgba(245, 231, 195, 0.3);
+}
+
+/* === ПАНЕЛЬ ВЫБОРА ТЕМ === */
+/* Выпадающая панель для переключения тем оформления */
+.theme-panel {
+  position: fixed;                            /* Фиксированное позиционирование */
+  top: 5rem;                                  /* Отступ сверху */
+  right: 2rem;                                /* Отступ справа */
+  background: rgba(0, 0, 0, 0.8);            /* Полупрозрачный темный фон */
+  border: 2px solid var(--light-gold);        /* Золотистая граница */
+  border-radius: 12px;                        /* Скругленные углы */
+  padding: 1rem;                              /* Внутренние отступы */
+  z-index: 1000;                              /* Высокий z-index */
+  backdrop-filter: blur(10px);                /* Размытие фона */
+  opacity: 0;                                 /* Начальная прозрачность */
+  visibility: hidden;                         /* Скрыта по умолчанию */
+  transform: translateY(-10px);               /* Начальное смещение вверх */
+  transition: all 0.3s ease;                  /* Плавные переходы */
+}
+
+/* === АКТИВНОЕ СОСТОЯНИЕ ПАНЕЛИ ТЕМ === */
+/* Стили для видимой панели выбора тем */
+.theme-panel.active {
+  opacity: 1;                                  /* Полная видимость */
+  visibility: visible;                         /* Показ панели */
+  transform: translateY(0);                    /* Возврат в исходное положение */
+}
+
+/* === ЗАГОЛОВОК ПАНЕЛИ ТЕМ === */
+/* Стили для заголовка панели выбора тем */
+.theme-panel-title {
+  color: var(--light-gold);                   /* Золотистый цвет */
+  font-family: 'Cinzel', serif;               /* Декоративный шрифт */
+  font-size: 0.9rem;                          /* Размер шрифта */
+  font-weight: 600;                            /* Жирность шрифта */
+  margin-bottom: 0.8rem;                      /* Отступ снизу */
+  text-align: center;                          /* Выравнивание по центру */
+  letter-spacing: 0.5px;                      /* Расстояние между буквами */
+}
+
+/* === КНОПКИ В ПАНЕЛИ ТЕМ === */
+/* Стили для кнопок выбора темы */
+.theme-panel button {
+  display: block;                              /* Блочное отображение */
+  width: 100%;                                 /* Полная ширина */
+  background: transparent;                     /* Прозрачный фон */
+  border: 1px solid var(--light-gold);        /* Золотистая граница */
+  color: var(--light-gold);                   /* Золотистый цвет текста */
+  padding: 0.5rem 1rem;                       /* Внутренние отступы */
+  margin-bottom: 0.5rem;                      /* Отступ снизу */
+  border-radius: 6px;                          /* Скругленные углы */
+  cursor: pointer;                             /* Курсор-указатель */
+  font-family: 'Cinzel', serif;               /* Декоративный шрифт */
+  font-size: 0.8rem;                          /* Размер шрифта */
+  letter-spacing: 0.3px;                      /* Расстояние между буквами */
+  transition: all 0.3s ease;                  /* Плавные переходы */
+}
+
+/* === ПОСЛЕДНЯЯ КНОПКА В ПАНЕЛИ === */
+/* Убираем отступ у последней кнопки */
+.theme-panel button:last-child {
+  margin-bottom: 0;                            /* Без отступа снизу */
+}
+
+.theme-panel button:hover {
+  background: rgba(245, 231, 195, 0.1);
+  transform: translateX(5px);
+}
+
+.theme-panel button.active {
+  background: var(--light-gold);
+  color: #000;
+  font-weight: 600;
+}
+
+/* === АНИМАЦИЯ ПАНЕЛИ ТЕМ === */
+/* Перенесена в theme-switcher.css */
+
+/* === МОБИЛЬНЫЕ УСТРОЙСТВА (480px и меньше) === */
+/* Адаптация временной шкалы для маленьких экранов */
+@media (max-width: 480px) {
+  .timeline-scale {
+    padding: 0.5rem 0.3rem;
+    max-width: 98vw;
+    gap: 0.2rem;
+  }
+  .timeline-marker {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.5rem;
+    min-width: 0;
+    word-break: break-word;
+  }
+}
+
+/* === АДАПТАЦИЯ ТЕКСТА ДЛЯ МОБИЛЬНЫХ === */
+@media (max-width: 480px) {
+  .section-heading,
+  .intro-text,
+  .artifact-info,
+  #text-block {
+    max-width: 85vw;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 0.8rem;
+    line-height: 1.8;
+    text-align: left;
+  }
+  .artifact-info {
+    padding: 1rem 0.8rem;
+  }
+  .audio-wrapper {
+    max-width: 95vw;
+  }
+}
+
+/* === ТЕМАТИЧЕСКИЕ СТИЛИ === */
+
+/* === ТЕМА 1500 (ДРЕВНОСТЬ) === */
+body.theme-1500 .timeline-scale {
+  background: rgba(44, 24, 16, 0.3);
+  border: 2px solid #bfa76a;
+  box-shadow: 0 4px 20px rgba(191, 167, 106, 0.2);
+}
+
+body.theme-1500 .timeline-marker {
+  color: #bfa76a;
+  font-family: 'Cinzel', serif;
+}
+
+body.theme-1500 .timeline-marker.active {
+  background: #bfa76a;
+  color: #2c1810;
+  box-shadow: 0 0 20px rgba(191, 167, 106, 0.4);
+}
+
+body.theme-1500 .era-period {
+  font-family: 'Cinzel', serif;
+  color: #bfa76a;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+body.theme-1500 .artifact-info {
+  background: rgba(44, 24, 16, 0.2);
+  border-left: 3px solid #bfa76a;
+  box-shadow: 0 4px 20px rgba(191, 167, 106, 0.1);
+}
+
+body.theme-1500 .artifact-info h2 {
+  font-family: var(--magic-font);
+  color: var(--text-soft);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+body.theme-1500 #text-block {
+  font-family: 'Helvetica Neue', sans-serif;
+  color: var(--gold, #f5e7c3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* === ТЕМА 19C (XIX ВЕК) === */
+body.theme-19c .timeline-scale {
+  background: rgba(26, 26, 46, 0.3);
+  border: 2px solid #ffd700;
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.2);
+}
+
+body.theme-19c .timeline-marker {
+  color: #ffd700;
+  font-family: 'Cinzel', serif;
+}
+
+body.theme-19c .timeline-marker.active {
+  background: #ffd700;
+  color: #1a1a2e;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+}
+
+body.theme-19c .era-period {
+  font-family: 'Cinzel', serif;
+  color: #ffd700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+body.theme-19c .artifact-info {
+  background: rgba(26, 26, 46, 0.2);
+  border-left: 3px solid #ffd700;
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.1);
+}
+
+body.theme-19c .artifact-info h2 {
+  font-family: var(--magic-font);
+  color: var(--text-soft);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+body.theme-19c #text-block {
+  font-family: 'Helvetica Neue', sans-serif;
+  color: var(--gold, #f5e7c3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* === ТЕМА EARLY20C (НАЧАЛО XX ВЕКА) === */
+body.theme-early20c .timeline-scale {
+  background: rgba(135, 206, 235, 0.2);
+  border: 2px solid #87CEEB;
+  box-shadow: 0 4px 20px rgba(135, 206, 235, 0.3);
+}
+
+body.theme-early20c .timeline-marker {
+  color: #87CEEB;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+body.theme-early20c .timeline-marker.active {
+  color: #00BFFF;
+  text-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+}
+
+body.theme-early20c .era-period {
+  font-family: 'Josefin Sans', sans-serif;
+  color: #87CEEB;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+body.theme-early20c .artifact-info {
+  background: rgba(135, 206, 235, 0.15);
+  border-left: 3px solid #87CEEB;
+  box-shadow: 0 4px 20px rgba(135, 206, 235, 0.2);
+}
+
+body.theme-early20c .artifact-info h2 {
+  font-family: var(--magic-font);
+  color: #87CEEB;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+body.theme-early20c #text-block {
+  font-family: 'Josefin Sans', sans-serif;
+  color: #E0F6FF;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* === ТЕМА LATE20C (2035) === */
+body.theme-late20c .timeline-scale {
+  background: rgba(255, 215, 0, 0.15);
+  border: 2px solid #FFD700;
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.2);
+}
+
+body.theme-late20c .timeline-marker {
+  color: #FFD700;
+  font-family: 'Orbitron', monospace;
+}
+
+body.theme-late20c .timeline-marker.active {
+  color: #FFA500;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+body.theme-late20c .era-period {
+  font-family: 'Orbitron', monospace;
+  color: #FFD700;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+body.theme-late20c .artifact-info {
+  background: rgba(255, 215, 0, 0.1);
+  border-left: 3px solid #FFD700;
+  box-shadow: 0 4px 20px rgba(255, 215, 0, 0.15);
+}
+
+body.theme-late20c .artifact-info h2 {
+  font-family: var(--magic-font);
+  color: #FFD700;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+body.theme-late20c #text-block {
+  font-family: 'Orbitron', monospace;
+  color: #FFF8DC;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+body.theme-late20c .intro-text {
+  font-family: 'Orbitron', monospace;
+  color: #FFF8DC;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* === ОБЩИЕ СТИЛИ ДЛЯ ВСЕХ ТЕМ === */
+/* Кнопки управления текстом и стрелки навигации */
+body[class*="theme-"] .text-controls button,
+body[class*="theme-"] .arrow-button {
+  border-color: inherit;
+  color: inherit;
+}
+
+body[class*="theme-"] .text-controls button:hover,
+body[class*="theme-"] .arrow-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Индикаторы временной шкалы для разных тем */
+body.theme-1500 .timeline-indicator {
+  background: linear-gradient(180deg, #bfa76a 0%, transparent 100%);
+  box-shadow: 0 0 10px #bfa76a;
+}
+
+body.theme-1500 .timeline-indicator::before {
+  background: #bfa76a;
+  box-shadow: 0 0 15px #bfa76a;
+}
+
+body.theme-19c .timeline-indicator {
+  background: linear-gradient(180deg, #ffd700 0%, transparent 100%);
+  box-shadow: 0 0 10px #ffd700;
+}
+
+body.theme-19c .timeline-indicator::before {
+  background: #ffd700;
+  box-shadow: 0 0 15px #ffd700;
+}
+
+body.theme-early20c .timeline-indicator {
+  background: linear-gradient(180deg, #87CEEB 0%, transparent 100%);
+  box-shadow: 0 0 10px #87CEEB;
+}
+
+body.theme-early20c .timeline-indicator::before {
+  background: #87CEEB;
+  box-shadow: 0 0 15px #87CEEB;
+}
+
+body.theme-late20c .timeline-indicator {
+  background: linear-gradient(180deg, #FFD700 0%, transparent 100%);
+  box-shadow: 0 0 10px #FFD700;
+}
+
+body.theme-late20c .timeline-indicator::before {
+  background: #FFD700;
+  box-shadow: 0 0 15px #FFD700;
+} 

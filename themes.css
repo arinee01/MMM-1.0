@@ -1,0 +1,2149 @@
+/* === СИСТЕМА ТЕМ === */
+
+/* === ФИКСИРОВАННЫЕ СТИЛИ ДЛЯ КНОПКИ ПРОГРЕССА ВО ВСЕХ ТЕМАХ === */
+.progress-btn {
+  position: fixed !important;
+  top: 190px !important;
+  left: 30px !important;
+  width: 60px !important;
+  height: 60px !important;
+  background: rgba(30, 30, 30, 0.78) !important;
+  border: 2px solid var(--gold, #F4E4BC) !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  z-index: 1000 !important;
+  box-shadow: 0 2px 24px 0 rgba(244, 228, 188, 0.2), 0 2px 24px rgba(0, 0, 0, 0.18) !important;
+  transform: translateX(0) !important;
+  padding: 4px !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  min-width: 60px !important;
+  min-height: 60px !important;
+  max-width: 60px !important;
+  max-height: 60px !important;
+}
+
+.progress-btn:hover {
+  transform: scale(1.1) !important;
+  box-shadow: 0 4px 32px 0 rgba(244, 228, 188, 0.3), 0 4px 32px rgba(0, 0, 0, 0.25) !important;
+}
+
+body[class*="theme-"] .progress-btn:hover {
+  transform: scale(1.1) !important;
+  box-shadow: 0 4px 32px 0 rgba(244, 228, 188, 0.3), 0 4px 32px rgba(0, 0, 0, 0.25) !important;
+}
+
+.progress-btn-icon {
+  font-size: 2rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 1 !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  overflow: visible !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+.progress-btn-coins {
+  font-size: 0.9rem !important;
+  font-weight: bold !important;
+  color: var(--gold, #F4E4BC) !important;
+  background: rgba(0, 0, 0, 0.8) !important;
+  padding: 2px 8px !important;
+  border-radius: 10px !important;
+  min-width: 30px !important;
+  text-align: center !important;
+  margin-top: 2px !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: 100% !important;
+  overflow: visible !important;
+}
+
+/* === СТИЛИ ДЛЯ АКТИВНОЙ КНОПКИ ТЕМЫ === */
+body[class*="theme-"] .theme-panel button.active {
+  background: rgba(245, 231, 195, 0.25) !important;
+  border-color: #f5e7c3 !important;
+  color: #2c1810 !important;
+  font-weight: 600 !important;
+  box-shadow: 0 2px 8px rgba(245, 231, 195, 0.3) !important;
+  transform: translateX(0) !important;
+}
+
+body[class*="theme-"] .theme-panel button.active:hover {
+  background: rgba(245, 231, 195, 0.3) !important;
+  transform: translateX(0) !important;
+  box-shadow: 0 3px 12px rgba(245, 231, 195, 0.4) !important;
+}
+
+/* === ТЕМА 1500-1600: РЕНЕССАНС/МИСТИКА === */
+body.theme-1500 {
+  --theme-bg: url('images/backgrounds/parchment.jpg') repeat center top;
+  --theme-main-font: 'Garamond', 'Times New Roman', serif;
+  --theme-heading-font: 'Cinzel', serif;
+  --theme-accent: #8B4513;
+  --theme-gold: #DAA520;
+  --theme-text: #2F1B14;
+  --theme-link: #8B4513;
+  --theme-border: #8B4513;
+  --theme-shadow: rgba(139, 69, 19, 0.3);
+  --theme-card-bg: rgba(245, 245, 220, 0.9);
+  --theme-button-bg: rgba(139, 69, 19, 0.1);
+  --theme-button-border: 2px solid #8B4513;
+  --theme-line-height: 1.8;
+  --theme-heading-size: 2.2rem;
+  --theme-text-size: 1.1rem;
+  --theme-border-radius: 8px;
+  --theme-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Тексты для секции Experience */
+  --experience-title: "Choose Your Experience";
+  --experience-beginner: "NEOPHYTE";
+  --experience-casual: "SEEKER";
+  --experience-expert: "MASTER";
+  
+  /* Цвет подсветки для таро карт */
+  --accent-glow: rgba(218, 165, 32, 0.8);
+}
+
+/* Универсальные стили для кнопки прогресса во всех темах */
+body[class*="theme-"] .progress-btn {
+  width: 60px !important;
+  height: 60px !important;
+  min-width: 60px !important;
+  min-height: 60px !important;
+  max-width: 60px !important;
+  max-height: 60px !important;
+  overflow: hidden !important;
+  position: fixed !important;
+  top: 190px !important;
+  left: 30px !important;
+}
+
+body[class*="theme-"] .progress-btn-icon {
+  font-size: 2rem !important;
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100% !important;
+  overflow: visible !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 1 !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+}
+
+body[class*="theme-"] .progress-btn-coins {
+  font-size: 0.9rem !important;
+  font-weight: bold !important;
+  color: var(--gold, #F4E4BC) !important;
+  background: rgba(0, 0, 0, 0.8) !important;
+  padding: 2px 8px !important;
+  border-radius: 10px !important;
+  min-width: 30px !important;
+  text-align: center !important;
+  margin-top: 2px !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: 100% !important;
+  overflow: visible !important;
+}
+
+/* Универсальные стили для hover эффектов во всех темах */
+body[class*="theme-"] .progress-btn-icon:hover {
+  transform: none !important;
+}
+
+body[class*="theme-"] .progress-btn-coins:hover {
+  transform: none !important;
+}
+
+/* === ТЕМА XIX ВЕК: ВИКТОРИАНСКАЯ === */
+body.theme-19c {
+  --theme-bg: url('images/backgrounds/victorian.webp') repeat center top;
+  --theme-main-font: 'Georgia', 'Times New Roman', serif;
+  --theme-heading-font: 'Georgia', serif;
+  --theme-accent: #d3b261;
+  --theme-gold: #B8860B;
+  --theme-text: #1a1a1a;
+  --theme-link: #e0c385;
+  --theme-border: #f3c8aa;
+  --theme-shadow: rgba(139, 69, 19, 0.1);
+  --theme-card-bg: rgba(255, 255, 255, 0.95);
+  --theme-button-bg: rgba(139, 69, 19, 0.05);
+  --theme-button-border: 1px solid #eec5a9;
+  --theme-line-height: 1.6;
+  --theme-heading-size: 2.2rem;
+  --theme-text-size: 1rem;
+  --theme-border-radius: 8px;
+  --theme-transition: all 0.3s ease;
+  
+  /* Тексты для секции Experience */
+  --experience-title: "Choose Your Experience";
+  --experience-beginner: "NOVICE";
+  --experience-casual: "EXPLORER";
+  --experience-expert: "SAGE";
+  
+  /* Цвет подсветки для таро карт */
+  --accent-glow: rgba(211, 178, 97, 0.8);
+}
+
+/* === ТЕМА РАННИЙ XX ВЕК: АР-ДЕКО === */
+body.theme-early20c {
+  --theme-main-font: 'Josefin Sans', 'Montserrat', 'Arial', sans-serif;
+  --theme-heading-font: 'Monoton', 'Rye', 'Josefin Sans', sans-serif;
+  --theme-bg: url('images/backgrounds/artdeco.webp') repeat center top;
+  --theme-accent: #58c5c5;
+  --theme-gold: #FFD700;
+  --theme-text: #2F2F2F;
+  --theme-link: #51b3b3;
+  --theme-border: #46a1a1;
+  --theme-shadow: rgba(141, 240, 240, 0.2);
+  --theme-card-bg: rgba(255, 255, 255, 0.9);
+  --theme-button-bg: rgba(47, 79, 79, 0.1);
+  --theme-button-border: 2px solid #5cd3d3;
+  --theme-line-height: 1.5;
+  --theme-heading-size: 2.4rem;
+  --theme-text-size: 0.95rem;
+  --theme-border-radius: 0px;
+  --theme-transition: all 0.25s linear;
+  
+  /* Тексты для секции Experience */
+  --experience-title: "Choose Your Experience";
+  --experience-beginner: "STUDENT";
+  --experience-casual: "SEEKER";
+  --experience-expert: "MASTER";
+  
+  /* Цвет подсветки для таро карт */
+  --accent-glow: rgba(88, 197, 197, 0.8);
+}
+
+body.theme-early20c h1,
+body.theme-early20c h2,
+body.theme-early20c h3 {
+  font-family: 'Monoton', 'Rye', 'Josefin Sans', sans-serif;
+  color: #2a3a4d;
+  font-size: 2.4rem;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  text-shadow: none;
+}
+
+body.theme-early20c .hero-text h1 {
+  font-family: 'Monoton', 'Rye', 'Josefin Sans', sans-serif;
+  color: #51b3b3;
+  font-size: 2.4rem;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+  text-shadow: none;
+}
+
+body.theme-early20c .hero-text h2 {
+  font-family: 'Montserrat', 'Arial', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #5cd3d3;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  margin-bottom: 3rem;
+}
+
+/* === ТЕМА ПОЗДНИЙ XX ВЕК: ЦИФРОВАЯ === */
+body.theme-late20c {
+  --theme-bg: url('images/backgrounds/modern_magic.webp') repeat center top;
+  --theme-main-font: 'Helvetica Neue', 'Arial', sans-serif;
+  --theme-heading-font: 'Helvetica Neue', sans-serif;
+  --theme-accent: #00FFFF;
+  --theme-gold: #FF00FF;
+  --theme-text: #FFFFFF;
+  --theme-link: #00FFFF;
+  --theme-border: #00FFFF;
+  --theme-shadow: rgba(0, 255, 255, 0.4);
+  --theme-card-bg: rgba(0, 0, 0, 0.8);
+  --theme-button-bg: rgba(0, 255, 255, 0.1);
+  --theme-button-border: 1px solid #00FFFF;
+  --theme-line-height: 1.4;
+  --theme-heading-size: 1.8rem;
+  --theme-text-size: 0.9rem;
+  --theme-border-radius: 12px;
+  --theme-transition: all 0.2s ease-in-out;
+  
+  /* Тексты для секции Experience */
+  --experience-title: "Choose Your Experience";
+  --experience-beginner: "BEGINNER";
+  --experience-casual: "CASUAL";
+  --experience-expert: "EXPERT";
+  
+  /* Цвет подсветки для таро карт */
+  --accent-glow: rgba(0, 255, 255, 0.8);
+}
+
+/* === ОБЩИЕ СТИЛИ ДЛЯ ВСЕХ ТЕМ === */
+body[class*="theme-"] {
+  background: var(--theme-bg);
+  background-size: auto;
+  font-family: var(--theme-main-font);
+  line-height: var(--theme-line-height);
+  color: var(--theme-text);
+  transition: var(--theme-transition);
+}
+
+body[class*="theme-"] h1,
+body[class*="theme-"] h2,
+body[class*="theme-"] h3 {
+  font-family: var(--theme-heading-font);
+  color: var(--theme-accent);
+  font-size: var(--theme-heading-size);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  text-shadow: none;
+}
+
+body[class*="theme-"] p {
+  font-size: var(--theme-text-size);
+  line-height: var(--theme-line-height);
+  margin-bottom: 1rem;
+}
+
+/* === СПЕЦИАЛЬНЫЕ СТИЛИ ДЛЯ ВИКТОРИАНСКОЙ ТЕМЫ === */
+body.theme-19c .hero-content-wrapper h1,
+body.theme-19c .hero-content-wrapper p {
+  background: url('images/gold-texture.jpg');
+  background-size: cover;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-weight: 500;
+}
+
+/* === СПЕЦИАЛЬНЫЕ СТИЛИ ДЛЯ ЦИФРОВОЙ ТЕМЫ === */
+body.theme-late20c h1,
+body.theme-late20c h2,
+body.theme-late20c h3 {
+  color: #bdb581;
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: none;
+  text-shadow: none;
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  -webkit-text-fill-color: unset;
+  animation: none;
+}
+
+body.theme-late20c p {
+  color: #FFFFFF;
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-shadow: none;
+}
+
+
+
+
+
+/* === ВИРТУАЛЬНЫЙ ПОМОЩНИК === */
+.hero-helper {
+  position: fixed;
+  top: 110px;
+  left: 30px;
+  z-index: 1000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  /* Обеспечиваем точное выравнивание */
+  transform: translateX(0);
+}
+
+.hero-helper-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(30,30,30,0.78);
+  border: 2px solid var(--gold);
+  box-shadow: 0 2px 24px 0 rgba(191, 167, 106, 0.2), 0 2px 24px rgba(0,0,0,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.hero-helper-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 32px 0 rgba(191, 167, 106, 0.3), 0 4px 32px rgba(0,0,0,0.25);
+}
+
+.hero-helper-btn img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+
+.hero-helper-btn:hover img {
+  transform: scale(1.05);
+}
+
+.hero-helper-panel {
+  position: fixed;
+  top: 200px;
+  left: 30px;
+  width: 300px;
+  max-height: 80vh;
+  background: rgba(30,30,30,0.95);
+  border: 2px solid var(--gold);
+  border-radius: 16px;
+  box-shadow: 0 2px 24px 0 rgba(191, 167, 106, 0.2), 0 2px 24px rgba(0,0,0,0.18);
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  overflow-y: auto;
+  z-index: 1001;
+}
+
+.hero-helper-panel.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Стили для корректировки позиционирования */
+.hero-helper-panel[style*="top"] {
+  bottom: auto !important;
+}
+
+.hero-helper-panel[style*="right"] {
+  left: auto !important;
+}
+
+.hero-helper-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(191, 167, 106, 0.3);
+}
+
+.hero-helper-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+  border: 2px solid var(--gold);
+}
+
+.hero-helper-name {
+  color: var(--gold);
+  font-family: 'Cinzel', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.2;
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+.hero-helper-role {
+  color: rgba(191, 167, 106, 0.8);
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 400;
+  font-family: 'Helvetica Neue', sans-serif;
+  line-height: 1.3;
+}
+
+.hero-helper-chat {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(191, 167, 106, 0.2);
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.hero-helper-message {
+  color: rgba(255,255,255,0.9);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  font-family: 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+/* Кнопки с готовыми вопросами */
+.hero-questions {
+  margin-bottom: 15px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.hero-question-btn {
+  display: block;
+  width: 100%;
+  background: rgba(191, 167, 106, 0.15);
+  border: 1px solid rgba(191, 167, 106, 0.4);
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  color: rgba(255,255,255,0.95);
+  font-size: 0.85rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Helvetica Neue', sans-serif;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.hero-question-btn:hover {
+  background: rgba(191, 167, 106, 0.25);
+  border-color: var(--gold);
+  transform: translateX(5px);
+  box-shadow: 0 2px 8px rgba(191, 167, 106, 0.2);
+}
+
+.hero-question-btn:active {
+  transform: translateX(5px) scale(0.98);
+}
+
+/* Индикатор загрузки */
+.typing-indicator {
+  display: inline-block;
+  color: var(--gold);
+  font-size: 1.2rem;
+  animation: typingDots 1.5s infinite;
+}
+
+@keyframes typingDots {
+  0%, 20% { content: '.'; }
+  40% { content: '..'; }
+  60%, 100% { content: '...'; }
+}
+
+/* === ТЕМА ПАНЕЛЬ - ВСЕГДА ЗОЛОТАЯ === */
+body[class*="theme-"] .theme-panel {
+  position: fixed !important;
+  top: 5rem !important;
+  right: 2rem !important;
+  background: rgba(0, 0, 0, 0.8) !important;
+  border: 2px solid #f5e7c3 !important;
+  border-radius: 12px !important;
+  padding: 1rem !important;
+  z-index: 1000 !important;
+  backdrop-filter: blur(10px) !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translateY(-10px) !important;
+  transition: all 0.3s ease !important;
+  min-width: 170px !important;
+  max-width: 170px !important;
+  width: 170px !important;
+}
+
+/* === АКТИВНОЕ СОСТОЯНИЕ ПАНЕЛИ ТЕМ === */
+body[class*="theme-"] .theme-panel.active {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+}
+
+body[class*="theme-"] .theme-panel button {
+  display: block !important;
+  width: 100% !important;
+  background: transparent !important;
+  border: 1px solid #f5e7c3 !important;
+  color: #f5e7c3 !important;
+  padding: 0.5rem 1rem !important;
+  margin-bottom: 0.5rem !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  font-family: 'Cinzel', serif !important;
+  font-size: 0.8rem !important;
+  letter-spacing: 0.3px !important;
+  transition: all 0.3s ease !important;
+  text-align: center !important;
+}
+
+/* === ПОСЛЕДНЯЯ КНОПКА В ПАНЕЛИ === */
+body[class*="theme-"] .theme-panel button:last-child {
+  margin-bottom: 0 !important;
+}
+
+body[class*="theme-"] .theme-panel button:hover {
+  background: rgba(245, 231, 195, 0.1) !important;
+  transform: translateX(5px) !important;
+}
+
+/* Удалено - дублирующиеся стили */
+
+body[class*="theme-"] .theme-fab:hover {
+  background: rgba(245, 231, 195, 0.2) !important;
+  transform: scale(1.1) !important;
+  box-shadow: 0 4px 20px rgba(245, 231, 195, 0.3) !important;
+}
+
+/* Заголовок панели тем - точные размеры */
+body[class*="theme-"] .theme-panel .theme-panel-title {
+  color: #f5e7c3 !important;
+  font-size: 1.08rem !important;
+  font-family: 'Cinzel', serif !important;
+  margin-bottom: 0.3rem !important;
+  letter-spacing: 0.5px !important;
+  font-weight: 600 !important;
+  text-align: left !important;
+  width: 100% !important;
+  max-width: 140px !important;
+}
+
+body[class*="theme-"] .moon-text {
+  font-size: 5vw;
+  font-weight: 600;
+}
+
+/* === СПЕЦИАЛЬНЫЕ СТИЛИ ДЛЯ ЦИФРОВОЙ ТЕМЫ === */
+body.theme-late20c .hero-experience-combined,
+body.theme-late20c .hero-content-wrapper,
+body.theme-late20c .experience-block,
+body.theme-late20c .user-types {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  position: relative;
+  z-index: 10;
+}
+
+body.theme-late20c .user-types {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+body.theme-late20c .experience-block p {
+  color: #FFFFFF;
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-shadow: none;
+  margin-bottom: 2rem;
+  z-index: 10000;
+  position: relative;
+}
+
+body.theme-late20c .experience-block h2 {
+  color: #FFFFFF;
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  font-weight: 600;
+  text-shadow: none;
+}
+
+body.theme-late20c .btn-see-more {
+  display: inline-block;
+  visibility: visible;
+  opacity: 1;
+  color: var(--gold);
+  border: 2px solid var(--gold);
+  background: transparent;
+  text-shadow: none;
+  box-shadow: none;
+  font-family: var(--ui-font);
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  animation: none;
+  border-bottom: 1px solid var(--gold);
+}
+
+body.theme-late20c .btn-see-more:hover {
+  background-color: var(--gold);
+  color: black;
+  box-shadow: 0 0 12px var(--gold), 0 0 24px rgba(191, 167, 106, 0.5), 0 0 48px rgba(191, 167, 106, 0.3);
+  border-bottom-width: 2px;
+}
+
+body.theme-late20c .path-btn {
+  color: var(--gold);
+  background: transparent;
+  border: 2px solid var(--gold);
+  font-family: var(--ui-font);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 12px rgba(245,231,195,0.08);
+  border-bottom: 1px solid var(--gold);
+}
+
+body.theme-late20c .path-btn:hover {
+  background: rgba(245,231,195,0.10);
+  color: #18181a;
+  box-shadow: 0 4px 24px rgba(245,231,195,0.18);
+  border-color: var(--gold);
+  border-bottom-width: 2px;
+}
+
+body.theme-late20c .card-text h2 {
+  font-family: var(--ui-font);
+  color: var(--accent);
+  text-shadow: 0 0 6px var(--accent-glow);
+}
+
+body.theme-late20c .card-text p {
+  font-family: var(--ui-font);
+  color: var(--text-main);
+} 
+
+/* === CHRONO-SPECIFIC THEME ADJUSTMENTS === */
+
+/* 1500 theme */
+body.theme-1500 .timeline-scale { background: rgba(44, 24, 16, 0.3); border: 2px solid #bfa76a; box-shadow: 0 4px 20px rgba(191, 167, 106, 0.2); }
+body.theme-1500 .timeline-marker { color: #bfa76a; font-family: 'Cinzel', serif; }
+body.theme-1500 .timeline-marker.active { background: #bfa76a; color: #2c1810; box-shadow: 0 0 20px rgba(191, 167, 106, 0.4); }
+body.theme-1500 .era-period { font-family: 'Cinzel', serif; color: #bfa76a; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); }
+body.theme-1500 .artifact-info { background: rgba(44, 24, 16, 0.2); border-left: 3px solid #bfa76a; box-shadow: 0 4px 20px rgba(191, 167, 106, 0.1); }
+body.theme-1500 .artifact-info h2 { font-family: var(--magic-font); color: var(--text-soft); text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); }
+body.theme-1500 #text-block { font-family: 'Helvetica Neue', sans-serif; color: var(--gold, #f5e7c3); text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); }
+
+/* 19c theme */
+body.theme-19c .timeline-scale { background: rgba(26, 26, 46, 0.3); border: 2px solid #ffd700; box-shadow: 0 4px 20px rgba(255, 215, 0, 0.2); }
+body.theme-19c .timeline-marker { color: #ffd700; font-family: 'Cinzel', serif; }
+body.theme-19c .timeline-marker.active { background: #ffd700; color: #1a1a2e; box-shadow: 0 0 20px rgba(255, 215, 0, 0.4); }
+body.theme-19c .era-period { font-family: 'Cinzel', serif; color: #ffd700; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); }
+body.theme-19c .artifact-info { background: rgba(26, 26, 46, 0.2); border-left: 3px solid #ffd700; box-shadow: 0 4px 20px rgba(255, 215, 0, 0.1); }
+body.theme-19c .artifact-info h2 { font-family: var(--magic-font); color: var(--text-soft); text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); }
+body.theme-19c #text-block { font-family: 'Helvetica Neue', sans-serif; color: var(--gold, #f5e7c3); text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); }
+
+/* early20c theme */
+body.theme-early20c .timeline-scale { background: rgba(135, 206, 235, 0.2); border: 2px solid #87CEEB; box-shadow: 0 4px 20px rgba(135, 206, 235, 0.3); }
+body.theme-early20c .timeline-marker { color: #87CEEB; font-family: 'Josefin Sans', sans-serif; }
+body.theme-early20c .timeline-marker.active { color: #00BFFF; text-shadow: 0 0 10px rgba(0, 191, 255, 0.5); }
+body.theme-early20c .era-period { font-family: 'Josefin Sans', sans-serif; color: #87CEEB; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); }
+body.theme-early20c .artifact-info { background: rgba(135, 206, 235, 0.15); border-left: 3px solid #87CEEB; box-shadow: 0 4px 20px rgba(135, 206, 235, 0.2); }
+body.theme-early20c .artifact-info h2 { font-family: var(--magic-font); color: #87CEEB; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); }
+body.theme-early20c #text-block { font-family: 'Josefin Sans', sans-serif; color: #E0F6FF; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); }
+
+/* late20c theme */
+body.theme-late20c .timeline-scale { background: rgba(255, 215, 0, 0.15); border: 2px solid #FFD700; box-shadow: 0 4px 20px rgba(255, 215, 0, 0.2); }
+body.theme-late20c .timeline-marker { color: #FFD700; font-family: 'Orbitron', monospace; }
+body.theme-late20c .timeline-marker.active { color: #FFA500; text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
+body.theme-late20c .era-period { font-family: 'Orbitron', monospace; color: #FFD700; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); }
+body.theme-late20c .artifact-info { background: rgba(255, 215, 0, 0.1); border-left: 3px solid #FFD700; box-shadow: 0 4px 20px rgba(255, 215, 0, 0.15); }
+body.theme-late20c .artifact-info h2 { font-family: var(--magic-font); color: #FFD700; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); }
+body.theme-late20c #text-block { font-family: 'Orbitron', monospace; color: #FFF8DC; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); }
+body.theme-late20c .intro-text { font-family: 'Orbitron', monospace; color: #FFF8DC; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); }
+
+/* shared: themed buttons and arrows */
+body.theme-1500 .text-controls button,
+body.theme-19c .text-controls button,
+body.theme-early20c .text-controls button,
+body.theme-late20c .text-controls button { border-color: inherit; color: inherit; }
+body.theme-1500 .text-controls button:hover,
+body.theme-19c .text-controls button:hover,
+body.theme-early20c .text-controls button:hover,
+body.theme-late20c .text-controls button:hover { background: rgba(255, 255, 255, 0.1); }
+body.theme-1500 .arrow-button,
+body.theme-19c .arrow-button,
+body.theme-early20c .arrow-button,
+body.theme-late20c .arrow-button { border-color: inherit; color: inherit; }
+body.theme-1500 .arrow-button:hover,
+body.theme-19c .arrow-button:hover,
+body.theme-early20c .arrow-button:hover,
+body.theme-late20c .arrow-button:hover { background: rgba(255, 255, 255, 0.1); }
+
+/* timeline indicators */
+body.theme-1500 .timeline-indicator { background: linear-gradient(180deg, #bfa76a 0%, transparent 100%); box-shadow: 0 0 10px #bfa76a; }
+body.theme-1500 .timeline-indicator::before { background: #bfa76a; box-shadow: 0 0 15px #bfa76a; }
+body.theme-19c .timeline-indicator { background: linear-gradient(180deg, #ffd700 0%, transparent 100%); box-shadow: 0 0 10px #ffd700; }
+body.theme-19c .timeline-indicator::before { background: #ffd700; box-shadow: 0 0 15px #ffd700; }
+body.theme-early20c .timeline-indicator { background: linear-gradient(180deg, #87CEEB 0%, transparent 100%); box-shadow: 0 0 10px #87CEEB; }
+body.theme-early20c .timeline-indicator::before { background: #87CEEB; box-shadow: 0 0 15px #87CEEB; }
+body.theme-late20c .timeline-indicator { background: linear-gradient(180deg, #FFD700 0%, transparent 100%); box-shadow: 0 0 10px #FFD700; }
+body.theme-late20c .timeline-indicator::before { background: #FFD700; box-shadow: 0 0 15px #FFD700; } 
+
+/* === CHRONO THEME BACKGROUNDS === */
+body.theme-1500 { background-image: url('images/backgrounds/parchment.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed; }
+body.theme-19c { background-image: url('images/backgrounds/victorian2.webp'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed; }
+body.theme-early20c { background-image: url('images/backgrounds/artdeco2.webp'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed; }
+body.theme-late20c { background-image: url('images/backgrounds/modern_magic2.webp'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed; } 
+
+/* === INDEX-SPECIFIC THEME ADJUSTMENTS (2035) === */
+body.theme-late20c .section-heading { font-family: 'Orbitron', monospace; color: #FFD700; text-shadow: 0 0 10px rgba(255, 215, 0, 0.3); }
+body.theme-late20c .hero-text h1 { font-family: 'Orbitron', monospace; color: #FFD700; text-shadow: 0 0 10px rgba(255, 215, 0, 0.3); }
+body.theme-late20c .hero-text h2 { font-family: 'Orbitron', monospace; color: #FFF8DC; text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); }
+body.theme-late20c .moon-text { font-family: 'Orbitron', monospace; color: #FFD700; text-shadow: 0 0 15px rgba(255, 215, 0, 0.4); }
+body.theme-late20c .moon-subtitle { font-family: 'Orbitron', monospace; color: #FFF8DC; }
+body.theme-late20c .moon-tagline { font-family: 'Orbitron', monospace; color: #FFF8DC; }
+
+/* === ТЕМАТИЧЕСКИЕ ГЕРОИ === */
+/* Стили для разных тем будут применяться через JavaScript */
+
+/* === СТИЛИ КНИГИ ДЛЯ РАЗНЫХ ТЕМ === */
+
+/* Тема 1500-1800 (Ренессанс) - теплые коричневые тона */
+body.theme-1500 .book-container {
+  background: linear-gradient(135deg, #2c1810 0%, #3d2416 50%, #2c1810 100%);
+  border: 3px solid #1a0f08;
+}
+
+body.theme-1500 .book {
+  background: linear-gradient(135deg, #8B4513 0%, #A0522D 50%, #8B4513 100%);
+  border: 2px solid #654321;
+}
+
+/* Тема XIX века (Викторианская) - темно-синие и золотые тона */
+body.theme-19c .book-container {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%);
+  border: 3px solid #0f0f1a;
+}
+
+body.theme-19c .book {
+  background: linear-gradient(135deg, #2d2d5a 0%, #4a4a8a 50%, #2d2d5a 100%);
+  border: 2px solid #1a1a3a;
+}
+
+/* Тема Early XX (Ар-деко) - голубые и серебряные тона */
+body.theme-early20c .book-container {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2d5a7a 50%, #1e3a5f 100%);
+  border: 3px solid #0f1f2e;
+}
+
+body.theme-early20c .book {
+  background: linear-gradient(135deg, #4a7c9a 0%, #6b9bb8 50%, #4a7c9a 100%);
+  border: 2px solid #2d4a5f;
+}
+
+/* Тема 2035 (Современная) - золотые и оранжевые тона */
+body.theme-late20c .book-container {
+  background: linear-gradient(135deg, #2d1f0f 0%, #4a2f1a 50%, #2d1f0f 100%);
+  border: 3px solid #1a1208;
+}
+
+body.theme-late20c .book {
+  background: linear-gradient(135deg, #8B4513 0%, #D2691E 50%, #8B4513 100%);
+  border: 2px solid #654321;
+}
+
+/* Дополнительные стили для элементов книги */
+body.theme-1500 .book-container::before {
+  background: linear-gradient(45deg, #8B4513, #A0522D, #8B4513);
+}
+
+body.theme-1500 .book::after {
+  background: linear-gradient(90deg, #654321, #8B4513, #654321);
+}
+
+body.theme-19c .book-container::before {
+  background: linear-gradient(45deg, #2d2d5a, #4a4a8a, #2d2d5a);
+}
+
+body.theme-19c .book::after {
+  background: linear-gradient(90deg, #1a1a3a, #2d2d5a, #1a1a3a);
+}
+
+body.theme-early20c .book-container::before {
+  background: linear-gradient(45deg, #4a7c9a, #6b9bb8, #4a7c9a);
+}
+
+body.theme-early20c .book::after {
+  background: linear-gradient(90deg, #2d4a5f, #4a7c9a, #2d4a5f);
+}
+
+body.theme-late20c .book-container::before {
+  background: linear-gradient(45deg, #8B4513, #D2691E, #8B4513);
+}
+
+body.theme-late20c .book::after {
+  background: linear-gradient(90deg, #654321, #8B4513, #654321);
+}
+
+/* === СТИЛИ КНИГИ ДЛЯ РАЗНЫХ ТЕМ === */
+
+/* Тема 1500-1800 (Ренессанс) - теплые коричневые тона */
+body.theme-1500 .book-container {
+  background: linear-gradient(135deg, #2c1810 0%, #3d2416 50%, #2c1810 100%);
+  border: 3px solid #1a0f08;
+}
+
+body.theme-1500 .book {
+  background: linear-gradient(135deg, #8B4513 0%, #A0522D 50%, #8B4513 100%);
+  border: 2px solid #654321;
+}
+
+/* Дополнительные стили для элементов книги */
+body.theme-1500 .book-container::before {
+  background: linear-gradient(45deg, #8B4513, #A0522D, #8B4513);
+}
+
+body.theme-1500 .book::after {
+  background: linear-gradient(90deg, #654321, #8B4513, #654321);
+}
+
+/* Тема XIX века (Викторианская) - элегантные тона */
+body.theme-19c .book-container {
+  background: linear-gradient(135deg, #2d2d5a 0%, #4a4a8a 50%, #2d2d5a 100%);
+  border: 3px solid #1a1a3a;
+}
+
+body.theme-19c .book {
+  background: linear-gradient(135deg, #2d2d5a 0%, #4a4a8a 50%, #2d2d5a 100%);
+  border: 2px solid #1a1a3a;
+}
+
+body.theme-19c .spread-left,
+body.theme-19c .spread-right {
+  background-image: url('images/backgrounds/paper2.webp');
+}
+
+/* Тема Early XX (Ар-деко) - современные тона */
+body.theme-early20c .book-container {
+  background: linear-gradient(135deg, #4a7c9a 0%, #6b9bb8 50%, #4a7c9a 100%);
+  border: 3px solid #2d4a5f;
+}
+
+body.theme-early20c .book {
+  background: linear-gradient(135deg, #4a7c9a 0%, #6b9bb8 50%, #4a7c9a 100%);
+  border: 2px solid #2d4a5f;
+}
+
+body.theme-early20c .spread-left,
+body.theme-early20c .spread-right {
+  background-image: url('images/backgrounds/paper3.webp');
+}
+
+/* Тема 2035 (Современная) - теплые тона */
+body.theme-late20c .book-container {
+  background: linear-gradient(135deg, #8B4513 0%, #D2691E 50%, #8B4513 100%);
+  border: 3px solid #654321;
+}
+
+body.theme-late20c .book {
+  background: linear-gradient(135deg, #8B4513 0%, #D2691E 50%, #8B4513 100%);
+  border: 2px solid #654321;
+}
+
+body.theme-late20c .spread-left,
+body.theme-late20c .spread-right {
+  background-image: url('images/backgrounds/paper4.webp');
+}
+
+/* Разные изображения для историй в зависимости от темы */
+body.theme-1500 .book-spread[data-story="slavic"] .main-image {
+  content: url('images/objects/slavic_culture.webp');
+}
+
+body.theme-1500 .book-spread[data-story="turkish"] .main-image {
+  content: url('images/objects/turkish_culture.webp');
+}
+
+body.theme-1500 .book-spread[data-story="egyptian"] .main-image {
+  content: url('images/objects/egypt_culture.webp');
+}
+
+body.theme-19c .book-spread[data-story="slavic"] .main-image {
+  content: url('images/objects/slavic_culture2.webp');
+}
+
+body.theme-19c .book-spread[data-story="turkish"] .main-image {
+  content: url('images/objects/turkish_culture2.webp');
+}
+
+body.theme-19c .book-spread[data-story="egyptian"] .main-image {
+  content: url('images/objects/egypt_culture2.webp');
+}
+
+body.theme-early20c .book-spread[data-story="slavic"] .main-image {
+  content: url('images/objects/slavic_culture3.webp');
+}
+
+body.theme-early20c .book-spread[data-story="turkish"] .main-image {
+  content: url('images/objects/turkish_culture3.webp');
+}
+
+body.theme-early20c .book-spread[data-story="egyptian"] .main-image {
+  content: url('images/objects/egypt_culture3.webp');
+}
+
+body.theme-late20c .book-spread[data-story="slavic"] .main-image {
+  content: url('images/objects/slavic_culture4.webp');
+}
+
+body.theme-late20c .book-spread[data-story="turkish"] .main-image {
+  content: url('images/objects/turkish_culture4.webp');
+}
+
+body.theme-late20c .book-spread[data-story="egyptian"] .main-image {
+  content: url('images/objects/egypt_culture4.webp');
+}
+
+/* === RESPONSIVE ДЛЯ ВИРТУАЛЬНОГО ПОМОЩНИКА === */
+@media (max-width: 768px) {
+  .hero-helper {
+    top: 100px;
+    left: 20px;
+    position: fixed;
+    z-index: 1000;
+  }
+  
+  .hero-helper-btn {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .hero-helper-btn img {
+    width: 32px;
+    height: 32px;
+    object-position: center 20%;
+  }
+  
+  .hero-helper-panel {
+    top: 160px;
+    left: 20px;
+    width: 280px;
+    max-height: 70vh;
+  }
+  
+  .hero-questions {
+    max-height: 200px;
+  }
+  
+  .hero-question-btn {
+    font-size: 0.8rem;
+    padding: 7px 10px;
+  }
+  
+  /* Панель тем на мобильных - используем единый стиль как в chrono */
+}
+
+@media (max-width: 480px) {
+  .hero-helper {
+    top: 90px;
+    left: 15px;
+    position: fixed;
+    z-index: 1000;
+  }
+  
+  .hero-helper-btn {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .hero-helper-btn img {
+    width: 28px;
+    height: 28px;
+    object-position: center 20%;
+  }
+  
+  .hero-helper-panel {
+    top: 140px;
+    left: 15px;
+    width: 260px;
+    max-height: 60vh;
+  }
+  
+  .hero-questions {
+    max-height: 180px;
+  }
+  
+  .hero-question-btn {
+    font-size: 0.75rem;
+    padding: 6px 8px;
+  }
+  
+  /* Панель тем на маленьких экранах - используем единый стиль как в chrono */
+}
+
+/* === СПЕЦИАЛЬНЫЕ СТИЛИ ДЛЯ ОЧЕНЬ ШИРОКИХ IPHONE ЭКРАНОВ === */
+@media (max-width: 500px) {
+  .hero-helper {
+    top: 100px;
+    left: 30px;
+    position: fixed;
+    z-index: 1000;
+  }
+  
+  .hero-helper-btn {
+    width: 55px;
+    height: 55px;
+  }
+  
+  .hero-helper-btn img {
+    width: 36px;
+    height: 36px;
+    object-position: center 20%;
+  }
+  
+  .hero-helper-panel {
+    top: 165px;
+    left: 30px;
+    width: 300px;
+    max-height: 70vh;
+  }
+  
+  .hero-questions {
+    max-height: 200px;
+  }
+  
+  .hero-question-btn {
+    font-size: 0.8rem;
+    padding: 8px 11px;
+  }
+}
+
+/* === СПЕЦИАЛЬНЫЕ СТИЛИ ДЛЯ ШИРОКИХ IPHONE ЭКРАНОВ === */
+@media (max-width: 428px) {
+  .hero-helper {
+    top: 95px;
+    left: 25px;
+    position: fixed;
+    z-index: 1000;
+  }
+  
+  .hero-helper-btn {
+    width: 52px;
+    height: 52px;
+  }
+  
+  .hero-helper-btn img {
+    width: 34px;
+    height: 34px;
+    object-position: center 20%;
+  }
+  
+  .hero-helper-panel {
+    top: 155px;
+    left: 25px;
+    width: 290px;
+    max-height: 68vh;
+  }
+  
+  .hero-questions {
+    max-height: 190px;
+  }
+  
+  .hero-question-btn {
+    font-size: 0.78rem;
+    padding: 7px 10px;
+  }
+}
+
+/* === УНИВЕРСАЛЬНЫЕ СТИЛИ ДЛЯ ВСЕХ МОБИЛЬНЫХ УСТРОЙСТВ === */
+@media (max-width: 390px) {
+  .hero-helper {
+    top: 95px;
+    left: 25px;
+    position: fixed;
+    z-index: 1000;
+  }
+  
+  .hero-helper-btn {
+    width: 52px;
+    height: 52px;
+  }
+  
+  .hero-helper-btn img {
+    width: 34px;
+    height: 34px;
+    object-position: center 20%;
+  }
+  
+  .hero-helper-panel {
+    top: 155px;
+    left: 25px;
+    width: 290px;
+    max-height: 68vh;
+  }
+  
+  .hero-questions {
+    max-height: 190px;
+  }
+  
+  .hero-question-btn {
+    font-size: 0.78rem;
+    padding: 7px 10px;
+  }
+}
+
+/* === УНИВЕРСАЛЬНЫЕ СТИЛИ ДЛЯ ВСЕХ МОБИЛЬНЫХ УСТРОЙСТВ === */
+@media (max-width: 375px) {
+  .hero-helper {
+    top: 95px;
+    left: 25px;
+    position: fixed;
+    z-index: 1000;
+    transform: translateZ(0);
+  }
+  
+  .hero-helper-btn {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hero-helper-btn img {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 20%;
+  }
+  
+  .hero-helper-panel {
+    top: 155px;
+    left: 25px;
+    width: 290px;
+    max-height: 68vh;
+  }
+  
+  .hero-questions {
+    max-height: 190px;
+  }
+  
+  .hero-question-btn {
+    font-size: 0.78rem;
+    padding: 7px 10px;
+  }
+}
+
+/* === УНИВЕРСАЛЬНЫЕ СТИЛИ ДЛЯ ВСЕХ МОБИЛЬНЫХ УСТРОЙСТВ === */
+@media (max-width: 320px) {
+  .hero-helper {
+    top: 95px;
+    left: 25px;
+    position: fixed;
+    z-index: 1000;
+  }
+  
+  .hero-helper-btn {
+    width: 52px;
+    height: 52px;
+  }
+  
+  .hero-helper-btn img {
+    width: 34px;
+    height: 34px;
+    object-position: center 20%;
+  }
+  
+  .hero-helper-panel {
+    top: 155px;
+    left: 25px;
+    width: 290px;
+    max-height: 68vh;
+  }
+  
+  .hero-questions {
+    max-height: 190px;
+  }
+  
+  .hero-question-btn {
+    font-size: 0.78rem;
+    padding: 7px 10px;
+  }
+}
+
+/* === СТИЛИ ДЛЯ ИЗМЕНЕНИЯ ТЕКСТОВ В СЕКЦИИ EXPERIENCE === */
+body[class*="theme-"] .experience-block::before {
+  content: var(--experience-title);
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--theme-accent);
+  font-family: var(--theme-heading-font);
+}
+
+body[class*="theme-"] .user-card[data-user="beginner"] p::before {
+  content: var(--experience-beginner);
+}
+
+body[class*="theme-"] .user-card[data-user="casual"] p::before {
+  content: var(--experience-casual);
+}
+
+body[class*="theme-"] .user-card[data-user="expert"] p::before {
+  content: var(--experience-expert);
+}
+
+/* Скрываем оригинальные тексты */
+body[class*="theme-"] .user-card p {
+  font-size: 0;
+  color: transparent;
+  visibility: hidden;
+  position: absolute;
+  left: -9999px;
+}
+
+body[class*="theme-"] .user-card p::before {
+  font-size: 0.9rem;
+  display: block;
+  font-weight: 500;
+  color: var(--theme-accent);
+  visibility: visible;
+  position: static;
+  left: auto;
+}
+
+/* === РАЗНЫЕ ВАРИАНТЫ РАСПОЛОЖЕНИЯ ДЛЯ КАЖДОЙ ТЕМЫ === */
+
+/* ТЕМА 1500-1600: Вертикальное расположение в стиле старинных книг */
+body.theme-1500 .user-types {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+body.theme-1500 .user-card {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 3px solid var(--theme-accent);
+  background: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 8px 25px var(--theme-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+body.theme-1500 .user-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('images/smoke.gif') center center;
+  background-size: cover;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+/* Отключаем базовые стили active-user для темы 1500-1800 */
+body.theme-1500 .user-card.active-user {
+  border-color: #D4AF37 !important;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.3) !important;
+  transform: scale(1.02) !important;
+  position: relative !important;
+}
+
+body.theme-1500 .user-card.active-user::after {
+  display: none !important;
+}
+
+
+
+/* ТЕМА XIX ВЕКА: Квадратная сетка 3x1 */
+body.theme-19c .user-types {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+body.theme-19c .user-card {
+  width: 180px;
+  height: 180px;
+  border-radius: 8px;
+  border: 2px solid var(--theme-border);
+  background: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 6px 20px var(--theme-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+body.theme-19c .user-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('images/smoke.gif') center center;
+  background-size: cover;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+/* Активное состояние для темы XIX века - аккуратная подсветка */
+body.theme-19c .user-card.active-user {
+  border-color: #d3b261 !important;
+  box-shadow: 0 0 12px rgba(211, 178, 97, 0.4) !important;
+  transform: scale(1.02) !important;
+}
+
+/* ТЕМА РАННЕГО XX ВЕКА: Геометрические формы */
+body.theme-early20c .user-types {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+}
+
+body.theme-early20c .user-card {
+  width: 200px;
+  height: 200px;
+  border-radius: 0;
+  border: 3px solid var(--theme-accent);
+  background: rgba(0, 0, 0, 0.9);
+  transform: rotate(45deg);
+  box-shadow: 0 8px 25px var(--theme-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+body.theme-early20c .user-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('images/smoke.gif') center center;
+  background-size: cover;
+  opacity: 0.3;
+  z-index: 1;
+  transform: rotate(-45deg);
+  width: 141.4%;
+}
+
+/* Активное состояние для темы раннего XX века - аккуратная подсветка */
+body.theme-early20c .user-card.active-user {
+  border-color: #58c5c5 !important;
+  box-shadow: 0 0 12px rgba(88, 197, 197, 0.4) !important;
+  transform: rotate(45deg) scale(1.02) !important;
+}
+
+/* Стили для кнопок уровней сложности в теме Early XX */
+body.theme-early20c .text-level-btn {
+  background: rgba(135, 206, 235, 0.1);
+  color: #87CEEB;
+  border: 2px solid #87CEEB;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin: 0 0.3rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+body.theme-early20c .text-level-btn:hover {
+  background: rgba(135, 206, 235, 0.2);
+  color: #00BFFF;
+  border-color: #00BFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(135, 206, 235, 0.4);
+}
+
+body.theme-early20c .text-level-btn.active {
+  background: linear-gradient(135deg, #87CEEB 0%, #00BFFF 100%);
+  color: #000;
+  border-color: #00BFFF;
+  font-weight: 700;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(135, 206, 235, 0.6), 0 0 15px rgba(0, 191, 255, 0.4);
+  text-shadow: none;
+}
+
+body.theme-early20c .user-card img {
+  transform: rotate(-45deg);
+  width: 80px;
+  height: 80px;
+  position: relative;
+  z-index: 2;
+  margin-top: 20px;
+}
+
+
+
+/* ТЕМА ПОЗДНЕГО XX ВЕКА: Горизонтальная линия */
+body.theme-late20c .user-types {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+body.theme-late20c .user-card {
+  width: 140px;
+  height: 140px;
+  border-radius: 12px;
+  border: 2px solid var(--theme-accent);
+  background: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 4px 15px var(--theme-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+body.theme-late20c .user-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('images/smoke.gif') center center;
+  background-size: cover;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+/* Активное состояние для темы позднего XX века - аккуратная подсветка */
+body.theme-late20c .user-card.active-user {
+  border-color: #00FFFF !important;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.4) !important;
+  transform: scale(1.02) !important;
+}
+
+/* Стили для кнопок уровней сложности в теме 2035 */
+body.theme-late20c .text-level-btn {
+  background: rgba(255, 215, 0, 0.1);
+  color: #FFD700;
+  border: 2px solid #FFD700;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin: 0 0.3rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  font-family: 'Orbitron', monospace;
+}
+
+body.theme-late20c .text-level-btn:hover {
+  background: rgba(255, 215, 0, 0.2);
+  color: #FFA500;
+  border-color: #FFA500;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+}
+
+body.theme-late20c .text-level-btn.active {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: #000;
+  border-color: #FFA500;
+  font-weight: 700;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6), 0 0 15px rgba(255, 165, 0, 0.4);
+  text-shadow: none;
+}
+
+/* Общие стили для всех карточек */
+body[class*="theme-"] .user-card img,
+body[class*="theme-"] .user-card p {
+  position: relative;
+  z-index: 2;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  body[class*="theme-"] .user-types {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+    align-items: center !important;
+  }
+  
+  body[class*="theme-"] .user-card {
+    width: 150px !important;
+    height: 150px !important;
+    border-radius: 50% !important;
+    transform: none !important;
+    overflow: hidden !important;
+  }
+  
+  body.theme-early20c .user-card {
+    width: 180px !important;
+    height: 180px !important;
+    border-radius: 0 !important;
+    transform: rotate(45deg) !important;
+    overflow: hidden !important;
+  }
+  
+  body.theme-early20c .user-card::before {
+    width: 141.4% !important;
+    height: 141.4% !important;
+    top: -20.7% !important;
+    left: -20.7% !important;
+  }
+  
+  body.theme-early20c .user-card img {
+    transform: rotate(-45deg) !important;
+    width: 60px !important;
+    height: 60px !important;
+    margin-top: 15px !important;
+  }
+  
+  body.theme-early20c .user-card p {
+    transform: translateX(-50%) !important;
+    bottom: -45px !important;
+    font-size: 0.8rem !important;
+  }
+} 
+
+/* === СТИЛИ ДЛЯ ФУТЕРА === */
+.main-footer {
+  background: rgba(0, 0, 0, 0.9);
+  margin-top: 6rem;
+  padding: 4rem 0 2rem 0;
+  position: relative;
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.footer-section h3 {
+  color: var(--accent-glow);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-family: var(--magic-font);
+  text-shadow: 0 0 10px var(--accent-glow);
+}
+
+.footer-section p {
+  color: var(--text-main);
+  line-height: 1.6;
+  margin-bottom: 0;
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+.footer-bottom {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.footer-bottom p {
+  color: var(--text-muted);
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
+
+.footer-bottom p:last-child {
+  margin-bottom: 0;
+}
+
+.footer-bottom a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+  color: var(--accent-glow);
+  text-decoration: underline;
+}
+
+/* Адаптивность для футера */
+@media (max-width: 768px) {
+  .main-footer {
+    margin-top: 4rem;
+    padding: 3rem 0 2rem 0;
+  }
+  
+  .footer-content {
+    padding: 0 1rem;
+  }
+  
+  .footer-section h3 {
+    font-size: 1.8rem;
+  }
+  
+  .footer-section p {
+    font-size: 1rem;
+  }
+  
+  .footer-bottom-content {
+    padding: 0 1rem;
+  }
+} 
+
+/* === ТЕМАТИЧЕСКИЕ СТИЛИ ДЛЯ АМУЛЕТОВ В MAGIC WAY === */
+
+/* ТЕМА 1500-1600: Ренессанс/Мистика */
+body.theme-1500 .amulet-card {
+  border: 2px solid rgba(218, 165, 32, 0.4);
+  box-shadow: 0 4px 15px rgba(218, 165, 32, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.theme-1500 .amulet-card:hover {
+  border-color: rgba(218, 165, 32, 0.7);
+  box-shadow: 0 8px 25px rgba(218, 165, 32, 0.4);
+  transform: translateY(-5px);
+}
+
+body.theme-1500 .amulet-card.selected {
+  border-color: rgba(218, 165, 32, 1);
+  box-shadow: 0 0 30px rgba(218, 165, 32, 0.8);
+}
+
+/* ТЕМА XIX века: Викторианская */
+body.theme-19c .amulet-card {
+  border: 2px solid rgba(211, 178, 97, 0.4);
+  box-shadow: 0 4px 15px rgba(211, 178, 97, 0.2);
+  transition: all 0.3s ease;
+}
+
+body.theme-19c .amulet-card:hover {
+  border-color: rgba(211, 178, 97, 0.7);
+  box-shadow: 0 8px 25px rgba(211, 178, 97, 0.4);
+  transform: translateY(-3px);
+}
+
+body.theme-19c .amulet-card.selected {
+  border-color: rgba(211, 178, 97, 1);
+  box-shadow: 0 0 25px rgba(211, 178, 97, 0.8);
+}
+
+/* ТЕМА раннего XX века: Ар-деко */
+body.theme-early20c .amulet-card {
+  border: 2px solid rgba(88, 197, 197, 0.4);
+  box-shadow: 0 4px 15px rgba(88, 197, 197, 0.2);
+  transition: all 0.25s linear;
+}
+
+body.theme-early20c .amulet-card:hover {
+  border-color: rgba(88, 197, 197, 0.7);
+  box-shadow: 0 8px 25px rgba(88, 197, 197, 0.4);
+  transform: scale(1.05);
+}
+
+body.theme-early20c .amulet-card.selected {
+  border-color: rgba(88, 197, 197, 1);
+  box-shadow: 0 0 30px rgba(88, 197, 197, 0.8);
+}
+
+/* ТЕМА позднего XX века: Цифровая */
+body.theme-late20c .amulet-card {
+  border: 2px solid rgba(0, 255, 255, 0.4);
+  box-shadow: 0 4px 15px rgba(0, 255, 255, 0.2);
+  transition: all 0.2s ease-in-out;
+}
+
+body.theme-late20c .amulet-card:hover {
+  border-color: rgba(0, 255, 255, 0.7);
+  box-shadow: 0 8px 25px rgba(0, 255, 255, 0.4);
+  transform: scale(1.02);
+}
+
+body.theme-late20c .amulet-card.selected {
+  border-color: rgba(0, 255, 255, 1);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.8);
+}
+
+/* ТЕМАТИЧЕСКИЕ СТИЛИ ДЛЯ LUPA-HINT */
+body.theme-1500 .lupa-hint {
+  background: rgba(139, 69, 19, 0.1);
+  border-color: rgba(139, 69, 19, 0.3);
+  color: var(--theme-accent);
+}
+
+body.theme-1500 .lupa-hint:hover {
+  background: rgba(139, 69, 19, 0.2);
+  border-color: rgba(139, 69, 19, 0.5);
+  box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+}
+
+body.theme-19c .lupa-hint {
+  background: rgba(25, 25, 112, 0.1);
+  border-color: rgba(25, 25, 112, 0.3);
+  color: var(--theme-accent);
+}
+
+body.theme-19c .lupa-hint:hover {
+  background: rgba(25, 25, 112, 0.2);
+  border-color: rgba(25, 25, 112, 0.5);
+  box-shadow: 0 4px 15px rgba(25, 25, 112, 0.3);
+}
+
+body.theme-early20c .lupa-hint {
+  background: rgba(88, 197, 197, 0.1);
+  border-color: rgba(88, 197, 197, 0.3);
+  color: var(--theme-accent);
+}
+
+body.theme-early20c .lupa-hint:hover {
+  background: rgba(88, 197, 197, 0.2);
+  border-color: rgba(88, 197, 197, 0.5);
+  box-shadow: 0 4px 15px rgba(88, 197, 197, 0.3);
+}
+
+body.theme-late20c .lupa-hint {
+  background: rgba(0, 255, 255, 0.1);
+  border-color: rgba(0, 255, 255, 0.3);
+  color: var(--theme-accent);
+}
+
+body.theme-late20c .lupa-hint:hover {
+  background: rgba(0, 255, 255, 0.2);
+  border-color: rgba(0, 255, 255, 0.5);
+  box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+} 
+
+/* === СТИЛИ ДЛЯ MUSEUM MAP BLOCK === */
+.museum-map-block {
+  background: rgba(0, 0, 0, 0.7);
+  border: none;
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+  box-shadow: 0 8px 25px var(--theme-shadow);
+  backdrop-filter: blur(10px);
+}
+
+/* === СТИЛИ ДЛЯ CROSSCULTURAL BLOCK === */
+.crosscultural-block {
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid var(--theme-accent);
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+  box-shadow: 0 8px 25px var(--theme-shadow);
+  backdrop-filter: blur(10px);
+} 
+
+/* === МОБИЛЬНЫЕ СТИЛИ ДЛЯ ПАНЕЛИ ТЕМ === */
+/* Используем единый стиль как в chrono.css для всех размеров экрана */ 
+
+body[class*="theme-"] .theme-fab {
+  position: fixed !important;
+  top: 2rem !important;
+  right: 2rem !important;
+  width: 60px !important;
+  height: 60px !important;
+  background: rgba(245, 231, 195, 0.1) !important;
+  border: 2px solid #f5e7c3 !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  font-size: 1.5rem !important;
+  z-index: 1000 !important;
+  backdrop-filter: blur(10px) !important;
+  transition: all 0.3s ease !important;
+  color: #f5e7c3 !important;
+}
+
+body[class*="theme-"] .theme-fab:hover {
+  background: rgba(245, 231, 195, 0.2) !important;
+  transform: scale(1.1) !important;
+  box-shadow: 0 4px 20px rgba(245, 231, 195, 0.3) !important;
+} 
+
+body.theme-early20c .user-card p {
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  z-index: 2;
+  font-size: 0;
+  color: transparent;
+  visibility: hidden;
+}
+
+body.theme-early20c .user-card[data-user="beginner"] p::before {
+  content: var(--experience-beginner);
+  font-size: 0.9rem;
+  color: var(--theme-accent);
+  text-shadow: 0 0 10px var(--theme-accent);
+  font-weight: 600;
+  letter-spacing: 1px;
+  visibility: visible;
+  position: static;
+  left: auto;
+}
+
+body.theme-early20c .user-card[data-user="casual"] p::before {
+  content: var(--experience-casual);
+  font-size: 0.9rem;
+  color: var(--theme-accent);
+  text-shadow: 0 0 10px var(--theme-accent);
+  font-weight: 600;
+  letter-spacing: 1px;
+  visibility: visible;
+  position: static;
+  left: auto;
+}
+
+body.theme-early20c .user-card[data-user="expert"] p::before {
+  content: var(--experience-expert);
+  font-size: 0.9rem;
+  color: var(--theme-accent);
+  text-shadow: 0 0 10px var(--theme-accent);
+  font-weight: 600;
+  letter-spacing: 1px;
+  visibility: visible;
+  position: static;
+  left: auto;
+}
+
+/* Скрываем альтернативный контент на десктопных устройствах */
+@media (min-width: 769px) {
+  .mobile-content {
+    display: none;
+  }
+  
+  /* Обеспечиваем стабильное позиционирование кнопки прогресса на больших экранах */
+  .progress-btn {
+    top: 190px !important;
+    left: 30px !important;
+    width: 60px !important;
+    height: 60px !important;
+  }
+  
+  .progress-btn-icon {
+    font-size: 2rem !important;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  /* Для планшетов */
+  .progress-btn-icon {
+    font-size: 1.9rem !important;
+  }
+}
+
+@media (min-width: 1920px) {
+  /* Для 4K и очень больших экранов */
+  .progress-btn-icon {
+    font-size: 2.2rem !important;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Для средних экранов */
+  .hero-helper-btn {
+    width: 52px !important;
+    height: 52px !important;
+  }
+  
+  .hero-helper-btn img {
+    width: 33px !important;
+    height: 33px !important;
+    object-position: center 20%;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Для очень маленьких экранов */
+  .hero-helper {
+    left: 15px !important;
+  }
+  
+  .hero-helper-btn {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  
+  .hero-helper-btn img {
+    width: 30px !important;
+    height: 30px !important;
+    object-position: center 20%;
+  }
+  
+  .hero-helper-panel {
+    left: 15px !important;
+    width: 260px !important;
+    max-width: calc(100vw - 30px) !important;
+  }
+}
+
+/* === СТИЛИ ДЛЯ БОЛЬШИХ ЭКРАНОВ === */
+@media (min-width: 769px) {
+  .mobile-content {
+    display: none;
+  }
+  
+  /* Обеспечиваем стабильное позиционирование кнопки прогресса на больших экранах */
+  body[class*="theme-"] .progress-btn {
+    top: 190px !important;
+    left: 30px !important;
+    width: 60px !important;
+    height: 60px !important;
+  }
+  
+  body[class*="theme-"] .progress-btn-icon {
+    font-size: 2rem !important;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  /* Для планшетов */
+  body[class*="theme-"] .progress-btn-icon {
+    font-size: 1.9rem !important;
+  }
+}
+
+@media (min-width: 1920px) {
+  /* Для 4K и очень больших экранов */
+  body[class*="theme-"] .progress-btn-icon {
+    font-size: 2.2rem !important;
+  }
+}
+
+/* === МОБИЛЬНЫЕ СТИЛИ ДЛЯ КНОПОК === */
+@media (max-width: 768px) {
+  /* Выравниваем кнопки на мобильных устройствах */
+  .progress-btn {
+    left: 20px !important;
+    width: 55px !important;
+    height: 55px !important;
+  }
+  
+  .progress-btn-icon {
+    font-size: 1.8rem !important;
+  }
+  
+  .hero-helper {
+    left: 20px !important;
+    transform: translateX(0) !important;
+  }
+  
+  .hero-helper-btn {
+    width: 55px !important;
+    height: 55px !important;
+  }
+  
+  .hero-helper-btn img {
+    width: 35px !important;
+    height: 35px !important;
+    object-position: center 20%;
+  }
+  
+  .hero-helper-panel {
+    left: 20px !important;
+    width: 280px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Для средних экранов */
+  .progress-btn {
+    width: 52px !important;
+    height: 52px !important;
+  }
+  
+  .progress-btn-icon {
+    font-size: 1.7rem !important;
+  }
+  
+  .hero-helper-btn {
+    width: 52px !important;
+    height: 52px !important;
+  }
+  
+  .hero-helper-btn img {
+    width: 33px !important;
+    height: 33px !important;
+    object-position: center 20%;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Для очень маленьких экранов */
+  .progress-btn {
+    left: 15px !important;
+    width: 50px !important;
+    height: 50px !important;
+  }
+  
+  .progress-btn-icon {
+    font-size: 1.6rem !important;
+  }
+  
+  .hero-helper {
+    left: 15px !important;
+  }
+  
+  .hero-helper-btn {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  
+  .hero-helper-btn img {
+    width: 30px !important;
+    height: 30px !important;
+    object-position: center 20%;
+  }
+  
+  .hero-helper-panel {
+    left: 15px !important;
+    width: 260px !important;
+    max-width: calc(100vw - 30px) !important;
+  }
+}
+
+body[class*="theme-"] .theme-panel button:hover {
+  background: rgba(245, 231, 195, 0.1) !important;
+  transform: translateX(5px) !important;
+}
+
+/* Активное состояние кнопки темы - заливка светло-золотого цвета */
+body[class*="theme-"] .theme-panel button.active {
+  background: rgba(245, 231, 195, 0.25) !important;
+  border-color: #f5e7c3 !important;
+  color: #2c1810 !important;
+  font-weight: 600 !important;
+  box-shadow: 0 2px 8px rgba(245, 231, 195, 0.3) !important;
+  transform: translateX(0) !important;
+}
+
+/* Hover эффект для активной кнопки - без движения */
+body[class*="theme-"] .theme-panel button.active:hover {
+  background: rgba(245, 231, 195, 0.3) !important;
+  transform: translateX(0) !important;
+  box-shadow: 0 3px 12px rgba(245, 231, 195, 0.4) !important;
+}
