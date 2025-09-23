@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR System Demo - Everyday Magic</title>
+  <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="base.css">
+  <style>
+    .demo-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    .demo-section {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(10px);
+    }
+    
+    .demo-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #fff;
+      text-align: center;
+    }
+    
+    .demo-subtitle {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      color: #e0e0e0;
+      text-align: center;
+    }
+    
+    .qr-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .qr-item {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .qr-item h3 {
+      margin: 0 0 1rem 0;
+      color: #fff;
+      font-size: 1.1rem;
+    }
+    
+    .qr-item p {
+      margin: 0.5rem 0;
+      color: #ccc;
+      font-size: 0.9rem;
+    }
+    
+    .qr-code-container {
+      margin: 1rem 0;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .qr-url {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 0.5rem;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.8rem;
+      color: #4ade80;
+      word-break: break-all;
+      margin-top: 1rem;
+    }
+    
+    .test-link {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: transform 0.2s;
+    }
+    
+    .test-link:hover {
+      transform: translateY(-2px);
+    }
+    
+    .info-box {
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 8px;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    
+    .info-box h4 {
+      margin: 0 0 0.5rem 0;
+      color: #60a5fa;
+    }
+    
+    .info-box p {
+      margin: 0.25rem 0;
+      color: #e0e0e0;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-container">
+    <h1 class="demo-title">🔗 QR System Demo</h1>
+    <p class="demo-subtitle">Тестирование новой системы коротких ссылок</p>
+    
+    <div class="demo-section">
+      <div class="info-box">
+        <h4>📋 Как работает новая система:</h4>
+        <p>• QR-коды теперь ведут на короткие ссылки вида: <code>/qr/AMULET-TURKISH-001</code></p>
+        <p>• Короткие ссылки автоматически перенаправляют на нужную страницу экспоната</p>
+        <p>• Все ссылки унифицированы и используют параметр <code>id</code></p>
+        <p>• Добавлен параметр <code>src=qr</code> для аналитики</p>
+      </div>
+      
+      <div class="qr-grid">
+        <!-- Turkish Evil Eye -->
+        <div class="qr-item">
+          <h3>🧿 Turkish Evil Eye</h3>
+          <p>ID: AMULET-TURKISH-001</p>
+          <p>Target: magic.html</p>
+          <div class="qr-code-container">
+            <div id="qr-turkish"></div>
+          </div>
+          <div class="qr-url" id="url-turkish"></div>
+          <a href="/qr/AMULET-TURKISH-001" class="test-link">Test Short Link</a>
+        </div>
+        
+        <!-- Egyptian Scarab -->
+        <div class="qr-item">
+          <h3>🪲 Egyptian Scarab</h3>
+          <p>ID: SCARAB-001</p>
+          <p>Target: chrono.html</p>
+          <div class="qr-code-container">
+            <div id="qr-scarab"></div>
+          </div>
+          <div class="qr-url" id="url-scarab"></div>
+          <a href="/qr/SCARAB-001" class="test-link">Test Short Link</a>
+        </div>
+        
+        <!-- Bantu Fetish -->
+        <div class="qr-item">
+          <h3>🎭 Bantu Tribal Fetish</h3>
+          <p>ID: BANTU-001</p>
+          <p>Target: chrono.html</p>
+          <div class="qr-code-container">
+            <div id="qr-bantu"></div>
+          </div>
+          <div class="qr-url" id="url-bantu"></div>
+          <a href="/qr/BANTU-001" class="test-link">Test Short Link</a>
+        </div>
+        
+        <!-- Rose Quartz -->
+        <div class="qr-item">
+          <h3>💎 Rose Quartz</h3>
+          <p>ID: AMULET-ROSE-QUARTZ-001</p>
+          <p>Target: magic.html</p>
+          <div class="qr-code-container">
+            <div id="qr-rose"></div>
+          </div>
+          <div class="qr-url" id="url-rose"></div>
+          <a href="/qr/AMULET-ROSE-QUARTZ-001" class="test-link">Test Short Link</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="demo-section">
+      <h3 style="color: #fff; text-align: center; margin-bottom: 1rem;">🔧 Технические детали</h3>
+      <div class="info-box">
+        <h4>📁 Файлы системы:</h4>
+        <p>• <code>qr.html</code> - страница-редирект для коротких ссылок</p>
+        <p>• <code>qr-utils.js</code> - утилиты для генерации QR-кодов</p>
+        <p>• <code>qr-print.html</code> - страница для печати QR-кодов</p>
+        <p>• <code>qr-demo.html</code> - демонстрационная страница (эта)</p>
+      </div>
+      
+      <div class="info-box">
+        <h4>🎯 Преимущества новой системы:</h4>
+        <p>• Короткие URL удобны для печати и читабельны</p>
+        <p>• Единый формат ссылок для всех экспонатов</p>
+        <p>• Легко изменить структуру страниц без перепечатки QR-кодов</p>
+        <p>• Встроенная аналитика переходов через QR</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+  <script src="qr-utils.js"></script>
+  <script>
+    // Генерируем QR-коды для демонстрации
+    const artifacts = [
+      { id: 'AMULET-TURKISH-001', container: 'qr-turkish', url: 'url-turkish' },
+      { id: 'SCARAB-001', container: 'qr-scarab', url: 'url-scarab' },
+      { id: 'BANTU-001', container: 'qr-bantu', url: 'url-bantu' },
+      { id: 'AMULET-ROSE-QUARTZ-001', container: 'qr-rose', url: 'url-rose' }
+    ];
+    
+    artifacts.forEach(artifact => {
+      const qrUrl = qrTargetFull(artifact.id);
+      
+      // Генерируем QR-код
+      new QRCode(document.getElementById(artifact.container), {
+        text: qrUrl,
+        width: 150,
+        height: 150,
+        colorDark: "#000000",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+      });
+      
+      // Показываем URL
+      document.getElementById(artifact.url).textContent = qrUrl;
+    });
+  </script>
+</body>
+</html>

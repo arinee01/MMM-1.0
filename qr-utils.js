@@ -2,12 +2,22 @@
 // Единая система ссылок и генерации QR-кодов
 
 /**
- * Генерирует QR-ссылку для артефакта (прямая ссылка для GitHub Pages)
+ * Генерирует QR-ссылку для артефакта (короткая ссылка для печати)
  * @param {string} artifactId - ID артефакта (например, "AMULET-TURKISH-001")
- * @returns {string} Прямая ссылка на страницу артефакта
+ * @returns {string} Короткая ссылка вида /qr/[artifactId]
  */
 function qrTarget(artifactId) {
-  return getArtifactUrl(artifactId);
+  return `/qr/${artifactId}`;
+}
+
+/**
+ * Генерирует полную QR-ссылку для артефакта (для GitHub Pages)
+ * @param {string} artifactId - ID артефакта (например, "AMULET-TURKISH-001")
+ * @returns {string} Полная ссылка с доменом
+ */
+function qrTargetFull(artifactId) {
+  const baseUrl = window.location.origin;
+  return `${baseUrl}/qr/${artifactId}`;
 }
 
 /**
@@ -36,8 +46,9 @@ function getArtifactUrl(artifactId) {
  * @param {string} containerId - ID контейнера для QR-кода
  * @param {string} artifactId - ID артефакта
  * @param {Object} options - Опции для QR-кода
+ * @param {boolean} useFullUrl - Использовать полный URL (для GitHub Pages) или короткий
  */
-function generateQRCode(containerId, artifactId, options = {}) {
+function generateQRCode(containerId, artifactId, options = {}, useFullUrl = true) {
   const defaultOptions = {
     width: 200,
     height: 200,
@@ -47,7 +58,7 @@ function generateQRCode(containerId, artifactId, options = {}) {
   };
   
   const finalOptions = { ...defaultOptions, ...options };
-  const qrUrl = qrTarget(artifactId);
+  const qrUrl = useFullUrl ? qrTargetFull(artifactId) : qrTarget(artifactId);
   
   // Проверяем, что библиотека QRCode доступна
   if (typeof QRCode === 'undefined') {
@@ -119,6 +130,7 @@ function logQRAnalytics(artifactId) {
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
     qrTarget,
+    qrTargetFull,
     getArtifactUrl,
     generateQRCode,
     getUrlParams,

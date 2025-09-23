@@ -60,7 +60,7 @@ const items = [
 const sheet = document.getElementById('sheet');
 
 items.forEach(obj => {
-  // Используем прямые ссылки для GitHub Pages
+  // Используем короткие ссылки для печати
   const qrUrl = `${ORIGIN}${qrTarget(obj.id)}`;
   
   const card = document.createElement('div');

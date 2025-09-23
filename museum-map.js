@@ -225,20 +225,9 @@ function generateQRCode(index, artifact) {
   
   if (!qrContainer || !qrLink) return;
   
-  // Generate URL for the artifact based on its location
+  // Generate short QR URL using the new system
   const base = window.location.origin;
-  let url;
-  
-  // Map artifacts to their appropriate pages
-  if (artifact.identifier.includes('AMULET') || 
-      artifact.identifier === 'VICTORIAN-001' || 
-      artifact.identifier === 'ARTDECO-001') {
-    // Amulets and decorative items go to magic.html
-    url = `${base}/magic.html?artifact=${artifact.identifier}&src=qr`;
-  } else {
-    // Other artifacts go to chrono.html
-    url = `${base}/chrono.html?artifact=${artifact.identifier}&src=qr`;
-  }
+  const url = `${base}/qr/${artifact.identifier}`;
   
   // Update link
   qrLink.textContent = url;
