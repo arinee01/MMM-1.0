@@ -246,10 +246,6 @@ function generateQRCode(index, artifact) {
   // Clear previous QR code completely
   qrContainer.innerHTML = '';
   
-  // Add timestamp to force refresh
-  const timestamp = Date.now();
-  const urlWithTimestamp = `${url}?t=${timestamp}`;
-  
   // Generate new QR code
   new QRCode(qrContainer, {
     text: url, // Use clean URL without timestamp for QR code
@@ -370,6 +366,18 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   }, 100);
+  
+  // Also refresh QR codes when popup is shown
+  const originalShowPopup = showPopup;
+  showPopup = function(index) {
+    originalShowPopup(index);
+    // Force regenerate QR code after popup is shown
+    setTimeout(() => {
+      if (typeof artifacts !== 'undefined' && artifacts[index]) {
+        generateQRCode(index, artifacts[index]);
+      }
+    }, 200);
+  };
   
   // === ТЕМА ТЕПЕРЬ УПРАВЛЯЕТСЯ theme-switcher.js ===
 });
