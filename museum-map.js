@@ -367,6 +367,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }, 100);
   
+  // Add cache-busting parameter to force refresh
+  const currentUrl = window.location.href;
+  if (!currentUrl.includes('v=')) {
+    const separator = currentUrl.includes('?') ? '&' : '?';
+    window.history.replaceState({}, '', currentUrl + separator + 'v=' + Date.now());
+  }
+  
   // Also refresh QR codes when popup is shown
   const originalShowPopup = showPopup;
   showPopup = function(index) {
