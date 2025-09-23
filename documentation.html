@@ -1271,10 +1271,12 @@ AMULET-DIGITAL-001,NFT QR Code,Digital Culture,2020-2025 CE,Modern Artifact,Digi
             </p>
             <ul>
               <li><strong>Museum Map Integration:</strong> Each artifact on the interactive museum map displays a QR code when clicked, providing direct access to the artifact's detailed page within the appropriate narrative path</li>
-              <li><strong>Smart URL Routing:</strong> QR codes automatically route visitors to the correct page based on artifact type:
+              <li><strong>Smart URL Routing:</strong> QR codes use short links that automatically route visitors to the correct page:
                 <ul>
-                  <li><strong>Most Amulets:</strong> Route to <code>/magic.html?artifact=[ID]&src=qr</code></li>
-                  <li><strong>Other Artifacts:</strong> Route to <code>/chrono.html?artifact=[ID]&src=qr</code></li>
+                  <li><strong>Short QR Links:</strong> <code>/qr/[ID]</code> (e.g., <code>/qr/AMULET-TURKISH-001</code>)</li>
+                  <li><strong>Auto-redirect:</strong> Short links redirect to appropriate pages with <code>?id=[ID]&src=qr</code></li>
+                  <li><strong>Magic Amulets:</strong> Redirect to <code>/magic.html?id=[ID]&src=qr</code></li>
+                  <li><strong>Other Artifacts:</strong> Redirect to <code>/chrono.html?id=[ID]&src=qr</code></li>
                 </ul>
               </li>
               <li><strong>Analytics Tracking:</strong> The <code>?src=qr</code> parameter enables tracking of QR code usage and visitor engagement</li>
@@ -1284,7 +1286,8 @@ AMULET-DIGITAL-001,NFT QR Code,Digital Culture,2020-2025 CE,Modern Artifact,Digi
             <h5>QR Code Example (Scarab Amulet):</h5>
             <div class="qr-example">
               <p><strong>Identifier:</strong> SCARAB-001</p>
-              <p><strong>Generated URL:</strong> <code>https://arinnee.github.io/MMM/chrono.html?artifact=SCARAB-001&src=qr</code></p>
+              <p><strong>Short QR Link:</strong> <code>https://arinee01.github.io/MMM-1.0/qr/SCARAB-001</code></p>
+              <p><strong>Auto-redirects to:</strong> <code>https://arinee01.github.io/MMM-1.0/chrono.html?id=SCARAB-001&src=qr</code></p>
               <p><strong>Purpose:</strong> Visitors can scan the QR code to open the artifact's detailed page within the Chronological Path on their mobile devices</p>
             </div>
           </section>
