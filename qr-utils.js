@@ -11,13 +11,23 @@ function qrTarget(artifactId) {
 }
 
 /**
- * Генерирует полную QR-ссылку для артефакта (для GitHub Pages)
+ * Генерирует полную QR-ссылку для артефакта (адаптивная для любого хостинга)
  * @param {string} artifactId - ID артефакта (например, "AMULET-TURKISH-001")
  * @returns {string} Полная ссылка с доменом
  */
 function qrTargetFull(artifactId) {
   const baseUrl = window.location.origin;
-  return `${baseUrl}/qr/${artifactId}`;
+  const pathname = window.location.pathname;
+  
+  // Определяем базовый путь для репозитория
+  let basePath = '';
+  if (pathname.includes('/MMM-1.0/')) {
+    basePath = '/MMM-1.0';
+  } else if (pathname.includes('/MMM-main/')) {
+    basePath = '/MMM-main';
+  }
+  
+  return `${baseUrl}${basePath}/qr/${artifactId}`;
 }
 
 /**

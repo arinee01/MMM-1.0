@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR System Test - Everyday Magic</title>
+  <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: system-ui, -apple-system, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .test-section {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(10px);
+    }
+    
+    .test-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1rem 0;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+    }
+    
+    .test-item h3 {
+      margin: 0;
+      flex: 1;
+    }
+    
+    .test-link {
+      padding: 0.5rem 1rem;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    
+    .test-link:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+    
+    .status {
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+    
+    .status.success {
+      background: rgba(34, 197, 94, 0.2);
+      color: #4ade80;
+    }
+    
+    .status.error {
+      background: rgba(239, 68, 68, 0.2);
+      color: #f87171;
+    }
+    
+    .info-box {
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 8px;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    
+    .info-box h4 {
+      margin: 0 0 0.5rem 0;
+      color: #60a5fa;
+    }
+    
+    .info-box p {
+      margin: 0.25rem 0;
+      color: #e0e0e0;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔗 QR System Test</h1>
+    
+    <div class="test-section">
+      <h2>📋 Тестирование коротких ссылок</h2>
+      <p>Нажмите на ссылки ниже, чтобы проверить работу QR-системы:</p>
+      
+      <div class="test-item">
+        <h3>🧿 Turkish Evil Eye (Magic)</h3>
+        <a href="/qr/AMULET-TURKISH-001" class="test-link">Test QR Link</a>
+        <span class="status" id="status-turkish">⏳ Waiting</span>
+      </div>
+      
+      <div class="test-item">
+        <h3>🪲 Egyptian Scarab (Chrono)</h3>
+        <a href="/qr/SCARAB-001" class="test-link">Test QR Link</a>
+        <span class="status" id="status-scarab">⏳ Waiting</span>
+      </div>
+      
+      <div class="test-item">
+        <h3>🎭 Bantu Tribal Fetish (Chrono)</h3>
+        <a href="/qr/BANTU-001" class="test-link">Test QR Link</a>
+        <span class="status" id="status-bantu">⏳ Waiting</span>
+      </div>
+      
+      <div class="test-item">
+        <h3>💎 Rose Quartz (Magic)</h3>
+        <a href="/qr/AMULET-ROSE-QUARTZ-001" class="test-link">Test QR Link</a>
+        <span class="status" id="status-rose">⏳ Waiting</span>
+      </div>
+    </div>
+    
+    <div class="test-section">
+      <h2>🔧 Системная информация</h2>
+      <div class="info-box">
+        <h4>🌐 Текущий URL:</h4>
+        <p id="current-url"></p>
+      </div>
+      
+      <div class="info-box">
+        <h4>📁 Базовый путь:</h4>
+        <p id="base-path"></p>
+      </div>
+      
+      <div class="info-box">
+        <h4>🔗 Примеры QR ссылок:</h4>
+        <p><code>/qr/AMULET-TURKISH-001</code> → <code>/magic.html?id=AMULET-TURKISH-001&src=qr</code></p>
+        <p><code>/qr/SCARAB-001</code> → <code>/chrono.html?id=SCARAB-001&src=qr</code></p>
+      </div>
+    </div>
+    
+    <div class="test-section">
+      <h2>📱 Навигация</h2>
+      <div class="test-item">
+        <h3>🗺️ Музейная карта</h3>
+        <a href="/museum-map.html" class="test-link">Open Map</a>
+      </div>
+      
+      <div class="test-item">
+        <h3>🔗 QR демо</h3>
+        <a href="/qr-demo.html" class="test-link">Open Demo</a>
+      </div>
+      
+      <div class="test-item">
+        <h3>📄 Печать QR</h3>
+        <a href="/qr-print.html" class="test-link">Print QR</a>
+      </div>
+      
+      <div class="test-item">
+        <h3>🏠 Главная</h3>
+        <a href="/index.html" class="test-link">Home</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Показываем системную информацию
+    document.getElementById('current-url').textContent = window.location.href;
+    
+    const pathname = window.location.pathname;
+    let basePath = 'None (root)';
+    if (pathname.includes('/MMM-1.0/')) {
+      basePath = '/MMM-1.0';
+    } else if (pathname.includes('/MMM-main/')) {
+      basePath = '/MMM-main';
+    }
+    document.getElementById('base-path').textContent = basePath;
+    
+    // Тестируем ссылки
+    const testLinks = [
+      { id: 'turkish', url: '/qr/AMULET-TURKISH-001' },
+      { id: 'scarab', url: '/qr/SCARAB-001' },
+      { id: 'bantu', url: '/qr/BANTU-001' },
+      { id: 'rose', url: '/qr/AMULET-ROSE-QUARTZ-001' }
+    ];
+    
+    testLinks.forEach(test => {
+      const statusElement = document.getElementById(`status-${test.id}`);
+      
+      // Проверяем доступность ссылки
+      fetch(test.url)
+        .then(response => {
+          if (response.ok) {
+            statusElement.textContent = '✅ Working';
+            statusElement.className = 'status success';
+          } else {
+            statusElement.textContent = `❌ Error ${response.status}`;
+            statusElement.className = 'status error';
+          }
+        })
+        .catch(error => {
+          statusElement.textContent = '❌ Failed';
+          statusElement.className = 'status error';
+        });
+    });
+  </script>
+</body>
+</html>

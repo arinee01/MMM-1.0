@@ -225,9 +225,19 @@ function generateQRCode(index, artifact) {
   
   if (!qrContainer || !qrLink) return;
   
-  // Generate short QR URL using the new system
+  // Generate adaptive QR URL that works on any hosting
   const base = window.location.origin;
-  const url = `${base}/qr/${artifact.identifier}`;
+  const pathname = window.location.pathname;
+  
+  // Determine base path for repository
+  let basePath = '';
+  if (pathname.includes('/MMM-1.0/')) {
+    basePath = '/MMM-1.0';
+  } else if (pathname.includes('/MMM-main/')) {
+    basePath = '/MMM-main';
+  }
+  
+  const url = `${base}${basePath}/qr/${artifact.identifier}`;
   
   // Update link
   qrLink.textContent = url;

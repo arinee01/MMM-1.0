@@ -109,6 +109,16 @@
     
     // Определяем целевую страницу для артефакта
     function getTargetUrl(artifactId) {
+      const pathname = window.location.pathname;
+      
+      // Определяем базовый путь для репозитория
+      let basePath = '';
+      if (pathname.includes('/MMM-1.0/')) {
+        basePath = '/MMM-1.0';
+      } else if (pathname.includes('/MMM-main/')) {
+        basePath = '/MMM-main';
+      }
+      
       // Специальные случаи для амулетов, которые идут на magic.html
       const magicAmulets = [
         'AMULET-TURKISH-001',      // Turkish Evil Eye
@@ -117,11 +127,11 @@
       ];
       
       if (magicAmulets.includes(artifactId)) {
-        return `/magic.html?id=${artifactId}&src=qr`;
+        return `${basePath}/magic.html?id=${artifactId}&src=qr`;
       }
       
       // Все остальные амулеты и артефакты идут на chrono.html
-      return `/chrono.html?id=${artifactId}&src=qr`;
+      return `${basePath}/chrono.html?id=${artifactId}&src=qr`;
     }
     
     // Логируем аналитику
