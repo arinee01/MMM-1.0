@@ -69,7 +69,7 @@
     font-size: 0.8rem;
     padding: 6px 10px;
   }
-  
+
   .theme-fab.tooltip .tooltiptext,
   .progress-btn.tooltip .tooltiptext,
   .hero-helper-btn.tooltip .tooltiptext {
@@ -84,7 +84,7 @@
     font-size: 0.75rem;
     padding: 5px 8px;
   }
-  
+
   .theme-fab.tooltip .tooltiptext,
   .progress-btn.tooltip .tooltiptext,
   .hero-helper-btn.tooltip .tooltiptext {
@@ -106,16 +106,16 @@
   --background-dark: #121212;
   --card-bg: rgba(28, 28, 28, 0.85);
   --gold: #bfa76a;
-  
+
   /* Шрифты */
   --ui-font: 'Cinzel', serif;
   --magic-font: 'QomariahArabic', cursive;
-  
+
   /* Переходы */
   --transition-fast: all 0.2s ease-in-out;
   --transition-normal: all 0.3s ease;
   --transition-slow: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  
+
   /* Тени */
   --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
   --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.2);
@@ -125,7 +125,7 @@
 /* === ШРИФТЫ === */
 @font-face {
   font-family: 'QomariahArabic';
-  src: url('fonts/QomariahArabic.ttf') format('truetype');
+  src: url('../fonts/QomariahArabic.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -137,7 +137,7 @@
 }
 
 body {
-  background-image: url("images/back_main.webp");
+  background-image: url("../images/back_main.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -163,7 +163,12 @@ body::before {
 }
 
 /* === ТИПОГРАФИКА === */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--magic-font);
   font-weight: 900;
   letter-spacing: 1px;
@@ -407,14 +412,14 @@ body.menu-open {
   letter-spacing: 0.5px;
   text-decoration: none;
   transition: var(--transition-normal);
-  box-shadow: 0 2px 12px rgba(245,231,195,0.08);
+  box-shadow: 0 2px 12px rgba(245, 231, 195, 0.08);
   border-bottom: 1px solid var(--gold);
 }
 
 .path-btn:hover {
-  background: rgba(245,231,195,0.10);
+  background: rgba(245, 231, 195, 0.10);
   color: #18181a;
-  box-shadow: 0 4px 24px rgba(245,231,195,0.18);
+  box-shadow: 0 4px 24px rgba(245, 231, 195, 0.18);
   border-color: var(--gold);
   border-bottom-width: 2px;
 }
@@ -448,7 +453,7 @@ a:hover {
   clip: rect(0, 0, 0, 0) !important;
   white-space: nowrap !important;
   border: 0 !important;
-} 
+}
 
 /* === ОТЛАДОЧНЫЕ СТИЛИ === */
 /* Убраны отладочные стили */
@@ -458,29 +463,29 @@ a:hover {
   .navbar {
     padding: 1rem;
   }
-  
+
   .navbar .container {
     flex-direction: row;
     gap: 0;
   }
-  
+
   .mobile-menu-toggle {
     display: flex;
   }
-  
+
   .navbar nav {
     display: none;
   }
-  
+
   .logo {
     font-size: 1.2rem;
   }
-  
+
   /* Скрываем навигационные стрелки на мобильных устройствах */
   .navigation-buttons {
     display: none !important;
   }
-  
+
   /* Адаптируем существующий переключатель тем для мобильных устройств */
   .theme-fab {
     display: flex !important;
@@ -491,7 +496,7 @@ a:hover {
     font-size: 1.5rem;
     z-index: 1008 !important;
   }
-  
+
   .theme-panel {
     display: none;
     top: 70px;
@@ -500,11 +505,11 @@ a:hover {
     padding: 0.8rem 1rem;
     z-index: 1009 !important;
   }
-  
+
   .theme-panel.active {
     display: flex;
   }
-  
+
   .theme-panel button {
     min-width: 120px;
     padding: 0.4rem 0.8rem;
@@ -516,13 +521,13 @@ a:hover {
   .navbar {
     padding: 0.8rem;
   }
-  
+
   .logo {
     font-size: 1.1rem;
   }
-  
+
   .mobile-nav-links a {
     font-size: 1.3rem;
     padding: 0.8rem;
   }
-} 
+}

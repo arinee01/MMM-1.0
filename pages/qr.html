@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,21 +20,21 @@
         } else if (pathname.includes('/MMM-main/')) {
           basePath = '/MMM-main';
         }
-        
+
         // Специальные случаи для амулетов, которые идут на magic.html
         const magicAmulets = [
           'AMULET-TURKISH-001',      // Turkish Evil Eye
           'AMULET-ROSE-QUARTZ-001',  // Rose Quartz  
           'AMULET-BLACK-STONE-001'   // Black Stone
         ];
-        
+
         let targetUrl;
         if (magicAmulets.includes(artifactId)) {
-          targetUrl = `${basePath}/magic.html?id=${artifactId}&src=qr`;
+          targetUrl = `${basePath}/pages/magic.html?id=${artifactId}&src=qr`;
         } else {
-          targetUrl = `${basePath}/chrono.html?id=${artifactId}&src=qr`;
+          targetUrl = `${basePath}/pages/chrono.html?id=${artifactId}&src=qr`;
         }
-        
+
         // Редиректим на нужную страницу с параметром id
         window.location.href = targetUrl;
       } else {
@@ -43,7 +44,9 @@
     });
   </script>
 </head>
+
 <body>
   <h2>Загрузка...</h2>
 </body>
+
 </html>

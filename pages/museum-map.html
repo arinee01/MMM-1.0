@@ -1,37 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Museum Map — Everyday Magic</title>
-  <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
-  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
-  <link rel="manifest" href="icons/site.webmanifest">
+  <link rel="icon" type="image/x-icon" href="../icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="../icons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../icons/apple-touch-icon.png">
+  <link rel="manifest" href="../icons/site.webmanifest">
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="base.css" />
-  <link rel="stylesheet" href="components.css" />
-  <link rel="stylesheet" href="themes.css" />
-  <link rel="stylesheet" href="animations.css" />
-  <link rel="stylesheet" href="theme-switcher.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/themes.css" />
+  <link rel="stylesheet" href="../css/animations.css" />
+  <link rel="stylesheet" href="../css/theme-switcher.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Rye&family=Josefin+Sans:wght@400;600&family=Montserrat:wght@400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Monoton&family=Rye&family=Josefin+Sans:wght@400;600&family=Montserrat:wght@400;600&family=Orbitron:wght@400;700&display=swap"
+    rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="progress-system.css" />
-  <link rel="stylesheet" href="museum-map.css" />
+  <link rel="stylesheet" href="../css/progress-system.css" />
+  <link rel="stylesheet" href="../css/museum-map.css" />
   <script src="https://kit.fontawesome.com/b7dc8e0f7f.js" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  
+
 </head>
 
 <body class="theme-1500">
   <!-- Navigation -->
   <header class="navbar">
     <div class="container">
-      <a href="index.html" class="logo">EVERYDAY MAGIC</a>
+      <a href="../index.html" class="logo">EVERYDAY MAGIC</a>
       <button class="mobile-menu-toggle" id="mobile-menu-toggle">
         <span></span>
         <span></span>
@@ -39,7 +42,7 @@
       </button>
       <nav>
         <ul class="nav-links" id="nav-links">
-          <li><a href="index.html#home">Home</a></li>
+          <li><a href="../index.html#home">Home</a></li>
           <li><a href="museum-map.html">Museum</a></li>
           <li><a href="disclaimer.html">Disclaimer</a></li>
           <li><a href="about.html">About</a></li>
@@ -54,7 +57,7 @@
     <div class="mobile-nav-content">
       <button class="mobile-nav-close" id="mobile-nav-close">&times;</button>
       <ul class="mobile-nav-links">
-        <li><a href="index.html#home">Home</a></li>
+        <li><a href="../index.html#home">Home</a></li>
         <li><a href="museum-map.html">Museum</a></li>
         <li><a href="disclaimer.html">Disclaimer</a></li>
         <li><a href="about.html">About</a></li>
@@ -87,17 +90,17 @@
           <div class="map-info">
             <h3>MAMbo — Museo d'Arte Moderna di Bologna</h3>
           </div>
-          
+
           <div class="floor-container">
             <button class="floor-nav left" onclick="prevFloor()">←</button>
-          
+
             <div class="floor" id="floor-0">
               <h2>Piano Interrato</h2>
               <div class="dot" style="top: 18%; left: 22%;" data-index="0" data-img="aegishjalmr.jpg">1</div>
               <div class="dot" style="top: 35%; left: 60%;" data-index="1" data-img="bantu_fetish.jpg">2</div>
               <div class="dot" style="top: 55%; left: 30%;" data-index="2" data-img="korean_knife.jpg">3</div>
             </div>
-          
+
             <div class="floor hidden" id="floor-1">
               <h2>Primo Piano</h2>
               <div class="dot" style="top: 20%; left: 70%;" data-index="3" data-img="nft_qr.jpg">4</div>
@@ -106,7 +109,7 @@
               <div class="dot" style="top: 75%; left: 35%;" data-index="6" data-img="rpg_amulet.jpg">7</div>
               <div class="dot" style="top: 72%; left: 70%;" data-index="7" data-img="slavic_doll.jpg">8</div>
             </div>
-          
+
             <div class="floor hidden" id="floor-2">
               <h2>Secondo Piano</h2>
               <div class="dot" style="top: 25%; left: 30%;" data-index="8" data-img="st_benedict.jpg">9</div>
@@ -117,9 +120,9 @@
             </div>
 
             <div class="map-dot-effects"></div>
-          
+
             <button class="floor-nav right" onclick="nextFloor()">→</button>
-          
+
             <div class="popup" id="popup">
               <span id="popup-close">×</span>
               <div id="popup-content"></div>
@@ -148,7 +151,7 @@
 
   <!-- Navigation Buttons -->
   <div class="navigation-buttons">
-    <a href="#" onclick="navigateWithTheme('index.html')" class="nav-btn">
+    <a href="#" onclick="navigateWithTheme('../index.html')" class="nav-btn">
       <i class="fas fa-chevron-left"></i>
     </a>
     <a href="#" onclick="navigateWithTheme('crosscultural.html')" class="nav-btn">
@@ -163,97 +166,99 @@
         <h3>Everyday Magic</h3>
         <p>Digital Humanities Project<br>University of Bologna — DHDK</p>
       </div>
-      
+
       <div class="footer-bottom">
         <div class="footer-bottom-content">
           <p>© 2025 Everyday Magic. All rights reserved.</p>
-          <p>Contact: <a href="mailto:arina.gracheva@studio.unibo.it">arina.gracheva@studio.unibo.it</a> | <a href="mailto:arina.samylova@studio.unibo.it">arina.samylova@studio.unibo.it</a></p>
+          <p>Contact: <a href="mailto:arina.gracheva@studio.unibo.it">arina.gracheva@studio.unibo.it</a> | <a
+              href="mailto:arina.samylova@studio.unibo.it">arina.samylova@studio.unibo.it</a></p>
         </div>
       </div>
     </div>
   </footer>
 
-      <script src="theme-switcher.js"></script>
-      <script src="local-ai.js"></script>
-  <script src="hero-helper.js"></script>
-  <script src="progress-system.js"></script>
-      <script src="perf-helpers.js"></script>
-      
-      <!-- QR Code Library -->
-      <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
-      <script src="museum-map.js"></script>
-      
-      <script>
-        // Мобильное меню
-        document.addEventListener('DOMContentLoaded', function() {
-          const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-          const mobileNav = document.getElementById('mobile-nav');
-          const mobileNavClose = document.getElementById('mobile-nav-close');
-          const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
-          const body = document.body;
-          
-          console.log('DOM загружен, элементы:', {
-            mobileMenuToggle: mobileMenuToggle,
-            mobileNav: mobileNav,
-            mobileNavClose: mobileNavClose
-          });
-          
-          // Открытие мобильного меню
-          if (mobileMenuToggle) {
-            mobileMenuToggle.addEventListener('click', function(e) {
-              e.preventDefault();
-              e.stopPropagation();
-              console.log('Открытие мобильного меню');
-              
-              mobileMenuToggle.classList.add('active');
-              mobileNav.classList.add('active');
-              body.classList.add('menu-open');
-            });
-          }
-          
-          // Закрытие мобильного меню по кнопке
-          if (mobileNavClose) {
-            mobileNavClose.addEventListener('click', function(e) {
-              e.preventDefault();
-              e.stopPropagation();
-              console.log('Закрытие мобильного меню по кнопке');
-              
-              closeMobileMenu();
-            });
-          }
-          
-          // Закрытие мобильного меню по клику на ссылку
-          mobileNavLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-              console.log('Клик по ссылке мобильного меню');
-              closeMobileMenu();
-            });
-          });
-          
-          // Закрытие мобильного меню по клику вне меню
-          mobileNav.addEventListener('click', function(e) {
-            if (e.target === mobileNav) {
-              console.log('Клик вне мобильного меню');
-              closeMobileMenu();
-            }
-          });
-          
-          // Закрытие мобильного меню по Escape
-          document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
-              console.log('Нажата клавиша Escape');
-              closeMobileMenu();
-            }
-          });
-          
-          // Функция закрытия мобильного меню
-          function closeMobileMenu() {
-            mobileMenuToggle.classList.remove('active');
-            mobileNav.classList.remove('active');
-            body.classList.remove('menu-open');
-            console.log('Мобильное меню закрыто');
-          }
+  <script src="../theme-switcher.js"></script>
+  <script src="../local-ai.js"></script>
+  <script src="../hero-helper.js"></script>
+  <script src="../progress-system.js"></script>
+  <script src="../perf-helpers.js"></script>
+
+  <!-- QR Code Library -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+  <script src="../museum-map.js"></script>
+
+  <script>
+    // Мобильное меню
+    document.addEventListener('DOMContentLoaded', function () {
+      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+      const mobileNav = document.getElementById('mobile-nav');
+      const mobileNavClose = document.getElementById('mobile-nav-close');
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+      const body = document.body;
+
+      console.log('DOM загружен, элементы:', {
+        mobileMenuToggle: mobileMenuToggle,
+        mobileNav: mobileNav,
+        mobileNavClose: mobileNavClose
+      });
+
+      // Открытие мобильного меню
+      if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          console.log('Открытие мобильного меню');
+
+          mobileMenuToggle.classList.add('active');
+          mobileNav.classList.add('active');
+          body.classList.add('menu-open');
         });
-      </script>
+      }
+
+      // Закрытие мобильного меню по кнопке
+      if (mobileNavClose) {
+        mobileNavClose.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          console.log('Закрытие мобильного меню по кнопке');
+
+          closeMobileMenu();
+        });
+      }
+
+      // Закрытие мобильного меню по клику на ссылку
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+          console.log('Клик по ссылке мобильного меню');
+          closeMobileMenu();
+        });
+      });
+
+      // Закрытие мобильного меню по клику вне меню
+      mobileNav.addEventListener('click', function (e) {
+        if (e.target === mobileNav) {
+          console.log('Клик вне мобильного меню');
+          closeMobileMenu();
+        }
+      });
+
+      // Закрытие мобильного меню по Escape
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+          console.log('Нажата клавиша Escape');
+          closeMobileMenu();
+        }
+      });
+
+      // Функция закрытия мобильного меню
+      function closeMobileMenu() {
+        mobileMenuToggle.classList.remove('active');
+        mobileNav.classList.remove('active');
+        body.classList.remove('menu-open');
+        console.log('Мобильное меню закрыто');
+      }
+    });
+  </script>
 </body>
-</html> 
+
+</html>

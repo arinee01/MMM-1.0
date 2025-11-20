@@ -1,21 +1,21 @@
 // Инициализация мобильного меню
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const burgerMenu = document.getElementById('burger-menu');
   const navLinks = document.querySelectorAll('.nav-links a');
   const navMenu = document.querySelector('.nav-links');
   const overlay = document.querySelector('.mobile-menu-overlay');
   const body = document.body;
-  
+
   // Добавляем обработчик для бургер-меню
   if (burgerMenu) {
-    burgerMenu.addEventListener('click', function() {
+    burgerMenu.addEventListener('click', function () {
       burgerMenu.classList.toggle('active');
       navMenu.classList.toggle('active');
-      
+
       if (overlay) {
         overlay.classList.toggle('active');
       }
-      
+
       // Блокируем скролл при открытом меню
       if (navMenu.classList.contains('active')) {
         body.classList.add('menu-open');
@@ -24,10 +24,10 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
-  
+
   // Добавляем обработчики для ссылок навигации
   navLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
+    link.addEventListener('click', function (e) {
       // Закрываем мобильное меню
       burgerMenu.classList.remove('active');
       navMenu.classList.remove('active');
@@ -37,19 +37,19 @@ document.addEventListener('DOMContentLoaded', function() {
       body.classList.remove('menu-open');
     });
   });
-  
+
   // Закрытие меню при клике на оверлей
   if (overlay) {
-    overlay.addEventListener('click', function() {
+    overlay.addEventListener('click', function () {
       burgerMenu.classList.remove('active');
       navMenu.classList.remove('active');
       overlay.classList.remove('active');
       body.classList.remove('menu-open');
     });
   }
-  
+
   // Закрытие меню при нажатии Escape
-  document.addEventListener('keydown', function(e) {
+  document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && navMenu.classList.contains('active')) {
       burgerMenu.classList.remove('active');
       navMenu.classList.remove('active');
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
   Its porous texture absorbs emotional residue — anger, doubt, confusion — and its dark color symbolizes both absorption and the mystery of the unseen. In the modern world, where overstimulation is constant (notifications, bright screens, emotional content), this amulet serves as a buffering agent.
  
   Worn near the body or placed near digital devices, it is said to create a psychic firewall, allowing the wearer to move through digital noise without losing their center.`,
-      
+
       // Metadata for Amulet 1
       metadata: {
         identifier: "AMULET-001",
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
         context: "Spiritual, Personal"
       }
     },
- 
+
     2: {
       short: "This eye sees for you — it reflects envy and shields your shine.",
       full: `Crafted in the form of a watchful blue eye, this amulet has guarded the luminous for centuries. From Istanbul to Athens, from Cairo to Belgrade, it's worn by those who draw attention — not by choice, but by nature.
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
   Placed on phones, worn as jewelry, or pinned to clothing, the amulet is believed to **mirror back** jealousy, gossip, and unconscious projections. It's especially powerful when worn during high-visibility moments — launches, performances, first dates, or interviews.
  
   In digital life, it works symbolically: protecting your attention, your confidence, and your glow. The eye reminds you — your light doesn't need shrinking. It only needs shielding.`,
-      
+
       // Metadata for Amulet 2
       metadata: {
         identifier: "AMULET-002",
@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
         context: "Personal, Domestic"
       }
     },
- 
+
     3: {
       short: "Like a magic feather! It helps you move fast and be brave.",
       full: `This feather-shaped token was once worn by dancers and warriors. It channels energy for movement, risk-taking, and forward leaps — the kind you take before you're ready.
@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
   Before battles or performances, wearers would whisper personal intentions into the token. Archaeologists have found similar items near riverbeds and cliffside camps, often engraved with directional glyphs or paired with boots worn thin by long journeys.
  
   Today, the feather has returned in symbolic form on tattoos, logos, and charms worn by creators, freelancers, and digital nomads — anyone who needs to leap before they're sure. It's not just a token of action, but of **momentum** in uncertain terrain.`,
-      
+
       // Metadata for Amulet 3
       metadata: {
         identifier: "AMULET-003",
@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
   These amulets amulets can be displayed in your digital wallet, used as profile pictures, or integrated into your online platforms. They serve as reminders of your digital sovereignty and protect your creative energy from being drained by the constant demands of online life.
  
   In the modern world of social media, content creation, and digital commerce, the NFT amulet represents a new form of spiritual protection — one that understands the unique challenges and opportunities of our digital age.`,
-      
+
       // Metadata for Amulet 4
       metadata: {
         identifier: "AMULET-004",
@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
   This amulet is particularly powerful for content creators, streamers, and competitive gamers. It can help maintain focus during long gaming sessions, enhance strategic thinking, and provide protection against the negative aspects of online gaming culture.
  
   In the modern world where virtual and physical realities increasingly overlap, the RPG amulet serves as a bridge between these realms, helping you navigate both with confidence and magical protection.`,
-      
+
       // Metadata for Amulet 5
       metadata: {
         identifier: "AMULET-005",
@@ -207,31 +207,31 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentTab = 'short';
 
   // === НОВАЯ ЛОГИКА ВЫБОРА АМУЛЕТОВ ===
-  
+
   // Функция для выбора амулета
   function selectAmulet(amuletId) {
     if (!amuletData[amuletId]) return;
-    
+
     console.log('Выбран амулет:', amuletId);
     console.log('Текущий уровень пользователя:', localStorage.getItem('magicUserType'));
-    
+
     currentAmuletId = amuletId;
     amuletCards.forEach(card => card.classList.remove('selected'));
     const selectedCard = document.querySelector(`[data-id="${amuletId}"]`);
     if (selectedCard) selectedCard.classList.add('selected');
-    
+
     // Обновляем описание
     if (amuletDescBox) {
       amuletDescBox.classList.add('active');
       amuletDescBox.style.display = '';
     }
-    
+
     // Обновляем вкладки
     const userType = localStorage.getItem('magicUserType') || 'beginner';
     let amuletType = 'short';
     if (userType === 'casual') amuletType = 'full';
     if (userType === 'expert') amuletType = 'use';
-    
+
     currentTab = amuletType;
     amuletTabs.forEach(tab => tab.classList.remove('active'));
     const activeTab = document.querySelector(`.amulet-tab[data-type="${amuletType}"]`);
@@ -239,40 +239,40 @@ document.addEventListener("DOMContentLoaded", () => {
       activeTab.classList.add('active');
       console.log('Установлена активная вкладка:', amuletType, 'для уровня:', userType);
     }
-    
+
     // Обновляем текст в соответствии с активной вкладкой
     if (amuletDescText) {
       amuletDescText.textContent = amuletData[currentAmuletId][amuletType] || '✨ No details available.';
       console.log('Обновлен текст для вкладки:', amuletType);
     }
-    
+
     // Принудительно обновляем текст для уровня пользователя
     updateTextForUserLevel();
-    
+
     // Обновляем метаданные если панель открыта
     const metadataSection = document.getElementById('amulet-metadata-section');
     if (metadataSection && metadataSection.classList.contains('open')) {
       updateAmuletMetadata(currentAmuletId);
     }
   }
-  
+
   // Проверяем параметры в URL (поддерживаем как 'id', так и 'artifact' для обратной совместимости)
   const urlParams = new URLSearchParams(window.location.search);
   const artifactId = urlParams.get('id') || urlParams.get('artifact');
   const userTypeFromUrl = urlParams.get('userType');
   const src = urlParams.get('src');
-  
+
   // Логируем аналитику, если пользователь пришел через QR-код
   if (src === 'qr' && artifactId) {
     console.log(`QR Analytics: User accessed ${artifactId} via QR code`);
   }
-  
+
   // Если есть параметр userType в URL, устанавливаем его
   if (userTypeFromUrl) {
     localStorage.setItem('magicUserType', userTypeFromUrl);
     console.log('Уровень пользователя установлен из URL:', userTypeFromUrl);
   }
-  
+
   if (artifactId) {
     // Есть параметр artifact - выбираем нужный амулет
     const artifactToCardMap = {
@@ -282,7 +282,7 @@ document.addEventListener("DOMContentLoaded", () => {
       'AMULET-ROSE-QUARTZ-001': '1',           // Rose Quartz -> amulet1
       'AMULET-BLACK-STONE-001': '1'            // Black Stone -> amulet1
     };
-    
+
     const cardId = artifactToCardMap[artifactId];
     if (cardId) {
       // Используем setTimeout чтобы убедиться что DOM загружен
@@ -298,7 +298,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(updateTextForUserLevel, 150);
     }, 100);
   }
-  
+
   // Обработчики кликов по карточкам
   amuletCards.forEach(card => {
     card.addEventListener('click', () => {
@@ -313,12 +313,12 @@ document.addEventListener("DOMContentLoaded", () => {
   // Функция для принудительного обновления текста в соответствии с уровнем пользователя
   function updateTextForUserLevel() {
     if (!currentAmuletId || !amuletDescText) return;
-    
+
     const userType = localStorage.getItem('magicUserType') || 'beginner';
     let amuletType = 'short';
     if (userType === 'casual') amuletType = 'full';
     if (userType === 'expert') amuletType = 'use';
-    
+
     const text = amuletData[currentAmuletId][amuletType];
     if (text) {
       amuletDescText.textContent = text;
@@ -332,15 +332,15 @@ document.addEventListener("DOMContentLoaded", () => {
       amuletTabs.forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
       currentTab = tab.getAttribute('data-type');
-      
+
       // Сохраняем выбранный уровень в localStorage
       let userType = 'beginner';
       if (currentTab === 'full') userType = 'casual';
       if (currentTab === 'use') userType = 'expert';
       localStorage.setItem('magicUserType', userType);
-      
+
       console.log('Переключена вкладка:', currentTab, 'уровень пользователя:', userType);
-      
+
       amuletDescText.textContent = amuletData[currentAmuletId][currentTab] || '✨ No details available.';
     });
   });
@@ -403,17 +403,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const drawnCards = [];
 
   const defaultMessages = [
-  "Trust the timing — something hidden is forming beneath the surface.",
-  "Your intuition knows the answer — listen before you act.",
-  "This cycle repeats for a reason. What lesson still needs learning?",
-  "Your energy is shifting — what you desire is also moving toward you.",
-  "Let go of the need to control everything. Space allows magic.",
-  "Uncertainty is sacred space. Stay open.",
-  "A dream long shelved may be ready to come back to life.",
-  "Silence reveals what noise hides. Make time for stillness.",
-  "The path ahead is unfamiliar — and that’s exactly why it’s powerful.",
-  "Softness is not weakness. Try it and see."
-];
+    "Trust the timing — something hidden is forming beneath the surface.",
+    "Your intuition knows the answer — listen before you act.",
+    "This cycle repeats for a reason. What lesson still needs learning?",
+    "Your energy is shifting — what you desire is also moving toward you.",
+    "Let go of the need to control everything. Space allows magic.",
+    "Uncertainty is sacred space. Stay open.",
+    "A dream long shelved may be ready to come back to life.",
+    "Silence reveals what noise hides. Make time for stillness.",
+    "The path ahead is unfamiliar — and that’s exactly why it’s powerful.",
+    "Softness is not weakness. Try it and see."
+  ];
   const predictions = {
     "11_12": "A new cycle is beginning — balance inner and outer goals. It might be time to talk to someone close — they have something important to share.",
     "12_13": "Now is the time to make the leap you've been avoiding. You don't need to feel ready to begin.",
@@ -455,7 +455,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "11_6": "Your body may be asking for rest — listen. You're not a machine, you're a cycle.",
     "13_7": "You might be underestimating how strong your intuition is. Start trusting those nudges — they're not random.",
     "14_2": "You've been holding space for others — but what about you? It might be time to set a gentle boundary.",
-    
+
     // Дополнительные соединения для большего разнообразия
     "1_3": "Wisdom comes from unexpected places today. Keep your heart open to new perspectives.",
     "1_5": "A long-awaited breakthrough is near. Trust the process that's been unfolding.",
@@ -480,7 +480,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "19_20": "The universe is conspiring in your favor. Trust the synchronicities.",
     "20_21": "Your story is still being written. What chapter do you want to create next?",
     "21_22": "Transformation is your superpower. Embrace the changes that are calling you.",
-    
+
     // Специальные соединения для магических карт
     "1_11": "Ancient wisdom speaks through you today. Trust the knowledge that flows naturally.",
     "2_12": "Your intuition is a compass. Follow it without question.",
@@ -494,7 +494,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "10_20": "Your journey is unique. No one else can walk your path.",
     "11_21": "Magic is real. Believe in the impossible and watch it manifest.",
     "12_22": "Your potential is infinite. There are no limits to what you can become.",
-    
+
     // Соединения для карт масти кубков (чаши)
     "1_4": "Love flows freely in your life. Open your heart to receive it.",
     "4_7": "Emotional clarity brings peace. Trust your feelings and intuition.",
@@ -503,7 +503,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "13_16": "Healing happens through connection. Reach out to loved ones.",
     "16_19": "Your compassion heals others. Your kindness matters.",
     "19_22": "Love is the answer to every question. Choose love in all things.",
-    
+
     // Соединения для карт масти мечей
     "2_5": "Your mind is sharp and clear. Trust your intellectual insights.",
     "5_8": "Communication flows easily. Speak your truth with confidence.",
@@ -512,7 +512,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "14_17": "Your words have power. Use them to uplift and inspire.",
     "17_20": "Intellectual growth is rapid. Your mind is expanding.",
     "20_23": "Wisdom comes through study and reflection. Keep learning.",
-    
+
     // Соединения для карт масти пентаклей
     "3_6": "Abundance flows to you naturally. Trust in prosperity.",
     "6_9": "Your material needs are met. Focus on gratitude.",
@@ -521,7 +521,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "15_18": "Success is inevitable. Keep moving forward with confidence.",
     "18_21": "Your wealth includes more than money. Count your blessings.",
     "21_24": "Prosperity surrounds you. Open your arms to receive it.",
-    
+
     // Соединения для карт масти жезлов
     "4_7": "Your energy is boundless. Channel it into creative projects.",
     "7_10": "Passion drives your success. Follow what excites you.",
@@ -530,7 +530,29 @@ document.addEventListener("DOMContentLoaded", () => {
     "16_19": "Your enthusiasm is contagious. Spread your positive energy.",
     "19_22": "Your fire never goes out. Keep it burning bright.",
     "22_25": "Transformation is your gift. Embrace the changes you create."
-};
+  };
+
+  // Fallback messages for combinations not explicitly defined
+  const fallbackMessages = [
+    "The cards suggest a time of quiet reflection. Answers will come in silence.",
+    "Two forces are merging in your life. Watch for synchronicities.",
+    "What you are seeking is already seeking you. Be patient.",
+    "A surprise is on the horizon. Keep your heart open to the unexpected.",
+    "Balance is key right now. Don't rush into a decision.",
+    "Your intuition is your best guide. Trust the first feeling you had.",
+    "Old patterns are breaking. A new path is clearing for you.",
+    "Energy flows where intention goes. Focus on what you want to create.",
+    "The universe whispers when we listen. Pay attention to your dreams.",
+    "Strength comes from within. You have more power than you realize."
+  ];
+
+  function getFallbackPrediction(id1, id2) {
+    // Use the card IDs to deterministically select a fallback message
+    // This ensures the same pair always gets the same 'random' message
+    const sum = parseInt(id1) + parseInt(id2);
+    const index = sum % fallbackMessages.length;
+    return fallbackMessages[index];
+  }
 
   tarotCards.forEach(card => {
     card.addEventListener("click", () => {
@@ -542,14 +564,21 @@ document.addEventListener("DOMContentLoaded", () => {
         const [a, b] = drawnCards;
         const key1 = `${a}_${b}`;
         const key2 = `${b}_${a}`;
-        const result = predictions[key1] || predictions[key2] || predictions.default;
+
+        // Try to find specific prediction, otherwise use fallback
+        let result = predictions[key1] || predictions[key2];
+
+        if (!result) {
+          console.log(`No specific prediction for ${key1}, using fallback.`);
+          result = getFallbackPrediction(a, b);
+        }
 
         setTimeout(() => {
           if (resultBox) {
             resultBox.textContent = result;
             resultBox.style.display = "block";
           }
-          
+
           // Показываем кнопку сброса только если есть результат
           const resetBtn = document.getElementById('tarot-reset-btn');
           if (resetBtn && result) {
@@ -570,16 +599,16 @@ document.addEventListener("DOMContentLoaded", () => {
     resetBtn.addEventListener('click', () => {
       // Сбрасываем все карты
       tarotCards.forEach(card => card.classList.remove("flipped"));
-      
+
       // Очищаем массив выбранных карт
       drawnCards.length = 0;
-      
+
       // Скрываем результат
       if (resultBox) {
         resultBox.textContent = "";
         resultBox.style.display = "none";
       }
-      
+
       // Скрываем кнопку сброса с анимацией
       resetBtn.classList.remove('show');
       setTimeout(() => {
@@ -595,7 +624,7 @@ document.addEventListener("DOMContentLoaded", () => {
       resultBox.textContent = "";
       resultBox.style.display = "none";
     }
-    
+
     // Скрываем кнопку сброса
     const resetBtn = document.getElementById('tarot-reset-btn');
     if (resetBtn) {
@@ -611,7 +640,7 @@ document.addEventListener("DOMContentLoaded", () => {
   Tarot is a bit like that magical story! It's a set of special cards, each with a unique picture. People use them to think about their feelings, their dreams, and their day. Some cards show happy suns or brave knights. Others show mysteries like the Moon or the Tower.
  
   Tarot is loved in many places! In France and Italy, people collect beautiful old Tarot decks. In Japan, there are Tarot cards with cute anime characters. In the United States and Brazil, people use Tarot to explore their imagination. It's like opening a door to a world of stories and colors, where every card is part of your own fairy tale.`,
-     
+
     more: `Tarot isn’t just fortune telling — it’s more like a conversation with your deeper self. Each of the 78 cards represents emotions, symbols, and life situations: from joy to challenge, from mystery to clarity. People often draw a few cards to think about a question or reflect on their lives. Many use Tarot for mindfulness, journaling, or even therapy.
  
   Some fascinating facts about Tarot:
@@ -626,7 +655,7 @@ document.addEventListener("DOMContentLoaded", () => {
   – In South Korea, Japan, and Taiwan, young people use Tarot in cafes, apps, and even for dating advice.
  
   Tarot today is about asking better questions, not just getting answers. It’s a blend of art, emotion, and story — and it belongs to everyone.`,
- 
+
     full: `Tarot is a multifaceted symbolic system composed of 78 cards: 22 Major Arcana and 56 Minor Arcana. While historically originating in 15th-century Italy as a card game (tarocchi), Tarot evolved into an esoteric tool in the 18th–19th centuries, influenced by Hermeticism, Kabbalah, Renaissance Neoplatonism, alchemy, and later Jungian psychology.
  
   Modern academic and psychological approaches to Tarot highlight its role in:
@@ -644,7 +673,7 @@ document.addEventListener("DOMContentLoaded", () => {
  
   Despite skepticism in some scientific circles, Tarot is increasingly studied as a cultural artifact, psychological tool, and art form — intersecting intuition, narrative, and symbolic logic.`
   };
- 
+
 
   const tarotButtons = document.querySelectorAll(".tarot-toggle-btn");
   const output = document.getElementById("tarot-text-output");
@@ -668,7 +697,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // === TikTok Play Button Lazy Load ===
   document.querySelectorAll('.tiktok-placeholder').forEach(placeholder => {
     const playBtn = placeholder.querySelector('.tiktok-play-btn');
-    playBtn.addEventListener('click', function(e) {
+    playBtn.addEventListener('click', function (e) {
       e.preventDefault();
       e.stopPropagation();
       const src = placeholder.getAttribute('data-src');
@@ -693,7 +722,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // === МЕТАДАННЫЕ АМУЛЕТОВ ===
   function displayAmuletMetadata(amuletId) {
     const amulet = amuletData[amuletId];
-    
+
     if (!amulet) {
       return `
         <div class="metadata-error">
@@ -702,7 +731,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       `;
     }
-    
+
     if (!amulet.metadata) {
       return `
         <div class="metadata-error">
@@ -711,9 +740,9 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       `;
     }
-    
+
     const metadata = amulet.metadata;
-    
+
     const metadataHTML = `
       <div class="metadata-grid">
         <div class="metadata-item">
@@ -750,22 +779,22 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       </div>
     `;
-    
+
     return metadataHTML;
   }
 
   function updateAmuletMetadata(amuletId) {
     const metadataContainer = document.getElementById('amulet-metadata');
-    
+
     if (metadataContainer) {
       // Show loading state briefly for smooth transition
       metadataContainer.innerHTML = '<div class="metadata-loading">Loading metadata...</div>';
-      
+
       // Small delay for smooth animation
       setTimeout(() => {
         const metadataHTML = displayAmuletMetadata(amuletId);
         metadataContainer.innerHTML = metadataHTML;
-        
+
 
       }, 100);
     } else {
@@ -776,7 +805,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function toggleAmuletMetadataSection() {
     const section = document.getElementById('amulet-metadata-section');
     const toggleBtn = document.getElementById('amulet-metadata-toggle');
-    
+
     if (section.classList.contains('open')) {
       // Close section
       section.classList.remove('open');
@@ -785,7 +814,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Open section
       section.classList.add('open');
       toggleBtn.classList.add('active');
-      
+
       // Update metadata for current amulet
       if (currentAmuletId) {
         updateAmuletMetadata(currentAmuletId);
@@ -820,7 +849,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const btn = document.querySelector(`.tarot-toggle-btn[data-type="${tarotType}"]`);
     if (btn) btn.click();
   }
-}); 
+});
 
 // === Автоподстановка режима для блока амулетов по выбору пользователя ===
 window.addEventListener('DOMContentLoaded', () => {

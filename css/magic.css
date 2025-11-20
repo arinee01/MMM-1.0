@@ -7,22 +7,23 @@
   --light-gold: #f9f3d2;
   --grid-line: rgba(255, 255, 255, 0.1);
   --gray: #999;
-  }
-  
-html, body {
+}
+
+html,
+body {
   overflow-x: auto;
 }
 
 body {
-    margin: 0;
-    font-family: 'Helvetica Neue', sans-serif;
-    background-color: var(--black);
-    color: var(--offwhite);
-    background-image: url("images/backgrounds/magic_intro.webp");
-    background-size: auto;
-    background-repeat: repeat;
+  margin: 0;
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: var(--black);
+  color: var(--offwhite);
+  background-image: url("../images/backgrounds/magic_intro.webp");
+  background-size: auto;
+  background-repeat: repeat;
   background-attachment: fixed;
-    background-position: center top;
+  background-position: center top;
 }
 
 /* === НАВИГАЦИЯ === */
@@ -31,22 +32,38 @@ body {
 /* === ПЕРЕКЛЮЧАТЕЛЬ ТЕМ === */
 /* Плавающая кнопка для смены темы оформления */
 .theme-fab {
-  position: fixed;                          /* Фиксированное позиционирование */
-  top: 2rem;                                /* Отступ сверху */
-  right: 2rem;                              /* Отступ справа */
-  width: 60px;                              /* Ширина кнопки */
-  height: 60px;                             /* Высота кнопки */
-  background: rgba(191, 167, 106, 0.1);    /* Полупрозрачный фон */
-  border: 2px solid var(--gold);      /* Золотистая граница */
-  border-radius: 50%;                       /* Круглая форма */
-  display: flex;                             /* Флекс-контейнер */
-  align-items: center;                       /* Выравнивание по центру по вертикали */
-  justify-content: center;                   /* Выравнивание по центру по горизонтали */
-  cursor: pointer;                           /* Курсор-указатель */
-  font-size: 1.5rem;                        /* Размер иконки */
-  z-index: 1000;                            /* Высокий z-index */
-  backdrop-filter: blur(10px);              /* Размытие фона */
-  transition: all 0.3s ease;                /* Плавные переходы */
+  position: fixed;
+  /* Фиксированное позиционирование */
+  top: 2rem;
+  /* Отступ сверху */
+  right: 2rem;
+  /* Отступ справа */
+  width: 60px;
+  /* Ширина кнопки */
+  height: 60px;
+  /* Высота кнопки */
+  background: rgba(191, 167, 106, 0.1);
+  /* Полупрозрачный фон */
+  border: 2px solid var(--gold);
+  /* Золотистая граница */
+  border-radius: 50%;
+  /* Круглая форма */
+  display: flex;
+  /* Флекс-контейнер */
+  align-items: center;
+  /* Выравнивание по центру по вертикали */
+  justify-content: center;
+  /* Выравнивание по центру по горизонтали */
+  cursor: pointer;
+  /* Курсор-указатель */
+  font-size: 1.5rem;
+  /* Размер иконки */
+  z-index: 1000;
+  /* Высокий z-index */
+  backdrop-filter: blur(10px);
+  /* Размытие фона */
+  transition: all 0.3s ease;
+  /* Плавные переходы */
 }
 
 .theme-fab:hover {
@@ -58,19 +75,32 @@ body {
 /* === ПАНЕЛЬ ВЫБОРА ТЕМ === */
 /* Выпадающая панель для переключения тем оформления */
 .theme-panel {
-  position: fixed;                            /* Фиксированное позиционирование */
-  top: 5rem;                                  /* Отступ сверху */
-  right: 2rem;                                /* Отступ справа */
-  background: rgba(0, 0, 0, 0.8);            /* Полупрозрачный темный фон */
-  border: 2px solid var(--gold);        /* Золотистая граница */
-  border-radius: 12px;                        /* Скругленные углы */
-  padding: 1rem;                              /* Внутренние отступы */
-  z-index: 1000;                              /* Высокий z-index */
-  backdrop-filter: blur(10px);                /* Размытие фона */
-  opacity: 0;                                 /* Начальная прозрачность */
-  visibility: hidden;                         /* Скрыта по умолчанию */
-  transform: translateY(-10px);               /* Начальное смещение вверх */
-  transition: all 0.3s ease;                  /* Плавные переходы */
+  position: fixed;
+  /* Фиксированное позиционирование */
+  top: 5rem;
+  /* Отступ сверху */
+  right: 2rem;
+  /* Отступ справа */
+  background: rgba(0, 0, 0, 0.8);
+  /* Полупрозрачный темный фон */
+  border: 2px solid var(--gold);
+  /* Золотистая граница */
+  border-radius: 12px;
+  /* Скругленные углы */
+  padding: 1rem;
+  /* Внутренние отступы */
+  z-index: 1000;
+  /* Высокий z-index */
+  backdrop-filter: blur(10px);
+  /* Размытие фона */
+  opacity: 0;
+  /* Начальная прозрачность */
+  visibility: hidden;
+  /* Скрыта по умолчанию */
+  transform: translateY(-10px);
+  /* Начальное смещение вверх */
+  transition: all 0.3s ease;
+  /* Плавные переходы */
 }
 
 /* === АКТИВНОЕ СОСТОЯНИЕ ПАНЕЛИ ТЕМ === */
@@ -83,37 +113,58 @@ body {
 /* === ЗАГОЛОВОК ПАНЕЛИ ТЕМ === */
 /* Стили для заголовка панели выбора тем */
 .theme-panel-title {
-  color: var(--gold);                   /* Золотистый цвет */
-  font-family: 'Cinzel', serif;               /* Декоративный шрифт */
-  font-size: 0.9rem;                          /* Размер шрифта */
-  font-weight: 600;                            /* Жирность шрифта */
-  margin-bottom: 0.8rem;                      /* Отступ снизу */
-  text-align: center;                          /* Выравнивание по центру */
-  letter-spacing: 0.5px;                      /* Расстояние между буквами */
+  color: var(--gold);
+  /* Золотистый цвет */
+  font-family: 'Cinzel', serif;
+  /* Декоративный шрифт */
+  font-size: 0.9rem;
+  /* Размер шрифта */
+  font-weight: 600;
+  /* Жирность шрифта */
+  margin-bottom: 0.8rem;
+  /* Отступ снизу */
+  text-align: center;
+  /* Выравнивание по центру */
+  letter-spacing: 0.5px;
+  /* Расстояние между буквами */
 }
 
 /* === КНОПКИ В ПАНЕЛИ ТЕМ === */
 /* Стили для кнопок выбора темы */
 .theme-panel button {
-  display: block;                              /* Блочное отображение */
-  width: 100%;                                 /* Полная ширина */
-  background: transparent;                     /* Прозрачный фон */
-  border: 1px solid var(--gold);        /* Золотистая граница */
-  color: var(--gold);                   /* Золотистый цвет текста */
-  padding: 0.5rem 1rem;                       /* Внутренние отступы */
-  margin-bottom: 0.5rem;                      /* Отступ снизу */
-  border-radius: 6px;                          /* Скругленные углы */
-  cursor: pointer;                             /* Курсор-указатель */
-  font-family: 'Cinzel', serif;               /* Декоративный шрифт */
-  font-size: 0.8rem;                          /* Размер шрифта */
-  letter-spacing: 0.3px;                      /* Расстояние между буквами */
-  transition: all 0.3s ease;                  /* Плавные переходы */
+  display: block;
+  /* Блочное отображение */
+  width: 100%;
+  /* Полная ширина */
+  background: transparent;
+  /* Прозрачный фон */
+  border: 1px solid var(--gold);
+  /* Золотистая граница */
+  color: var(--gold);
+  /* Золотистый цвет текста */
+  padding: 0.5rem 1rem;
+  /* Внутренние отступы */
+  margin-bottom: 0.5rem;
+  /* Отступ снизу */
+  border-radius: 6px;
+  /* Скругленные углы */
+  cursor: pointer;
+  /* Курсор-указатель */
+  font-family: 'Cinzel', serif;
+  /* Декоративный шрифт */
+  font-size: 0.8rem;
+  /* Размер шрифта */
+  letter-spacing: 0.3px;
+  /* Расстояние между буквами */
+  transition: all 0.3s ease;
+  /* Плавные переходы */
 }
 
 /* === ПОСЛЕДНЯЯ КНОПКА В ПАНЕЛИ === */
 /* Убираем отступ у последней кнопки */
 .theme-panel button:last-child {
-  margin-bottom: 0;                            /* Без отступа снизу */
+  margin-bottom: 0;
+  /* Без отступа снизу */
 }
 
 .theme-panel button:hover {
@@ -127,122 +178,122 @@ body {
   font-weight: 600;
 }
 
-  .magic-container {
-    max-width: 1000px;
-    margin: 3rem auto 4rem;
-    padding: 1.5rem 1rem;
-    text-align: center;
-  }
-  
-  .intro-hero-section {
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    height: 60vh;
-    margin-bottom: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .intro-hero-overlay {
-    background: rgba(0, 0, 0, 0.55);
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .intro-title {
-    color: var(--gold);
-    font-family: 'Cinzel', serif;
-    font-size: 4rem;
-    text-shadow: 0 0 15px rgba(255, 228, 196, 0.3);
-    text-align: center;
-    padding: 0 1rem;
-    margin-bottom: 2rem;
-    line-height: 1.2;
-    word-wrap: break-word;
-    max-width: 100%;
-  }
-  
-  .section-heading {
-    /* Базовые стили в base.css, здесь только специфичные для magic */
-    margin-top: 4rem;
-    margin-bottom: 1.5rem;
+.magic-container {
+  max-width: 1000px;
+  margin: 3rem auto 4rem;
+  padding: 1.5rem 1rem;
+  text-align: center;
 }
 
-  .intro-text {
-    color: #ccc;
-    font-size: 1rem;
-    margin: 0 auto 3rem;
-    margin-bottom: 2rem;
-  }
-  
-  .typing-text {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #ccc;
-    white-space: pre-line;
-    border-right: 2px solid var(--gold);
-    overflow: hidden;
-    animation: blink-cursor 0.9s steps(1) infinite;
-    max-width: 800px;
-    margin: 0 auto 3rem;
-    text-align: left;
-  }
-  
-  .tags-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem 1.5rem;
-    justify-content: center;
-    margin-bottom: 3rem;
-  }
-  
-  .highlighted-tag {
-    position: relative;
-    font-size: 1.3rem;
-    font-weight: bold;
-    color: var(--offwhite);
-    font-family: 'Cinzel', serif;
-    padding: 0 0.2em;
-    cursor: default;
-    background: none;
-    border: none;
-    box-shadow: none;
-  }
-  
-  .highlighted-tag::before {
-    content: '';
-    position: absolute;
-    bottom: 0.1em;
-    left: 0;
-    width: 100%;
-    height: 50%;
-    background: var(--accent);
-    opacity: 0.5;
-    z-index: -1;
-    transform: rotate(-2deg);
-    border-radius: 0;
-  }
+.intro-hero-section {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  height: 60vh;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-hero-overlay {
+  background: rgba(0, 0, 0, 0.55);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-title {
+  color: var(--gold);
+  font-family: 'Cinzel', serif;
+  font-size: 4rem;
+  text-shadow: 0 0 15px rgba(255, 228, 196, 0.3);
+  text-align: center;
+  padding: 0 1rem;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+.section-heading {
+  /* Базовые стили в base.css, здесь только специфичные для magic */
+  margin-top: 4rem;
+  margin-bottom: 1.5rem;
+}
+
+.intro-text {
+  color: #ccc;
+  font-size: 1rem;
+  margin: 0 auto 3rem;
+  margin-bottom: 2rem;
+}
+
+.typing-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #ccc;
+  white-space: pre-line;
+  border-right: 2px solid var(--gold);
+  overflow: hidden;
+  animation: blink-cursor 0.9s steps(1) infinite;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  text-align: left;
+}
+
+.tags-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.highlighted-tag {
+  position: relative;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--offwhite);
+  font-family: 'Cinzel', serif;
+  padding: 0 0.2em;
+  cursor: default;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+.highlighted-tag::before {
+  content: '';
+  position: absolute;
+  bottom: 0.1em;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: var(--accent);
+  opacity: 0.5;
+  z-index: -1;
+  transform: rotate(-2deg);
+  border-radius: 0;
+}
 
 /* Убрано дублирование - стили уже определены выше */
 
 /* Убрано дублирование - стили уже определены выше */
 
 /* Убрано дублирование - стили уже определены выше */
-  /* Убрано дублирование - стили уже определены выше */
-  
-  /* Убрано дублирование - стили уже определены выше */
-  
-  /* Убрано дублирование - стили уже определены выше */
+/* Убрано дублирование - стили уже определены выше */
+
+/* Убрано дублирование - стили уже определены выше */
+
 /* Убрано дублирование - стили уже определены выше */
 /* Убрано дублирование - стили уже определены выше */
-  
-  /* Убрано дублирование - стили уже определены выше */
-  
+/* Убрано дублирование - стили уже определены выше */
+
+/* Убрано дублирование - стили уже определены выше */
+
 
 /* Убрано дублирование - стили уже определены выше */
 
@@ -257,7 +308,7 @@ body {
 /* Убрано дублирование - стили уже определены выше */
 
 /* Убрано дублирование - стили уже определены выше */
-  /* Убрано дублирование - стили уже определены выше */
+/* Убрано дублирование - стили уже определены выше */
 
 /* Убрано дублирование - стили уже определены выше */
 
@@ -270,7 +321,7 @@ body {
   border-radius: 5px;
   cursor: pointer;
   font-weight: 500;
-    font-family: 'Cinzel', serif;
+  font-family: 'Cinzel', serif;
   font-size: 0.9rem;
   letter-spacing: 0.5px;
   transition: all 0.3s ease;
@@ -286,6 +337,7 @@ body {
   max-width: 1100px;
   padding: 1.5rem 1rem;
 }
+
 .amulet-grid {
   display: flex;
   gap: 3.5rem;
@@ -293,6 +345,7 @@ body {
   margin-bottom: 1.2rem;
   flex-wrap: wrap;
 }
+
 .amulet-card {
   background: transparent;
   border-radius: 22px;
@@ -308,6 +361,7 @@ body {
   min-width: 220px;
   min-height: 220px;
 }
+
 .amulet-card img {
   width: 92%;
   height: auto;
@@ -317,19 +371,23 @@ body {
   border-radius: 16px;
   box-shadow: none;
   background: transparent;
-  border: 3px solid rgba(245,231,195,0.25);
+  border: 3px solid rgba(245, 231, 195, 0.25);
   transition: box-shadow 0.22s, border 0.22s;
   display: block;
 }
+
 .amulet-card[data-id="1"] {
   transform: rotate(-5deg);
 }
+
 .amulet-card[data-id="2"] {
   transform: rotate(3deg);
 }
+
 .amulet-card[data-id="3"] {
   transform: rotate(-2deg);
 }
+
 .amulet-card.selected,
 .amulet-card:hover {
   transform: scale(1.09) rotate(0deg);
@@ -338,20 +396,22 @@ body {
   z-index: 2;
   background: transparent;
 }
+
 .amulet-card.selected img,
 .amulet-card:hover img {
   box-shadow: 0 0 20px 0 var(--accent-glow, rgba(245, 231, 195, 0.6)), 0 0 40px 0 var(--accent-glow, rgba(245, 231, 195, 0.4));
   border: 2px solid var(--accent-glow, rgba(245, 231, 195, 0.8));
 }
+
 .amulet-description-box {
-  background: linear-gradient(120deg, rgba(30,30,30,0.72) 70%, rgba(245,231,195,0.10) 100%);
+  background: linear-gradient(120deg, rgba(30, 30, 30, 0.72) 70%, rgba(245, 231, 195, 0.10) 100%);
   border-radius: 14px;
   padding: 2rem 2.5rem 1.5rem 2.5rem;
   max-width: 800px;
   margin: 0 auto;
   color: var(--gold, #f5e7c3);
   font-size: 1.13rem;
-  box-shadow: 0 2px 24px 0 rgba(245,231,195,0.15), 0 1.5px 12px 0 rgba(0,0,0,0.13) inset;
+  box-shadow: 0 2px 24px 0 rgba(245, 231, 195, 0.15), 0 1.5px 12px 0 rgba(0, 0, 0, 0.13) inset;
   opacity: 0;
   pointer-events: none;
   transform: translateY(20px);
@@ -359,17 +419,20 @@ body {
   backdrop-filter: blur(2.5px);
   margin-top: 0.5rem;
 }
+
 .amulet-description-box.active {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0);
 }
+
 .amulet-tabs {
   display: flex;
   gap: 0.5rem;
   margin-bottom: 1.2rem;
   justify-content: center;
 }
+
 .amulet-tab {
   background: none;
   border: none;
@@ -384,11 +447,13 @@ body {
   font-weight: 600;
   letter-spacing: 0.5px;
 }
+
 .amulet-tab.active {
   color: var(--gold, #f5e7c3);
   border-bottom: 2.5px solid var(--gold, #f5e7c3);
-  background: rgba(245,231,195,0.10);
+  background: rgba(245, 231, 195, 0.10);
 }
+
 .amulet-description-text {
   min-height: 60px;
   line-height: 1.7;
@@ -531,15 +596,41 @@ body {
   transform: translateX(0);
 }
 
-.metadata-item:nth-child(1) { transition-delay: 0.3s; }
-.metadata-item:nth-child(2) { transition-delay: 0.35s; }
-.metadata-item:nth-child(3) { transition-delay: 0.4s; }
-.metadata-item:nth-child(4) { transition-delay: 0.45s; }
-.metadata-item:nth-child(5) { transition-delay: 0.5s; }
-.metadata-item:nth-child(6) { transition-delay: 0.55s; }
-.metadata-item:nth-child(7) { transition-delay: 0.6s; }
-.metadata-item:nth-child(8) { transition-delay: 0.65s; }
-.metadata-item:nth-child(9) { transition-delay: 0.7s; }
+.metadata-item:nth-child(1) {
+  transition-delay: 0.3s;
+}
+
+.metadata-item:nth-child(2) {
+  transition-delay: 0.35s;
+}
+
+.metadata-item:nth-child(3) {
+  transition-delay: 0.4s;
+}
+
+.metadata-item:nth-child(4) {
+  transition-delay: 0.45s;
+}
+
+.metadata-item:nth-child(5) {
+  transition-delay: 0.5s;
+}
+
+.metadata-item:nth-child(6) {
+  transition-delay: 0.55s;
+}
+
+.metadata-item:nth-child(7) {
+  transition-delay: 0.6s;
+}
+
+.metadata-item:nth-child(8) {
+  transition-delay: 0.65s;
+}
+
+.metadata-item:nth-child(9) {
+  transition-delay: 0.7s;
+}
 
 .metadata-item:hover {
   background: rgba(255, 255, 255, 0.1);
@@ -590,6 +681,7 @@ body {
   margin: 0.5rem 0;
   font-size: 1rem;
 }
+
 @media (max-width: 900px) {
   .amulet-card img {
     width: 92%;
@@ -597,81 +689,86 @@ body {
     max-width: 140px;
     max-height: 140px;
   }
+
   .amulet-card {
     min-width: 150px;
     min-height: 150px;
     padding: 0.5rem;
   }
 }
+
 @media (max-width: 700px) {
   .amulet-grid {
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
   }
+
   .amulet-card img {
     width: 92%;
     height: auto;
     max-width: 110px;
     max-height: 110px;
   }
+
   .amulet-card {
     min-width: 110px;
     min-height: 110px;
     padding: 0.3rem;
   }
+
   .amulet-description-box {
     padding: 1.2rem 0.7rem 1.2rem 0.7rem;
   }
 }
-  
-  
-  
-  .tiktok-frames {
-    display: flex;
-    gap: 2.5rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-  }
-  
-  .tiktok-card {
-    background: linear-gradient(120deg, rgba(245,231,195,0.08) 0%, rgba(245,231,195,0.15) 100%);
-    border-radius: 22px;
-    box-shadow: 0 4px 24px 0 rgba(245,231,195,0.18), 0 1.5px 12px 0 rgba(0,0,0,0.10);
-    padding: 1.2rem 1.2rem 1rem 1.2rem;
-    width: 320px;
-    transition: transform 0.18s, box-shadow 0.18s;
-    position: relative;
-    transform: rotate(-2deg);
-    text-align: center;
-  }
 
-  .tiktok-card:nth-child(2) {
-    transform: rotate(3deg);
-  }
 
-  .tiktok-card:hover {
-    transform: scale(1.04) rotate(0deg);
-    box-shadow: 0 8px 48px 0 rgba(245,231,195,0.25), 0 2px 24px 0 rgba(0,0,0,0.13);
-    z-index: 2;
-  }
-  
-  .iphone-frame {
-    background: none !important;
-    position: relative;
-    width: 100%;
-    aspect-ratio: 9 / 20;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    box-shadow: 0 0 32px 8px rgba(245,231,195,0.22), 0 0 64px 16px rgba(245,231,195,0.15);
-    border-radius: 38px;
-    min-height: 520px;
-    max-width: 340px;
-    margin: 0 auto;
-  }
+
+.tiktok-frames {
+  display: flex;
+  gap: 2.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.tiktok-card {
+  background: linear-gradient(120deg, rgba(245, 231, 195, 0.08) 0%, rgba(245, 231, 195, 0.15) 100%);
+  border-radius: 22px;
+  box-shadow: 0 4px 24px 0 rgba(245, 231, 195, 0.18), 0 1.5px 12px 0 rgba(0, 0, 0, 0.10);
+  padding: 1.2rem 1.2rem 1rem 1.2rem;
+  width: 320px;
+  transition: transform 0.18s, box-shadow 0.18s;
+  position: relative;
+  transform: rotate(-2deg);
+  text-align: center;
+}
+
+.tiktok-card:nth-child(2) {
+  transform: rotate(3deg);
+}
+
+.tiktok-card:hover {
+  transform: scale(1.04) rotate(0deg);
+  box-shadow: 0 8px 48px 0 rgba(245, 231, 195, 0.25), 0 2px 24px 0 rgba(0, 0, 0, 0.13);
+  z-index: 2;
+}
+
+.iphone-frame {
+  background: none !important;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 0 32px 8px rgba(245, 231, 195, 0.22), 0 0 64px 16px rgba(245, 231, 195, 0.15);
+  border-radius: 38px;
+  min-height: 520px;
+  max-width: 340px;
+  margin: 0 auto;
+}
 
 .iphone-frame-img {
   position: absolute;
@@ -692,130 +789,131 @@ body {
   height: 83%;
   border: none;
   border-radius: 18px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.12);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.12);
   background: #000;
   z-index: 1;
 }
-  
-  .video-caption {
-    text-align: center;
-    padding-top: 0.7rem;
-    font-size: 1.08rem;
-    color: var(--gold, #f5e7c3);
-    font-family: 'Cinzel', serif;
-    letter-spacing: 0.5px;
-    display: flex;
+
+.video-caption {
+  text-align: center;
+  padding-top: 0.7rem;
+  font-size: 1.08rem;
+  color: var(--gold, #f5e7c3);
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.video-caption::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url('https://upload.wikimedia.org/wikipedia/commons/6/69/TikTok_logo.svg') no-repeat center/contain;
+  margin-right: 0.3em;
+  opacity: 0.8;
+}
+
+.tiktok-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(40, 30, 60, 0.7) 60%, rgba(245, 231, 195, 0.15) 100%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  border-radius: 38px;
+  transition: background 0.2s;
+}
+
+.tiktok-placeholder::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 54px;
+  height: 54px;
+  background: url('https://upload.wikimedia.org/wikipedia/commons/6/69/TikTok_logo.svg') no-repeat center/contain;
+  opacity: 0.18;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.tiktok-placeholder[data-cover] {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.tiktok-play-btn {
+  background: rgba(245, 231, 195, 0.18);
+  border: none;
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  font-size: 2.2rem;
+  color: var(--gold, #f5e7c3);
+  box-shadow: 0 2px 16px rgba(245, 231, 195, 0.25);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.18s;
+  z-index: 2;
+  position: relative;
+}
+
+.tiktok-play-btn:hover {
+  background: rgba(245, 231, 195, 0.32);
+  box-shadow: 0 4px 32px rgba(245, 231, 195, 0.30);
+  transform: scale(1.08);
+}
+
+.tiktok-play-btn::before {
+  content: '▶';
+  margin-left: 3px;
+}
+
+.iphone-notch {
+  position: absolute;
+  top: 2.5%;
+  left: 36%;
+  width: 28%;
+  height: 7%;
+  background: #18181a;
+  border-radius: 18px 18px 12px 12px;
+  z-index: 3;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  pointer-events: none;
+}
+
+@media (max-width: 800px) {
+  .tiktok-frames {
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 0.4rem;
+    gap: 2rem;
   }
 
-  .video-caption::before {
-    content: '';
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background: url('https://upload.wikimedia.org/wikipedia/commons/6/69/TikTok_logo.svg') no-repeat center/contain;
-    margin-right: 0.3em;
-    opacity: 0.8;
+  .tiktok-card {
+    width: 95vw;
+    max-width: 340px;
   }
+}
 
-  .tiktok-placeholder {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(120deg, rgba(40,30,60,0.7) 60%, rgba(245,231,195,0.15) 100%);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-    border-radius: 38px;
-    transition: background 0.2s;
-  }
-
-  .tiktok-placeholder::before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 54px;
-    height: 54px;
-    background: url('https://upload.wikimedia.org/wikipedia/commons/6/69/TikTok_logo.svg') no-repeat center/contain;
-    opacity: 0.18;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-  }
-
-  .tiktok-placeholder[data-cover] {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-
-  .tiktok-play-btn {
-    background: rgba(245,231,195,0.18);
-    border: none;
-    border-radius: 50%;
-    width: 64px;
-    height: 64px;
-    font-size: 2.2rem;
-    color: var(--gold, #f5e7c3);
-    box-shadow: 0 2px 16px rgba(245,231,195,0.25);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s, box-shadow 0.2s, transform 0.18s;
-    z-index: 2;
-    position: relative;
-  }
-
-  .tiktok-play-btn:hover {
-    background: rgba(245,231,195,0.32);
-    box-shadow: 0 4px 32px rgba(245,231,195,0.30);
-    transform: scale(1.08);
-  }
-
-  .tiktok-play-btn::before {
-    content: '▶';
-    margin-left: 3px;
-  }
-
-  .iphone-notch {
-    position: absolute;
-    top: 2.5%;
-    left: 36%;
-    width: 28%;
-    height: 7%;
-    background: #18181a;
-    border-radius: 18px 18px 12px 12px;
-    z-index: 3;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-    pointer-events: none;
-  }
-
-  @media (max-width: 800px) {
-    .tiktok-frames {
-      flex-direction: column;
-      align-items: center;
-      gap: 2rem;
-    }
-    .tiktok-card {
-      width: 95vw;
-      max-width: 340px;
-    }
-  }
-
-  /* Восстановлены стили для Tarot секции */
+/* Восстановлены стили для Tarot секции */
 .tarot-intro-section {
   position: relative;
-  background-image: url('images/backgrounds/tarot_deck_dark.jpg');
+  background-image: url('../images/backgrounds/tarot_deck_dark.jpg');
   background-size: cover;
   background-position: center;
   padding: 6rem 2rem;
@@ -901,7 +999,7 @@ body {
 
 .card-front {
   z-index: 2;
-  background-image: url('images/cards/card3-back.webp');
+  background-image: url('../images/cards/card3-back.webp');
 }
 
 .card-back {
@@ -1092,7 +1190,7 @@ body {
 
 /* === ТЕМА 1500 (ДРЕВНОСТЬ) === */
 body.theme-1500 {
-  background-image: url("images/backgrounds/parchment.jpg");
+  background-image: url("../images/backgrounds/parchment.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1162,7 +1260,7 @@ body.theme-1500 .typing-text {
 
 /* === ТЕМА 19C (XIX ВЕК) === */
 body.theme-19c {
-  background-image: url("images/backgrounds/victorian2.webp");
+  background-image: url("../images/backgrounds/victorian2.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1232,7 +1330,7 @@ body.theme-19c .typing-text {
 
 /* === ТЕМА EARLY20C (НАЧАЛО XX ВЕКА) === */
 body.theme-early20c {
-  background-image: url("images/backgrounds/artdeco2.webp");
+  background-image: url("../images/backgrounds/artdeco2.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1302,7 +1400,7 @@ body.theme-early20c .typing-text {
 
 /* === ТЕМА LATE20C (2035) === */
 body.theme-late20c {
-  background-image: url("images/backgrounds/modern_magic2.webp");
+  background-image: url("../images/backgrounds/modern_magic2.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

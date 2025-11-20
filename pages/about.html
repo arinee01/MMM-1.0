@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About — Everyday Magic</title>
   <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
   <link rel="manifest" href="icons/site.webmanifest">
-  <link rel="stylesheet" href="base.css" />
-  <link rel="stylesheet" href="components.css" />
-  <link rel="stylesheet" href="themes.css" />
-  <link rel="stylesheet" href="animations.css" />
-  <link rel="stylesheet" href="progress-system.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/themes.css" />
+  <link rel="stylesheet" href="../css/animations.css" />
+  <link rel="stylesheet" href="../css/theme-switcher.css" />
+  <link rel="stylesheet" href="../css/progress-system.css" />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/b7dc8e0f7f.js" crossorigin="anonymous"></script>
-  
+
   <style>
     .team-member {
       background: rgba(255, 255, 255, 0.05);
@@ -26,7 +28,7 @@
       margin-bottom: 2rem;
       backdrop-filter: blur(10px);
     }
-    
+
     .member-header {
       display: flex;
       flex-direction: column;
@@ -35,7 +37,7 @@
       margin-bottom: 1.5rem;
       text-align: center;
     }
-    
+
     .member-avatar {
       width: 200px;
       height: 200px;
@@ -45,16 +47,16 @@
       box-shadow: 0 4px 15px rgba(191, 167, 106, 0.3);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    
+
     .member-avatar:hover {
       transform: scale(1.05);
       box-shadow: 0 6px 20px rgba(191, 167, 106, 0.5);
     }
-    
+
     .member-info {
       text-align: center;
     }
-    
+
     .team-member h4 {
       color: var(--gold);
       font-size: 1.8rem;
@@ -62,28 +64,28 @@
       border-bottom: 2px solid var(--gold);
       padding-bottom: 0.5rem;
     }
-    
+
     .team-member .role {
       color: var(--accent);
       font-weight: 600;
       font-size: 1.1rem;
       margin-bottom: 0;
     }
-    
+
     .team-member .education {
       color: var(--text-soft);
       font-size: 1rem;
       margin-bottom: 0.5rem;
       font-style: italic;
     }
-    
+
     .team-member .additional {
       color: var(--text-soft);
       font-size: 0.9rem;
       margin-bottom: 0.5rem;
       font-style: italic;
     }
-    
+
     .team-member .interests {
       color: var(--text-main);
       font-size: 1rem;
@@ -93,7 +95,7 @@
       border-radius: 8px;
       border-left: 3px solid var(--gold);
     }
-    
+
     .team-member .responsibility {
       color: var(--text-main);
       line-height: 1.6;
@@ -101,35 +103,37 @@
       padding-top: 1rem;
       border-top: 1px solid rgba(191, 167, 106, 0.2);
     }
-    
+
     .team-member strong {
       color: var(--gold);
     }
-    
+
     /* Скрываем переключатель тем на странице about */
     .theme-fab,
     .theme-panel {
       display: none !important;
     }
-    
+
     /* Адаптивность для мобильных устройств */
     @media (max-width: 768px) {
       .member-avatar {
         width: 220px;
         height: 220px;
       }
-      
+
       .team-member h4 {
         font-size: 1.6rem;
       }
     }
   </style>
 </head>
-<body class="theme-late20c" style="--accent: #e6b800; --accent-glow: #ffd700; --gold: #f5e7c3; --text-main: #ffffff; --text-soft: #e6ccff; --theme-bg: #1a1a1a; --theme-text: #ffffff;">
+
+<body class="theme-late20c"
+  style="--accent: #e6b800; --accent-glow: #ffd700; --gold: #f5e7c3; --text-main: #ffffff; --text-soft: #e6ccff; --theme-bg: #1a1a1a; --theme-text: #ffffff;">
 
   <header class="navbar">
     <div class="container">
-      <a href="index.html" class="logo">EVERYDAY MAGIC</a>
+      <a href="../index.html" class="logo">EVERYDAY MAGIC</a>
       <button class="mobile-menu-toggle" id="mobile-menu-toggle">
         <span></span>
         <span></span>
@@ -137,7 +141,7 @@
       </button>
       <nav>
         <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="../index.html">Home</a></li>
           <li><a href="museum-map.html">Museum</a></li>
           <li><a href="disclaimer.html">Disclaimer</a></li>
           <li><a href="about.html">About</a></li>
@@ -152,7 +156,7 @@
     <div class="mobile-nav-content">
       <button class="mobile-nav-close" id="mobile-nav-close">&times;</button>
       <ul class="mobile-nav-links">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="../index.html">Home</a></li>
         <li><a href="museum-map.html">Museum</a></li>
         <li><a href="disclaimer.html">Disclaimer</a></li>
         <li><a href="about.html">About</a></li>
@@ -182,20 +186,20 @@
         <div class="project-description">
           <h3>The MMMM Project</h3>
           <p>
-            <strong>Everyday Magic</strong> is a comprehensive digital companion app for museum exhibitions, 
-            created as part of the "Information Modeling and Web technologies" course at the University of Bologna. 
+            <strong>Everyday Magic</strong> is a comprehensive digital companion app for museum exhibitions,
+            created as part of the "Information Modeling and Web technologies" course at the University of Bologna.
             Our project explores the intersection of cultural heritage, digital technology, and user experience design.
           </p>
-          
+
           <p>
-            The MMMM framework (Multimedia Museum Meta Mirror) demonstrates how digital tools can enhance 
-            physical museum experiences by providing contextual information, multiple narrative paths, and 
+            The MMMM framework (Multimedia Museum Meta Mirror) demonstrates how digital tools can enhance
+            physical museum experiences by providing contextual information, multiple narrative paths, and
             adaptive content presentation based on visitor needs and preferences.
           </p>
-          
+
           <p>
-            Our project focuses on mystical traditions and protective symbols across cultures and time periods, 
-            creating an immersive digital experience that helps visitors understand the rich cultural heritage 
+            Our project focuses on mystical traditions and protective symbols across cultures and time periods,
+            creating an immersive digital experience that helps visitors understand the rich cultural heritage
             behind these artifacts.
           </p>
         </div>
@@ -205,7 +209,7 @@
           <div class="team-members">
             <div class="team-member">
               <div class="member-header">
-                <img src="images/arina_s.jpg" alt="Arina Samylova" class="member-avatar">
+                <img src="../images/arina_s.jpg" alt="Arina Samylova" class="member-avatar">
                 <div class="member-info">
                   <h4>Arina Samylova</h4>
                   <p class="role">MA Digital Humanities and Digital Knowledge, University of Bologna (Italy)</p>
@@ -213,17 +217,18 @@
               </div>
               <p class="education">BA Sociology and Social Informatics, Higher School of Economics (Russia)</p>
               <p class="interests">
-                <strong>Interests:</strong> Cultural & Creative Industries, Data Analysis, Digital Technologies in Art Biennials
+                <strong>Interests:</strong> Cultural & Creative Industries, Data Analysis, Digital Technologies in Art
+                Biennials
               </p>
               <p class="responsibility">
-                Specialized in cultural heritage digitization and digital humanities research. 
+                Specialized in cultural heritage digitization and digital humanities research.
                 Responsible for content curation, cultural analysis, and digital storytelling approaches.
               </p>
             </div>
 
             <div class="team-member">
               <div class="member-header">
-                <img src="images/arina_g.jpg" alt="Arina Gracheva" class="member-avatar">
+                <img src="../images/arina_g.jpg" alt="Arina Gracheva" class="member-avatar">
                 <div class="member-info">
                   <h4>Arina Gracheva</h4>
                   <p class="role">MA Digital Humanities and Digital Knowledge, University of Bologna (Italy)</p>
@@ -235,7 +240,7 @@
                 <strong>Interests:</strong> Artificial Intelligence, UX/UI Design, Digital Media Art
               </p>
               <p class="responsibility">
-                Full-stack developer specializing in modern web technologies and user experience design. 
+                Full-stack developer specializing in modern web technologies and user experience design.
                 Responsible for technical implementation, responsive design, and interactive features.
               </p>
             </div>
@@ -245,10 +250,13 @@
         <div class="project-goals">
           <h3>Project Goals</h3>
           <ul class="goals-list">
-            <li><strong>Accessibility:</strong> Create content that adapts to different user needs and knowledge levels</li>
-            <li><strong>Cultural Preservation:</strong> Digitally preserve and present cultural artifacts in meaningful ways</li>
+            <li><strong>Accessibility:</strong> Create content that adapts to different user needs and knowledge levels
+            </li>
+            <li><strong>Cultural Preservation:</strong> Digitally preserve and present cultural artifacts in meaningful
+              ways</li>
             <li><strong>Educational Value:</strong> Provide learning opportunities for diverse audiences</li>
-            <li><strong>Technical Innovation:</strong> Demonstrate modern web technologies for cultural applications</li>
+            <li><strong>Technical Innovation:</strong> Demonstrate modern web technologies for cultural applications
+            </li>
             <li><strong>User Experience:</strong> Create intuitive and engaging digital museum experiences</li>
           </ul>
         </div>
@@ -256,11 +264,11 @@
         <div class="academic-context">
           <h3>Academic Context</h3>
           <p>
-            This project is part of the Master's Degree in Digital Humanities and Digital Knowledge (DHDK) 
-            at the University of Bologna. The course focuses on applying digital technologies to humanities 
+            This project is part of the Master's Degree in Digital Humanities and Digital Knowledge (DHDK)
+            at the University of Bologna. The course focuses on applying digital technologies to humanities
             research and cultural heritage preservation.
           </p>
-          
+
           <p>
             <strong>Course:</strong> Information Modeling and Web Technologies<br>
             <strong>Professor:</strong> Prof. Fabio Vitali<br>
@@ -272,15 +280,15 @@
         <div class="contact-section">
           <h3>Get in Touch</h3>
           <p>
-            For questions about this project, collaboration opportunities, or technical inquiries, 
+            For questions about this project, collaboration opportunities, or technical inquiries,
             please contact our team through the University of Bologna's Digital Humanities department.
           </p>
-          
+
           <div class="contact-info">
             <p><strong>Department:</strong> Digital Humanities and Digital Knowledge</p>
             <p><strong>University:</strong> University of Bologna</p>
             <p><strong>Location:</strong> Bologna, Italy</p>
-            <p><strong>Project Website:</strong> <a href="index.html">Everyday Magic</a></p>
+            <p><strong>Project Website:</strong> <a href="../index.html">Everyday Magic</a></p>
             <p><strong>Team Contacts:</strong></p>
             <p>• Arina Gracheva: <a href="mailto:arina.gracheva@studio.unibo.it">arina.gracheva@studio.unibo.it</a></p>
             <p>• Arina Samylova: <a href="mailto:arina.samylova@studio.unibo.it">arina.samylova@studio.unibo.it</a></p>
@@ -299,85 +307,87 @@
         <h3>Everyday Magic</h3>
         <p>Digital Humanities Project<br>University of Bologna — DHDK</p>
       </div>
-      
+
       <div class="footer-bottom">
         <div class="footer-bottom-content">
           <p>© 2025 Everyday Magic. All rights reserved.</p>
-          <p>Contact: <a href="mailto:arina.gracheva@studio.unibo.it">arina.gracheva@studio.unibo.it</a> | <a href="mailto:arina.samylova@studio.unibo.it">arina.samylova@studio.unibo.it</a></p>
+          <p>Contact: <a href="mailto:arina.gracheva@studio.unibo.it">arina.gracheva@studio.unibo.it</a> | <a
+              href="mailto:arina.samylova@studio.unibo.it">arina.samylova@studio.unibo.it</a></p>
         </div>
       </div>
     </div>
   </footer>
 
-  <script src="local-ai.js"></script>
-  <script src="hero-helper.js"></script>
-  <script src="progress-system.js"></script>
-  
+  <script src="../theme-switcher.js"></script>
+  <script src="../local-ai.js"></script>
+  <script src="../hero-helper.js"></script>
+  <script src="../progress-system.js"></script>
+
   <!-- Progress System -->
   <div id="progress-container"></div>
   <script>
     // Мобильное меню
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
       const mobileNav = document.getElementById('mobile-nav');
       const mobileNavClose = document.getElementById('mobile-nav-close');
       const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
       const body = document.body;
-      
+
       console.log('DOM загружен, элементы:', {
         mobileMenuToggle: mobileMenuToggle,
         mobileNav: mobileNav,
         mobileNavClose: mobileNavClose
       });
-      
+
       // Открытие мобильного меню
       if (mobileMenuToggle) {
-        mobileMenuToggle.addEventListener('click', function(e) {
+        mobileMenuToggle.addEventListener('click', function (e) {
           e.preventDefault();
           e.stopPropagation();
           console.log('Открытие мобильного меню');
-          
+
           mobileMenuToggle.classList.add('active');
           mobileNav.classList.add('active');
           body.classList.add('menu-open');
         });
       }
-      
+
       // Закрытие мобильного меню по кнопке
       if (mobileNavClose) {
-        mobileNavClose.addEventListener('click', function(e) {
+        mobileNavClose.addEventListener('click', function (e) {
           e.preventDefault();
           e.stopPropagation();
           console.log('Закрытие мобильного меню по кнопке');
-          
+
           closeMobileMenu();
         });
       }
-      
+
       // Закрытие мобильного меню по клику на ссылку
       mobileNavLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
           console.log('Клик по ссылке мобильного меню');
           closeMobileMenu();
         });
       });
-      
+
       // Закрытие мобильного меню по клику вне меню
-      mobileNav.addEventListener('click', function(e) {
+      mobileNav.addEventListener('click', function (e) {
         if (e.target === mobileNav) {
           console.log('Клик вне мобильного меню');
           closeMobileMenu();
         }
       });
-      
+
       // Закрытие мобильного меню по Escape
-      document.addEventListener('keydown', function(e) {
+      document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
           console.log('Нажата клавиша Escape');
           closeMobileMenu();
         }
       });
-      
+
       // Функция закрытия мобильного меню
       function closeMobileMenu() {
         mobileMenuToggle.classList.remove('active');
@@ -388,11 +398,12 @@
     });
 
     // Инициализация прогресс-системы
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       if (typeof initializeProgressSystem === 'function') {
         initializeProgressSystem();
       }
     });
   </script>
 </body>
-</html> 
+
+</html>

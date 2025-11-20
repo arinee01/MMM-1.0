@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modern Magic — Amulets Reimagined</title>
+  <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+  <link rel="manifest" href="icons/site.webmanifest">
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/themes.css" />
+  <link rel="stylesheet" href="../css/animations.css" />
+  <link rel="stylesheet" href="../css/theme-switcher.css" />
+  <link rel="stylesheet" href="../css/progress-system.css" />
+  <link rel="stylesheet" href="../css/magic.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600&family=Orbitron:wght@400;700&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/b7dc8e0f7f.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+
+<body class="theme-1500">
+
+  <!-- Navigation Buttons - Перемещены в начало для правильного позиционирования -->
+  <div class="navigation-buttons">
+    <a href="#" onclick="navigateWithTheme('../index.html')" class="nav-btn">
+      <i class="fas fa-chevron-left"></i>
+    </a>
+    <a href="#" onclick="navigateWithTheme('chrono.html')" class="nav-btn">
+      <i class="fas fa-chevron-right"></i>
+    </a>
+  </div>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container">
+      <a href="../index.html" class="logo">EVERYDAY MAGIC</a>
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="../index.html#home">Home</a></li>
+          <li><a href="museum-map.html">Museum</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="documentation.html">Documentation</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Новое мобильное меню -->
+  <div class="mobile-nav" id="mobile-nav">
+    <div class="mobile-nav-content">
+      <button class="mobile-nav-close" id="mobile-nav-close">&times;</button>
+      <ul class="mobile-nav-links">
+        <li><a href="../index.html#home">Home</a></li>
+        <li><a href="museum-map.html">Museum</a></li>
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="documentation.html">Documentation</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="intro-hero-section">
+    <div class="intro-hero-overlay">
+      <h1 class="intro-title">Amulets Reimagined</h1>
+    </div>
+  </section>
+
+
+  <main class="magic-container">
+    <p class="intro-text typing-text" id="typewriter">In ancient times, talismans were carved from bone, metal, or stone
+      — charged with prayers, rituals, and protection. Passed through hands and centuries, they bore silent witness to
+      human hopes: for love, for safety, for clarity.
+
+      Centuries later, the ritual lives on — but now it fits in the palm of your hand.
+
+      On TikTok, the evil eye isn’t just an ancient symbol — it’s a bracelet stacked with crystal beads, catching the
+      light in a morning mirror selfie. A polished rose quartz isn’t just a mineral, it’s “the energy of self-love,”
+      held close during your daily affirmation video.
+
+      Hashtags like #manifestation, #protection, and #crystals have billions of views. They’ve become portals — not
+      unlike sacred altars — where users exchange modern spells: “Comment ‘I am ready’ three times.” “Like this to
+      attract abundance.” A digital prayer, performed for an audience and the algorithm.
+
+      Each tap, scroll, or post becomes part of a new ritual logic, where ancient belief merges with modern tech —
+      quick, visual, emotional, viral.
+
+      Here, in this gallery, we invite you to explore these transformed amulets — not as relics, but as living icons.
+      Each one tells a story of survival, of adaptation, of magic finding new form in the social feed.
+
+    </p>
+    <!-- 🔮 Trending Tags -->
+    <section class="trending-tags">
+      <div class="tags-grid">
+        <span class="highlighted-tag">#manifestation</span>
+        <span class="highlighted-tag">#evilEye</span>
+        <span class="highlighted-tag">#crystals</span>
+        <span class="highlighted-tag">#protection</span>
+      </div>
+    </section>
+
+  </main> <!-- Закрытие предыдущего main -->
+
+  <section class="amulet-section">
+    <div class="amulet-grid">
+      <div class="amulet-card" data-id="1">
+        <img src="../images/amulets/amulet1.webp" alt="Amulet 1" />
+        <div class="zoom-lens"></div>
+      </div>
+      <div class="amulet-card" data-id="2">
+        <img src="../images/amulets/amulet2.webp" alt="Amulet 2" />
+        <div class="zoom-lens"></div>
+      </div>
+      <div class="amulet-card" data-id="3">
+        <img src="../images/amulets/amulet3.webp" alt="Amulet 3" />
+        <div class="zoom-lens"></div>
+      </div>
+      <div class="amulet-card" data-id="4">
+        <img src="../images/amulets/nft.webp" alt="NFT Amulet" />
+        <div class="zoom-lens"></div>
+      </div>
+      <div class="amulet-card" data-id="5">
+        <img src="../images/amulets/rpg.webp" alt="RPG Amulet" />
+        <div class="zoom-lens"></div>
+      </div>
+    </div>
+    <div class="lupa-hint">
+      <svg class="lupa-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <span>Double-click to zoom</span>
+    </div>
+    <div class="amulet-description-box">
+      <div class="amulet-tabs">
+        <button class="amulet-tab active" data-type="short">What is it?</button>
+        <button class="amulet-tab" data-type="full">Tell Me More</button>
+        <button class="amulet-tab" data-type="use">Full Story</button>
+      </div>
+      <div class="amulet-description-text">🧿 Choose an amulet to reveal its energy...</div>
+
+      <!-- Metadata Toggle Button on New Line -->
+      <div class="metadata-toggle-container">
+        <button id="amulet-metadata-toggle" class="metadata-toggle-btn" title="Show Object Information">
+          ⚙
+        </button>
+      </div>
+
+      <!-- Expandable Metadata Section -->
+      <div id="amulet-metadata-section" class="metadata-section">
+        <div class="metadata-header">
+          <h4>Object Information</h4>
+        </div>
+        <div id="amulet-metadata" class="artifact-metadata-content">
+          <!-- Metadata will be dynamically loaded here -->
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <main class="magic-container"> <!-- Открытие следующего основного контента -->
+
+
+    <!-- 📱 TikTok Testimonials -->
+    <section class="tiktok-section">
+      <h2 class="section-heading">Voices from TikTok</h2>
+      <p class="intro-quote">“This stone protects my energy.”</p>
+      <div class="tiktok-frames">
+        <div class="tiktok-card">
+          <div class="iphone-frame">
+            <div class="iphone-notch"></div>
+            <div class="tiktok-placeholder" data-src="https://www.tiktok.com/embed/7308910271924407553">
+              <button class="tiktok-play-btn" aria-label="Play video"></button>
+            </div>
+          </div>
+          <p class="video-caption">@crystalvibes</p>
+        </div>
+        <div class="tiktok-card">
+          <div class="iphone-frame">
+            <div class="iphone-notch"></div>
+            <div class="tiktok-placeholder" data-src="https://www.tiktok.com/embed/7246600272561163562">
+              <button class="tiktok-play-btn" aria-label="Play video"></button>
+            </div>
+          </div>
+          <p class="video-caption">@energyguard</p>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="tarot-intro-section">
+      <div class="tarot-overlay">
+        <h2 class="section-heading">The Tarot Renaissance</h2>
+        <div class="tarot-text-block">
+          <div class="tarot-toggle-buttons" style="margin-bottom: 1.5rem; text-align: center;">
+            <button class="tarot-toggle-btn" data-type="basic">Just the Basics</button>
+            <button class="tarot-toggle-btn" data-type="more">Tell Me More</button>
+            <button class="tarot-toggle-btn" data-type="full">Full Story</button>
+          </div>
+
+          <div id="tarot-text-output" class="intro-text typing-text">
+            <!-- Text will appear here -->
+          </div>
+          <img src="../images/icons/tarot_map.webp" alt="Global Tarot Popularity Map" class="tarot-map-img" />
+        </div>
+      </div>
+    </section>
+
+    <section class="tarot-draw-section">
+      <h2 class="section-heading">Draw Two Cards</h2>
+      <p class="intro-text">Click two cards to reveal your message from the universe...</p>
+
+      <div class="tarot-modern-text">
+        <p>Tarot in the 21st century isn't some dusty deck in a witch's drawer.<br>
+          It's a story post that says, "Pick a card — if you're seeing this, it's for you."<br>
+          It's the endless scroll where the Sun card appears just when you're about to give up.<br>
+          It's a way to make sense of an anxious day — as if the universe whispers, "You're not alone."<br>
+          Tarot is an ancient game with new rules.<br>
+          And every swipe feels like a shuffle of fate.</p>
+      </div>
+
+      <div class="tarot-deck">
+        <!-- Каждая карта имеет две стороны: спинка и лицевая -->
+        <div class="tarot-card" data-card="1">
+          <div class="card-inner">
+            <div class="card-front"></div>
+            <div class="card-back" style="background-image: url('../images/cards/taro_card1-front.webp');"></div>
+          </div>
+        </div>
+
+        <div class="tarot-card" data-card="2">
+          <div class="card-inner">
+            <div class="card-front"></div>
+            <div class="card-back" style="background-image: url('../images/cards/taro_card2-front.webp');"></div>
+          </div>
+        </div>
+
+        <div class="tarot-card" data-card="3">
+          <div class="card-inner">
+            <div class="card-front"></div>
+            <div class="card-back" style="background-image: url('../images/cards/taro_card3-front.webp');"></div>
+          </div>
+        </div>
+
+        <div class="tarot-card" data-card="4">
+          <div class="card-inner">
+            <div class="card-front"></div>
+            <div class="card-back" style="background-image: url('../images/cards/taro_card4-front.webp');"></div>
+          </div>
+        </div>
+
+        <div class="tarot-card" data-card="5">
+          <div class="card-inner">
+            <div class="card-front"></div>
+            <div class="card-back" style="background-image: url('../images/cards/taro_card5-front.webp');"></div>
+          </div>
+        </div>
+
+        <div class="tarot-card" data-card="6">
+          <div class="card-inner">
+            <div class="card-front"></div>
+            <div class="card-back" style="background-image: url('../images/cards/taro_card6-front.webp');"></div>
+          </div>
+        </div>
+
+        <!-- Повторение карт (можно уникальные задать, если нужно 12 уникальных) -->
+        <div class="tarot-card" data-card="7">
+          <div class="card-inner">
+            <div class="card-front"></div>
+            <div class="card-back" style="background-image: url('../images/cards/taro_card7-front.webp');"></div>
+          </div>
+        </div>
+
+        <div class="tarot-card" data-card="8">
+          <div class="card-inner">
+            <div class="card-front"></div>
+            <div class="card-back" style="background-image: url('../images/cards/taro_card8-front.webp');"></div>
+          </div>
+        </div>
+
+        <div class="tarot-card" data-card="9">
+          <div class="card-inner">
+            <div class="card-front"></div>
+            <div class="card-back" style="background-image: url('../images/cards/taro_card9-front.webp');"></div>
+          </div>
+        </div>
+
+        <div class="tarot-card" data-card="10">
+          <div class="card-inner">
+            <div class="card-front"></div>
+            <div class="card-back" style="background-image: url('../images/cards/taro_card10-front.webp');"></div>
+          </div>
+        </div>
+
+        <div class="tarot-card" data-card="11">
+          <div class="card-inner">
+            <div class="card-front"></div>
+            <div class="card-back" style="background-image: url('../images/cards/taro_card11-front.webp');"></div>
+          </div>
+        </div>
+
+        <div class="tarot-card" data-card="12">
+          <div class="card-inner">
+            <div class="card-front"></div>
+            <div class="card-back" style="background-image: url('../images/cards/taro_card12-front.webp');"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tarot-result" class="tarot-prediction"></div>
+
+      <!-- Кнопка сброса гадания -->
+      <div class="tarot-reset-container" style="text-align: center; margin-top: 2rem;">
+        <button id="tarot-reset-btn" class="tarot-reset-btn" style="display: none;">
+          New Reading
+        </button>
+      </div>
+    </section>
+
+
+
+
+
+
+    <footer class="main-footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Everyday Magic</h3>
+          <p>Digital Humanities Project<br>University of Bologna — DHDK</p>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="footer-bottom-content">
+            <p>© 2025 Everyday Magic. All rights reserved.</p>
+            <p>Contact: <a href="mailto:arina.gracheva@studio.unibo.it">arina.gracheva@studio.unibo.it</a> | <a
+                href="mailto:arina.samylova@studio.unibo.it">arina.samylova@studio.unibo.it</a></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../theme-switcher.js"></script>
+    <script src="../local-ai.js"></script>
+    <script src="../hero-helper.js"></script>
+    <script src="../progress-system.js"></script>
+    <script src="../perf-helpers.js"></script>
+    <script src="../magic.js?v=2"></script>
+
+    <!-- Мобильное меню -->
+    <script>
+      // Мобильное меню
+      document.addEventListener('DOMContentLoaded', function () {
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileNav = document.getElementById('mobile-nav');
+        const mobileNavClose = document.getElementById('mobile-nav-close');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+        const body = document.body;
+
+        console.log('DOM загружен, элементы:', {
+          mobileMenuToggle: mobileMenuToggle,
+          mobileNav: mobileNav,
+          mobileNavClose: mobileNavClose
+        });
+
+        // Открытие мобильного меню
+        if (mobileMenuToggle) {
+          mobileMenuToggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Открытие мобильного меню');
+
+            mobileMenuToggle.classList.add('active');
+            mobileNav.classList.add('active');
+            body.classList.add('menu-open');
+          });
+        }
+
+        // Закрытие мобильного меню по кнопке
+        if (mobileNavClose) {
+          mobileNavClose.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Закрытие мобильного меню по кнопке');
+
+            closeMobileMenu();
+          });
+        }
+
+        // Закрытие мобильного меню по клику на ссылку
+        mobileNavLinks.forEach(link => {
+          link.addEventListener('click', function (e) {
+            console.log('Клик по ссылке мобильного меню');
+            closeMobileMenu();
+          });
+        });
+
+        // Закрытие мобильного меню по клику вне меню
+        mobileNav.addEventListener('click', function (e) {
+          if (e.target === mobileNav) {
+            console.log('Клик вне мобильного меню');
+            closeMobileMenu();
+          }
+        });
+
+        // Закрытие мобильного меню по Escape
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+            console.log('Нажата клавиша Escape');
+            closeMobileMenu();
+          }
+        });
+
+        // Функция закрытия мобильного меню
+        function closeMobileMenu() {
+          mobileMenuToggle.classList.remove('active');
+          mobileNav.classList.remove('active');
+          body.classList.remove('menu-open');
+          console.log('Мобильное меню закрыто');
+        }
+      });
+    </script>
+</body>
+
+</html>

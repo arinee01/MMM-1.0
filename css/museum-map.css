@@ -77,21 +77,21 @@
 }
 
 #floor-0 {
-  background-image: url('images/map/floor0.webp');
+  background-image: url('../images/map/floor0.webp');
   background-size: cover;
   background-position: center;
   filter: brightness(0.8) contrast(2.0) saturate(0) invert(0);
 }
 
 #floor-1 {
-  background-image: url('images/map/floor1.webp');
+  background-image: url('../images/map/floor1.webp');
   background-size: cover;
   background-position: center;
   filter: brightness(0.8) contrast(2.0) saturate(0) invert(0);
 }
 
 #floor-2 {
-  background-image: url('images/map/floor2.webp');
+  background-image: url('../images/map/floor2.webp');
   background-size: cover;
   background-position: center;
   filter: brightness(0.8) contrast(2.0) saturate(0) invert(0);
@@ -167,8 +167,15 @@
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 1; }
+
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
 
 .map-dot-thumb {
@@ -217,8 +224,13 @@
   box-shadow: 0 0 15px var(--gold);
 }
 
-.floor-nav.left { left: 10px; }
-.floor-nav.right { right: 10px; }
+.floor-nav.left {
+  left: 10px;
+}
+
+.floor-nav.right {
+  right: 10px;
+}
 
 /* === POPUP === */
 .popup {
@@ -327,33 +339,33 @@
   .museum-map-container {
     padding: 0 1rem;
   }
-  
+
   .floor-container {
     height: 400px;
     margin: 1rem 0;
   }
-  
+
   .floor h2 {
     font-size: 1.4rem;
     padding: 10px 0;
   }
-  
+
   .map-info h3 {
     font-size: 1.6rem;
   }
-  
+
   .map-info p {
     font-size: 1rem;
   }
-  
 
-  
+
+
   .floor-nav {
     width: 40px;
     height: 40px;
     font-size: 1rem;
   }
-  
+
   .popup {
     max-width: 90%;
     padding: 1.5rem;
@@ -365,25 +377,31 @@
     padding: 0 0.3rem;
     gap: 1rem;
   }
+
   .map-info {
     margin-bottom: 1rem;
   }
+
   .map-info h3 {
     font-size: 1.1rem;
   }
+
   .map-info p {
     font-size: 0.9rem;
   }
+
   .floor-container {
     height: 60vw;
     min-height: 220px;
     margin: 0.5rem 0;
     padding: 0;
   }
+
   .floor h2 {
     font-size: 1rem;
     padding: 5px 0;
   }
+
   .dot {
     width: 16px;
     height: 16px;
@@ -394,15 +412,18 @@
     max-width: 16px;
     max-height: 16px;
   }
+
   .map-dot-thumb {
     width: 36px;
     height: 36px;
   }
+
   .map-dot-thumb img {
     width: 80%;
     height: 80%;
     margin: 10%;
   }
+
   .floor-nav {
     width: 36px;
     height: 36px;
@@ -410,6 +431,7 @@
     top: 90%;
     transform: translateY(-90%);
   }
+
   .popup {
     max-width: 98vw;
     padding: 0.7rem;
@@ -417,19 +439,22 @@
     top: 55%;
     transform: translate(-50%, -55%);
   }
+
   .map-legend {
     padding: 0.5rem;
     margin-top: 1rem;
   }
+
   .legend-item {
     flex-direction: column;
     gap: 0.2rem;
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
   }
+
   .legend-dot {
     width: 22px;
     height: 22px;
     font-size: 0.7rem;
   }
-} 
+}

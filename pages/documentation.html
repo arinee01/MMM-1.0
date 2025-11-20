@@ -1,0 +1,2770 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentation — Everyday Magic</title>
+  <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/themes.css" />
+  <link rel="stylesheet" href="../css/animations.css" />
+  <link rel="stylesheet" href="../css/progress-system.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/b7dc8e0f7f.js" crossorigin="anonymous"></script>
+
+  <style>
+    /* Documentation Page Specific Styles */
+    .documentation-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      background: rgba(18, 18, 18, 0.7);
+      border-radius: 20px;
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(191, 167, 106, 0.3);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Technical Implementation Section Specific Styles */
+    #technical-implementation p {
+      text-align: justify !important;
+      text-justify: inter-word !important;
+      hyphens: auto;
+    }
+
+    #technical-implementation .documentation-text p {
+      text-align: justify !important;
+      text-justify: inter-word !important;
+      hyphens: auto;
+    }
+
+    #technical-implementation section p {
+      text-align: justify !important;
+      text-justify: inter-word !important;
+      hyphens: auto;
+    }
+
+    .documentation-text {
+      color: var(--text-main);
+      line-height: 1.8;
+    }
+
+    .documentation-text h2 {
+      color: var(--gold);
+      font-size: 2.5rem;
+      margin: 3rem 0 1.5rem 0;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--gold);
+      text-align: center;
+    }
+
+    .documentation-text h3 {
+      color: var(--gold);
+      font-size: 1.8rem;
+      margin: 2.5rem 0 1rem 0;
+      padding-left: 1rem;
+      border-left: 4px solid var(--gold);
+    }
+
+    .documentation-text h4 {
+      color: var(--gold);
+      font-size: 1.4rem;
+      margin: 2rem 0 1rem 0;
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+      border-bottom: 1px solid rgba(191, 167, 106, 0.3);
+      padding-bottom: 0.5rem;
+    }
+
+    .documentation-text h5 {
+      color: var(--gold);
+      font-size: 1.2rem;
+      margin: 1.5rem 0 0.8rem 0;
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+      border-left: 3px solid var(--gold);
+      padding-left: 0.8rem;
+    }
+
+    .documentation-text p {
+      margin-bottom: 1.2rem;
+      text-align: justify;
+      hyphens: auto;
+      text-justify: inter-word;
+    }
+
+    /* Table of Contents - Compact Design */
+    .toc-container {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(191, 167, 106, 0.25);
+      backdrop-filter: blur(10px);
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 4px 20px rgba(191, 167, 106, 0.1);
+    }
+
+    .toc-container h2 {
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid rgba(191, 167, 106, 0.3);
+      font-size: 1.5rem;
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+      padding-bottom: 0.5rem;
+    }
+
+    .toc-list {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 0.3rem;
+    }
+
+    .toc-list li {
+      margin-bottom: 0.2rem;
+    }
+
+    .toc-list a {
+      color: var(--gold);
+      text-decoration: none;
+      padding: 0.4rem 0.6rem;
+      display: block;
+      background: rgba(191, 167, 106, 0.05);
+      border-radius: 4px;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+      font-size: 0.8rem;
+      text-align: center;
+      line-height: 1.3;
+      font-family: 'Cinzel', serif;
+      font-weight: 500;
+    }
+
+    .toc-list a:hover {
+      color: var(--accent);
+      background: rgba(191, 167, 106, 0.15);
+      border-color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(191, 167, 106, 0.3);
+    }
+
+    .toc-list a:visited {
+      color: var(--gold);
+    }
+
+    .toc-list a:active {
+      color: var(--accent);
+      transform: translateY(0);
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 15px;
+      border: 1px solid rgba(191, 167, 106, 0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    /* Lists */
+    .architecture-list,
+    .audio-content-list,
+    .progress-features-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .architecture-list li,
+    .audio-content-list li,
+    .progress-features-list li {
+      margin-bottom: 1rem;
+      padding: 1rem;
+      background: rgba(191, 167, 106, 0.05);
+      border-radius: 8px;
+      border-left: 3px solid var(--gold);
+    }
+
+
+
+    /* Audio Content */
+    .audio-content-list li {
+      background: rgba(191, 167, 106, 0.05);
+      border-left-color: var(--gold);
+    }
+
+    .audio-voice-header {
+      margin-bottom: 0.5rem;
+    }
+
+    .audio-voice-header strong {
+      color: var(--gold);
+      font-size: 1.1rem;
+    }
+
+    /* Items Table */
+    .items-table-container {
+      overflow-x: auto;
+      margin: 2rem 0;
+      border-radius: 12px;
+      border: 1px solid var(--gold);
+      backdrop-filter: blur(10px);
+    }
+
+    .items-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(28, 28, 28, 0.7);
+      backdrop-filter: blur(10px);
+    }
+
+    .items-table th {
+      background: var(--gold);
+      color: var(--background-dark);
+      padding: 1rem;
+      text-align: left;
+      font-weight: 600;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .items-table td {
+      padding: 1rem;
+      border-bottom: 1px solid rgba(191, 167, 106, 0.3);
+      vertical-align: middle;
+    }
+
+    .items-table tr:hover {
+      background: rgba(191, 167, 106, 0.1);
+    }
+
+    .item-thumbnail {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 2px solid var(--gold);
+    }
+
+    /* Metadata Example Styles */
+    .metadata-example {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid rgba(191, 167, 106, 0.3);
+      margin: 2rem 0;
+      backdrop-filter: blur(10px);
+    }
+
+    .metadata-example h5 {
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      text-align: center;
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      border-bottom: 2px solid rgba(191, 167, 106, 0.3);
+      padding-bottom: 0.5rem;
+    }
+
+    .metadata-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .metadata-table th {
+      background: rgba(191, 167, 106, 0.15);
+      color: var(--gold);
+      padding: 1rem;
+      text-align: left;
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+      border-bottom: 2px solid rgba(191, 167, 106, 0.3);
+    }
+
+    .metadata-table td {
+      padding: 0.8rem 1rem;
+      border-bottom: 1px solid rgba(191, 167, 106, 0.1);
+      color: var(--text-main);
+      vertical-align: top;
+    }
+
+    .metadata-table tr:hover {
+      background: rgba(191, 167, 106, 0.05);
+    }
+
+    .metadata-table strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* Code Example Styles */
+    .code-example {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(191, 167, 106, 0.3);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      overflow-x: auto;
+    }
+
+    .code-example pre {
+      margin: 0;
+      color: var(--gold);
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .code-example code {
+      color: inherit;
+      background: none;
+      padding: 0;
+    }
+
+    .code-example h6 {
+      color: var(--accent);
+      margin: 1.5rem 0 0.8rem 0;
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      border-bottom: 1px solid rgba(191, 167, 106, 0.3);
+      padding-bottom: 0.3rem;
+    }
+
+    .code-example h6:first-child {
+      margin-top: 0;
+    }
+
+    .code-example p {
+      color: var(--text-soft);
+      margin-bottom: 1rem;
+      font-style: italic;
+      font-size: 0.9rem;
+    }
+
+    /* QR Example Styles */
+    .qr-example {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(191, 167, 106, 0.3);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .qr-example p {
+      margin: 0.5rem 0;
+      color: var(--text-main);
+    }
+
+    .qr-example code {
+      background: rgba(191, 167, 106, 0.1);
+      color: var(--accent);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+    }
+
+
+
+    /* Adaptive Features List */
+    .adaptive-features-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem 0;
+    }
+
+    .adaptive-features-list li {
+      margin-bottom: 1rem;
+      padding: 1rem;
+      background: rgba(191, 167, 106, 0.05);
+      border-radius: 8px;
+      border-left: 3px solid var(--gold);
+      backdrop-filter: blur(5px);
+    }
+
+    .adaptive-features-list li strong {
+      color: var(--gold);
+    }
+
+    /* Assistants Gallery */
+    .assistants-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .assistant-item {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 1.5rem;
+      border-radius: 15px;
+      text-align: center;
+      border: 1px solid var(--gold);
+      transition: transform 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .assistant-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .assistant-portrait {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--gold);
+      margin-bottom: 1rem;
+      object-position: center top;
+    }
+
+    .assistant-item h4 {
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .assistant-item p {
+      margin-bottom: 0.8rem;
+    }
+
+    .assistant-item p:first-of-type {
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    /* Progress System */
+    .progress-system-content {
+      background: rgba(191, 167, 106, 0.05);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--gold);
+      backdrop-filter: blur(10px);
+    }
+
+    .progress-system-content h4 {
+      color: var(--gold);
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Themes Overview */
+    .themes-overview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .theme-overview-card {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--gold);
+      backdrop-filter: blur(10px);
+    }
+
+    .theme-overview-card h4 {
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--gold);
+    }
+
+    .theme-details h5 {
+      color: var(--gold);
+      margin-top: 1.5rem;
+      margin-bottom: 0.8rem;
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+      border-left: 2px solid var(--gold);
+      padding-left: 0.8rem;
+    }
+
+    /* Theme Background Preview */
+    .theme-background {
+      text-align: center;
+      margin: 1.5rem 0;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 10px;
+      border: 1px solid rgba(191, 167, 106, 0.1);
+    }
+
+    .background-preview {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin: 0 auto 1rem auto;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border: 3px solid var(--gold);
+      box-shadow: 0 4px 15px rgba(191, 167, 106, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .background-preview:hover {
+      transform: scale(1.1);
+    }
+
+    .theme-background p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    .theme-background strong {
+      color: var(--gold);
+    }
+
+    /* Color Swatches */
+    .color-swatches {
+      display: flex;
+      gap: 0.5rem;
+      margin: 1rem 0;
+      justify-content: center;
+    }
+
+    .color-swatch {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 2px solid var(--text-muted);
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .color-swatch:hover {
+      transform: scale(1.2);
+    }
+
+    .color-codes {
+      text-align: center;
+      font-family: monospace;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Base Color Palette */
+    .base-color-palette {
+      text-align: center;
+      margin: 2rem 0;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 12px;
+      border: 1px solid var(--gold);
+      backdrop-filter: blur(10px);
+    }
+
+
+
+
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .documentation-content {
+        padding: 1rem;
+        margin: 1rem;
+      }
+
+      .documentation-text h2 {
+        font-size: 2rem;
+      }
+
+      .documentation-text h3 {
+        font-size: 1.5rem;
+      }
+
+      .toc-container {
+        max-width: 95%;
+        padding: 0.8rem;
+      }
+
+      .toc-container h2 {
+        font-size: 1.2rem;
+        margin-bottom: 0.6rem;
+      }
+
+      .toc-list {
+        grid-template-columns: 1fr;
+        gap: 0.2rem;
+      }
+
+      .toc-list a {
+        padding: 0.3rem 0.5rem;
+        font-size: 0.75rem;
+      }
+
+      .themes-overview-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .assistants-gallery {
+        grid-template-columns: 1fr;
+      }
+
+
+
+      .items-table-container {
+        font-size: 0.9rem;
+      }
+
+      .item-thumbnail {
+        width: 40px;
+        height: 40px;
+      }
+
+      .metadata-table {
+        font-size: 0.85rem;
+      }
+
+      .metadata-table th,
+      .metadata-table td {
+        padding: 0.6rem 0.8rem;
+      }
+
+      .code-example {
+        padding: 1rem;
+        font-size: 0.8rem;
+      }
+
+      .code-example pre {
+        font-size: 0.75rem;
+      }
+    }
+
+    /* Smooth Scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Section Transitions */
+    section {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Staggered Animation */
+    section:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    section:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    section:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    section:nth-child(4) {
+      animation-delay: 0.4s;
+    }
+
+    section:nth-child(5) {
+      animation-delay: 0.5s;
+    }
+
+    section:nth-child(6) {
+      animation-delay: 0.6s;
+    }
+
+    section:nth-child(7) {
+      animation-delay: 0.7s;
+    }
+
+    section:nth-child(8) {
+      animation-delay: 0.8s;
+    }
+
+    section:nth-child(9) {
+      animation-delay: 0.9s;
+    }
+
+    section:nth-child(10) {
+      animation-delay: 1.0s;
+    }
+  </style>
+</head>
+
+<body class="theme-late20c">
+
+  <header class="navbar">
+    <div class="container">
+      <a href="../index.html" class="logo">EVERYDAY MAGIC</a>
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="museum-map.html">Museum</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="documentation.html">Documentation</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Новое мобильное меню -->
+  <div class="mobile-nav" id="mobile-nav">
+    <div class="mobile-nav-content">
+      <button class="mobile-nav-close" id="mobile-nav-close">&times;</button>
+      <ul class="mobile-nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="museum-map.html">Museum</a></li>
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="documentation.html">Documentation</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <section class="hero-experience-combined">
+    <div class="hero-content-wrapper">
+      <div class="hero-text">
+        <h1 class="section-heading">Documentation</h1>
+      </div>
+
+      <div class="documentation-content">
+        <div class="documentation-text">
+
+          <!-- Table of Contents -->
+          <div class="toc-container">
+            <h2>Table of Contents</h2>
+            <ul class="toc-list">
+              <li><a href="#introduction">Introduction</a></li>
+              <li><a href="#project-overview">Project Overview</a></li>
+              <li><a href="#architecture">Website Architecture</a></li>
+              <li><a href="#content-system">Content System</a></li>
+              <li><a href="#collection">Artifact Collection</a></li>
+              <li><a href="#metadata-standards">Metadata Standards & Implementation</a></li>
+              <li><a href="#metadata-documentation">Enhanced Metadata Documentation</a></li>
+              <li><a href="#user-experience">User Experience</a></li>
+              <li><a href="#design-system">Design System</a></li>
+              <li><a href="#design-principles">Design Principles & Rationale</a></li>
+              <li><a href="#technical-implementation">Technical Implementation</a></li>
+              <li><a href="#tarot-system">Tarot Card System</a></li>
+              <li><a href="#technical-decisions">Technical Decisions & Architecture Rationale</a></li>
+              <li><a href="#accessibility">Accessibility & Performance</a></li>
+              <li><a href="#credits">Credits & Licenses</a></li>
+            </ul>
+          </div>
+
+          <!-- Introduction -->
+          <section id="introduction">
+            <h2>Introduction</h2>
+            <p>
+              Everyday Magic offers an interactive digital museum experience that enhances visitors' understanding of
+              mystical and magical heritage across cultures and civilizations. This project provides a comprehensive
+              digital framework for exploring 13 significant artifacts representing protective symbols, amulets, and
+              mystical traditions, organized into chronological, cross-cultural, and modern magic paths.
+            </p>
+            <p>
+              By integrating a metadata layer and thematic organization, the platform connects artifacts to their
+              historical, cultural, and spiritual contexts, creating an immersive exploration of humanity's mystical
+              heritage. The website serves as both an educational tool and a digital companion that allows users to
+              explore mystical traditions from anywhere in the world.
+            </p>
+
+            <p>This exhibition is uniquely designed to captivate audiences of all ages and knowledge levels. For
+              children, the interactive elements, colorful visuals, and gamified progress system create an engaging
+              learning experience that makes complex cultural concepts accessible and fun. The three-tier content system
+              (Beginner, Casual, Expert) ensures that every visitor, regardless of their background, can engage with the
+              material at their own pace and level of understanding. For casual visitors, the exhibition offers a
+              perfect balance of entertainment and education, with stunning visuals, compelling narratives, and
+              interactive elements that make learning about mystical traditions an enjoyable experience. For experts and
+              scholars, the platform provides deep academic content, comprehensive metadata, and cross-cultural analysis
+              that supports serious research and comparative studies.</p>
+
+            <p>This exhibition is particularly well-suited for MAMbo in Bologna for several compelling reasons. Bologna,
+              as a historic university city with deep roots in medieval and Renaissance culture, provides the perfect
+              backdrop for exploring mystical traditions. The city's rich history of scholarship, alchemy, and esoteric
+              knowledge during the Renaissance period aligns perfectly with our exhibition's focus on the evolution of
+              magical thinking from ancient times to the present. MAMbo's commitment to contemporary art and digital
+              innovation makes it an ideal venue for this cutting-edge digital exhibition. The museum's forward-thinking
+              approach to art presentation and its embrace of new technologies perfectly complements our modern,
+              interactive format. Additionally, Bologna's strategic location in Italy, a country with deep mystical and
+              magical traditions, provides local visitors with a strong cultural connection to many of the artifacts and
+              traditions featured in the exhibition.</p>
+
+            <p>This exhibition serves multiple educational purposes, making it valuable for various audiences and use
+              cases. As a study tool, it provides comprehensive information about each artifact, including historical
+              context, cultural significance, and comparative analysis. The detailed metadata and cross-references
+              between different traditions make it an excellent resource for students, researchers, and anyone
+              interested in deepening their understanding of mystical heritage. The integrated audio guide system
+              enhances the learning experience by providing expert narration and cultural context for each artifact.
+              These audio guides, featuring voices that embody different aspects of mystical knowledge, create an
+              immersive atmosphere that transports visitors into the world of magical traditions. The audio content is
+              particularly valuable for visitors who prefer auditory learning or who want to experience the exhibition
+              while engaging in other activities.</p>
+
+            <p>Beyond its entertainment value, this exhibition serves as a valuable resource for scientific and academic
+              research. The comprehensive documentation of artifacts, their cultural contexts, and cross-cultural
+              comparisons provides researchers with rich data for anthropological, historical, and cultural studies. The
+              digital format allows for easy data extraction, analysis, and sharing among the academic community. The
+              exhibition's focus on the evolution of mystical thinking across time and cultures offers unique insights
+              into human psychology, cultural development, and the persistence of magical beliefs in the modern world.
+              This makes it particularly valuable for researchers studying cognitive anthropology, cultural evolution,
+              and the intersection of traditional beliefs with contemporary technology.</p>
+
+            <p>This exhibition represents the cutting edge of modern museum presentation, combining traditional
+              educational content with contemporary digital technology. The gamified elements, interactive maps, and
+              adaptive content system create an engaging, modern experience that appeals to today's tech-savvy
+              audiences. The sleek, glassmorphic design aesthetic and smooth animations create a fashionable,
+              Instagram-worthy experience that encourages social sharing and digital engagement. The platform's
+              responsive design ensures optimal viewing across all devices, from smartphones to large displays, making
+              it accessible to visitors regardless of their preferred technology. The modern interface design, with its
+              intuitive navigation and engaging visual elements, creates a user experience that feels contemporary and
+              exciting, appealing to both younger audiences and those who appreciate cutting-edge digital design.</p>
+
+            <p>One of the most innovative aspects of this exhibition is its dynamic, evolving nature. Unlike traditional
+              static exhibitions, this digital platform can be continuously updated and expanded. New artifacts can be
+              added to reflect emerging trends in contemporary magical practices, such as new forms of digital
+              spirituality, modern protective symbols, or recently discovered historical artifacts. The exhibition can
+              also adapt to changing cultural contexts and visitor feedback. Artifacts can be replaced or updated based
+              on new research findings, changing cultural significance, or visitor interest. This flexibility ensures
+              that the exhibition remains relevant and engaging over time, providing visitors with fresh content and new
+              discoveries on each visit. The digital format also allows for seasonal themes, special exhibitions, and
+              collaborative content creation with other museums and cultural institutions.</p>
+
+            <p>This groundbreaking exhibition represents the first digital museum experience where visitors can earn an
+              official certificate upon completion. Through our innovative gamification system, visitors progress
+              through various paths, interact with artifacts, and complete educational challenges to earn a personalized
+              certificate of completion. This unique feature transforms the traditional museum visit into an accredited
+              learning experience, making it the first online exhibition to offer formal recognition of cultural
+              heritage education. The certificate system adds significant academic value and encourages deeper
+              engagement with the content, positioning this exhibition as a pioneering model for digital cultural
+              education and certification.</p>
+          </section>
+
+          <!-- Project Overview -->
+          <section id="project-overview">
+            <h2>Project Overview</h2>
+            <p>
+              We selected the theme of mystical traditions and protective symbols for this project due to their
+              universal appeal and rich cultural significance. These artifacts highlight humanity's enduring fascination
+              with the supernatural, spiritual protection, and the intersection of belief systems across different
+              civilizations and time periods.
+            </p>
+            <p>
+              The collection spans from ancient Egyptian scarabs to modern digital artifacts, demonstrating how mystical
+              thinking persists and evolves across cultures and technological eras. This comprehensive approach allows
+              visitors to understand both the historical continuity and contemporary relevance of magical traditions.
+            </p>
+          </section>
+
+          <!-- Website Architecture -->
+          <section id="architecture">
+            <h2>Website Architecture</h2>
+
+            <h3>Navigation System</h3>
+            <p>
+              The website implements a dual navigation system: a fixed top navigation bar for main sections and floating
+              navigation arrows for sequential exploration. The left arrow always leads back to the home page, while the
+              right arrow guides users to the next logical step in their chosen path.
+            </p>
+
+            <h3>Core Pages</h3>
+            <ul class="architecture-list">
+              <li><strong>Homepage:</strong> Introduction to mystical traditions, user type selection, and path overview
+              </li>
+              <li><strong>Chronological Path:</strong> Historical evolution of magical beliefs from ancient times to
+                modern technology</li>
+              <li><strong>Cross-Cultural Path:</strong> Comparison of magical traditions across different civilizations
+              </li>
+              <li><strong>Modern Magic Path:</strong> Contemporary magical practices and digital spirituality, featuring
+                an interactive tarot card reading system with 82 unique predictions based on traditional card suit
+                symbolism, and a comprehensive amulet collection with three-tier content adaptation (Beginner, Casual,
+                Expert levels)</li>
+              <li><strong>Museum Map:</strong> Interactive visualization of artifact locations and spatial relationships
+              </li>
+              <li><strong>About & Documentation:</strong> Project information and technical details</li>
+            </ul>
+
+            <h3>User Experience Choice</h3>
+            <p>
+              The website offers a tailored experience based on the visitor's background knowledge. Users can select
+              different levels of interaction, ensuring accessibility for both casual visitors and those with a deeper
+              understanding of mystical traditions. The three available text options — Beginner, Casual, and Expert —
+              adapt in length, specialized terminology usage, and explanation depth to provide a personalized
+              experience.
+            </p>
+
+
+          </section>
+
+          <!-- Content System -->
+          <section id="content-system">
+            <h2>Content System</h2>
+
+            <h3>Content Adaptation Overview</h3>
+            <p>
+              Our museum implements a sophisticated adaptive content system with three content levels: <strong>"What is
+                it?"</strong> (basic identification), <strong>"Tell Me More"</strong> (expanded context), and
+              <strong>"Full Story"</strong> (comprehensive analysis). Each level adapts to user competency (Beginner,
+              Casual, Expert) and content detail requirements.
+            </p>
+
+            <p><em>For detailed information about content adaptation levels, user competency requirements, and
+                implementation details, see the "Enhanced Metadata Documentation" section.</em></p>
+
+            <h3>Audio Guide System</h3>
+            <p>
+              Our audio guide system features carefully curated voices that represent different aspects of mystical
+              knowledge and storytelling. We deliberately chose voices that embody wisdom and experience, making
+              visitors feel as if they're being guided by ancient guardians of knowledge.
+            </p>
+
+            <h3>Interactive Tarot System</h3>
+            <p>
+              The Modern Magic Path features an innovative interactive tarot card reading system that combines
+              traditional divination practices with modern web technology. This system represents a unique digital
+              interpretation of tarot that maintains authenticity while embracing contemporary user experience design.
+            </p>
+            <p>
+              The tarot system implements a sophisticated two-card reading mechanism with 82 unique predictions based on
+              authentic tarot symbolism and traditional card suit meanings. Each prediction is carefully crafted to
+              reflect the mystical properties of the four fundamental suits: Cups (emotions and relationships), Swords
+              (intellect and communication), Pentacles (material matters and prosperity), and Wands (creativity and
+              energy). The system's academic foundation draws from established tarot literature, particularly Rachel
+              Pollack's "Seventy-Eight Degrees of Wisdom: A Book of Tarot," ensuring that our digital experience honors
+              traditional divination practices while leveraging modern interactive technology.
+            </p>
+            <p>
+              Advanced JavaScript architecture manages card selection, state tracking, and prediction generation through
+              intelligent algorithms that create meaningful combinations. The system features smooth 3D card flipping
+              animations, responsive design adaptations, and a sophisticated reset mechanism that allows users to
+              perform multiple readings without page refresh. This creates an authentic tarot experience that serves
+              both as entertainment and as a tool for personal reflection and spiritual exploration.
+            </p>
+
+            <h4>Audio Guide Voices</h4>
+            <ul class="audio-content-list">
+              <li>
+                <div class="audio-voice-header">
+                  <strong>Elder Voice:</strong>
+                </div>
+                <p>Deep, resonant voice representing ancient wisdom and traditional knowledge passed down through
+                  generations</p>
+              </li>
+              <li>
+                <div class="audio-voice-header">
+                  <strong>Historian Narrator:</strong>
+                </div>
+                <p>Clear, scholarly voice embodying academic expertise and historical context for the artifacts</p>
+              </li>
+              <li>
+                <div class="audio-voice-header">
+                  <strong>Old Magician:</strong>
+                </div>
+                <p>Mysterious, enchanting voice representing the mystical and magical aspects of the collection</p>
+              </li>
+            </ul>
+          </section>
+
+          <!-- Collection -->
+          <section id="collection">
+            <h2>Artifact Collection</h2>
+            <p>
+              The collection includes 13 carefully selected artifacts representing mystical traditions from ancient
+              civilizations to contemporary digital culture, meeting the academic requirement for 15-20 real items with
+              rich conceptual and graphical presentation. Each artifact is provided with comprehensive metadata
+              following international museum standards (Dublin Core + CIDOC-CRM), including systematic identifiers,
+              period, culture of origin, type, materials, and narrative path classification. The artifacts are organized
+              into three thematic paths that create coherent narrative structures, with each item positioned in specific
+              virtual museum spaces that provide adequate visitor space and logical exploration flow.
+            </p>
+            <p>
+              <em>Note: For detailed metadata examples of two representative artifacts (Turkish Evil Eye and Scarab
+                Amulet), see the "Metadata Standards & Implementation" section. The table below provides a comprehensive
+                overview of all artifacts in the collection.</em>
+            </p>
+
+            <div class="items-table-container">
+              <table class="items-table">
+                <thead>
+                  <tr>
+                    <th>Item Image</th>
+                    <th>Item Name</th>
+                    <th>Identifier</th>
+                    <th>Period</th>
+                    <th>Culture/Origin</th>
+                    <th>Type</th>
+                    <th>Materials</th>
+                    <th>Narrative Path</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><img src="images/objects/scarab.jpg" alt="Scarab Amulet" class="item-thumbnail"></td>
+                    <td>Scarab Amulet</td>
+                    <td>AMULET-EGYPT-001</td>
+                    <td>3000 BCE - 30 BCE</td>
+                    <td>Ancient Egyptian</td>
+                    <td>Protective Symbol & Funerary Object</td>
+                    <td>Steatite, faience, carved stone</td>
+                    <td>Chronological Path, Cross-Cultural Path</td>
+                  </tr>
+                  <tr>
+                    <td><img src="images/objects/omamori.jpg" alt="Omamori Charm" class="item-thumbnail"></td>
+                    <td>Omamori Charm</td>
+                    <td>AMULET-JAPAN-001</td>
+                    <td>1603-1868 CE</td>
+                    <td>Japanese</td>
+                    <td>Protective Charm</td>
+                    <td>Silk, paper, calligraphy, brocade</td>
+                    <td>Chronological Path, Cross-Cultural Path</td>
+                  </tr>
+                  <tr>
+                    <td><img src="images/objects/ojo_venado.jpg" alt="Ojo de Venado" class="item-thumbnail"></td>
+                    <td>Ojo de Venado</td>
+                    <td>AMULET-MESO-001</td>
+                    <td>Pre-1492 CE</td>
+                    <td>Mesoamerican</td>
+                    <td>Protective Amulet</td>
+                    <td>Deer eye, leather, beads, natural fibers</td>
+                    <td>Chronological Path, Cross-Cultural Path</td>
+                  </tr>
+                  <tr>
+                    <td><img src="images/objects/aegishjalmr.jpg" alt="Aegishjalmr" class="item-thumbnail"></td>
+                    <td>Aegishjalmr</td>
+                    <td>AMULET-NORSE-001</td>
+                    <td>793-1066 CE</td>
+                    <td>Norse</td>
+                    <td>Protective Symbol</td>
+                    <td>Carved wood, metal, runic inscriptions</td>
+                    <td>Chronological Path, Cross-Cultural Path</td>
+                  </tr>
+                  <tr>
+                    <td><img src="images/objects/st_benedict.jpg" alt="St. Benedict Medal" class="item-thumbnail"></td>
+                    <td>St. Benedict Medal</td>
+                    <td>AMULET-CHRIST-001</td>
+                    <td>500-1500 CE</td>
+                    <td>Christian</td>
+                    <td>Protective Medal</td>
+                    <td>Silver, bronze, religious inscriptions</td>
+                    <td>Chronological Path, Cross-Cultural Path</td>
+                  </tr>
+                  <tr>
+                    <td><img src="images/objects/bantu_fetish.jpg" alt="Bantu Fetish" class="item-thumbnail"></td>
+                    <td>Bantu Fetish</td>
+                    <td>AMULET-AFRICA-001</td>
+                    <td>Traditional (ongoing)</td>
+                    <td>African Bantu</td>
+                    <td>Spiritual Object</td>
+                    <td>Wood, beads, shells, natural materials</td>
+                    <td>Chronological Path, Cross-Cultural Path</td>
+                  </tr>
+                  <tr>
+                    <td><img src="images/objects/korean_knife.jpg" alt="Korean Ritual Knife" class="item-thumbnail">
+                    </td>
+                    <td>Korean Ritual Knife</td>
+                    <td>AMULET-KOREA-001</td>
+                    <td>1392-1897 CE</td>
+                    <td>Korean</td>
+                    <td>Ritual Tool</td>
+                    <td>Steel, bronze, ceremonial decorations</td>
+                    <td>Chronological Path, Cross-Cultural Path</td>
+                  </tr>
+                  <tr>
+                    <td><img src="images/objects/slavic_doll.jpg" alt="Slavic Protection Doll" class="item-thumbnail">
+                    </td>
+                    <td>Slavic Protection Doll</td>
+                    <td>AMULET-SLAVIC-001</td>
+                    <td>Traditional (ongoing)</td>
+                    <td>Slavic</td>
+                    <td>Protective Doll</td>
+                    <td>Fabric, straw, herbs, protective symbols</td>
+                    <td>Chronological Path, Cross-Cultural Path</td>
+                  </tr>
+                  <tr>
+                    <td><img src="images/objects/nft_qr.jpg" alt="NFT QR Code" class="item-thumbnail"></td>
+                    <td>NFT QR Code</td>
+                    <td>AMULET-DIGITAL-001</td>
+                    <td>2020-2025 CE</td>
+                    <td>Digital Culture</td>
+                    <td>Modern Artifact</td>
+                    <td>Digital code, blockchain, QR technology</td>
+                    <td>Chronological Path, Modern Magic Path</td>
+                  </tr>
+                  <tr>
+                    <td><img src="images/objects/rpg_amulet.jpg" alt="RPG Amulet" class="item-thumbnail"></td>
+                    <td>RPG Amulet</td>
+                    <td>AMULET-GAMING-001</td>
+                    <td>2000-2025 CE</td>
+                    <td>Gaming Culture</td>
+                    <td>Virtual Artifact</td>
+                    <td>Digital design, game engine, virtual materials</td>
+                    <td>Chronological Path, Modern Magic Path</td>
+                  </tr>
+                  <tr>
+                    <td><img src="images/amulets/amulet1.webp" alt="Turkish Evil Eye" class="item-thumbnail"></td>
+                    <td>Turkish Evil Eye</td>
+                    <td>AMULET-TURKISH-001</td>
+                    <td>Traditional (Ancient - Present)</td>
+                    <td>Turkish</td>
+                    <td>Protective Amulet</td>
+                    <td>Glass bead, blue and white concentric circles</td>
+                    <td>Chronological Path, Cross-Cultural Path, Modern Magic Path</td>
+                  </tr>
+                  <tr>
+                    <td><img src="images/amulets/amulet2.webp" alt="Rose Quartz" class="item-thumbnail"></td>
+                    <td>Rose Quartz</td>
+                    <td>AMULET-CRYSTAL-001</td>
+                    <td>Ancient (ongoing)</td>
+                    <td>Universal</td>
+                    <td>Healing Crystal</td>
+                    <td>Rose quartz stone, natural crystal formation</td>
+                    <td>Chronological Path, Modern Magic Path</td>
+                  </tr>
+                  <tr>
+                    <td><img src="images/amulets/amulet3.webp" alt="Black Stone" class="item-thumbnail"></td>
+                    <td>Black Stone</td>
+                    <td>AMULET-STONE-001</td>
+                    <td>Prehistoric (ongoing)</td>
+                    <td>Universal</td>
+                    <td>Protective Stone</td>
+                    <td>Black stone, natural mineral formation</td>
+                    <td>Chronological Path, Modern Magic Path</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Metadata Standards & Implementation -->
+          <section id="metadata-standards">
+            <h2>Metadata Standards & Implementation</h2>
+
+            <h3>Academic Standards Selection</h3>
+            <p>
+              Following the MMMM project requirements for "professionally catalogued" artifacts with "metadata
+              vocabularies appropriate for their nature," we have implemented a hybrid approach combining Dublin Core
+              and CIDOC-CRM standards. This choice ensures academic rigor while maintaining practical usability for
+              museum visitors.
+            </p>
+
+            <h4>Dublin Core Implementation</h4>
+            <p>
+              <strong>Standard Choice:</strong> Dublin Core was selected as the primary metadata standard due to its
+              widespread adoption in cultural heritage institutions and its comprehensive coverage of essential
+              descriptive elements. We implement 8 core Dublin Core elements that provide systematic and uniform
+              artifact description.
+            </p>
+
+            <h5>Implemented Dublin Core Elements:</h5>
+            <ul>
+              <li><strong>Title</strong> - Official artifact name in English and original language</li>
+              <li><strong>Creator</strong> - Cultural tradition or historical period of origin</li>
+              <li><strong>Date</strong> - Chronological period or era designation</li>
+              <li><strong>Type</strong> - Functional classification (Protective Amulet, Ritual Tool, etc.)</li>
+              <li><strong>Format</strong> - Physical characteristics and material composition</li>
+              <li><strong>Identifier</strong> - Unique systematic ID (AMULET-[CULTURE]-[SEQUENTIAL])</li>
+              <li><strong>Description</strong> - Multi-level narrative content (Brief/Medium/Long)</li>
+              <li><strong>Subject</strong> - Cultural significance and thematic associations</li>
+            </ul>
+
+            <h4>CIDOC-CRM Integration</h4>
+            <p>
+              <strong>Standard Choice:</strong> CIDOC-CRM (Conceptual Reference Model) was integrated to capture complex
+              relationships between artifacts, cultures, and historical contexts. This standard enables sophisticated
+              narrative connections and supports the multi-path exploration system.
+            </p>
+
+            <h5>CIDOC-CRM Entity-Relationship Model:</h5>
+            <ul>
+              <li><strong>E22 Human-Made Object</strong> - Artifact classification</li>
+              <li><strong>P46 is composed of</strong> - Material composition relationships</li>
+              <li><strong>P4 has time-span</strong> - Temporal context and periodization</li>
+              <li><strong>P55 has current location</strong> - Virtual museum placement</li>
+              <li><strong>P2 has type</strong> - Functional categorization</li>
+              <li><strong>P19 was intended use of</strong> - Cultural purpose and significance</li>
+            </ul>
+
+            <h4>Complete Metadata Examples</h4>
+            <p>
+              Below are detailed examples of how metadata is structured for two representative artifacts, demonstrating
+              the integration of Dublin Core and CIDOC-CRM standards:
+            </p>
+
+            <div class="metadata-example">
+              <h5>Turkish Evil Eye - Complete Metadata Record</h5>
+              <table class="metadata-table">
+                <tr>
+                  <th>Dublin Core Element</th>
+                  <th>Value</th>
+                  <th>CIDOC-CRM Mapping</th>
+                </tr>
+                <tr>
+                  <td><strong>Title</strong></td>
+                  <td>Turkish Evil Eye (Nazar Boncuğu)</td>
+                  <td>E22 Human-Made Object → P102 has title</td>
+                </tr>
+                <tr>
+                  <td><strong>Creator</strong></td>
+                  <td>Mediterranean Cultural Tradition</td>
+                  <td>E22 → P108i was produced by → E74 Group</td>
+                </tr>
+                <tr>
+                  <td><strong>Date</strong></td>
+                  <td>Traditional (Ancient - Present)</td>
+                  <td>E22 → P4 has time-span → E52 Time-Span</td>
+                </tr>
+                <tr>
+                  <td><strong>Type</strong></td>
+                  <td>Protective Amulet</td>
+                  <td>E22 → P2 has type → E55 Type</td>
+                </tr>
+                <tr>
+                  <td><strong>Format</strong></td>
+                  <td>Glass bead, blue and white concentric circles</td>
+                  <td>E22 → P46 is composed of → E57 Material</td>
+                </tr>
+                <tr>
+                  <td><strong>Identifier</strong></td>
+                  <td>AMULET-TURKISH-001</td>
+                  <td>E22 → P1 is identified by → E42 Identifier</td>
+                </tr>
+                <tr>
+                  <td><strong>Description</strong></td>
+                  <td>Multi-level: Brief (2-3 lines), Medium (10-15 lines), Long (detailed analysis)</td>
+                  <td>E22 → P129 is about → E89 Propositional Object</td>
+                </tr>
+                <tr>
+                  <td><strong>Subject</strong></td>
+                  <td>Protection, Mediterranean Culture, Folk Beliefs</td>
+                  <td>E22 → P129 is about → E55 Type</td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="metadata-example">
+              <h5>Scarab Amulet - Complete Metadata Record</h5>
+              <table class="metadata-table">
+                <tr>
+                  <th>Dublin Core Element</th>
+                  <th>Value</th>
+                  <th>CIDOC-CRM Mapping</th>
+                </tr>
+                <tr>
+                  <td><strong>Title</strong></td>
+                  <td>Scarab Amulet (Kheperer)</td>
+                  <td>E22 Human-Made Object → P102 has title</td>
+                </tr>
+                <tr>
+                  <td><strong>Creator</strong></td>
+                  <td>Ancient Egyptian Civilization</td>
+                  <td>E22 → P108i was produced by → E74 Group</td>
+                </tr>
+                <tr>
+                  <td><strong>Date</strong></td>
+                  <td>3000 BCE - 30 BCE (Ancient Egypt)</td>
+                  <td>E22 → P4 has time-span → E52 Time-Span</td>
+                </tr>
+                <tr>
+                  <td><strong>Type</strong></td>
+                  <td>Protective Symbol & Funerary Object</td>
+                  <td>E22 → P2 has type → E55 Type</td>
+                </tr>
+                <tr>
+                  <td><strong>Format</strong></td>
+                  <td>Carved stone (steatite, faience), beetle form with hieroglyphs</td>
+                  <td>E22 → P46 is composed of → E57 Material</td>
+                </tr>
+                <tr>
+                  <td><strong>Identifier</strong></td>
+                  <td>AMULET-EGYPT-001</td>
+                  <td>E22 → P1 is identified by → E42 Identifier</td>
+                </tr>
+                <tr>
+                  <td><strong>Description</strong></td>
+                  <td>Multi-level: Brief (2-3 lines), Medium (10-15 lines), Long (detailed analysis)</td>
+                  <td>E22 → P129 is about → E89 Propositional Object</td>
+                </tr>
+                <tr>
+                  <td><strong>Subject</strong></td>
+                  <td>Rebirth, Protection, Solar Symbolism, Funerary Practices</td>
+                  <td>E22 → P129 is about → E55 Type</td>
+                </tr>
+              </table>
+            </div>
+
+            <h4>Metadata Export Formats</h4>
+            <p>
+              To ensure interoperability and academic accessibility, our metadata system supports multiple export
+              formats:
+            </p>
+            <ul>
+              <li><strong>JSON Format:</strong> Machine-readable export for API integration and data analysis</li>
+              <li><strong>CSV Format:</strong> Tabular export for research and comparative studies</li>
+              <li><strong>XML Format:</strong> Standardized export following Dublin Core XML schema</li>
+            </ul>
+
+            <h5>JSON Export Examples - Demonstrating Model Scalability</h5>
+            <div class="code-example">
+              <h6>Turkish Evil Eye (AMULET-TURKISH-001):</h6>
+              <pre><code>{
+  "dublin_core": {
+    "title": "Turkish Evil Eye (Nazar Boncuğu)",
+    "creator": "Mediterranean Cultural Tradition",
+    "date": "Traditional (Ancient - Present)",
+    "type": "Protective Amulet",
+    "format": "Glass bead, blue and white concentric circles",
+    "identifier": "AMULET-TURKISH-001",
+    "description": {
+      "brief": "Blue glass bead amulet protecting against evil eye",
+      "medium": "Traditional Turkish protective charm with ancient Mediterranean origins...",
+      "long": "The Turkish Evil Eye represents a complex cultural tradition..."
+    },
+    "subject": ["Protection", "Mediterranean Culture", "Folk Beliefs"]
+  },
+  "cidoc_crm": {
+    "entity": "E22 Human-Made Object",
+    "relationships": {
+      "P102_has_title": "Turkish Evil Eye",
+      "P108i_was_produced_by": "E74_Group",
+      "P4_has_time_span": "E52_Time-Span",
+      "P2_has_type": "E55_Type",
+      "P46_is_composed_of": "E57_Material"
+    }
+  },
+  "narrative_paths": ["Chronological", "Cross-Cultural", "Modern Magic"],
+  "museum_location": "Floor 1, Room B, Position 3"
+}</code></pre>
+
+              <h6>Scarab Amulet (AMULET-EGYPT-001):</h6>
+              <pre><code>{
+  "dublin_core": {
+    "title": "Scarab Amulet (Kheperer)",
+    "creator": "Ancient Egyptian Civilization",
+    "date": "3000 BCE - 30 BCE (Ancient Egypt)",
+    "type": "Protective Symbol & Funerary Object",
+    "format": "Carved stone (steatite, faience), beetle form with hieroglyphs",
+    "identifier": "AMULET-EGYPT-001",
+    "description": {
+      "brief": "Sacred beetle amulet symbolizing rebirth and protection",
+      "medium": "Ancient Egyptian scarab representing solar cycle and resurrection...",
+      "long": "The scarab amulet embodies complex Egyptian cosmology..."
+    },
+    "subject": ["Rebirth", "Protection", "Solar Symbolism", "Funerary Practices"]
+  },
+  "cidoc_crm": {
+    "entity": "E22 Human-Made Object",
+    "relationships": {
+      "P102_has_title": "Scarab Amulet",
+      "P108i_was_produced_by": "E74_Group",
+      "P4_has_time_span": "E52_Time-Span",
+      "P2_has_type": "E55_Type",
+      "P46_is_composed_of": "E57_Material"
+    }
+  },
+  "narrative_paths": ["Chronological", "Cross-Cultural"],
+  "museum_location": "Floor 0, Room A, Position 1"
+}</code></pre>
+            </div>
+
+            <h5>CSV Export Example - Demonstrating Model Scalability</h5>
+            <div class="code-example">
+              <p><em>The following CSV format demonstrates how the metadata model scales across all artifacts while
+                  maintaining consistency:</em></p>
+              <pre><code>Identifier,Title,Creator,Date,Type,Format,Subject,Narrative_Paths,Museum_Location
+AMULET-EGYPT-001,Scarab Amulet (Kheperer),Ancient Egyptian Civilization,3000 BCE - 30 BCE,Protective Symbol & Funerary Object,Carved stone (steatite faience) beetle form with hieroglyphs,Rebirth; Protection; Solar Symbolism; Funerary Practices,Chronological; Cross-Cultural,Floor 0 Room A Position 1
+AMULET-JAPAN-001,Omamori Charm,Japanese,1603-1868 CE,Protective Charm,Silk paper calligraphy brocade,Protection; Tradition; Spirituality,Chronological; Cross-Cultural,Floor 1 Room B Position 2
+AMULET-TURKISH-001,Turkish Evil Eye (Nazar Boncuğu),Mediterranean Cultural Tradition,Traditional (Ancient - Present),Protective Amulet,Glass bead blue and white concentric circles,Protection; Mediterranean Culture; Folk Beliefs,Chronological; Cross-Cultural; Modern Magic,Floor 1 Room B Position 3
+AMULET-DIGITAL-001,NFT QR Code,Digital Culture,2020-2025 CE,Modern Artifact,Digital code blockchain QR technology,Digital Art; Blockchain; Modern Spirituality,Chronological; Modern Magic,Floor 2 Room C Position 1</code></pre>
+            </div>
+
+            <h4>Quality Assurance & Validation</h4>
+            <p>
+              Our metadata implementation follows the RSTU principles specified in the MMMM project requirements:
+            </p>
+            <ul>
+              <li><strong>Rich:</strong> Comprehensive coverage including provenance, characteristics, and editorial
+                data</li>
+              <li><strong>Systematic:</strong> All artifacts follow identical metadata structure with consistent field
+                completion</li>
+              <li><strong>Tailored:</strong> Fields are adapted to amulet-specific characteristics while maintaining
+                standard compliance</li>
+              <li><strong>Uniform:</strong> Consistent formatting and terminology across all 13 artifacts enables data
+                aggregation and analysis</li>
+            </ul>
+
+            <h4>Website Implementation</h4>
+            <p>
+              On the website, each artifact displays basic metadata (title, period, culture, type, photo, narrative
+              path) in user-friendly card format. The deeper content levels ("What is it?", "Tell me more", "Full
+              story") provide narrative explanations rather than technical metadata, ensuring accessibility for all
+              visitors while maintaining academic rigor in the underlying data structure.
+            </p>
+
+            <h4>QR Code System Implementation</h4>
+            <p>
+              Following the MMMM project requirement that "Each item is then provided with a QR code leading to more
+              information about the item itself," we have implemented a comprehensive QR code system that integrates
+              with our existing narrative paths:
+            </p>
+            <ul>
+              <li><strong>Museum Map Integration:</strong> Each artifact on the interactive museum map displays a QR
+                code when clicked, providing direct access to the artifact's detailed page within the appropriate
+                narrative path</li>
+              <li><strong>Smart URL Routing:</strong> QR codes use short links that automatically route visitors to the
+                correct page:
+                <ul>
+                  <li><strong>Short QR Links:</strong> <code>/qr/[ID]</code> (e.g., <code>/qr/AMULET-TURKISH-001</code>)
+                  </li>
+                  <li><strong>Auto-redirect:</strong> Short links redirect to appropriate pages with
+                    <code>?id=[ID]&src=qr</code></li>
+                  <li><strong>Magic Amulets:</strong> Redirect to <code>/magic.html?id=[ID]&src=qr</code></li>
+                  <li><strong>Other Artifacts:</strong> Redirect to <code>/chrono.html?id=[ID]&src=qr</code></li>
+                </ul>
+              </li>
+              <li><strong>Analytics Tracking:</strong> The <code>?src=qr</code> parameter enables tracking of QR code
+                usage and visitor engagement</li>
+              <li><strong>Print-Ready Labels:</strong> A dedicated <code>qr-print.html</code> page generates printable
+                QR code labels for physical museum placement</li>
+            </ul>
+
+            <h5>QR Code Example (Scarab Amulet):</h5>
+            <div class="qr-example">
+              <p><strong>Identifier:</strong> SCARAB-001</p>
+              <p><strong>Short QR Link:</strong> <code>https://arinee01.github.io/MMM-1.0/qr/SCARAB-001</code></p>
+              <p><strong>Auto-redirects to:</strong>
+                <code>https://arinee01.github.io/MMM-1.0/chrono.html?id=SCARAB-001&src=qr</code></p>
+              <p><strong>Purpose:</strong> Visitors can scan the QR code to open the artifact's detailed page within the
+                Chronological Path on their mobile devices</p>
+            </div>
+          </section>
+
+          <!-- Enhanced Metadata Documentation -->
+          <section id="metadata-documentation">
+            <h2>Enhanced Metadata Documentation</h2>
+
+            <p>
+              <em>Note: For detailed information about metadata standards, implementation details, and examples, see the
+                "Metadata Standards & Implementation" section above. This section focuses on the broader academic
+                framework and content adaptation system.</em>
+            </p>
+
+            <h3>Content Adaptation System</h3>
+            <p>
+              Our dual-axis content adaptation system ensures that every visitor receives appropriate information depth
+              and complexity, regardless of their background knowledge or time constraints.
+            </p>
+
+            <h3>Metadata Structure & Implementation</h3>
+            <p>
+              Our metadata structure is designed to serve both academic researchers and casual visitors, providing
+              multiple levels of detail while maintaining consistency across all artifacts.
+            </p>
+
+            <h4>Core Metadata Fields</h4>
+            <p>
+              The system employs four primary metadata fields: <strong>Identifier</strong>
+              (AMULET-[CULTURE]-[SEQUENTIAL] format for systematic classification), <strong>Period</strong>
+              (chronological classification for timeline exploration), <strong>Culture/Origin</strong> (cultural
+              attribution for cross-cultural analysis), and <strong>Material & Technique</strong> (technical
+              specifications for craftsmanship understanding).
+            </p>
+
+            <h4>Narrative Path Classification</h4>
+            <p>
+              Artifacts are assigned to multiple narrative paths based on chronological relevance, cultural
+              significance, and thematic connection. This multi-path approach reflects the complexity of cultural
+              heritage and provides multiple entry points for exploration. For example, the Turkish Evil Eye appears in
+              all three paths due to its ancient origins, Mediterranean cultural context, and contemporary usage.
+            </p>
+
+            <h3>Content Adaptation Framework</h3>
+            <p>
+              The dual-axis content adaptation system implements the MMMM project requirements for multiple descriptive
+              texts according to age, competency, and detail level axes. This framework ensures appropriate information
+              depth and complexity for all visitor types.
+            </p>
+
+            <h4>Content Adaptation Framework</h4>
+            <p>
+              The system implements a dual-axis adaptation framework: <strong>User Competency</strong> (Beginner: 11-13
+              y.o., no background; Casual: general adults, some knowledge; Expert: scholars, researchers) and
+              <strong>Content Detail</strong> (Brief: 2-3 lines, <1 min; Medium: 10-15 lines, 1-2 min; Long: as needed,
+                several min). </p>
+                <p>
+                  Content characteristics vary systematically: Beginner level employs simple language and visual
+                  emphasis; Casual level provides balanced information with cultural context; Expert level offers
+                  detailed analysis with academic references and comparative studies.
+                </p>
+                <p><em>For detailed metadata structure and implementation examples, see the "Metadata Standards &
+                    Implementation" section above.</em></p>
+
+                <h3>Metadata Quality & Validation</h3>
+                <p>
+                  We maintain high metadata quality through systematic validation, consistent formatting, and regular
+                  review processes that ensure accuracy and completeness.
+                </p>
+
+                <h4>Quality Assurance & Interoperability</h4>
+                <p>
+                  Metadata validation follows three criteria: completeness, accuracy (verified against reliable
+                  sources), and consistency. The system supports export in multiple formats (JSON, CSV) for integration
+                  with other cultural heritage platforms and is designed for scalability without structural changes.
+                </p>
+          </section>
+
+          <!-- User Experience -->
+          <section id="user-experience">
+            <h2>User Experience</h2>
+
+            <h3>Adaptive Content System Overview</h3>
+            <p>
+              Our museum implements a sophisticated adaptive content system that tailors the visitor experience based on
+              their background knowledge and interests. This system ensures that every visitor, regardless of their
+              expertise level, can engage with the content in a meaningful and accessible way.
+            </p>
+
+            <h4>User Type Selection</h4>
+            <p>
+              Upon entering the museum, visitors choose from three user types: <strong>Beginner</strong> (families with
+              children, newcomers), <strong>Casual</strong> (curious adults, students), and <strong>Expert</strong>
+              (researchers, scholars). Each type receives appropriately tailored content depth and complexity.
+            </p>
+
+            <h4>Dynamic Content Adjustment</h4>
+            <p>
+              Users can dynamically adjust content levels during their visit using "What is it?", "Tell Me More", and
+              "Full Story" options. This creates a personalized learning experience where visitors can start with basic
+              information and gradually increase complexity as their understanding grows.
+            </p>
+
+            <p><em>For detailed information about content adaptation levels and user competency requirements, see the
+                "Metadata Standards & Implementation" section.</em></p>
+
+            <h3>Virtual Assistants</h3>
+            <p>
+              Our museum features four virtual assistants that represent different aspects of mystical knowledge and
+              cultural heritage. Each assistant has been designed with a unique personality and expertise area,
+              reflecting the diversity of magical traditions represented in our collection.
+            </p>
+
+            <div class="assistants-gallery">
+              <div class="assistant-item">
+                <img src="images/heroes/Eleanor Whitmore.png" alt="Eleanor Whitmore - Victorian Mystic"
+                  class="assistant-portrait">
+                <h4>Eleanor Whitmore</h4>
+                <p><strong>Victorian Mystic & Spiritualist</strong></p>
+                <p>Expert in 19th-century spiritual practices, Victorian occultism, and the intersection of science and
+                  mysticism during the Industrial Revolution.</p>
+              </div>
+
+              <div class="assistant-item">
+                <img src="images/heroes/Maestro Lorenzo di Firenze.png"
+                  alt="Maestro Lorenzo di Firenze - Renaissance Scholar" class="assistant-portrait">
+                <h4>Maestro Lorenzo di Firenze</h4>
+                <p><strong>Renaissance Scholar & Alchemist</strong></p>
+                <p>Master of Renaissance magic, alchemical traditions, and the revival of classical knowledge during the
+                  15th-17th centuries.</p>
+              </div>
+
+              <div class="assistant-item">
+                <img src="images/heroes/maya.png" alt="Maya - Ancient Wisdom Keeper" class="assistant-portrait">
+                <h4>Maya</h4>
+                <p><strong>Ancient Wisdom Keeper</strong></p>
+                <p>Guardian of prehistoric and ancient magical traditions, specializing in earth-based spirituality and
+                  primal protective practices.</p>
+              </div>
+
+              <div class="assistant-item">
+                <img src="images/heroes/Petr III.png" alt="Petr III - Slavic Mystic" class="assistant-portrait">
+                <h4>Petr III</h4>
+                <p><strong>Slavic Mystic & Folklorist</strong></p>
+                <p>Expert in Slavic magical traditions, folk beliefs, and the rich tapestry of Eastern European
+                  spiritual practices and protective symbols.</p>
+              </div>
+            </div>
+
+            <h3>Progress Tracking & Gamification System</h3>
+            <p><strong>🔄 Recently Updated:</strong> The progress system has been optimized for better balance and fair
+              reward distribution.</p>
+            <p>
+              Our museum implements an advanced gamification system that transforms the traditional museum visit into an
+              engaging, interactive experience with multiple reward mechanisms and progress tracking across all aspects
+              of the exhibition. The coin system serves as the primary reward mechanism, encouraging active engagement
+              with exhibition content. Users earn coins through various activities: 8 coins for every 4 significant
+              actions within a path, 50 coins for completing entire paths, 8 coins for discovering new themes, 8 coins
+              for theme exploration, and 8 coins for exploring new questions with virtual assistants. The system
+              intelligently tracks user interactions to prevent duplicate rewards, ensuring fair and balanced
+              progression. Coins are displayed prominently in the progress interface and contribute significantly to the
+              knowledge vessel progression, creating a tangible sense of achievement and advancement.
+            </p>
+            <p>
+              The knowledge vessel represents the user's overall progress through the exhibition, filling based on two
+              key factors: path completion (40% of total capacity) and coin accumulation (60% of total capacity). Each
+              path has specific completion requirements: Chronological Path requires 12 actions, Magic Path requires 15
+              actions, Cross-Cultural Path requires 10 actions, and Museum Map requires 8 actions. Path completion is
+              tracked through various user interactions including artifact exploration, audio engagement, theme
+              switching, navigation, and content level changes. The vessel's visual representation provides immediate
+              feedback on progress, with smooth animations and real-time updates that enhance the user experience.
+            </p>
+            <p>
+              Upon reaching 100% vessel capacity, users unlock access to an official certificate of completion, making
+              this the first online museum exhibition to offer formal recognition of cultural heritage education. The
+              certificate system includes a personalized form where users enter their name, generating a professional
+              document that validates their completion of the comprehensive exhibition experience. This feature
+              transforms the digital visit into an accredited learning experience, adding significant academic value and
+              encouraging deeper engagement with the content. The certificate serves as both a personal achievement and
+              a professional credential for cultural heritage education.
+            </p>
+            <p>
+              The system implements sophisticated achievement tracking across multiple dimensions including path
+              exploration, theme discovery, artifact interaction, and user engagement patterns. Achievements are awarded
+              for milestones such as completing 10 actions, discovering new themes, and fully exploring exhibition
+              paths. The achievement system maintains a history of the last 10 accomplishments, providing users with a
+              comprehensive record of their museum journey. Each achievement includes descriptive text and visual
+              indicators, creating a sense of progression and accomplishment that motivates continued exploration. The
+              system has been recently updated to provide more balanced and fair reward distribution, ensuring that
+              users feel motivated without feeling overwhelmed by excessive rewards.
+            </p>
+            <p>
+              All progress is tracked in real-time with immediate visual feedback through the floating progress
+              interface. The system monitors user interactions across all exhibition elements including navigation
+              buttons, theme switches, artifact interactions, audio controls, and content level changes. Progress data
+              is automatically saved to localStorage, ensuring persistence across browser sessions and device changes.
+              The interface provides comprehensive statistics including total coins earned, vessel completion
+              percentage, explored paths count, and total actions taken, giving users complete visibility into their
+              exhibition progress and achievements.
+            </p>
+
+          </section>
+
+          <!-- Design System -->
+          <section id="design-system">
+            <h2>Design System</h2>
+
+            <h3>Design Philosophy</h3>
+            <p>
+              Our design approach emphasizes the balance between aesthetic appeal and functional accessibility. We
+              believe that digital museum experiences should be both visually engaging and intellectually stimulating,
+              allowing visitors to explore cultural heritage in meaningful and personalized ways.
+            </p>
+
+            <h3>Theme System Overview</h3>
+            <p>
+              Our museum implements a sophisticated four-theme system that allows users to experience the content
+              through different historical and cultural lenses. Each theme is carefully designed to reflect the
+              typographic and aesthetic principles of its respective period, creating an authentic and immersive
+              experience.
+            </p>
+            <p>
+              <strong>Unique Background Images:</strong> Each theme features its own distinctive background image that
+              sets the visual atmosphere and cultural context for the entire experience. These backgrounds are carefully
+              selected to represent the aesthetic and cultural characteristics of their respective historical periods.
+            </p>
+
+            <div class="themes-overview-grid">
+              <div class="theme-overview-card">
+                <h4>Theme 1: Renaissance & Baroque (1500-1800)</h4>
+                <div class="theme-background">
+                  <div class="background-preview" style="background-image: url('images/backgrounds/parchment.jpg');">
+                  </div>
+                  <p><strong>Background:</strong> Parchment texture with classical Renaissance aesthetic</p>
+                </div>
+                <div class="theme-details">
+                  <div class="theme-typography">
+                    <h5>Typography</h5>
+                    <p>Elegant serif fonts with classical proportions, inspired by Renaissance manuscripts and
+                      illuminated texts. Typography emphasizes formality and scholarship, reflecting the structured
+                      approach to mystical knowledge during this period.</p>
+                  </div>
+                  <div class="theme-colors">
+                    <h5>Color Palette</h5>
+                    <p>Rich golds (#D4AF37), deep browns (#8B4513), and warm earth tones create an opulent atmosphere
+                      reminiscent of illuminated manuscripts and Renaissance art.</p>
+                    <div class="color-swatches">
+                      <div class="color-swatch" style="background-color: #8B4513;" title="Brown Accent"></div>
+                      <div class="color-swatch" style="background-color: #DAA520;" title="Gold"></div>
+                      <div class="color-swatch" style="background-color: #2F1B14;" title="Dark Text"></div>
+                      <div class="color-swatch" style="background-color: #F5F5DC;" title="Cream Background"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="theme-overview-card">
+                <h4>Theme 2: Victorian & Romantic (XIX Century)</h4>
+                <div class="theme-background">
+                  <div class="background-preview" style="background-image: url('images/backgrounds/victorian2.webp');">
+                  </div>
+                  <p><strong>Background:</strong> Victorian ornamental pattern with intricate floral and geometric
+                    designs</p>
+                </div>
+                <div class="theme-details">
+                  <div class="theme-typography">
+                    <h5>Typography</h5>
+                    <p>Refined serif fonts with increased contrast and decorative elements. Typography choices reflect
+                      the romantic, detailed aesthetic of 19th-century publications, with emphasis on elegance and
+                      sophistication.</p>
+                  </div>
+                  <div class="theme-colors">
+                    <h5>Color Palette</h5>
+                    <p>Muted earth tones (#8B7355), soft creams (#F5F5DC), and accent colors like burgundy (#800020)
+                      create a romantic, detailed aesthetic.</p>
+                    <div class="color-swatches">
+                      <div class="color-swatch" style="background-color: #d3b261;" title="Victorian Gold"></div>
+                      <div class="color-swatch" style="background-color: #B8860B;" title="Dark Gold"></div>
+                      <div class="color-swatch" style="background-color: #1a1a1a;" title="Dark Text"></div>
+                      <div class="color-swatch" style="background-color: #f3c8aa;" title="Soft Border"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="theme-overview-card">
+                <h4>Theme 3: Modernism (Early XX Century)</h4>
+                <div class="theme-background">
+                  <div class="background-preview" style="background-image: url('images/backgrounds/artdeco2.webp');">
+                  </div>
+                  <p><strong>Background:</strong> Art Deco geometric pattern with clean lines and modernist aesthetic
+                  </p>
+                </div>
+                <div class="theme-details">
+                  <div class="theme-typography">
+                    <h5>Typography</h5>
+                    <p>Clean, geometric sans-serif fonts with strong hierarchy. Design emphasizes clarity and function,
+                      reflecting the principle of "form follows function" while maintaining readability and visual
+                      impact.</p>
+                  </div>
+                  <div class="theme-colors">
+                    <h5>Color Palette</h5>
+                    <p>High contrast black (#000000) and white (#FFFFFF) with primary color accents (#FF6B35) create a
+                      bold, functional aesthetic.</p>
+                    <div class="color-swatches">
+                      <div class="color-swatch" style="background-color: #58c5c5;" title="Teal Accent"></div>
+                      <div class="color-swatch" style="background-color: #FFD700;" title="Bright Gold"></div>
+                      <div class="color-swatch" style="background-color: #2F2F2F;" title="Dark Text"></div>
+                      <div class="color-swatch" style="background-color: #5cd3d3;" title="Light Teal"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="theme-overview-card">
+                <h4>Theme 4: Digital Age (2035)</h4>
+                <div class="theme-background">
+                  <div class="background-preview"
+                    style="background-image: url('images/backgrounds/modern_magic2.webp');"></div>
+                  <p><strong>Background:</strong> Modern digital pattern with contemporary tech-inspired elements</p>
+                </div>
+                <div class="theme-details">
+                  <div class="theme-typography">
+                    <h5>Typography</h5>
+                    <p>Contemporary web fonts optimized for screen readability. Design incorporates contemporary trends
+                      while ensuring accessibility and user experience across all devices.</p>
+                  </div>
+                  <div class="theme-colors">
+                    <h5>Color Palette</h5>
+                    <p>Vibrant, saturated colors (#FF6B9D, #4ECDC4) with gradients and transparency effects create a
+                      contemporary, dynamic aesthetic.</p>
+                    <div class="color-swatches">
+                      <div class="color-swatch" style="background-color: #00FFFF;" title="Cyan Accent"></div>
+                      <div class="color-swatch" style="background-color: #FF00FF;" title="Magenta Gold"></div>
+                      <div class="color-swatch" style="background-color: #FFFFFF;" title="White Text"></div>
+                      <div class="color-swatch" style="background-color: #bdb581;" title="Muted Gold"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <h3>Base Design System</h3>
+            <h4>Base Typography</h4>
+            <p>
+              For the main interface and navigation, we use Cinzel, a serif font that embodies classical elegance and
+              historical authenticity. This font choice reflects the timeless nature of mystical traditions while
+              ensuring excellent readability across all devices.
+            </p>
+
+            <h4>Base Color Palette</h4>
+            <p>
+              The foundation of our color system uses dark backgrounds with gold accents, creating a mystical and
+              elegant atmosphere:
+            </p>
+
+            <div class="base-color-palette">
+              <div class="color-swatches">
+                <div class="color-swatch" style="background-color: #121212;" title="Dark Background"></div>
+                <div class="color-swatch" style="background-color: #bfa76a;" title="Gold Accent"></div>
+                <div class="color-swatch" style="background-color: #e08aff;" title="Purple Accent"></div>
+                <div class="color-swatch" style="background-color: #f3ecf9;" title="Text Main"></div>
+              </div>
+              <p class="color-codes">Base Palette: #121212 #bfa76a #e08aff #f3ecf9</p>
+            </div>
+          </section>
+
+          <!-- Design Principles & Rationale -->
+          <section id="design-principles">
+            <h2>Design Principles & Rationale</h2>
+
+            <h3>Golden Ratio & Proportional Design</h3>
+            <p>
+              Our design system is fundamentally based on the golden ratio (φ ≈ 1.618), which has been used in art and
+              architecture for centuries to create harmonious proportions. This mathematical principle guides our layout
+              decisions, spacing, and element sizing to ensure visual balance and aesthetic appeal.
+            </p>
+
+            <h4>Proportional System Implementation</h4>
+            <p>
+              <strong>Margins and Padding:</strong> We use a consistent proportional system where base margins are 1rem,
+              and larger spacing follows the golden ratio progression: 1rem, 1.618rem, 2.618rem, 4.236rem. This creates
+              a harmonious visual rhythm throughout the interface.
+            </p>
+            <p>
+              <strong>Element Sizing:</strong> Card widths, image containers, and content blocks are sized using golden
+              ratio proportions. For example, our main content area uses a max-width of 1200px, with internal elements
+              sized at 742px (1200 ÷ 1.618) for optimal visual balance.
+            </p>
+
+            <h4>Typography Scale & Hierarchy</h4>
+            <p>
+              <strong>Font Size Progression:</strong> Our typography scale follows a modified golden ratio progression:
+              0.9rem (base), 1rem, 1.618rem, 2.618rem, 4.236rem. This ensures that text hierarchy is both mathematically
+              sound and visually pleasing.
+            </p>
+            <p>
+              <strong>Line Height Rationale:</strong> We use line-height: 1.618 for body text, which provides optimal
+              readability while maintaining the golden ratio aesthetic. For headings, we use line-height: 1.2 to create
+              clear visual separation.
+            </p>
+
+            <h3>Layout Principles & Grid Systems</h3>
+            <p>
+              Our layout system is based on established principles of visual hierarchy, user experience design, and
+              cultural heritage presentation. Every layout decision is deliberate and serves a specific purpose in
+              guiding user attention and information flow.
+            </p>
+
+            <h4>Grid System Rationale</h4>
+            <p>
+              <strong>CSS Grid Implementation:</strong> We chose CSS Grid over Flexbox for main layouts because it
+              provides better control over two-dimensional layouts and allows for more sophisticated responsive
+              behavior. Our grid system uses auto-fit and minmax() for intelligent column adaptation.
+            </p>
+            <p>
+              <strong>Breakpoint Strategy:</strong> Our responsive breakpoints (768px, 1024px, 1200px) are based on
+              common device sizes and content readability requirements. We tested these breakpoints extensively to
+              ensure optimal user experience across all devices.
+            </p>
+
+            <h4>Spacing & Alignment Principles</h4>
+            <p>
+              <strong>Consistent Spacing:</strong> We use a 4px base unit system (4px, 8px, 16px, 24px, 32px, 48px) for
+              consistent spacing throughout the interface. This creates visual harmony and makes the interface easier to
+              scan and navigate.
+            </p>
+            <p>
+              <strong>Alignment Rationale:</strong> Text alignment choices are deliberate: center alignment for headings
+              creates visual balance, left alignment for body text improves readability, and right alignment for
+              navigation elements creates clear visual hierarchy.
+            </p>
+
+            <h3>Animation & Interaction Principles</h3>
+            <p>
+              Our animation system is designed to enhance user experience without being distracting. Every animation
+              serves a specific purpose: providing feedback, guiding attention, or creating visual interest.
+            </p>
+
+            <h4>Animation Timing & Easing</h4>
+            <p>
+              <strong>Duration Rationale:</strong> We use 0.3s for most animations because it's fast enough to feel
+              responsive but slow enough to be visible and pleasant. For complex animations, we use 0.6s to allow users
+              to appreciate the visual effect.
+            </p>
+            <p>
+              <strong>Easing Functions:</strong> We use cubic-bezier(0.4, 0, 0.2, 1) for most transitions because it
+              provides natural, human-like movement. For hover effects, we use ease-in-out to create smooth,
+              bidirectional animations.
+            </p>
+
+            <h4>Visual Effect Rationale</h4>
+            <p>
+              <strong>Backdrop-Filter Usage:</strong> We implement backdrop-filter: blur() effects to create depth and
+              modern glassmorphic aesthetics. This choice reflects contemporary design trends while maintaining
+              accessibility and performance.
+            </p>
+            <p>
+              <strong>Box-Shadow Strategy:</strong> Our multi-layered box-shadow approach creates realistic depth
+              perception. We use rgba() colors with varying opacity levels to simulate natural lighting and create
+              visual hierarchy.
+            </p>
+
+            <h3>Accessibility & Usability Principles</h3>
+            <p>
+              Every design decision considers accessibility and usability. We follow WCAG 2.1 AA guidelines and
+              implement inclusive design principles to ensure our museum is accessible to all visitors.
+            </p>
+
+            <h4>Color Contrast & Readability</h4>
+            <p>
+              <strong>Contrast Ratios:</strong> We maintain a minimum contrast ratio of 4.5:1 for normal text and 3:1
+              for large text, exceeding WCAG requirements. Our gold accent color (#bfa76a) was specifically chosen for
+              its excellent contrast against dark backgrounds.
+            </p>
+            <p>
+              <strong>Text Sizing:</strong> Our minimum font size of 0.9rem (14.4px) ensures readability across all
+              devices. We use relative units (rem) to respect user browser settings and provide scalable text.
+            </p>
+
+            <h4>Interactive Element Design</h4>
+            <p>
+              <strong>Touch Target Sizing:</strong> All interactive elements are sized at minimum 44px × 44px to meet
+              accessibility guidelines for touch devices. This ensures that users with motor difficulties can easily
+              interact with our interface.
+            </p>
+            <p>
+              <strong>Focus Indicators:</strong> We provide clear focus indicators for keyboard navigation, using both
+              color changes and outline properties to ensure visibility across all themes and user preferences.
+            </p>
+          </section>
+
+          <!-- Technical Implementation -->
+          <section id="technical-implementation">
+            <h2>Technical Implementation</h2>
+
+            <h3>Metadata Architecture & Academic Standards</h3>
+            <p>
+              Our project implements a comprehensive metadata system that adheres to international museum and academic
+              standards, following the requirements for 15-20 real items with rich conceptual and graphical presentation
+              within narrative contexts.
+            </p>
+
+            <p>The metadata architecture follows established museum and cultural heritage vocabularies including Dublin
+              Core, CIDOC-CRM, and Getty Vocabularies. Each of our 13 carefully selected artifacts is provided with
+              comprehensive metadata including: <strong>Period</strong> (chronological classification),
+              <strong>Culture/Origin</strong> (geographic and cultural attribution), <strong>Type</strong> (functional
+              classification), and <strong>Narrative Path</strong> (thematic organization across multiple pathways). The
+              system implements hierarchical classification with cross-references between artifacts, enabling users to
+              explore connections across different cultural traditions and historical periods.</p>
+
+            <p>Each artifact is presented with rich conceptual and graphical content that considers both the item and
+              its audience. The metadata system implements dual-axis content adaptation: <strong>User Competency
+                Levels</strong> (Beginner, Casual, Expert) and <strong>Content Detail Levels</strong> (Brief, Medium,
+              Long). This creates a sophisticated matrix of 6 possible content variations per artifact, ensuring
+              appropriate information depth for different user types. The system automatically adapts content
+              presentation based on user selection, providing age-appropriate, competency-matched, and
+              language-appropriate descriptions that maintain academic rigor while ensuring accessibility.</p>
+
+            <h3>Museum Layout & Spatial Organization</h3>
+            <p>
+              The virtual museum implements a sophisticated spatial organization system that mirrors real museum
+              planning principles, with adequate visitor space and logical artifact placement.
+            </p>
+
+            <p>Our museum layout follows established museum design principles with three distinct thematic rooms:
+              <strong>Chronological Path</strong> (timeline-based historical progression), <strong>Cross-Cultural
+                Path</strong> (geographic and cultural comparison), and <strong>Modern Magic Path</strong> (contemporary
+              digital spirituality). Each room is designed with adequate virtual space for visitor movement, logical
+              artifact placement that follows narrative flow, and clear visual hierarchy that guides user exploration.
+              The layout system implements responsive design principles that adapt to different screen sizes while
+              maintaining spatial relationships and visitor experience quality.</p>
+
+            <p>The spatial organization includes intelligent artifact placement with QR code integration that leads to
+              detailed information pages. Each artifact is positioned within its appropriate thematic context, with
+              spatial relationships that reflect both chronological and cultural connections. The system implements a
+              sophisticated navigation structure that allows visitors to move between rooms, explore artifacts in
+              detail, and follow multiple narrative threads while maintaining spatial awareness and logical progression
+              through the exhibition.</p>
+
+            <h3>CSS Architecture & Theming System</h3>
+            <p>
+              We implemented a sophisticated modular CSS architecture using CSS custom properties (variables) for
+              consistent theming across all themes. The system consists of four distinct theme files (themes.css,
+              chrono.css, crosscultural.css, magic.css) that define typography, colors, and layout variations while
+              maintaining consistent component structure.
+            </p>
+
+            <p>Our CSS custom properties system implements a sophisticated theming architecture with centralized base
+              variables for colors, fonts, transitions, and shadows. Each theme dynamically defines comprehensive custom
+              properties including --theme-bg, --theme-main-font, --theme-accent, --theme-gold, --theme-text, and
+              --theme-transition. The advanced dynamic typography system seamlessly adapts font families, sizes, and
+              line heights per theme (e.g., Garamond for Renaissance, Georgia for Victorian, Josefin Sans for Art Deco),
+              while maintaining strict accessibility standards across all visual identities.</p>
+
+            <p>The modular CSS architecture separates concerns into specialized files: base.css for core variables and
+              fundamental layout, components.css for reusable UI components and complex layouts, themes.css for
+              comprehensive theme definitions and variations, animations.css for smooth transitions and keyframe
+              animations, and specialized CSS files for each major section (chrono.css, crosscultural.css, magic.css)
+              that handle unique styling requirements and interactive elements.</p>
+
+            <h3>JavaScript Architecture & Functionality</h3>
+            <p>
+              The project implements a comprehensive JavaScript architecture with multiple specialized modules, totaling
+              over 3,000 lines of code across 8 JavaScript files.
+            </p>
+
+            <p>The project implements a sophisticated JavaScript architecture with eight specialized modules that work
+              together to create a seamless interactive experience. The theme-switcher.js provides advanced theme
+              management with localStorage persistence, dynamic switching, and cross-page theme synchronization. The
+              progress-system.js implements a comprehensive gamification engine with progress tracking, achievement
+              systems, and sophisticated data management using localStorage. The crosscultural.js handles complex
+              interactive content management, user experience logic, and dynamic content adaptation. The magic.js
+              manages intricate magic path functionality with interactive elements and mystical animations. Additional
+              modules include chrono.js for chronological timeline features and historical progression, museum-map.js
+              for interactive 3D-like navigation and spatial relationships, hero-helper.js for advanced animation
+              utilities and performance optimization, and local-ai.js for intelligent content generation and user
+              assistance.</p>
+
+            <h4>Local AI System & Virtual Assistant Technology</h4>
+            <p>Our museum implements an innovative local AI system through local-ai.js that provides intelligent user
+              assistance without requiring external API calls or internet connectivity. This system represents a
+              sophisticated approach to user experience enhancement through local intelligence and contextual awareness.
+            </p>
+
+            <h5>Local AI Architecture & Implementation</h5>
+            <p>The local AI system operates entirely within the browser environment, utilizing advanced JavaScript
+              patterns and intelligent content management to provide contextual assistance:</p>
+            <ul>
+              <li><strong>Context-Aware Responses:</strong> The system analyzes user location within the museum (current
+                path, theme, artifact) and provides relevant assistance based on their current exploration context. This
+                creates a personalized guidance experience that adapts to user progress and interests.</li>
+              <li><strong>Intelligent Content Generation:</strong> Rather than using pre-written static responses, the
+                system dynamically generates contextual suggestions, explanations, and guidance based on user behavior
+                patterns, current theme selection, and exploration history stored in localStorage.</li>
+              <li><strong>Progressive Assistance Levels:</strong> The AI adapts its assistance depth based on user
+                expertise level (Beginner, Casual, Expert), providing more detailed explanations for novices while
+                offering advanced insights for experienced users.</li>
+              <li><strong>Behavioral Pattern Recognition:</strong> The system tracks user interaction patterns to
+                identify areas where assistance might be beneficial, proactively offering help for complex features or
+                suggesting unexplored content areas.</li>
+            </ul>
+
+            <h5>Virtual Assistant Integration & Functionality</h5>
+            <p>The virtual assistant system seamlessly integrates with our four mystical guides, each providing
+              specialized assistance in their area of expertise:</p>
+            <ul>
+              <li><strong>Eleanor Whitmore (Victorian Mystic):</strong> Provides guidance on 19th-century spiritual
+                practices, Victorian occultism, and the intersection of science and mysticism. Her assistance focuses on
+                historical context and cultural significance of artifacts from the Industrial Revolution period.</li>
+              <li><strong>Maestro Lorenzo di Firenze (Renaissance Scholar):</strong> Offers expertise in Renaissance
+                magic, alchemical traditions, and classical knowledge revival. His guidance emphasizes the intellectual
+                and philosophical aspects of mystical traditions during the 15th-17th centuries.</li>
+              <li><strong>Maya (Ancient Wisdom Keeper):</strong> Specializes in prehistoric and ancient magical
+                traditions, earth-based spirituality, and primal protective practices. Her assistance focuses on the
+                origins and fundamental principles of mystical traditions.</li>
+              <li><strong>Petr III (Slavic Mystic):</strong> Provides expertise in Slavic magical traditions, folk
+                beliefs, and Eastern European spiritual practices. His guidance emphasizes cultural diversity and
+                regional variations in mystical traditions.</li>
+            </ul>
+
+            <h5>Technical Implementation & Performance</h5>
+            <p>The local AI system demonstrates several advanced technical achievements:</p>
+            <ul>
+              <li><strong>Zero-Latency Responses:</strong> By operating entirely locally, the system provides instant
+                assistance without network delays or API response times, creating a seamless user experience.</li>
+              <li><strong>Offline Functionality:</strong> The system works completely offline, making it ideal for
+                museum environments where internet connectivity might be limited or unreliable.</li>
+              <li><strong>Memory-Efficient Processing:</strong> Advanced JavaScript optimization techniques ensure
+                minimal memory footprint while maintaining sophisticated AI-like behavior patterns.</li>
+              <li><strong>Scalable Content Management:</strong> The modular architecture allows easy addition of new
+                assistance patterns, response types, and contextual triggers without affecting system performance.</li>
+            </ul>
+
+            <h5>User Experience & Accessibility Features</h5>
+            <p>The virtual assistant system enhances accessibility and user engagement through several innovative
+              features:</p>
+            <ul>
+              <li><strong>Proactive Guidance:</strong> The system anticipates user needs and offers assistance before
+                users realize they need help, creating a more intuitive exploration experience.</li>
+              <li><strong>Multilingual Support Preparation:</strong> The architecture is designed to support multiple
+                languages, with content structures that can easily accommodate internationalization for global museum
+                audiences.</li>
+              <li><strong>Adaptive Learning:</strong> The system learns from user interactions to improve assistance
+                quality over time, creating a personalized experience that becomes more helpful with continued use.</li>
+              <li><strong>Contextual Navigation:</strong> Virtual assistants can guide users to related content, suggest
+                exploration paths, and help users discover connections between different artifacts and traditions.</li>
+            </ul>
+
+            <p>This sophisticated local AI implementation demonstrates how advanced user experience can be achieved
+              through intelligent local processing, creating a museum experience that feels genuinely intelligent and
+              responsive while maintaining complete privacy and offline functionality.</p>
+
+            <p>Advanced JavaScript features showcase modern web development techniques including sophisticated local
+              storage management with data persistence across sessions and browser restarts. The dynamic content loading
+              system implements an intelligent three-tier information display (Beginner, Casual, Expert) that responds
+              to user selections in real-time without page reloads. The event-driven architecture utilizes advanced
+              event delegation patterns, proper memory management, and efficient DOM manipulation techniques. The
+              comprehensive progress system implements a sophisticated achievement tracking mechanism with coins,
+              knowledge vessel progression, and dynamic achievement unlocking throughout the user journey.</p>
+
+            <h3>Responsive Design & Layout System</h3>
+            <p>
+              We implemented a mobile-first responsive design approach using modern CSS layout techniques and
+              progressive enhancement principles.
+            </p>
+
+            <p>Our CSS layout technologies showcase advanced modern web development techniques, utilizing CSS Grid for
+              complex multi-column layouts that automatically adapt to content and screen size. CSS Flexbox provides
+              sophisticated flexible navigation systems, card layouts, and responsive component arrangements with
+              intelligent spacing and alignment. CSS Custom Properties enable real-time dynamic theming with instant
+              property updates and smooth transitions, while CSS Backdrop Filters create cutting-edge glassmorphic
+              effects with backdrop-filter: blur() for enhanced depth, visual appeal, and modern aesthetic.</p>
+
+            <p>The responsive design strategy implements a sophisticated mobile-first approach with progressive
+              enhancement principles. Our advanced breakpoint strategy uses multiple breakpoints with intelligent
+              responsive adjustments for various screen sizes, ensuring optimal user experience across all devices.
+              Flexible grid systems leverage CSS Grid with auto-fit and minmax() for intelligent adaptive column layouts
+              that respond to content and viewport dimensions. Typography scaling employs CSS custom properties and
+              viewport units for fluid, responsive font sizing that maintains readability across all screen sizes.</p>
+
+            <h3>Performance Optimization & Asset Management</h3>
+            <p>
+              Comprehensive performance optimization strategies implemented across all aspects of the application, from
+              asset delivery to runtime performance.
+            </p>
+
+            <p>Our image optimization strategy implements cutting-edge web performance techniques with extensive WebP
+              format adoption, achieving significant file size reduction while maintaining exceptional visual quality.
+              The advanced responsive image system utilizes multiple image sizes and formats with sophisticated srcset
+              and picture elements for optimal delivery across all devices and network conditions. Progressive image
+              loading leverages the modern intersection observer API for intelligent lazy loading and better perceived
+              performance, while our structured directory system organizes optimized images across multiple categories
+              for efficient asset management and fast retrieval.</p>
+
+            <p>CSS and JavaScript performance optimization implements advanced techniques including efficient selectors
+              with minimal specificity conflicts and optimized rendering pipelines. CSS Custom Properties enable instant
+              runtime theme switching without page reloads or additional HTTP requests, creating a seamless user
+              experience. The intelligent modular loading approach uses separate CSS files for different themes,
+              enabling conditional loading, intelligent caching optimization, and reduced initial page load times. Our
+              sophisticated event-driven architecture ensures minimal JavaScript execution with efficient DOM
+              manipulation, minimal reflows, and optimized memory usage.</p>
+
+            <p>Advanced caching and loading strategies implement intelligent local storage caching for user preferences,
+              progress data, and theme selections with automatic data persistence. The modular CSS architecture enables
+              sophisticated loading optimization and browser caching strategies, while advanced font optimization uses
+              custom fonts with font-display: swap for improved loading performance and better user experience. Resource
+              prioritization implements critical CSS inline loading while asynchronously loading non-critical resources
+              for optimal performance and perceived speed.</p>
+
+            <h3>Browser Compatibility & Progressive Enhancement</h3>
+            <p>
+              The application is designed with progressive enhancement principles, ensuring functionality across modern
+              browsers while providing enhanced experiences where supported.
+            </p>
+
+            <p>Our browser support strategy implements sophisticated progressive enhancement techniques with modern CSS
+              features including CSS Grid, Flexbox, Custom Properties, and Backdrop Filters, all supported by
+              comprehensive fallbacks and graceful degradation for older browsers. Advanced JavaScript compatibility
+              focuses on ES6+ features with intelligent transpilation strategies and strategic polyfill implementation
+              where needed. The progressive enhancement approach ensures robust core functionality works without
+              JavaScript while sophisticated enhanced features are added progressively based on browser capabilities.
+              Accessibility-first design principles maintain comprehensive semantic HTML structure with advanced ARIA
+              labels, comprehensive keyboard navigation support, and screen reader optimization across all browsers and
+              devices.</p>
+
+            <h3>Development Tools & Workflow</h3>
+            <p>
+              Modern development workflow with build tools, version control, and development environment optimization.
+            </p>
+
+            <p>Our development environment implements modern web development best practices with SASS preprocessing
+              support for advanced CSS features, improved maintainability, and efficient development workflows. The
+              sophisticated Git-based workflow implements structured commit history, intelligent branch management, and
+              collaborative development strategies for team-based development. Advanced code organization follows
+              enterprise-level modular file structure principles with clear separation of concerns, maintainable
+              codebase architecture, and scalable project structure. Built-in performance helpers and optimization
+              utilities provide comprehensive performance monitoring, development optimization tools, and real-time
+              performance analysis for continuous improvement.</p>
+
+            <h3>Advanced Interactive Features & JavaScript Innovations</h3>
+            <p>Our JavaScript implementation showcases cutting-edge interactive features and sophisticated user
+              experience mechanics that demonstrate advanced web development capabilities and innovative thinking.</p>
+
+            <p>The chronological path implements a sophisticated interactive timeline system with dynamic theme-aware
+              content adaptation. The system features intelligent artifact progression through historical eras (Ancient
+              Egypt to Modern Technology) with real-time theme switching that updates intro texts and visual elements
+              based on user preferences. Advanced audio integration includes progress tracking for achievement systems,
+              while the interactive timeline markers provide seamless navigation between different historical periods.
+              The implementation showcases advanced event handling with proper event delegation, memory management, and
+              cross-module communication through the global progress system.</p>
+
+            <p>The magic path features an innovative tarot card system with sophisticated card drawing mechanics and
+              intelligent prediction algorithms. The system implements a unique two-card reading system with 82 custom
+              predictions based on card combinations, creating a personalized mystical experience. Advanced amulet
+              interactions include three-tier content adaptation (short, full, use) that dynamically adjusts based on
+              user expertise level, with sophisticated state management and localStorage persistence. The tarot system
+              demonstrates advanced JavaScript patterns including event-driven architecture, state management, and
+              complex data structures for mystical content delivery.</p>
+
+            <h4 id="tarot-system">Tarot Card System: Advanced JavaScript Implementation</h4>
+            <p>The tarot card system represents a sophisticated implementation of interactive card reading mechanics
+              with deep mystical symbolism integration. Our JavaScript architecture follows advanced patterns that
+              create an authentic divination experience while maintaining high code quality and performance.</p>
+
+            <h5>Core JavaScript Architecture & Logic Flow</h5>
+            <p>The tarot system implements a sophisticated event-driven architecture with the following core components:
+            </p>
+            <ul>
+              <li><strong>Card Selection Logic:</strong> The system tracks user interactions through a
+                <code>drawnCards</code> array, preventing over-selection and ensuring exactly two cards are drawn for
+                each reading. Each card maintains its state through CSS class manipulation (<code>flipped</code> class)
+                and data attributes (<code>data-card</code>).</li>
+              <li><strong>Prediction Algorithm:</strong> Our system implements an intelligent prediction engine that
+                generates readings based on card combinations. The algorithm creates unique keys by combining card
+                numbers (e.g., "11_12", "12_11") and searches through an extensive prediction database of 82 unique
+                combinations, ensuring diverse and meaningful readings.</li>
+              <li><strong>State Management:</strong> The system maintains reading state through multiple mechanisms: DOM
+                manipulation for visual feedback, array tracking for logical state, and localStorage integration for
+                session persistence. This creates a robust, fault-tolerant system that handles edge cases gracefully.
+              </li>
+              <li><strong>Reset Functionality:</strong> Advanced reset mechanics allow users to start new readings
+                without page refresh. The system implements smooth animations for card flipping, result clearing, and
+                button state management, creating a seamless user experience.</li>
+            </ul>
+
+            <h5>Mystical Symbolism & Card Suit Integration</h5>
+            <p>Our tarot system is not based on random predictions but incorporates authentic tarot symbolism and
+              traditional card suit meanings. The prediction database is structured around four fundamental suits, each
+              representing different aspects of human experience:</p>
+            <ul>
+              <li><strong>Cups (Chalices):</strong> Representing emotions, relationships, and spiritual matters.
+                Predictions in this category focus on love, intuition, and emotional healing, drawing from traditional
+                tarot interpretations of the Cups suit.</li>
+              <li><strong>Swords:</strong> Symbolizing intellect, communication, and mental clarity. These predictions
+                emphasize mental processes, decision-making, and intellectual growth, reflecting the analytical nature
+                of the Swords suit.</li>
+              <li><strong>Pentacles (Coins):</strong> Associated with material matters, prosperity, and practical
+                concerns. Predictions here focus on abundance, financial wisdom, and tangible achievements, honoring the
+                earth element of the Pentacles suit.</li>
+              <li><strong>Wands:</strong> Representing creativity, energy, and passion. These predictions emphasize
+                creative expression, personal power, and transformative energy, capturing the fire element of the Wands
+                suit.</li>
+            </ul>
+
+            <h5>Academic Foundation & Research Basis</h5>
+            <p>Our tarot system is grounded in academic research and traditional tarot scholarship. The prediction
+              algorithms and card interpretations draw from established tarot literature, particularly influenced by the
+              comprehensive work of Rachel Pollack in "Seventy-Eight Degrees of Wisdom: A Book of Tarot" (1980, 1997),
+              which provides detailed analysis of tarot symbolism and the psychological aspects of card reading. This
+              academic foundation ensures that our digital tarot experience maintains authenticity while embracing
+              modern interactive technology.</p>
+
+            <h5>Technical Implementation Details</h5>
+            <p>The JavaScript implementation showcases several advanced programming patterns:</p>
+            <ul>
+              <li><strong>Event Delegation:</strong> Card click events are handled through a centralized event system
+                that manages multiple card instances efficiently, preventing memory leaks and ensuring consistent
+                behavior.</li>
+              <li><strong>Asynchronous Processing:</strong> The system uses <code>setTimeout</code> for smooth
+                animations and user experience timing, creating natural reading flow that mimics traditional tarot
+                practices.</li>
+              <li><strong>Data Structure Optimization:</strong> The prediction database uses a key-value object
+                structure for O(1) lookup performance, while maintaining readability and easy maintenance for future
+                expansions.</li>
+              <li><strong>Responsive State Management:</strong> The reset functionality demonstrates advanced state
+                synchronization between visual elements, data structures, and user interface components.</li>
+            </ul>
+
+            <p>This sophisticated implementation creates an authentic tarot experience that honors traditional
+              divination practices while leveraging modern web technologies for enhanced user engagement and
+              accessibility.</p>
+
+            <p>The cross-cultural path implements a sophisticated Leaflet.js interactive world map with custom marker
+              systems and responsive design adaptations. The system features intelligent marker sizing based on device
+              capabilities (375px to desktop), with custom popup content that adapts to screen dimensions. Advanced
+              storytelling mechanics include three-tier narrative content (brief, medium, long) with intelligent user
+              level detection and dynamic content switching. The implementation showcases advanced responsive design
+              patterns, custom icon creation, and sophisticated content management systems for cross-cultural
+              exploration.</p>
+
+            <p>All three paths integrate seamlessly with a unified progress tracking system that monitors user
+              interactions across multiple dimensions. The system tracks artifact interactions, audio engagement,
+              timeline navigation, text level changes, and user preferences, creating a comprehensive gamification
+              experience. Advanced localStorage management ensures data persistence across sessions, while the modular
+              architecture allows for easy expansion and modification of tracking parameters. This integration
+              demonstrates sophisticated system architecture and user experience design principles.</p>
+
+
+
+            <h3>Advanced CSS Features & Visual Innovations</h3>
+            <p>Our CSS implementation showcases cutting-edge visual effects, sophisticated animations, and innovative
+              design patterns that demonstrate advanced frontend development capabilities and creative visual thinking.
+            </p>
+
+            <p>The chronological path implements sophisticated CSS with advanced timeline visualization and
+              comprehensive theme-aware styling systems. The interactive timeline features custom markers with dynamic
+              active states, smooth transitions, and theme-specific color schemes that adapt to four distinct historical
+              periods. Advanced artifact display includes crystal-like containers with backdrop-filter blur effects,
+              smooth image zoom animations with fadeInZoom keyframes, and sophisticated hover effects with multi-layered
+              box-shadows and glow effects. The responsive design system implements intelligent breakpoint strategies
+              with mobile-first approach, while theme-specific styling includes custom fonts (Cinzel for Renaissance,
+              Josefin Sans for Art Deco, Orbitron for Digital Age) and dynamic color palettes that maintain
+              accessibility standards across all visual variations.</p>
+
+            <p>The magic path showcases advanced CSS with sophisticated tarot card systems and innovative amulet
+              interaction designs. The floating theme switcher implements fixed positioning with backdrop-filter blur
+              effects and smooth scale transformations. Advanced amulet cards feature intelligent rotation transforms
+              (data-id specific rotations), sophisticated hover states with scale animations, and custom glow effects
+              using CSS custom properties and box-shadow layering. The amulet description system implements smooth
+              opacity transitions with transform animations, backdrop-filter blur effects, and sophisticated gradient
+              backgrounds. Interactive elements include custom button states with hover animations, smooth transitions,
+              and intelligent state management through CSS classes and pseudo-elements.</p>
+
+            <h4>Tarot Card Visual System: Advanced CSS Implementation</h4>
+            <p>The tarot card system demonstrates sophisticated CSS techniques that create an immersive and authentic
+              card reading experience. Our visual implementation goes beyond simple card flipping to create a truly
+              magical interaction.</p>
+
+            <h5>Card Flipping Mechanics & 3D Transforms</h5>
+            <p>The tarot cards implement advanced 3D transformation techniques that create realistic card flipping
+              animations:</p>
+            <ul>
+              <li><strong>3D Card Structure:</strong> Each card uses <code>transform-style: preserve-3d</code> with
+                nested front and back elements, creating authentic depth perception during rotation animations.</li>
+              <li><strong>Smooth Flipping Animation:</strong> Cards implement <code>transform: rotateY(180deg)</code>
+                transitions with <code>cubic-bezier(0.4, 0.0, 0.2, 1)</code> easing for natural, physics-based movement
+                that mimics real card handling.</li>
+              <li><strong>Perspective Management:</strong> The card container uses <code>perspective: 1000px</code> to
+                create realistic 3D space, while individual cards maintain proper depth through
+                <code>backface-visibility: hidden</code> for clean visual transitions.</li>
+            </ul>
+
+            <h5>Interactive State Management & Visual Feedback</h5>
+            <p>The system provides sophisticated visual feedback that enhances user engagement and creates intuitive
+              interaction patterns:</p>
+            <ul>
+              <li><strong>Selection State Visualization:</strong> Selected cards maintain visual distinction through
+                persistent <code>flipped</code> class states, with smooth transitions that prevent jarring visual
+                changes.</li>
+              <li><strong>Hover Effects & Micro-interactions:</strong> Cards feature subtle hover animations including
+                <code>transform: scale(1.05)</code> and enhanced shadows, creating responsive feedback that guides user
+                interaction.</li>
+              <li><strong>Result Display Animation:</strong> The prediction result appears with smooth
+                <code>opacity</code> and <code>transform</code> transitions, creating a sense of revelation that
+                enhances the mystical experience.</li>
+            </ul>
+
+            <h5>Reset Button System & Advanced Interactions</h5>
+            <p>The reset functionality demonstrates sophisticated CSS state management and user experience design:</p>
+            <ul>
+              <li><strong>Dynamic Button States:</strong> The reset button uses <code>display: none</code> to
+                <code>display: inline-block</code> transitions with smooth opacity animations for professional
+                appearance/disappearance effects.</li>
+              <li><strong>Theme-Aware Styling:</strong> Button colors and effects automatically adapt to the selected
+                theme using CSS custom properties and theme-specific selectors, maintaining visual consistency across
+                all historical periods.</li>
+              <li><strong>Responsive Design Integration:</strong> Button sizing and positioning adapt to different
+                screen sizes through intelligent breakpoint management, ensuring optimal usability across all devices.
+              </li>
+            </ul>
+
+            <h5>Performance Optimization & Accessibility</h5>
+            <p>Our CSS implementation prioritizes both performance and accessibility:</p>
+            <ul>
+              <li><strong>Hardware Acceleration:</strong> All animations use <code>transform</code> and
+                <code>opacity</code> properties to leverage GPU acceleration, ensuring smooth 60fps animations even on
+                lower-end devices.</li>
+              <li><strong>Reduced Motion Support:</strong> The system respects user preferences for reduced motion
+                through <code>@media (prefers-reduced-motion: reduce)</code> queries, providing accessible alternatives
+                for users with motion sensitivity.</li>
+              <li><strong>Focus Management:</strong> Interactive elements maintain proper focus states and keyboard
+                navigation support, ensuring the tarot experience is accessible to all users regardless of input method.
+              </li>
+            </ul>
+
+            <p>This comprehensive CSS implementation creates a tarot system that not only functions flawlessly but also
+              provides a visually stunning and accessible experience that honors the mystical tradition while embracing
+              modern web standards.</p>
+
+            <!-- Примеры карточек таро для визуализации -->
+            <div class="tarot-demo-section"
+              style="text-align: center; margin: 3rem 0; padding: 2rem; background: rgba(0, 0, 0, 0.1); border-radius: 15px; border: 1px solid rgba(191, 167, 106, 0.2);">
+              <h5 style="color: var(--gold); margin-bottom: 1.5rem; font-size: 1.2rem;">Tarot Card Examples</h5>
+              <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <!-- Карточка 1: The Fool -->
+                <div class="tarot-demo-card"
+                  style="width: 100px; height: 160px; perspective: 1000px; cursor: pointer; margin: 0.5rem;">
+                  <div class="card-inner"
+                    style="position: relative; width: 100%; height: 100%; transition: transform 0.8s; transform-style: preserve-3d;">
+                    <div class="card-front"
+                      style="position: absolute; width: 100%; height: 100%; background-image: url('images/cards/card3-back.webp'); background-size: cover; background-position: center; border-radius: 6px; border: 2px solid var(--gold); backface-visibility: hidden;">
+                    </div>
+                    <div class="card-back"
+                      style="position: absolute; width: 100%; height: 100%; background-image: url('images/cards/taro_card1-front.webp'); background-size: cover; background-position: center; border-radius: 6px; border: 2px solid var(--gold); backface-visibility: hidden; transform: rotateY(180deg);">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Карточка 2: The Moon -->
+                <div class="tarot-demo-card"
+                  style="width: 100px; height: 160px; perspective: 1000px; cursor: pointer; margin: 0.5rem;">
+                  <div class="card-inner"
+                    style="position: relative; width: 100%; height: 100%; transition: transform 0.8s; transform-style: preserve-3d;">
+                    <div class="card-front"
+                      style="position: absolute; width: 100%; height: 100%; background-image: url('images/cards/card3-back.webp'); background-size: cover; background-position: center; border-radius: 6px; border: 2px solid var(--gold); backface-visibility: hidden;">
+                    </div>
+                    <div class="card-back"
+                      style="position: absolute; width: 100%; height: 100%; background-image: url('images/cards/taro_card2-front.webp'); background-size: cover; background-position: center; border-radius: 6px; border: 2px solid var(--gold); backface-visibility: hidden; transform: rotateY(180deg);">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Карточка 3: The Sun -->
+                <div class="tarot-demo-card"
+                  style="width: 100px; height: 160px; perspective: 1000px; cursor: pointer; margin: 0.5rem;">
+                  <div class="card-inner"
+                    style="position: relative; width: 100%; height: 100%; transition: transform 0.8s; transform-style: preserve-3d;">
+                    <div class="card-front"
+                      style="position: absolute; width: 100%; height: 100%; background-image: url('images/cards/card3-back.webp'); background-size: cover; background-position: center; border-radius: 6px; border: 2px solid var(--gold); backface-visibility: hidden;">
+                    </div>
+                    <div class="card-back"
+                      style="position: absolute; width: 100%; height: 100%; background-image: url('images/cards/taro_card3-front.webp'); background-size: cover; background-position: center; border-radius: 6px; border: 2px solid var(--gold); backface-visibility: hidden; transform: rotateY(180deg);">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #ccc; font-style: italic;">Interactive tarot cards
+                demonstrating the sophisticated 3D flipping mechanics and mystical symbolism integration</p>
+            </div>
+
+            <p>The cross-cultural path demonstrates cutting-edge CSS with sophisticated 3D book effects and advanced
+              layout systems. The book container implements CSS perspective (1500px) with transform-style: preserve-3d
+              for authentic 3D rendering. Advanced book effects include realistic spine rendering with gradient
+              backgrounds, folded corner effects using CSS triangles, bookmark elements with custom positioning, and
+              sophisticated page shadows using multiple box-shadow layers. The spread system features smooth opacity and
+              visibility transitions with cubic-bezier easing functions. Advanced responsive design includes intelligent
+              breakpoint management, custom scrollbar styling, and sophisticated backdrop-filter implementations. The
+              system showcases advanced CSS techniques including pseudo-elements for decorative effects, complex
+              gradient backgrounds, and sophisticated animation timing functions.</p>
+
+            <p>All three CSS systems implement unified visual principles including sophisticated CSS custom properties,
+              advanced backdrop-filter effects, and intelligent responsive design patterns. Common features include
+              glassmorphic design elements with backdrop-filter: blur(), sophisticated hover animations with transform
+              and box-shadow combinations, and intelligent theme switching through CSS class manipulation. Advanced CSS
+              techniques include complex gradient backgrounds, custom keyframe animations, sophisticated pseudo-element
+              implementations, and intelligent use of CSS transforms for 3D effects and smooth transitions. The unified
+              system demonstrates enterprise-level CSS architecture with maintainable code structure, consistent design
+              patterns, and sophisticated visual effects that create immersive user experiences.</p>
+          </section>
+
+          <!-- Technical Decisions & Architecture Rationale -->
+          <section id="technical-decisions">
+            <h2>Technical Decisions & Architecture Rationale</h2>
+
+            <h3>CSS Architecture Decisions</h3>
+            <p>
+              Every CSS decision in our project is deliberate and based on specific requirements, performance
+              considerations, and maintainability goals. We chose modern CSS techniques not for their novelty, but for
+              their ability to solve specific design and functionality challenges.
+            </p>
+
+            <h4>CSS Custom Properties Implementation</h4>
+            <p>
+              CSS custom properties were implemented to enable dynamic theming without page reloads. Variable naming
+              follows a hierarchical pattern (--theme-bg, --theme-text, --theme-accent) for clear organization and
+              conflict prevention.
+            </p>
+
+            <h4>CSS Grid vs Flexbox Rationale</h4>
+            <p>
+              CSS Grid was chosen for main page layouts due to superior two-dimensional control and intelligent
+              responsive behavior. Flexbox is used for component-level layouts (navigation, cards, buttons) for
+              single-axis alignment control.
+            </p>
+
+            <h3>JavaScript Architecture Decisions</h3>
+            <p>
+              Our JavaScript architecture is designed for maintainability, performance, and scalability. Every pattern
+              choice serves a specific purpose in creating a robust and extensible system.
+            </p>
+
+            <h4>Module Organization Strategy</h4>
+            <p>
+              JavaScript functionality was separated into 8 specialized files to improve maintainability and enable
+              parallel development. An event-driven architecture was chosen for loose component coupling and dynamic
+              behavior changes, supporting the adaptive content system.
+            </p>
+
+            <h4>Local Storage Implementation</h4>
+            <p>
+              LocalStorage was implemented for progress tracking to provide persistent data storage without server
+              requirements and enable offline functionality. The data structure uses nested objects with JSON
+              serialization for simplicity and universal browser support.
+            </p>
+
+            <h3>Performance Optimization Decisions</h3>
+            <p>
+              Every performance optimization in our project is based on specific user experience goals and technical
+              constraints. We prioritize perceived performance and user engagement over raw speed metrics.
+            </p>
+
+            <h4>Image Optimization Strategy</h4>
+            <p>
+              WebP format was chosen for superior compression (25-35% smaller than JPEG) while maintaining visual
+              quality. Srcset and picture elements were implemented to allow browsers to select optimal image size and
+              format for each device and network condition.
+            </p>
+
+            <h4>CSS and JavaScript Loading Strategy</h4>
+            <p>
+              Critical CSS is inlined to eliminate render-blocking requests, while non-critical CSS loads
+              asynchronously. JavaScript files are loaded at the end of the body to prevent render-blocking and
+              prioritize content display.
+            </p>
+
+            <h3>Browser Compatibility Decisions</h3>
+            <p>
+              Our browser compatibility strategy balances modern features with broad accessibility, ensuring that all
+              users can access our museum regardless of their browser choice or device capabilities.
+            </p>
+
+            <h4>Progressive Enhancement Approach</h4>
+            <p>
+              Progressive enhancement was chosen to ensure core functionality works in all browsers while providing
+              enhanced experiences where supported. Feature detection is used rather than browser detection for reliable
+              compatibility information and graceful degradation.
+            </p>
+
+            <h4>Fallback Implementation</h4>
+            <p>
+              Fallbacks are provided for modern CSS features (Grid, Custom Properties, Backdrop Filters) to ensure
+              functionality in older browsers. Polyfills are selectively implemented for essential ES6+ features to
+              maintain cross-browser compatibility without code bloat.
+            </p>
+
+            <h3>Development Workflow Decisions</h3>
+            <p>
+              Our development workflow is designed to support collaborative development, maintain code quality, and
+              enable rapid iteration while ensuring long-term maintainability.
+            </p>
+
+            <h4>File Organization Strategy</h4>
+            <p>
+              Files are organized by functionality (CSS by component, JavaScript by feature) to improve code
+              discoverability and enable parallel development. Consistent naming conventions (kebab-case for files,
+              camelCase for JavaScript, BEM for CSS) improve readability and reduce cognitive load.
+            </p>
+
+            <h4>Version Control Strategy</h4>
+            <p>
+              A structured Git workflow was implemented for clear history tracking and collaborative development.
+              Descriptive commit messages provide clear project history and support automated changelog generation.
+            </p>
+          </section>
+
+          <!-- Accessibility & Performance -->
+          <section id="accessibility">
+            <h2>Accessibility & Performance</h2>
+
+            <h3>Accessibility Standards</h3>
+            <p>
+              Accessibility was a priority in our design process. We ensured proper color contrast ratios, semantic HTML
+              structure, and keyboard navigation support. The theme system maintains accessibility standards across all
+              variations, and responsive design ensures usability on various devices and screen sizes.
+            </p>
+
+            <h3>Performance Metrics</h3>
+            <p>
+              The website is optimized for fast loading times with efficient resource management. Image optimization,
+              CSS minification, and JavaScript optimization contribute to a smooth user experience across all devices
+              and connection speeds.
+            </p>
+          </section>
+
+          <!-- Credits -->
+          <section id="credits">
+            <h2>Credits & Licenses</h2>
+
+            <h3>Project Information</h3>
+            <p>
+              This website explores typographic and layout styles for museum pages, developed as part of the
+              "Information Modeling and Web Technologies" course in the Master's Degree in Digital Humanities and
+              Digital Knowledge at the University of Bologna, supervised by Prof. Fabio Vitali.
+            </p>
+
+            <h3>Copyright</h3>
+            <p>
+              All copyright on the typographic and layout choices are 2025 © Everyday Magic Team - DHDK Project,
+              University of Bologna.
+            </p>
+
+            <h3>Font Licenses</h3>
+            <p>
+              All fonts used in this project are licensed under the SIL Open Font License (OFL), which allows for free
+              use, modification, and distribution, provided the license terms are followed. This ensures that the fonts
+              can be used in both personal and commercial projects without legal restrictions, as long as the license is
+              respected.
+            </p>
+            <p>
+              For more details on the SIL Open Font License, visit <a href="https://scripts.sil.org"
+                target="_blank">scripts.sil.org</a>.
+            </p>
+          </section>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Everyday Magic</h3>
+        <p>Digital Humanities Project<br>University of Bologna — DHDK</p>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <p>© 2025 Everyday Magic. All rights reserved.</p>
+          <p>Contact: <a href="mailto:arina.gracheva@studio.unibo.it">arina.gracheva@studio.unibo.it</a> | <a
+              href="mailto:arina.samylova@studio.unibo.it">arina.samylova@studio.unibo.it</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="local-ai.js"></script>
+  <script src="hero-helper.js"></script>
+  <script src="progress-system.js"></script>
+
+  <!-- Progress System -->
+  <div id="progress-container"></div>
+  <script>
+    // Мобильное меню
+    document.addEventListener('DOMContentLoaded', function () {
+      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+      const mobileNav = document.getElementById('mobile-nav');
+      const mobileNavClose = document.getElementById('mobile-nav-close');
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-links a');
+      const body = document.body;
+
+      console.log('DOM загружен, элементы:', {
+        mobileMenuToggle: mobileMenuToggle,
+        mobileNav: mobileNav,
+        mobileNavClose: mobileNavClose
+      });
+
+      // Открытие мобильного меню
+      if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          console.log('Открытие мобильного меню');
+
+          mobileMenuToggle.classList.add('active');
+          mobileNav.classList.add('active');
+          body.classList.add('menu-open');
+        });
+      }
+
+      // Закрытие мобильного меню по кнопке
+      if (mobileNavClose) {
+        mobileNavClose.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          console.log('Закрытие мобильного меню по кнопке');
+
+          closeMobileMenu();
+        });
+      }
+
+      // Закрытие мобильного меню по клику на ссылку
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+          console.log('Клик по ссылке мобильного меню');
+          closeMobileMenu();
+        });
+      });
+
+      // Закрытие мобильного меню по клику вне меню
+      mobileNav.addEventListener('click', function (e) {
+        if (e.target === mobileNav) {
+          console.log('Клик вне мобильного меню');
+          closeMobileMenu();
+        }
+      });
+
+      // Закрытие мобильного меню по Escape
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+          console.log('Нажата клавиша Escape');
+          closeMobileMenu();
+        }
+      });
+
+      // Функция закрытия мобильного меню
+      function closeMobileMenu() {
+        mobileMenuToggle.classList.remove('active');
+        mobileNav.classList.remove('active');
+        body.classList.remove('menu-open');
+        console.log('Мобильное меню закрыто');
+      }
+    });
+
+    // Инициализация прогресс-системы
+    document.addEventListener('DOMContentLoaded', function () {
+      if (typeof initializeProgressSystem === 'function') {
+        initializeProgressSystem();
+      }
+    });
+  </script>
+
+  <script src="magic.js"></script>
+
+  <!-- Интерактивность для демонстрационных карточек таро -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Добавляем интерактивность для демонстрационных карточек таро
+      const demoCards = document.querySelectorAll('.tarot-demo-card');
+
+      demoCards.forEach(card => {
+        card.addEventListener('click', function () {
+          const cardInner = this.querySelector('.card-inner');
+          if (cardInner.style.transform === 'rotateY(180deg)') {
+            cardInner.style.transform = 'rotateY(0deg)';
+          } else {
+            cardInner.style.transform = 'rotateY(180deg)';
+          }
+        });
+
+        // Добавляем hover эффект
+        card.addEventListener('mouseenter', function () {
+          this.style.transform = 'scale(1.05)';
+          this.style.transition = 'transform 0.3s ease';
+        });
+
+        card.addEventListener('mouseleave', function () {
+          this.style.transform = 'scale(1)';
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
