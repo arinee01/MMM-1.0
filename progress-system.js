@@ -40,9 +40,9 @@ class ProgressSystem {
     if (saved) {
       return JSON.parse(saved);
     } else {
-      // Первое посещение - даем 12 монет стартового бонуса
+      // Первое посещение - стартуем с нулевого баланса
       return {
-        coins: 12,
+        coins: 0,
         vesselProgress: 0,
         maxVesselCapacity: 100,
         exploredPaths: {
@@ -420,6 +420,8 @@ class ProgressSystem {
 
   // Настройка слушателей событий для отслеживания действий
   setupEventListeners() {
+    // Флаг, чтобы не начислять монеты за автоматическую установку темы при первом заходе
+    this.initialThemeApplied = false;
     // Отслеживаем клики по кнопкам
     document.addEventListener('click', (e) => {
       const target = e.target;
@@ -429,13 +431,23 @@ class ProgressSystem {
         this.updatePathProgress(this.getCurrentPath(), 'navigation');
       }
       
-      // Кнопки тем (монеты только при первой смене темы)
+      // Кнопки тем (монеты только при первом открытии КАЖДОЙ новой темы, кроме базовой 1500)
       if (target.matches('.theme-panel button')) {
-        const themeKey = 'theme_' + target.textContent.toLowerCase().replace(/[^a-z0-9]/g, '');
+        const themeId = target.dataset.theme; // например, "theme-1500", "theme-19c"
+        const themeKey = 'theme_' + (themeId || target.textContent.toLowerCase().replace(/[^a-z0-9]/g, ''));
         if (!this.progress.exploredThemes) this.progress.exploredThemes = {};
         if (!this.progress.exploredThemes[themeKey]) {
+          // Помечаем тему как исследованную
           this.progress.exploredThemes[themeKey] = true;
-          this.addCoins(8, 'New theme discovered'); // Уменьшил с 15 до 8
+
+          // Награда за ПЕРВОЕ открытие новых тем (19c, early20c, late20c),
+          // но не за базовую тему theme-1500, чтобы при первом входе не было бонуса
+          if (themeId && themeId !== 'theme-1500') {
+            this.addCoins(8, 'New theme discovered');
+          }
+
+          this.saveProgress();
+          
         }
       }
       
@@ -471,12 +483,19 @@ class ProgressSystem {
         if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
           const theme = document.body.className.match(/theme-\w+/)?.[0];
           if (theme) {
-            // Монеты за исследование темы только при первом посещении
+            // Первый вызов — это автоматическая установка темы при загрузке, его не считаем как исследование
+            if (!this.initialThemeApplied) {
+              this.initialThemeApplied = true;
+              return;
+            }
+
+            // Отслеживаем посещённые темы, но больше не начисляем за это монеты,
+            // чтобы не было автоприбавки при загрузке страницы
             const themeKey = 'visited_' + theme;
             if (!this.progress.exploredThemes) this.progress.exploredThemes = {};
             if (!this.progress.exploredThemes[themeKey]) {
               this.progress.exploredThemes[themeKey] = true;
-              this.addCoins(8, 'Theme exploration'); // Уменьшил с 15 до 8
+              this.saveProgress();
             }
           }
         }
